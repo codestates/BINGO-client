@@ -28,12 +28,26 @@ function App() {
     .catch(err => console.log(err))
   }
 
+  const getAccessTokenKakao = async(authorizationCode: string) => {
+    console.log('abc')
+    await axios.post('http://localhost:5000/kakaologin', {
+      authorizationCode,
+    })
+    .then(res => {
+      setIsLogin(true)
+      setAccessToken(res.data.accessToken)
+      console.log('abcde')
+    })
+    .catch(err => console.log(err))
+  }
+
   useEffect(() => {
     if (accessToken === '') {
       const url = new URL(window.location.href)
       const authorizationCode = url.searchParams.get('code')
       if (authorizationCode) {
-        getAccessToken(authorizationCode)
+        getAccessToken(authorizationCode);
+        getAccessTokenKakao(authorizationCode);
       }
       console.log(authorizationCode)
     }
