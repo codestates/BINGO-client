@@ -1,0 +1,47 @@
+#payPageContainer * {
+  border: 1px solid black;
+  color: gray;
+}
+
+#payNavPart {
+  height: 4rem;
+  background-color: var(--main-color-green);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+#payListPart {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1042px;
+  margin-top: 2rem;
+  margin-top: 7.5rem;
+}
+
+#payListEntryPart {
+  display: flex;
+  flex-direction: column;
+}
+
+.payBoxTitle {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+
+.payBoxContent {
+  height: 5rem;
+  margin: 2rem;
+}
+
+.payBoxPayBtnBox {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.payBoxPayBtn {
+  font-size: 1.5rem;
+}
