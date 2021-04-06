@@ -1,7 +1,16 @@
 import { withRouter } from "react-router";
 import "./css/ListPage.css";
+import ListContentEntry from "../components/ListContentEntry"
+import store from "../store";
+import { useState } from "react";
 
 function ListPage() {
+  const [categoryNum, setCategoryNum] = useState(0);
+
+  const handleClickBtn = () => {
+    store.dispatch({type:"INCREMENT", size:categoryNum});
+  }
+
   return (
   <div id="listPageContainer">
     <div id="listNavPart">
@@ -12,7 +21,7 @@ function ListPage() {
       <img className="listBannerImg" src="" alt="bingo_banner" />
     </div>
     <div id="listCategoryPart">
-      <div className="listCategory">아동</div>
+      <div className="listCategory" onClick={handleClickBtn}>아동</div>
       <div className="listCategory">여성</div>
       <div className="listCategory">동물</div>
       <div className="listCategory">환경</div>
@@ -22,12 +31,7 @@ function ListPage() {
       <div className="listCategory">기타</div>
       <div className="listCategory">검색</div>
     </div>
-    <div id="listContentPart">
-      <div className="listContent">content1</div>
-      <div className="listContent">content2</div>
-      <div className="listContent">content3</div>
-      <div className="listContent">content4</div>
-    </div>
+    <ListContentEntry />
   </div>
   )
 }
