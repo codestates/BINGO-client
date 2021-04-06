@@ -20,23 +20,23 @@ function TestPage() {
     }
   }
 
-  return (<div className="testPageContainer">
-    <div className="testNavPart">
-      <img className="testNavLogo" src="" alt="bingo_logo"/>
+  return (<div id="testPageContainer">
+    <div id="testNavPart">
+      <img id="testNavLogo" src="" alt="bingo_logo"/>
     </div>
-    <div className="testMainPart">
-      <div className="testMainNumber">1/10</div>
-      <div className="testMainQuestion">{question}</div>
-      <div className="testMainBtnBox">
-        <button className="testMainYesBtn" onClick={handleClickBtn}>Yes</button>
-        <button className="testMainNoBtn" onClick={handleClickBtn}>No</button>
+    <div id="testMainPart">
+      <div id="testMainNumber">1/10</div>
+      <div id="testMainQuestion">{question}</div>
+      <div id="testMainBtnBox">
+        <button id="testMainYesBtn" onClick={handleClickBtn}>Yes</button>
+        <button id="testMainNoBtn" onClick={handleClickBtn}>No</button>
       </div>
     </div>
-    <div className="testExtraPart">
-      <div className="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div>
-      <button className="testExtraSubmitBtn">submit</button>
+    <div id="testExtraPart">
+      <div id="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div>
+      <button id="testExtraSubmitBtn">submit</button>
     </div>
-    <button className="testSkipBtn">Skip</button>
+    <button id="testSkipBtn">Skip</button>
   </div>)
 }
 

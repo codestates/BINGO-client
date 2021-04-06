@@ -1,0 +1,39 @@
+#testNavPart {
+  height: 4rem;
+  background-color: var(--main-color-green);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+#testMainPart,
+#testExtraPart {
+  margin: 0 auto;
+  width: 1042px;
+}
+
+#testMainPart {
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#testMainNumber {
+  padding-left: 2rem;
+}
+
+#testMainQuestion {
+  font-size: larger;
+  text-align: center;
+  padding: 3rem;
+}
+
+#testMainBtnBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 20rem;
+  padding-right: 20rem;
+}

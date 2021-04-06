@@ -1,5 +1,57 @@
 #contentPageContainer {
-  text-align: center;
-  width: 100px;
-  height: 100px;
+  background-color: antiquewhite;
+}
+
+#contentNavPart {
+  height: 4rem;
+  background-color: var(--main-color-green);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+#contentBannerPart {
+  height: 20rem;
+  background-color: white;
+}
+
+#contentMainBanner {
+  width: 100%;
+}
+
+#contentNGOInfoPart {
+  display: flex;
+  flex-direction: row;
+  margin-top: -4rem;
+  margin-left: 8rem;
+}
+
+#contentNGOLogo {
+  height: 8rem;
+  width: 16rem;
+  border-radius: 2rem;
+}
+
+#contentNGOInfo {
+  padding-top: 4.5rem;
+}
+
+#contentContentPart {
+  padding-top: 3rem;
+  margin: 0 auto;
+  width: 1042px;
+  display: flex;
+  flex-direction: row;
+}
+
+#contentMainContent {
+  width: 50%;
+}
+
+.contentNGODescription {
+  padding: 1rem;
+  margin: 1rem;
+  font-size: larger;
 }
