@@ -98,7 +98,7 @@ function GuidePage() {
 
   <div className="guidePageContainer">
     <button onClick={() => {history.push('/login')}}>로그인</button>
-	<div className="container">
+    <div className="container">
     <section className="scroll-section" id="scroll-section-0">
       <h1>B I N G O</h1>
       <div className="sticky-elem main-message">
@@ -155,7 +155,9 @@ function GuidePage() {
 			C o d e F a r m
 		</footer>
   </div>
-  </div>)
+  </div>
+  
+  )
 }
 
 export default withRouter(GuidePage);
