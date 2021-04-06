@@ -9,6 +9,7 @@ import MyPage from "./pages/MyPage";
 import PayPage from "./pages/PayPage";
 import TestPage from "./pages/TestPage";
 import axios from "axios";
+import store from "./store";
 
 function App() {
   const history = useHistory();
