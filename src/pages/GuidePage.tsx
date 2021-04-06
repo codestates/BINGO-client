@@ -1,14 +1,18 @@
 import { useHistory } from "react-router-dom";
 import { withRouter } from "react-router";
-import { useRef } from "react";
+import { useEffect, useState } from "react"
 import "./css/GuidePage.css";
 
 function GuidePage() {
   const history = useHistory();
 
-  let yOffset = 0;
-  let prevScrollHeight = 0;
-  let currentScene = 0;
+  const [yOffset, setyOffset] = useState(0)
+  const [prevScrollHeight, setprevScrollHeight] = useState(0)
+  const [currentScene, setcurrentScene] = useState(0)
+  const [count, setCount] = useState(0)
+  // let yOffset = 0;
+  // let prevScrollHeight = 0;
+  // let currentScene = 0;
 
   const sceneInfo = [
     {
@@ -58,26 +62,31 @@ function GuidePage() {
     },
   ];
 
-  function setLayout() {
+  const setLayout = function(){
     for(let i = 0; i < sceneInfo.length; i++){
       sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHeight;
       if(sceneInfo[i].objs.container){
         sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`
       }
     }
+    setCount(count + 1)
   }
 
-  function scrollLoop(){
-    prevScrollHeight = 0;
+  const scrollLoop = function(){
+    setprevScrollHeight(0)
+    // prevScrollHeight = 0;
     for(let i = 0; i < currentScene; i++){
-      prevScrollHeight += sceneInfo[i].scrollHeight; 
+      setprevScrollHeight(prevScrollHeight + sceneInfo[i].scrollHeight)
+      // prevScrollHeight += sceneInfo[i].scrollHeight; 
     }
     if(yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight){
-      currentScene++;
+      setcurrentScene(currentScene + 1)
+      // currentScene++;
     }
     if(yOffset < prevScrollHeight){
-      // if(currentScene === 0) return
-      currentScene--;
+      if(currentScene === 0) return
+      setcurrentScene(currentScene - 1)
+      // currentScene--;
     }
     console.log(currentScene);
     let guidePageContainer = document.querySelector(".guidePageContainer")!;
@@ -86,13 +95,16 @@ function GuidePage() {
 
   window.addEventListener('resize', setLayout);
   window.addEventListener('scroll', () => {
-    yOffset = window.pageYOffset;
+    setyOffset(window.pageYOffset);
+    // yOffset = window.pageYOffset;
     scrollLoop();
   });
 
-  setLayout();
-  console.log(sceneInfo[0].objs.container);
-  console.log(document.getElementById('scroll-section-2'));
+  useEffect(() => {
+    if(count === 0){
+      setLayout();
+    }
+  });
 
   return (
 
@@ -156,7 +168,6 @@ function GuidePage() {
 		</footer>
   </div>
   </div>
-  
   )
 }
 

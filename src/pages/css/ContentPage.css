@@ -17,6 +17,12 @@
   background-color: white;
 }
 
+#contentBannerPart button {
+  margin-top: 15rem;
+  margin-left: 85%;
+  padding: 0.5rem;
+}
+
 #contentMainBanner {
   width: 100%;
 }
@@ -39,7 +45,7 @@
 }
 
 #contentContentPart {
-  padding-top: 3rem;
+  padding: 3rem 0;
   margin: 0 auto;
   width: 1042px;
   display: flex;
@@ -48,6 +54,11 @@
 
 #contentMainContent {
   width: 50%;
+}
+
+#contentMainContent video {
+  border: 1px solid black;
+  margin: 2rem;
 }
 
 .contentNGODescription {
