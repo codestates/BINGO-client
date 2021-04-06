@@ -1,8 +1,11 @@
 #listNavPart {
   display: flex;
-  height: 3rem;
+  background-color: var(--main-color-green);
+  height: 4rem;
   justify-content: space-between;
   padding: 1.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 #listBannerPart {
@@ -17,6 +20,8 @@
 #listCategoryPart {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  width: 1042px;
 }
 
 .listCategory {
@@ -34,6 +39,8 @@
 #listContentPart {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  width: 1042px;
 }
 
 .listContent {
