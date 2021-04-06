@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { withRouter } from "react-router";
+import Footer from "../components/Footer"
 import "./css/TestPage.css";
 
 function TestPage() {
@@ -23,6 +24,7 @@ function TestPage() {
   return (<div id="testPageContainer">
     <div id="testNavPart">
       <img id="testNavLogo" src="" alt="bingo_logo"/>
+      <button id="testSkipBtn">Skip</button>
     </div>
     <div id="testMainPart">
       <div id="testMainNumber">1/10</div>
@@ -36,7 +38,7 @@ function TestPage() {
       <div id="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div>
       <button id="testExtraSubmitBtn">submit</button>
     </div>
-    <button id="testSkipBtn">Skip</button>
+    <Footer />
   </div>)
 }
 

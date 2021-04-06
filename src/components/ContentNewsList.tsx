@@ -6,8 +6,6 @@ function ContentNewsList() {
     <div>
       <ContentNewsListEntry />
       <ContentNewsListEntry />
-      <ContentNewsListEntry />
-      <ContentNewsListEntry />
     </div>
   )
 }

@@ -16,7 +16,7 @@
 
 #testMainPart {
   padding: 1rem;
-  margin-top: 1rem;
+  margin-top: 5rem;
   margin-bottom: 1rem;
 }
 
@@ -34,6 +34,27 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 20rem;
-  padding-right: 20rem;
+  padding: 3rem 20rem 3rem 20rem;
+  padding-left: 25rem;
+  padding-right: 25rem;
+}
+
+#testMainBtnBox button {
+  width: 5rem;
+  height: 2rem;
+}
+
+#testExtraPart {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#testExtraDescription {
+  margin: 1rem;
+}
+
+#testExtraSubmitBtn {
+  margin: 1rem;
 }
