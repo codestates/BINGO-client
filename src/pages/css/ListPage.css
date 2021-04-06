@@ -1,0 +1,48 @@
+#listNavPart {
+  display: flex;
+  height: 3rem;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+#listBannerPart {
+  display: flex;
+}
+
+.listBannerImg {
+  height: 30rem;
+  width: 40rem;
+}
+
+#listCategoryPart {
+  display: flex;
+  justify-content: center;
+}
+
+.listCategory {
+  border-radius: 2rem;
+  height: 3rem;
+  width: 3rem;
+  margin: 2rem;
+  cursor: pointer;
+}
+
+.listCategory:hover {
+  background-color: var(--main-color-beige);
+}
+
+#listContentPart {
+  display: flex;
+  justify-content: center;
+}
+
+.listContent {
+  width: 12rem;
+  height: 17rem;
+  margin: 3rem;
+  cursor: pointer;
+}
+
+.listContent:hover {
+  background-color: var(--main-color-beige);
+}
