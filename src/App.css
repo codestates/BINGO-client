@@ -1,3 +1,17 @@
+@charset 'utf-8';
+
+:root {
+  --main-color-green: rgb(15, 86, 70);
+  --main-color-beige: rgb(245, 154, 125);
+  --main-color-black: rgb(28, 28, 28);
+  --main-color-white: rgb(255, 255, 255);
+}
+
 * {
+  margin: 0;
+  padding: 0;
+}
+
+div {
   border: 1px solid black;
 }

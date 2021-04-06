@@ -1,6 +1,7 @@
 import { withRouter } from "react-router";
 import "./css/LoginPage.css";
 
+
 function LoginPage() {
   return (
     <div className='loginPageContainer'>
@@ -25,6 +26,7 @@ function LoginPage() {
       </button>
     </div>
   );
+
 }
 
 export default withRouter(LoginPage);

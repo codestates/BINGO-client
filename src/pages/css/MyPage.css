@@ -1,0 +1,47 @@
+#myPageContainer * {
+  border: 1px solid black;
+  color: gray;
+}
+
+#myPageContainer {
+  background-color: var(--main-color-green);
+}
+
+#myNavPart {
+  height: 4rem;
+  background-color: var(--main-color-green);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+#myProfilePart {
+  display: flex;
+  height: 8rem;
+  background-color: var(--main-color-white);
+  padding-left: 20vh;
+}
+
+#myProfilePic {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 6rem;
+  margin: 2rem;
+}
+
+#myProfileUserInfo {
+  display: flex;
+  align-items: flex-end;
+}
+
+#myContentPart {
+  padding-top: 7.5rem;
+  margin: 0 auto;
+  width: 1042px;
+}
+
+.myContentTitles {
+  margin-left: 2rem;
+}

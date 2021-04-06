@@ -2,7 +2,14 @@ import { withRouter } from "react-router";
 import "./css/ContentPage.css";
 
 function ContentPage() {
-  return (<div className="contentPageContainer">콘텐츠페이지</div>)
+  return (
+  <div id="contentPageContainer">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  )
 }
 
 export default withRouter(ContentPage);
