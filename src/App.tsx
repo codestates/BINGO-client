@@ -15,7 +15,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [accessToken, setAccessToken] = useState("");
 
-  const getAccessToken = async (authorizationCode: string) => {
+  const getAccessTokenGoogle = async (authorizationCode: string) => {
     console.log("abc");
     await axios
       .post("http://localhost:5000/googlelogin", {
@@ -45,6 +45,17 @@ function App() {
       .catch(err => console.log(err));
   };
 
+  const googleLogout = async () => {
+    await axios
+      .post("http://localhost:5000/googlelogout", {
+        access_token: accessToken,
+      })
+      .then(res => {
+        console.log("로그아웃 res:", res.data);
+      })
+      .catch(err => console.log(err));
+  }
+
   const kakaoLogout = async () => {
     await axios
       .post("http://localhost:5000/kakaologout", {
@@ -61,7 +72,7 @@ function App() {
       const url = new URL(window.location.href);
       const authorizationCode = url.searchParams.get("code");
       if (authorizationCode) {
-        getAccessToken(authorizationCode);
+        getAccessTokenGoogle(authorizationCode);
         getAccessTokenKakao(authorizationCode);
       }
       console.log(authorizationCode);
@@ -71,6 +82,7 @@ function App() {
   return (
     <div className='App'>
       <button onClick={kakaoLogout}>로그아웃</button>
+      <button onClick={googleLogout}>구글 로그아웃</button>
       <Switch>
         <Route exact path='/'>
           <GuidePage />
