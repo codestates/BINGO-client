@@ -82,8 +82,8 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <button onClick={kakaoLogout}>로그아웃</button>
-      <button onClick={googleLogout}>구글 로그아웃</button> */}
+      <button onClick={kakaoLogout}>로그아웃</button>
+      <button onClick={googleLogout}>구글 로그아웃</button>
       <Switch>
         <Route exact path='/'>
           <GuidePage />
