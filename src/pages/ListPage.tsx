@@ -11,11 +11,18 @@ function ListPage() {
     store.dispatch({type:"INCREMENT", size:categoryNum});
   }
 
+  const handleLogoClick = () => {
+    window.location.href = "./guide.html"
+  }
+  const handleMyPageClick = () => {
+    window.location.href = "./mypage"
+  }
+
   return (
   <div id="listPageContainer">
     <div id="listNavPart">
-      <img className="testNavLogo" src="" alt="bingo_logo"/>
-      <div>mypage</div>
+      <img className="testNavLogo" src="" alt="bingo_logo" onClick={handleLogoClick}/>
+      <div onClick={handleMyPageClick}>mypage</div>
     </div>
     <div id="listBannerPart">
       <img className="listBannerImg" src="" alt="bingo_banner" />

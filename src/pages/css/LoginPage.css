@@ -1,0 +1,25 @@
+#loginPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loginTitle {
+  font-size: 3rem;
+  margin: 4rem;
+}
+
+#loginMainBox {
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 3rem 10rem;
+}
+
+#loginMainBox span,
+button {
+  margin: 2rem;
+}

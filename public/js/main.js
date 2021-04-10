@@ -1,14 +1,15 @@
-// const axios = require("axios");
+const loginBtn = document.querySelector("#login-button");
+const startBtn = document.querySelector("#start-button");
 
-// import axios from "../../node_modules/axios/index";
-
-const loginBtn = document.querySelector(".loginBtn");
-
-const handleClickLogin = () => {
+const handleLoginBtnClick = () => {
   window.location.href = "./login";
 };
+const handleStartBtnClick = () => {
+  window.location.href = "./test";
+};
 
-loginBtn.addEventListener("click", handleClickLogin);
+loginBtn.addEventListener("click", handleLoginBtnClick);
+startBtn.addEventListener("click", handleStartBtnClick);
 
 const getAccessTokenGoogle = async (authorizationCode) => {
   console.log("abc");

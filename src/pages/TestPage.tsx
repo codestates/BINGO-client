@@ -21,10 +21,17 @@ function TestPage() {
     }
   }
 
+  const handleSkipBtnClick = () => {
+    window.location.href = "./list"
+  }
+  const handleLogoClick = () => {
+    window.location.href = "./guide.html"
+  }
+
   return (<div id="testPageContainer">
     <div id="testNavPart">
-      <div id="testNavLogo">B I N G O</div>
-      <div id="testSkipBtn">넘어가기</div>
+      <div id="testNavLogo" onClick={handleLogoClick}>B I N G O</div>
+      <div id="testSkipBtn" onClick={handleSkipBtnClick}>넘어가기</div>
     </div>
     <div id="testMainPart">
       <div id="testMainNumber">1/10</div>
