@@ -2,9 +2,10 @@ import { withRouter } from "react-router";
 import "./css/LoginPage.css";
 import {useSelector, useDispatch} from "react-redux"
 import { doLogin } from "../action/index"
+import { RootState } from "../reducers";
 
 function LoginPage() {
-  const state = useSelector((state) => state.loginReducer)
+  const state = useSelector((state: RootState) => state.loginReducer)
   const {loginInfo} = state;
   const dispatch = useDispatch();
 
