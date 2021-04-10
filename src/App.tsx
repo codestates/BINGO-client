@@ -12,78 +12,9 @@ import axios from "axios";
 import store from "./store";
 
 function App() {
-  const history = useHistory();
-  const [isLogin, setIsLogin] = useState(false);
-  const [accessToken, setAccessToken] = useState("");
-
-  const getAccessTokenGoogle = async (authorizationCode: string) => {
-    console.log("abc");
-    await axios
-      .post("http://localhost:5000/googlelogin", {
-        authorizationCode,
-      })
-      .then(res => {
-        setIsLogin(true);
-        setAccessToken(res.data.accessToken);
-        console.log("abcde");
-      })
-      .catch(err => console.log(err));
-  };
-
-  const getAccessTokenKakao = async (authorizationCode: string) => {
-    console.log("abc");
-    await axios
-      .post("http://localhost:5000/kakaologin", {
-        authorizationCode,
-      })
-      .then(res => {
-        setIsLogin(true);
-        setAccessToken(res.data.accessToken);
-        console.log("abcde");
-        console.log("res check:", res.data.accessToken);
-        console.log("before:", accessToken);
-      })
-      .catch(err => console.log(err));
-  };
-
-  const googleLogout = async () => {
-    await axios
-      .post("http://localhost:5000/googlelogout", {
-        access_token: accessToken,
-      })
-      .then(res => {
-        console.log("로그아웃 res:", res.data);
-      })
-      .catch(err => console.log(err));
-  }
-
-  const kakaoLogout = async () => {
-    await axios
-      .post("http://localhost:5000/kakaologout", {
-        access_token: accessToken,
-      })
-      .then(res => {
-        console.log("로그아웃 res:", res.data);
-      })
-      .catch(err => console.log(err));
-  };
-
-  useEffect(() => {
-    if (accessToken === "") {
-      const url = new URL(window.location.href);
-      const authorizationCode = url.searchParams.get("code");
-      if (authorizationCode) {
-        getAccessTokenGoogle(authorizationCode);
-        getAccessTokenKakao(authorizationCode);
-      }
-      console.log(authorizationCode);
-    }
-  });
 
   return (
     <div className='App'>
-      {/* <button onClick={kakaoLogout}>로그아웃</button>
-      <button onClick={googleLogout}>구글 로그아웃</button> */}
       <Switch>
         <Route exact path='/'>
           <GuidePage />

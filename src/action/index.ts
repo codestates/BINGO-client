@@ -4,7 +4,7 @@ import { access } from "node:fs";
 export const DO_LOGIN = "DO_LOGIN";
 
 // actions creator functions
-export const isLogin = (accessToken: string) => {
+export const doLogin = (accessToken: string) => {
   return {
     type: DO_LOGIN,
     payload: {
