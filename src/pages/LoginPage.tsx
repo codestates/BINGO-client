@@ -14,8 +14,10 @@ function LoginPage() {
   }
 
   return (
-    <div className='loginPageContainer'>
-      로그인페이지
+    <div id='loginPageContainer'>
+      <div id="loginTitle">BINGO</div>
+      <div id="loginMainBox">
+        <span>login to BINGO</span>
       <button
         onClick={() =>
           window.location.assign(
@@ -34,8 +36,7 @@ function LoginPage() {
       >
         구글로그인
       </button>
-      <div>{loginInfo.accessToken}</div>
-      <button onClick={() => handleClick("상태바뀜")}>상태 바껴라 얍!</button>
+      </div>
     </div>
   );
 

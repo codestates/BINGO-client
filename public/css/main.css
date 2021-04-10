@@ -54,6 +54,13 @@ p {
   text-align: center;
 }
 
+#start-button {
+  position: fixed;
+  z-index: 9;
+  color: rgb(15, 86, 70);
+  background-color: rgb(29, 29, 31);
+}
+
 .main-message {
   display: flex;
   align-items: center;

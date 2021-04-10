@@ -2,11 +2,17 @@ import { withRouter } from "react-router";
 import "./css/PayPage.css";
 
 function PayPage() {
+  const handleLogoClick = () => {
+    window.location.href = "./guide.html"
+  }
+  const handleMyPageClick = () => {
+    window.location.href = "./mypage"
+  }
   return (
   <div className="payPageContainer">
     <div id="payNavPart">
-      <img className="testNavLogo" src="" alt="bingo_logo"/>
-      <div>mypage</div>
+      <img className="testNavLogo" src="" alt="bingo_logo" onClick={handleLogoClick}/>
+      <div onClick={handleMyPageClick}>mypage</div>
     </div>
     <div id="payListPart">
       <div className="payListEntryPart">

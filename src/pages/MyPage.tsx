@@ -7,11 +7,18 @@ import MyMonthlyDonationGraph from "../components/MyMonthlyDonationGraph"
 import Footer from "../components/Footer"
 
 function MyPage() {
+
+  const handleLogoClick = () => {
+    window.location.href = "./guide.html"
+  }
+  const handlePayPageClick = () => {
+    window.location.href = "./pay"
+  }
   return (
   <div id="myPageContainer">
     <div id="myNavPart">
-      <img src="" alt="bingo_logo" />
-      <button>Pay Page</button>
+      <img src="" alt="bingo_logo" onClick={handleLogoClick}/>
+      <button onClick={handlePayPageClick}>Pay Page</button>
     </div>
     <div id="myProfilePart">
       <img id="myProfilePic" src={"/images/defaultProfilePic.png"} alt="user_profilepic" />
