@@ -1,3 +1,88 @@
+// const axios = require("axios");
+
+// import axios from "../../node_modules/axios/index";
+
+const loginBtn = document.querySelector(".loginBtn");
+
+const handleClickLogin = () => {
+  window.location.href = "./login";
+};
+
+loginBtn.addEventListener("click", handleClickLogin);
+
+const getAccessTokenGoogle = async (authorizationCode) => {
+  console.log("abc");
+  await fetch("http://localhost:5000/googlelogin", {
+    method: "POST",
+    body: { authorizationCode },
+    credentials: "include",
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.log(err));
+};
+const getAccessTokenKakao = async (authorizationCode) => {
+  console.log("abc");
+  await fetch("http://localhost:5000/kakaologin", {
+    method: "POST",
+    body: { authorizationCode },
+    credentials: "include",
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.log(err));
+};
+const logout = async () => {
+  await fetch("http://localhost:5000/logout", {
+    method: "POST",
+    credentials: "include",
+  })
+    .then((res) => {
+      console.log("로그아웃 res:", res.data);
+    })
+    .catch((err) => console.log(err));
+};
+const checkGoogleAuth = async () => {
+  await fetch("http://localhost:5000/checkgoogleauth", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+};
+const checkKakaoAuth = async () => {
+  console.log("체크카카오어스 실행됨!");
+  await fetch("http://localhost:5000/checkkakaoauth", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+};
+
+checkGoogleAuth();
+checkKakaoAuth();
+
+const url = new URL(window.location.href);
+const authorizationCode = url.searchParams.get("code");
+if (authorizationCode) {
+  getAccessTokenGoogle(authorizationCode);
+  getAccessTokenKakao(authorizationCode);
+}
+console.log(authorizationCode);
+
 (() => {
   let yOffset = 0;
   let prevScrollHeight = 0;

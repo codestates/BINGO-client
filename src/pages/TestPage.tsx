@@ -23,8 +23,8 @@ function TestPage() {
 
   return (<div id="testPageContainer">
     <div id="testNavPart">
-      <img id="testNavLogo" src="" alt="bingo_logo"/>
-      <button id="testSkipBtn">Skip</button>
+      <div id="testNavLogo">B I N G O</div>
+      <div id="testSkipBtn">넘어가기</div>
     </div>
     <div id="testMainPart">
       <div id="testMainNumber">1/10</div>

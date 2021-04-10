@@ -1,11 +1,23 @@
+#testPageContainer {
+  background: var(--main-color-white);
+}
+
 #testNavPart {
   height: 4rem;
-  background-color: var(--main-color-green);
+  background-color: var(--main-color-light-green);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-left: 4rem;
   padding-right: 4rem;
+}
+
+#testNavLogo {
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  color: var(--main-color-green);
+  font-weight: bolder;
 }
 
 #testMainPart,
