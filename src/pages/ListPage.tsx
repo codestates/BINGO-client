@@ -1,6 +1,6 @@
 import { withRouter } from "react-router";
 import "./css/ListPage.css";
-import ListContentEntry from "../components/ListContentEntry"
+import ListContentList from "../components/ListContentList"
 import store from "../store";
 import { useState } from "react";
 
@@ -21,24 +21,27 @@ function ListPage() {
   return (
   <div id="listPageContainer">
     <div id="listNavPart">
-      <img className="testNavLogo" src="" alt="bingo_logo" onClick={handleLogoClick}/>
-      <div onClick={handleMyPageClick}>mypage</div>
+    <div id="listNavLogo" onClick={handleLogoClick}>B I N G O</div>
+      <div id="listMyPageBtn" className="shadow" onClick={handleMyPageClick}>마이페이지</div>
     </div>
-    <div id="listBannerPart">
-      <img className="listBannerImg" src="" alt="bingo_banner" />
+    <div id="listCoverPart"></div>
+    <div id="listMainPart">
+      <div id="listMainTitle">더 많은 NGO단체 찾아보기</div>
+      <div id="listSearchBox">
+        <div id="listSearchCategory">
+          <span>All</span>
+          <span>여성</span>
+          <span>동물</span>
+          <span>어르신</span>
+          <span>아동/청소년</span>
+          <span>성소수자</span>
+          <span>환경</span>
+          <span>인권</span>
+        </div>
+        <div id="listSearchKeyword">검색</div>
+      </div>
+      <ListContentList/>
     </div>
-    <div id="listCategoryPart">
-      <div className="listCategory" onClick={handleClickBtn}>아동</div>
-      <div className="listCategory">여성</div>
-      <div className="listCategory">동물</div>
-      <div className="listCategory">환경</div>
-      <div className="listCategory">어르신</div>
-      <div className="listCategory">다문화</div>
-      <div className="listCategory">장애인</div>
-      <div className="listCategory">기타</div>
-      <div className="listCategory">검색</div>
-    </div>
-    <ListContentEntry />
   </div>
   )
 }
