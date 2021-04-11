@@ -1,59 +1,91 @@
+#testPageContainer * {
+  /* border: 1px solid black; */
+}
+
 #testPageContainer {
-  background: var(--main-color-white);
+  background: var(--main-color-green);
+  height: 100vh;
 }
 
 #testNavPart {
-  height: 4rem;
-  background-color: var(--main-color-light-green);
+  height: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  align-items: center;
 }
 
 #testNavLogo {
   display: flex;
   align-items: center;
-  font-size: larger;
-  color: var(--main-color-green);
-  font-weight: bolder;
+  font-size: 1.75rem;
+  color: var(--main-color-white);
+  font-weight: 900;
+  padding: 1.5rem 2rem;
+}
+
+#testSkipBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--main-color-white);
 }
 
 #testMainPart,
 #testExtraPart {
   margin: 0 auto;
-  width: 1042px;
+  max-width: 1024px;
 }
 
 #testMainPart {
+  background-color: var(--main-color-white);
   padding: 1rem;
   margin-top: 5rem;
   margin-bottom: 1rem;
+  border-radius: 1rem;
 }
 
 #testMainNumber {
-  padding-left: 2rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: 1px;
+  color: var(--main-color-light-gray);
+  font-weight: 500;
 }
 
 #testMainQuestion {
-  font-size: larger;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--main-color-gray);
   text-align: center;
-  padding: 3rem;
+  padding: 2.5rem;
 }
 
 #testMainBtnBox {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 3rem 20rem 3rem 20rem;
-  padding-left: 25rem;
-  padding-right: 25rem;
+  justify-content: space-around;
+  padding: 1rem 25rem 1rem 25rem;
 }
 
 #testMainBtnBox button {
-  width: 5rem;
-  height: 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--main-color-white);
+  padding: 0.75rem;
+  background-color: var(--main-color-green);
+  border-style: none;
+  border-radius: 1rem;
+}
+
+#testMainBtnBox button:hover {
+  background-color: var(--main-color-dark-green);
+  cursor: pointer;
 }
 
 #testExtraPart {
@@ -61,12 +93,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--main-color-light-green);
 }
 
 #testExtraDescription {
-  margin: 1rem;
+  margin: 3rem 1rem 1rem;
+  font-size: 1.125rem;
 }
 
 #testExtraSubmitBtn {
-  margin: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--main-color-white);
 }

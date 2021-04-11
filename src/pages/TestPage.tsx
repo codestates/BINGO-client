@@ -31,19 +31,19 @@ function TestPage() {
   return (<div id="testPageContainer">
     <div id="testNavPart">
       <div id="testNavLogo" onClick={handleLogoClick}>B I N G O</div>
-      <div id="testSkipBtn" onClick={handleSkipBtnClick}>넘어가기</div>
+      <div id="testSkipBtn" className="shadow" onClick={handleSkipBtnClick}>넘어가기</div>
     </div>
-    <div id="testMainPart">
+    <div id="testMainPart" className="shadow">
       <div id="testMainNumber">1/10</div>
       <div id="testMainQuestion">{question}</div>
       <div id="testMainBtnBox">
-        <button id="testMainYesBtn" onClick={handleClickBtn}>Yes</button>
-        <button id="testMainNoBtn" onClick={handleClickBtn}>No</button>
+        <button id="testMainYesBtn" className="shadow" onClick={handleClickBtn}>네</button>
+        <button id="testMainNoBtn" className="shadow" onClick={handleClickBtn}>아니오</button>
       </div>
     </div>
     <div id="testExtraPart">
       <div id="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div>
-      <button id="testExtraSubmitBtn">submit</button>
+      <button id="testExtraSubmitBtn" className="shadow">제출하기</button>
     </div>
     <Footer />
   </div>)

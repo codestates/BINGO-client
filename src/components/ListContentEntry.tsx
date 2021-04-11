@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react"
-import store from "../store";
+import "./css/ListContentEntry.css";
 
 export default function ListContentEntry() {
-
-  const [category, setCategory] = useState(0);
   return(
-    <div id="listContentPart">
-      <div className="listContent">{}</div>
-      <div className="listContent">content2</div>
-      <div className="listContent">content3</div>
-      <div className="listContent">content4</div>
-    </div>
+  <div id="ListContentEntryContainer" className="shadow">
+    <img id="ListContentEntryLogo" alt="NGO_logo" src="" />
+    <div id="ListContentEntryTitle">동물권행동 카라</div>
+    <div id="ListContentEntryDescription">89명의 회원이 후원중</div>
+  </div>
   )
 }
