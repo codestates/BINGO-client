@@ -1,68 +1,111 @@
-#contentPageContainer {
-  background-color: antiquewhite;
+#contentPageContainer * {
+  /* border: 1px solid black; */
 }
 
-#contentNavPart {
-  height: 4rem;
+#contentPageContainer {
   background-color: var(--main-color-green);
+}
+#contentHeaderPart {
+  height: 30rem;
+  background-image: url("https://i.imgur.com/LFmpZZf.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+#contentHeaderNav {
+  height: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  align-items: center;
 }
 
-#contentBannerPart {
-  height: 20rem;
-  background-color: white;
-}
-
-#contentBannerPart button {
-  margin-top: 15rem;
-  margin-left: 85%;
-  padding: 0.5rem;
-}
-
-#contentMainBanner {
-  width: 100%;
-}
-
-#contentNGOInfoPart {
+#contentNavLogo {
   display: flex;
-  flex-direction: row;
-  margin-top: -4rem;
-  margin-left: 8rem;
+  align-items: center;
+  font-size: 1.75rem;
+  color: var(--main-color-white);
+  font-weight: 900;
+  padding: 1.5rem 2rem;
 }
 
-#contentNGOLogo {
-  height: 8rem;
-  width: 16rem;
-  border-radius: 2rem;
-}
-
-#contentNGOInfo {
-  padding-top: 4.5rem;
-}
-
-#contentContentPart {
-  padding: 3rem 0;
-  margin: 0 auto;
-  width: 1042px;
+#contentMyPageBtn {
   display: flex;
-  flex-direction: row;
-}
-
-#contentMainContent {
-  width: 50%;
-}
-
-#contentMainContent video {
-  border: 1px solid black;
-  margin: 2rem;
-}
-
-.contentNGODescription {
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
   padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--main-color-white);
+}
+
+#contentMainTop {
+  display: flex;
+  flex-direction: row;
+  width: 1024px;
+  margin: 0 auto;
+  margin-top: -6.5rem;
+}
+
+#contentMainTopLogo {
+  background-image: url("https://i.imgur.com/DX2iVQD.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20rem;
+  background-color: white;
+  border-radius: 1rem;
   margin: 1rem;
-  font-size: larger;
+}
+
+#contentMainTopRightTop button {
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--main-color-gray);
+}
+
+#contentMainTopRightBottom span {
+  margin-left: 2rem;
+  font-weight: 700;
+  color: var(--main-color-white);
+  font-size: 2rem;
+}
+
+#contentMainTopRightBottom button {
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--main-color-gray);
+}
+
+#contentMainBottom {
+  width: 1024px;
+  margin: 5rem auto;
+}
+
+#videoAndDescription {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+#descriptionBox div {
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  font-size: 1.125rem;
+}
+
+.contentBoxTitle {
+  color: var(--main-color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#contentMainBottom iframe {
+  margin: 1rem;
 }

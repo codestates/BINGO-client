@@ -2,7 +2,7 @@ import "./css/ContentMessageListEntry.css"
 
 function ContentMessageListEntry() {
   return (
-  <div id="contentMessageListEntryContainer">
+  <div id="contentMessageListEntryContainer" className="shadow">
     <img src="" alt="profile_img" />
     <div>
       <div>김코딩</div>

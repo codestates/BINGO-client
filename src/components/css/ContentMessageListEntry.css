@@ -1,3 +1,6 @@
 #contentMessageListEntryContainer {
-  margin: 0.5rem;
+  margin: 1rem;
+  background-color: var(--main-color-white);
+  border-radius: 1rem;
+  padding: 1rem;
 }
