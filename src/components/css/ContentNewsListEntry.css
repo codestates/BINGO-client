@@ -1,7 +1,7 @@
 #contentNewsListEntryContainer {
   display: flex;
   flex-direction: row;
-  background-color: aliceblue;
+  background-color: var(--main-color-white);
   margin: 1rem;
   padding: 1rem;
   border-radius: 1rem;
