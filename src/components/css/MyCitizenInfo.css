@@ -1,5 +1,13 @@
 #myCitizenInfoContainer {
+  margin: 1rem;
+}
+
+#myCitizenInfoMain {
+  background-color: var(--main-color-white);
   height: 17.5rem;
-  margin: 2rem;
-  background-color: gray;
+  border-radius: 1rem;
+}
+
+#myCitizenInfoMain span {
+  padding: 3rem;
 }

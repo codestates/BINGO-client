@@ -16,29 +16,28 @@ function MyPage() {
   }
   return (
   <div id="myPageContainer">
-    <div id="myNavPart">
-      <img src="" alt="bingo_logo" onClick={handleLogoClick}/>
-      <button onClick={handlePayPageClick}>Pay Page</button>
+      <div id="myPageNavPart">
+        <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
+        <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick}>페이페이지</div>
+      </div>
+    <div id="myPageCoverPart">
+      <button>로그아웃</button>
     </div>
-    <div id="myProfilePart">
-      <img id="myProfilePic" src={"/images/defaultProfilePic.png"} alt="user_profilepic" />
-      <div id="myProfileUserInfo">
-        <span id="myProfileUsername">김빙고</span>
-        <img src="" alt="user_level_badge"/>
-        <button>Logout</button>
+    <div id="myPageMainPart">
+      <div id="myPageUserInfo">
+        <div id="myPageProfilePic" className="shadow"></div>
+        <div id="myPageUsername">JH Choi</div>
+        <div>Level 3</div>
+      </div>
+      <div id="myPageMainContent">
+        <MyRegularDonationList />
+        <div id="myPageMainContentMiddle">
+          <MyCitizenInfo />
+          <MyAllDonationGraph />
+        </div>
+        <MyMonthlyDonationGraph />
       </div>
     </div>
-    <div id="myContentPart">
-      <div className="myContentTitles">현재 김빙고님의 정기후원 내역</div>
-      <MyRegularDonationList/>
-      <div className="myContentTitles">김빙고님은 어떤 시민인가요?</div>
-      <MyCitizenInfo />
-      <div className="myContentTitles">김빙고님의 모든 후원 내역</div>
-      <MyAllDonationGraph />
-      <div className="myContentTitles">김빙고님의 월별 기부 내역</div>
-      <MyMonthlyDonationGraph />
-    </div>
-    <Footer/>
   </div>
   )
 }

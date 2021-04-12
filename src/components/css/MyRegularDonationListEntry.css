@@ -1,0 +1,19 @@
+#myRegularDonationListEntryContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 1rem;
+  border: 1px solid var(--main-color-gray);
+  border-radius: 1rem;
+}
+
+#myRegularDonationListLeft {
+  margin-left: 2rem;
+}
+
+#myRegularDonationListRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

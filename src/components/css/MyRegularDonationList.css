@@ -1,5 +1,17 @@
 #myRegularDonationListContainer {
-  height: 17.5rem;
   margin: 2rem;
-  background-color: gray;
+  width: 1024px;
+}
+
+#regularDonationBox {
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.myPageTitle {
+  font-size: 1.325rem;
+  font-weight: 500;
+  padding: 1rem;
+  color: var(--main-color-gray);
 }
