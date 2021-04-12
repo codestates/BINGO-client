@@ -1,5 +1,10 @@
 #myAllDonationGraphContainer {
+  margin: 1rem;
+}
+
+#myAllDonationGraph {
+  background-color: var(--main-color-white);
+  border-radius: 1rem;
   height: 17.5rem;
-  margin: 2rem;
-  background-color: gray;
+  width: 100%;
 }

@@ -1,5 +1,8 @@
 #myMonthlyDonationGraphContainer {
+  margin: 1rem;
+}
+#myMonthlyDonationGraph {
+  background-color: var(--main-color-white);
   height: 17.5rem;
-  margin: 2rem;
-  background-color: gray;
+  border-radius: 1rem;
 }

@@ -22,7 +22,7 @@ function ListPage() {
   <div id="listPageContainer">
     <div id="listNavPart">
     <div id="listNavLogo" onClick={handleLogoClick}>B I N G O</div>
-      <div id="listMyPageBtn" className="shadow" onClick={handleMyPageClick}>마이페이지</div>
+    <div id="listMyPageBtn" className="shadow" onClick={handleMyPageClick}>마이페이지</div>
     </div>
     <div id="listCoverPart"></div>
     <div id="listMainPart">
