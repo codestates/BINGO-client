@@ -1,47 +1,83 @@
-#myPageContainer * {
-  border: 1px solid black;
-  color: gray;
-}
-
 #myPageContainer {
-  background-color: var(--main-color-green);
+  width: 100%;
 }
 
-#myNavPart {
-  height: 4rem;
-  background-color: var(--main-color-green);
+#myPageNavPart {
+  height: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  align-items: center;
+  background-color: var(--main-color-green);
 }
 
-#myProfilePart {
+#myPageNavLogo {
   display: flex;
-  height: 8rem;
+  align-items: center;
+  font-size: 1.75rem;
+  color: var(--main-color-white);
+  font-weight: 900;
+  padding: 1.5rem 2rem;
+}
+
+#myPagePayPageBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem 0 0 1rem;
   background-color: var(--main-color-white);
-  padding-left: 20vh;
 }
 
-#myProfilePic {
-  width: 12rem;
-  height: 12rem;
-  border-radius: 6rem;
-  margin: 2rem;
-}
-
-#myProfileUserInfo {
+#myPageCoverPart {
+  background: linear-gradient(
+    180deg,
+    var(--main-color-green) 35%,
+    var(--main-color-dark-green) 100%
+  );
+  height: 12.5rem;
+  padding-bottom: 170px;
+  box-sizing: border-box;
+  width: 100%;
+  color: #fefefe;
   display: flex;
-  align-items: flex-end;
+  justify-content: right;
+  align-items: baseline;
 }
 
-#myContentPart {
-  padding-top: 7.5rem;
-  margin: 0 auto;
-  width: 1042px;
+#myPageMainPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -9rem;
 }
 
-.myContentTitles {
-  margin-left: 2rem;
+#myPageUserInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#myPageProfilePic {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 7.5rem;
+  background-image: url("https://i.imgur.com/FP3hraO.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#myPageUsername {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--main-color-gray);
+  margin-top: 1rem;
+}
+
+#myPageMainContentMiddle {
+  display: flex;
+  flex-direction: row;
 }
