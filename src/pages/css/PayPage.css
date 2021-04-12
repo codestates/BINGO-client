@@ -1,28 +1,35 @@
-#payPageContainer * {
-  border: 1px solid black;
-  color: gray;
+#payPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-color-green);
+  display: flex;
+  flex-direction: column;
 }
 
 #payNavPart {
-  height: 4rem;
-  background-color: var(--main-color-green);
+  height: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  align-items: center;
+  background-color: var(--main-color-green);
 }
 
 #payListPart {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 1042px;
-  margin-top: 2rem;
   margin-top: 7.5rem;
+  align-items: center;
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#payListEntryPart {
+.payListEntryPart {
+  width: 100%;
+  background-color: var(--main-color-white);
+  border-radius: 1rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -30,18 +37,65 @@
 .payBoxTitle {
   margin-left: 2rem;
   font-size: 1.5rem;
+  padding: 1rem;
+  padding-top: 2.5rem;
 }
 
-.payBoxContent {
-  height: 5rem;
-  margin: 2rem;
+.payBoxContentBox {
+  text-align: center;
 }
 
 .payBoxPayBtnBox {
   display: flex;
   flex-direction: row-reverse;
+  padding: 1rem;
+}
+
+.payBoxContent {
+  height: 5rem;
+  background-color: var(--main-color-light-gray);
+  border-radius: 0.5rem;
+  margin: 1.5rem;
 }
 
 .payBoxPayBtn {
   font-size: 1.5rem;
+}
+
+.payBoxPayBtn:hover {
+  font-size: 2rem;
+  color: var(--main-color-beige);
+}
+
+@media screen and (max-width: 1024px) {
+  #payListPart {
+    width: 90%;
+  }
+
+  .payListEntryPart {
+    justify-content: center;
+  }
+
+  .payBoxTitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .payBoxContent {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .payBoxPayBtnBox {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #payListPart {
+    width: 80%;
+  }
 }

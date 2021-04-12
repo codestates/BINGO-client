@@ -1,25 +1,80 @@
 #loginPageContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  background-color: var(--main-color-green);
+  width: 100vw;
+  height: 100vh;
 }
 
 #loginTitle {
-  font-size: 3rem;
-  margin: 4rem;
+  display: flex;
+  align-items: center;
+  font-size: 5rem;
+  color: var(--main-color-white);
+  font-weight: 900;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+#loginTitle:hover {
+  cursor: pointer;
 }
 
 #loginMainBox {
-  width: 20rem;
-  height: 20rem;
+  width: 30rem;
+  height: 25rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 3rem 3rem 10rem;
+  background-color: var(--main-color-white);
 }
 
-#loginMainBox span,
-button {
+#loginMainBox h1 {
+  text-align: center;
+  color: var(--main-color-black);
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+#loginMainBox div {
   margin: 2rem;
+}
+
+.loginBtnBox {
+  width: 60%;
+  height: 5rem;
+  display: flex;
+  background-color: var(--main-color-beige);
+  border-radius: 1rem;
+  align-items: center;
+}
+
+.loginBtnBox:hover {
+  background-color: var(--main-color-light-gray);
+  cursor: pointer;
+}
+
+#googleIcon {
+  background-image: url("https://ifh.cc/g/dDjw6q.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+#kakaoIcon {
+  background-image: url("https://ifh.cc/g/QeUpuL.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.loginLabel {
+  font-size: 1.125rem;
 }
