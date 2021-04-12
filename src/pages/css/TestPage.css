@@ -48,6 +48,10 @@
   margin-top: 5rem;
   margin-bottom: 1rem;
   border-radius: 1rem;
+  position: absolute;
+  top: 30%;
+  width: 80%;
+  transform: translate(-50%, -50%);
 }
 
 #testMainNumber {
@@ -69,8 +73,7 @@
 #testMainBtnBox {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 1rem 25rem 1rem 25rem;
+  justify-content: center;
 }
 
 #testMainBtnBox button {
@@ -81,6 +84,7 @@
   background-color: var(--main-color-green);
   border-style: none;
   border-radius: 1rem;
+  width: 15%;
 }
 
 #testMainBtnBox button:hover {
@@ -102,8 +106,6 @@
 }
 
 #testExtraSubmitBtn {
-  display: flex;
-  align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
   font-weight: 700;
@@ -111,4 +113,35 @@
   margin-top: 0.5rem;
   border-radius: 1rem;
   background-color: var(--main-color-white);
+  position: absolute;
+  top: 43.4%;
+  width: 150px;
+}
+
+@media (max-width: 1054px) {
+  #testMainPart {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  #testMainPart {
+    width: 90%;
+    height: 70%;
+    top: 40%;
+  }
+
+  #testMainBtnBox {
+    flex-direction: column;
+    margin-top: 40%;
+  }
+
+  #testMainBtnBox button {
+    width: auto;
+    margin-top: auto;
+  }
+  #testExtraSubmitBtn {
+    width: 82%;
+    top: 60%;
+  }
 }
