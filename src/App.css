@@ -19,6 +19,11 @@
   font-size: 14px;
 }
 
+/* 스크롤바 너무 거슬려서 지웠습니다.. 민제 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .shadow {
   transition: all 0.2s;
   -webkit-box-shadow: 5px 5px 10px rgb(0 0 0 / 20%);
@@ -31,6 +36,33 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+  color: var(--main-color-white);
+  font-weight: 900;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+}
+
+.navMyPage {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--main-color-white);
+  cursor: pointer;
+}
+
+.navMyPage:hover {
+  transform: translate(0.75rem, 0rem);
 }
 
 @font-face {

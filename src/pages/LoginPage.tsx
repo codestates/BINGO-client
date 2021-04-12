@@ -16,28 +16,30 @@ function LoginPage() {
   return (
     <div id='loginPageContainer'>
       <div id="loginTitle">BINGO</div>
-      <div id="loginMainBox">
-        <span>login to BINGO</span>
-      <button
-        onClick={() =>
-          window.location.assign(
-            `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=1f6fa43748f197dd179b4768a677578d&redirect_uri=https://localhost:3000/guide.html`
-          )
-        }
-      >
-        카카오로그인
-      </button>
-      <button
-        onClick={() =>
-          window.location.assign(
-            `https://accounts.google.com/o/oauth2/auth?client_id=326989630973-ugi3107frqm09i3v730v26f2ivj27hkn.apps.googleusercontent.com&redirect_uri=https://localhost:3000/guide.html&response_type=code&scope=profile&access_type=offline`
-          )
-        }
-      >
-        구글로그인
-      </button>
+      <div id="loginMainBox" className="shadow">
+        <h1>login to BINGO</h1>
+        <div className="loginBtnBox shadow"
+          onClick={() =>
+            window.location.assign(
+              `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=1f6fa43748f197dd179b4768a677578d&redirect_uri=https://localhost:3000/guide.html`
+            )
+          }
+        >
+        <div id="googleIcon"></div>
+        <div className="loginLabel">구글 로그인</div>
+        </div>
+        <div className="loginBtnBox shadow"
+          onClick={() =>
+            window.location.assign(
+              `https://accounts.google.com/o/oauth2/auth?client_id=326989630973-ugi3107frqm09i3v730v26f2ivj27hkn.apps.googleusercontent.com&redirect_uri=https://localhost:3000/guide.html&response_type=code&scope=profile&access_type=offline`
+            )
+          }
+        >
+        <div id="kakaoIcon"></div>
+        <div className="loginLabel">카카오 로그인</div>
+        </div>
       </div>
-    </div>
+      </div>
   );
 
 }
