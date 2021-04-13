@@ -24,7 +24,7 @@
 
 #loginMainBox {
   width: 30rem;
-  height: 25rem;
+  height: 35rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -45,6 +45,7 @@
 
 #loginMainBox div {
   margin: 2rem;
+  justify-content: center;
 }
 
 .loginBtnBox {
