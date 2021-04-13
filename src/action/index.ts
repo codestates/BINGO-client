@@ -3,6 +3,7 @@ export const DO_LOGIN = "DO_LOGIN";
 export const PUSH_OPTION = "PUSH_OPTION";
 export const CHANGE_OPTION_COLOR = "CHANGE_OPTION_COLOR";
 export const ANIMATE_TEST = "ANIMATE_TEST";
+export const SHOW_LIST = "SHOW_LIST";
 
 // actions creator functions
 export const doLogin = (accessToken: string) => {
@@ -11,9 +12,9 @@ export const doLogin = (accessToken: string) => {
     payload: {
       isLogin: true,
       accessToken,
-    }
-  }
-}
+    },
+  };
+};
 
 export const changeOptionColor = (index: number, color: string) => {
   return {
@@ -39,6 +40,14 @@ export const animateCard = (index: number) => {
     type: ANIMATE_TEST,
     payload: {
       index,
-    }
-  }
-}
+    },
+  };
+};
+
+export const showList = (id: string) => {
+  return {
+    payload: {
+      id,
+    },
+  };
+};
