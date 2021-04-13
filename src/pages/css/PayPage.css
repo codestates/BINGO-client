@@ -47,24 +47,105 @@
 
 .payBoxPayBtnBox {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   padding: 1rem;
 }
 
+.payBoxContentImg {
+  background-image: url("https://yt3.ggpht.com/ytc/AAUvwnjflo__ANfIHk0vJsNeap6C9HhLVy5bFtmLS5QbKg=s88-c-k-c0x00ffffff-no-rj");
+  background-size: cover;
+  width: 65px;
+  height: 55px;
+  border-radius: 4px;
+}
+
 .payBoxContent {
-  height: 5rem;
-  background-color: var(--main-color-light-gray);
+  height: 6rem;
   border-radius: 0.5rem;
   margin: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payBoxContent > * {
+  margin: 1.5rem;
+}
+
+.dragged .payBoxContent {
+  opacity: 0.25;
+}
+
+.payBoxContentTitle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.payBoxContentTitle > * {
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.payBoxContentTitle > div {
+  width: 14rem;
+  text-align: start;
+}
+
+.payBoxContentDelete {
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .payBoxPayBtn {
   font-size: 1.5rem;
 }
 
+.payBoxPayBtnBox > div {
+  margin: 1rem;
+  margin-left: auto;
+}
+
 .payBoxPayBtn:hover {
   font-size: 2rem;
   color: var(--main-color-beige);
+}
+
+#payBoxPostMessageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payPagePostMessage {
+  height: 7rem;
+  width: 90%;
+  display: flex;
+  margin: 1.5rem;
+  align-items: center;
+  border-radius: 0.8rem;
+}
+
+.payBoxPostMessageImg {
+  background-image: url("https://yt3.ggpht.com/ytc/AAUvwnjflo__ANfIHk0vJsNeap6C9HhLVy5bFtmLS5QbKg=s88-c-k-c0x00ffffff-no-rj");
+  background-size: cover;
+  width: 55px;
+  height: 55px;
+  border-radius: 4px;
+}
+
+.payPagePostMessage > div {
+  margin: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.payPagePostMessage > input {
+  width: 70%;
+  height: 2.2rem;
+  font-size: 1.4rem;
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
 @media screen and (max-width: 1024px) {
@@ -86,16 +167,63 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .payBoxContent > * {
+    margin: 1rem;
+  }
+
+  .payBoxContentTitle > * {
+    font-size: 1.2rem;
+    margin: 0.5rem;
+  }
+
+  .payBoxContentTitle > div {
+    width: auto;
+  }
+
   .payBoxPayBtnBox {
     margin-left: auto;
     margin-right: auto;
     display: flex;
     align-items: center;
   }
+
+  .payPagePostMessage {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .payPagePostMessage > input {
+    margin-left: auto;
+    margin-right: auto;
+    margin: 1rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #payListPart {
     width: 80%;
+  }
+
+  .payBoxContent {
+    height: 20rem;
+    flex-direction: column;
+  }
+
+  .payBoxContent > * {
+    margin: 1rem;
+  }
+
+  .payBoxContentImg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .payBoxContentTitle {
+    flex-direction: column;
+  }
+
+  .payBoxContentTitle > div {
+    text-align: center;
   }
 }

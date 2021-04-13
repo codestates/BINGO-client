@@ -9,13 +9,17 @@ function LoginPage() {
   const {loginInfo} = state;
   const dispatch = useDispatch();
 
-  const handleClick = (param: string) => {
-    dispatch(doLogin(param));
+  const handleStartBtnClick = () => {
+    window.location.href = "./test"
+  }
+
+  const handleLogoClick = () => {
+    window.location.href = "./guide.html"
   }
 
   return (
     <div id='loginPageContainer'>
-      <div id="loginTitle">BINGO</div>
+      <div id="loginTitle" onClick={handleLogoClick}>BINGO</div>
       <div id="loginMainBox" className="shadow">
         <h1>login to BINGO</h1>
         <div className="loginBtnBox shadow"
@@ -37,6 +41,9 @@ function LoginPage() {
         >
         <div id="kakaoIcon"></div>
         <div className="loginLabel">카카오 로그인</div>
+        </div>
+        <div className="loginBtnBox shadow" onClick={handleStartBtnClick}>
+          <div className="loginLabel">비회원으로 시작하기</div>
         </div>
       </div>
       </div>
