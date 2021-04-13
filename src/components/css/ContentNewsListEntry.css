@@ -1,8 +1,25 @@
 #contentNewsListEntryContainer {
-  display: flex;
-  flex-direction: row;
   background-color: var(--main-color-white);
   margin: 1rem;
   padding: 1rem;
   border-radius: 1rem;
+  width: 40%;
+}
+
+#contentNewsTitle {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+#contentNewsDescription {
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  #contentNewsListEntryContainer {
+    width: 90%;
+  }
 }

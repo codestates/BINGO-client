@@ -1,6 +1,41 @@
 #contentMessageListEntryContainer {
-  margin: 1rem;
+  margin: 4rem 1rem 1rem 1rem;
   background-color: var(--main-color-white);
   border-radius: 1rem;
   padding: 1rem;
+}
+#contentMessageImgAndName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contentMessageName {
+  font-weight: 600;
+}
+
+#contentMessageListEntryContainer img {
+  width: 25%;
+  border-radius: 50%;
+  margin-top: -17.5%;
+  margin-bottom: 0.5rem;
+}
+#contentMessageListEntryContainer p {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  #contentMessageListEntryContainer {
+    display: flex;
+    margin: 1rem;
+  }
+  #contentMessageListEntryContainer img {
+    margin-top: 0.5rem;
+    width: 7rem;
+  }
+  #contentMessageListEntryContainer p {
+    margin-left: 1rem;
+  }
 }

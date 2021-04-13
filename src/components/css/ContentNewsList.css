@@ -1,3 +1,20 @@
-#contentMessageListContainer {
+#contentNewsListBox {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 4rem;
+  justify-content: space-around;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  #contentNewsListBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #contentNewsListContainer {
+    margin-top: 7.5rem;
+  }
 }
