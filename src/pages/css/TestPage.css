@@ -70,6 +70,28 @@
   padding: 2.5rem;
 }
 
+#testOptions {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+#optionBtn {
+  background-color: var(--main-color-white);
+  padding: 1.5rem;
+  margin: 1rem;
+  border: 1px solid var(--main-color-gray);
+  border-radius: 1rem;
+  width: 18%;
+}
+
+#optionBtn:hover {
+  transform: scale(1.1);
+}
+
+#optionBtn:focus {
+  outline: none;
+}
+
 #testMainBtnBox {
   display: flex;
   flex-direction: row;
@@ -85,6 +107,7 @@
   border-style: none;
   border-radius: 1rem;
   width: 15%;
+  margin: 50px;
 }
 
 #testMainBtnBox button:hover {

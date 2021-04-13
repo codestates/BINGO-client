@@ -4,9 +4,56 @@ export const initialState =
     isLogin: false,
     accessToken: "default",
   },
+  selectedOptions: [],
+  optionList: [
+    {
+      name: '아동',
+      color: 'white',
+    },
+    {
+      name: '장애인',
+      color: 'white',
+    },
+    {
+      name: '여성',
+      color: 'white',
+    },
+    {
+      name: '성소수자',
+      color: 'white',
+    },
+    {
+      name: '동물',
+      color: 'white',
+    },
+    {
+      name: '환경',
+      color: 'white',
+    },
+    {
+      name: '어르신',
+      color: 'white',
+    },
+    {
+      name: '청소년/교육',
+      color: 'white',
+    },
+    {
+      name: '의료/보건',
+      color: 'white',
+    },
+    {
+      name: '가족',
+      color: 'white',
+    },
+    {
+      name: '다문화',
+      color: 'white',
+    },
+  ],
   testList: [
     {
-      question: 'Q1. 나는 길고양이나 유기견을 보면 마음이 아프다',
+      question: '다음 중 관심있는 사회 이슈를 골라주세요 (최대 3개 항목 선택 가능)',
       left: 50,
       opacity: 1,
     },
