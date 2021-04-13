@@ -1,5 +1,15 @@
 export const initialState =
 {
+  userInfo: {
+    id: 0,
+    username: "",
+    profileImage: "",
+    level: "",
+    googleId: "",
+    kakaoId: "",
+    accessToken: "",
+  },
+  ngoList: [],
   loginInfo:{
     isLogin: false,
     accessToken: "default",
