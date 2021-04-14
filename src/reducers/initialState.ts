@@ -14,6 +14,12 @@ export const initialState =
     isLogin: false,
     accessToken: "default",
   },
+  payModalInfo: {
+    modalDisplay: false,
+  },
+  payMessageInfo: {
+    messageDisplay: true,
+  },
   selectedOptions: [],
   optionList: [
     {

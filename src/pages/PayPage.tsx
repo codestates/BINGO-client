@@ -3,12 +3,16 @@ import "./css/PayPage.css";
 import React, { useState } from 'react';
 import RLDD from 'react-list-drag-and-drop/lib/RLDD';
 import PayPageModal from "../components/PayPageModal"
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../reducers";
+import { showPayModal } from "../action"
 
 interface Item {
   id: number;
   title: string;
   body: number;
   color: string;
+  type: string;
 }
 
 export interface ExampleState {
@@ -17,20 +21,41 @@ export interface ExampleState {
 
 function PayPage() {
 
-  const [state, setState] = useState({
+  const state = useSelector((state: RootState) => state.payReducer);
+  const dispatch = useDispatch();
+
+  const [data, setData] = useState({
     tasks:
     [
-      {id: 0, title:"기아대책", body: 5000, color: "beige"}, 
-      {id: 1, title:"세이브더칠드런", body: 15000, color: "beige"}, 
-      {id: 2, title:"유니세프", body: 20000, color: "beige"},
+      {id: 0, title:"기아대책", body: 5000, color: "beige", type:"one"}, 
+      {id: 1, title:"세이브더칠드런.............", body: 15000, color: "beige", type:"subscribe"}, 
+      {id: 2, title:"유니세프", body: 20000, color: "beige", type:"subscribe"},
     ]
   });
 
-  const [display, setDisplay] = useState(true);
+  const handleMouseDown = (id:number, e: any) => {
+    console.log(document.querySelectorAll(".payBoxContent")[id]);
+    const box = document.querySelectorAll(".payBoxContent")[id];
+    console.log(e.pageX, e.pageY);
+
+    let shiftX = e.clientX - box.getBoundingClientRect().left;
+    let shiftY = e.clientY - box.getBoundingClientRect().top;
+
+    console.log(shiftX, shiftY);
+
+    const moveAt = (pageX:number, pageY:number) => {
+    }
+    // const onMouseMove = () => {
+    // }
+  }
+
+  const handleMouseMove = (e: any) => {
+    console.log(e.pageX, e.pageY);
+  }
 
   const itemRenderer = (item:Item, index:number): JSX.Element => {
     return (
-      <div className="payBoxContent shadow">
+      <div className="payBoxContent shadow" onMouseDown={(e)=>handleMouseDown(item.id, e)} onMouseMove={handleMouseMove}>
         <div className="payBoxContentImg"></div>
       <div draggable className="payBoxContentTitle" style={{background: item.color}}>
         <p>N G O : {item.title}</p>
@@ -47,11 +72,11 @@ function PayPage() {
   }
 
   const handleRLDDChange = (reorderedItems: Array<Item>) => {
-    setState({ tasks: reorderedItems})
+    setData({ tasks: reorderedItems})
   }
 
   const handleClickPayBtn = () => {
-    setDisplay(false);
+    dispatch(showPayModal(true));
   }
 
   const handleLogoClick = () => {
@@ -62,33 +87,18 @@ function PayPage() {
   }
   return (
   <div id="payPageContainer">
+    <PayPageModal />
     <div id="payNavPart">
       <div className="navLogo" onClick={handleLogoClick}>B I N G O</div>
       <div className="navMyPage shadow" onClick={handleMyPageClick}>mypage</div>
     </div>
     <div id="payListPart">
-      {display ? (
+      {state.payMessageInfo.messageDisplay ? (
         <div className="payListEntryPart shadow">
         <div className="payBoxTitle">정기후원하기</div>
         <div className="payBoxContentBox">
           <RLDD
-            items ={state.tasks}
-            itemRenderer={itemRenderer}
-            onChange={handleRLDDChange}
-          />
-        </div>
-        <div className="payBoxPayBtnBox">
-          <div>총후원금: 40000 ₩</div>
-          <button className="payBoxPayBtn">결제하기</button>
-        </div>
-      </div>
-      ) : null}
-      {display ? (
-        <div className="payListEntryPart shadow">
-        <div className="payBoxTitle">정기후원하기</div>
-        <div className="payBoxContentBox">
-          <RLDD
-            items ={state.tasks}
+            items ={data.tasks}
             itemRenderer={itemRenderer}
             onChange={handleRLDDChange}
           />
@@ -99,12 +109,29 @@ function PayPage() {
         </div>
       </div>
       ) : null}
-      {display ? 
+      {state.payMessageInfo.messageDisplay ? (
+        <div className="payListEntryPart shadow">
+        <div className="payBoxTitle">일시후원하기</div>
+        <div className="payBoxContentBox">
+          <RLDD
+            items ={data.tasks}
+            itemRenderer={itemRenderer}
+            onChange={handleRLDDChange}
+          />
+        </div>
+        <div className="payBoxPayBtnBox">
+          <div>총후원금: 40000 ₩</div>
+          <button className="payBoxPayBtn" onClick={handleClickPayBtn}>결제하기</button>
+        </div>
+      </div>
+      ) : null}
+      {state.payMessageInfo.messageDisplay ? 
         null : 
         (<div className="payListEntryPart shadow">
-        <div className="payBoxTitle">응원메세지 남기기</div>
+        <div className="payBoxTitle">응원메세지</div>
+        <div id="payBoxSubTitle">각 단체의 힘이 되는 따뜻한 말을 남겨주세요</div>
         <div id="payBoxPostMessageBox">
-          {state.tasks.map((item) => {
+          {data.tasks.map((item) => {
             return(
             <div key ={item.id} className="payPagePostMessage shadow">
               <div className="payBoxPostMessageImg"></div>
