@@ -1,54 +1,73 @@
 export const initialState =
 {
+  userInfo: {
+    id: 0,
+    username: "",
+    profileImage: "",
+    level: "",
+    googleId: "",
+    kakaoId: "",
+    accessToken: "",
+  },
+  ngoList: [],
   loginInfo:{
     isLogin: false,
     accessToken: "default",
   },
+  payModalInfo: {
+    modalDisplay: false,
+  },
+  payMessageInfo: {
+    messageDisplay: true,
+  },
   selectedOptions: [],
+  listInfo: {
+    data: [{ logo: "", title: "", description: "" }],
+  },
   optionList: [
     {
-      name: '아동',
-      color: 'white',
+      name: "아동",
+      color: "white",
     },
     {
-      name: '장애인',
-      color: 'white',
+      name: "장애인",
+      color: "white",
     },
     {
-      name: '여성',
-      color: 'white',
+      name: "여성",
+      color: "white",
     },
     {
-      name: '성소수자',
-      color: 'white',
+      name: "성소수자",
+      color: "white",
     },
     {
-      name: '동물',
-      color: 'white',
+      name: "동물",
+      color: "white",
     },
     {
-      name: '환경',
-      color: 'white',
+      name: "환경",
+      color: "white",
     },
     {
-      name: '어르신',
-      color: 'white',
+      name: "어르신",
+      color: "white",
     },
     {
-      name: '청소년/교육',
-      color: 'white',
+      name: "청소년/교육",
+      color: "white",
     },
     {
-      name: '의료/보건',
-      color: 'white',
+      name: "의료/보건",
+      color: "white",
     },
     {
-      name: '가족',
-      color: 'white',
+      name: "가족",
+      color: "white",
     },
     {
-      name: '다문화',
-      color: 'white',
+      name: "다문화",
+      color: "white",
     },
   ],
   testList: [
@@ -108,5 +127,5 @@ export const initialState =
       name: '신생',
       value: 0
     },
-  ]
-}
+  ],
+};
