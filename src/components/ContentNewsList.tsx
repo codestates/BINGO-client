@@ -1,5 +1,6 @@
 import "./css/ContentNewsList.css"
 import ContentNewsListEntry from "./ContentNewsListEntry"
+import axios from "axios";
 
 function ContentNewsList() {
   
@@ -21,17 +22,24 @@ function ContentNewsList() {
 
   let newsData: [NewsData];
 
-  fetch("https://openapi.naver.com/v1/search/news.json?query=보아&display=2", {
-    method: 'GET',
-    headers: {
+
+  axios.get("https://openapi.naver.com/v1/search/news.json?query=초록우산&display=2", {
+    headers:{
       'X-Naver-Client-Id' : "",
       'X-Naver-Client-Secret': "",
     }
   })
+  // fetch("https://openapi.naver.com/v1/search/news.json?query=보아&display=2", {
+  //   method: 'GET',
+  //   headers: {
+  //     'X-Naver-Client-Id' : "HqssrkcezIYM9NmnWQHs",
+  //     'X-Naver-Client-Secret': "2UMTPrP4Ua",
+  //   }
+  // })
   .then((res) => {
     console.log("결과!")
   })
-  .catch((err) => console.log("에러"))
+  .catch((err) => console.log(err))
 
   return (
     <div id="contentNewsListContainer">

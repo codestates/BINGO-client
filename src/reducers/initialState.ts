@@ -1,7 +1,24 @@
-export const initialState = {
-  loginInfo: {
+export const initialState =
+{
+  userInfo: {
+    id: 0,
+    username: "",
+    profileImage: "",
+    level: "",
+    googleId: "",
+    kakaoId: "",
+    accessToken: "",
+  },
+  ngoList: [],
+  loginInfo:{
     isLogin: false,
     accessToken: "default",
+  },
+  payModalInfo: {
+    modalDisplay: false,
+  },
+  payMessageInfo: {
+    messageDisplay: true,
   },
   selectedOptions: [],
   listInfo: {
