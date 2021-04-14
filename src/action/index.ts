@@ -24,18 +24,18 @@ export const changeOptionColor = (index: number, color: string) => {
     payload: {
       index,
       color,
-    }
-  }
-}
+    },
+  };
+};
 
 export const pushOption = (array: Array<number>) => {
   return {
     type: PUSH_OPTION,
     payload: {
       array,
-    }
-  }
-}
+    },
+  };
+};
 
 export const animateCard = (index: number) => {
   return {
@@ -46,10 +46,11 @@ export const animateCard = (index: number) => {
   };
 };
 
-export const showList = (id: string) => {
+export const showList = (data: Object) => {
   return {
+    type: SHOW_LIST,
     payload: {
-      id,
+      data,
     },
   };
 };
