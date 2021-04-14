@@ -1,3 +1,7 @@
+body {
+  background-color: var(--main-color-green);
+}
+
 #payPageContainer {
   width: 100vw;
   height: 100vh;
@@ -18,7 +22,7 @@
 #payListPart {
   display: flex;
   flex-direction: column;
-  margin-top: 7.5rem;
+  margin-top: 5.5rem;
   align-items: center;
   width: 1024px;
   margin-left: auto;
@@ -112,6 +116,11 @@
   color: var(--main-color-beige);
 }
 
+#payBoxSubTitle {
+  font-size: 0.9rem;
+  margin-left: 1.2rem;
+}
+
 #payBoxPostMessageBox {
   display: flex;
   flex-direction: column;
@@ -141,7 +150,7 @@
 }
 
 .payPagePostMessage > input {
-  width: 70%;
+  width: 60%;
   height: 2.2rem;
   font-size: 1.4rem;
   margin-left: auto;
@@ -158,6 +167,11 @@
   }
 
   .payBoxTitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #payBoxSubTitle {
     margin-left: auto;
     margin-right: auto;
   }
@@ -206,24 +220,42 @@
   }
 
   .payBoxContent {
-    height: 20rem;
+    width: 60%;
+    height: 18.3rem;
     flex-direction: column;
   }
 
-  .payBoxContent > * {
-    margin: 1rem;
+  .payBoxContentDelete {
+    margin-bottom: 2rem;
+    width: 30%;
   }
 
   .payBoxContentImg {
     width: 60px;
     height: 60px;
+    margin-top: 2rem;
   }
 
   .payBoxContentTitle {
     flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .payBoxContentTitle > p {
+    font-size: 1.3rem;
   }
 
   .payBoxContentTitle > div {
     text-align: center;
+  }
+
+  .payBoxPayBtnBox {
+    flex-direction: column;
+  }
+
+  .payPagePostMessage {
+    width: 60%;
   }
 }

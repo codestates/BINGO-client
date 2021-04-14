@@ -4,6 +4,8 @@ export const PUSH_OPTION = "PUSH_OPTION";
 export const CHANGE_OPTION_COLOR = "CHANGE_OPTION_COLOR";
 export const ANIMATE_TEST = "ANIMATE_TEST";
 export const SHOW_LIST = "SHOW_LIST";
+export const SHOWMODAL_PAY = "SHOWMODAL_PAY";
+export const SHOWMESSAGE_PAY = "SHOWMESSAGE_PAY";
 
 // actions creator functions
 export const doLogin = (accessToken: string) => {
@@ -51,3 +53,21 @@ export const showList = (id: string) => {
     },
   };
 };
+
+export const showPayModal = (modalDisplay: boolean) => {
+  return {
+    type: SHOWMODAL_PAY,
+    payload: {
+      modalDisplay,
+    }
+  }
+}
+
+export const showPostMessage = (messageDisplay: boolean) => {
+  return {
+    type: SHOWMESSAGE_PAY,
+    payload: {
+      messageDisplay,
+    }
+  }
+}
