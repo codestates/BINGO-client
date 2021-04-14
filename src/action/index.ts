@@ -2,6 +2,7 @@
 export const DO_LOGIN = "DO_LOGIN";
 export const PUSH_OPTION = "PUSH_OPTION";
 export const CHANGE_OPTION_COLOR = "CHANGE_OPTION_COLOR";
+export const CHANGE_TEST_VALUE = "CHANGE_OPTION_VALUE";
 export const ANIMATE_TEST = "ANIMATE_TEST";
 export const SHOW_LIST = "SHOW_LIST";
 export const SHOWMODAL_PAY = "SHOWMODAL_PAY";
@@ -17,6 +18,16 @@ export const doLogin = (accessToken: string) => {
     },
   };
 };
+
+export const changeTestValue = (index: number, value: number) => {
+  return {
+    type: CHANGE_TEST_VALUE,
+    payload: {
+      index,
+      value,
+    }
+  }
+}
 
 export const changeOptionColor = (index: number, color: string) => {
   return {
