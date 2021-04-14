@@ -23,21 +23,9 @@ function ContentNewsList() {
   let newsData: [NewsData];
 
 
-  axios.get("https://openapi.naver.com/v1/search/news.json?query=초록우산&display=2", {
-    headers:{
-      'X-Naver-Client-Id' : "",
-      'X-Naver-Client-Secret': "",
-    }
-  })
-  // fetch("https://openapi.naver.com/v1/search/news.json?query=보아&display=2", {
-  //   method: 'GET',
-  //   headers: {
-  //     'X-Naver-Client-Id' : "HqssrkcezIYM9NmnWQHs",
-  //     'X-Naver-Client-Secret': "2UMTPrP4Ua",
-  //   }
-  // })
+  axios.get("http://localhost:5000/contentpage/10")
   .then((res) => {
-    console.log("결과!")
+    console.log(res.data)
   })
   .catch((err) => console.log(err))
 

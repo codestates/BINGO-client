@@ -18,10 +18,12 @@ function MyPage() {
   <div id="myPageContainer">
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
-        <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick}>페이페이지</div>
+          <div>
+            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick}>페이페이지</div>
+            <div id="myPageLogoutBtn" className="shadow" onClick={handlePayPageClick}>로그아웃</div>
+          </div>
       </div>
     <div id="myPageCoverPart">
-      <button>로그아웃</button>
     </div>
     <div id="myPageMainPart">
       <div id="myPageUserInfo">
