@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import * as d3 from 'd3';
+import "./css/MyMonthlyDonationGraph.css";
     
 function MyMonthlyDonationGraph(){
   useEffect(() => {
-    const width = 1000;
+    const width = 950;
     const height = 500;
     const margin = {top: 40, left: 40, bottom: 40, right: 40};
     
@@ -13,18 +14,18 @@ function MyMonthlyDonationGraph(){
     }
 
     const data = [
-        {name: '1월', value: 10},
-        {name: '2월', value: 29},
-        {name: '3월', value: 32},
-        {name: '4월', value: 25},
-        {name: '5월', value: 23},
-        {name: '6월', value: 15},
-        {name: '7월', value: 15},
-        {name: '8월', value: 15},
-        {name: '9월', value: 15},
-        {name: '10월', value: 15},
-        {name: '11월', value: 15},
-        {name: '12월', value: 15},
+        {name: '1월', value: 30},
+        {name: '2월', value: 60},
+        {name: '3월', value: 50},
+        {name: '4월', value: 10},
+        {name: '5월', value: 0},
+        {name: '6월', value: 0},
+        {name: '7월', value: 0},
+        {name: '8월', value: 0},
+        {name: '9월', value: 0},
+        {name: '10월', value: 0},
+        {name: '11월', value: 0},
+        {name: '12월', value: 0},
       ];
     
     const x = d3.scaleBand()
@@ -59,7 +60,7 @@ function MyMonthlyDonationGraph(){
     svg.append('g').call(xAxis);
     svg.append('g').call(yAxis);
     svg.append('g')
-      .attr('fill', 'steelblue')
+      .attr('fill', 'var(--main-color-green)')
       .selectAll('rect')
       .data(data)
       .enter()
@@ -76,9 +77,9 @@ function MyMonthlyDonationGraph(){
 
   return (
     <div id="myMonthlyDonationGraphContainer">
-      <div className="myPageTitle">월별 후원 그래프</div>
-      <div id="myMonthlyDonationGraph">
-      </div>
+      <div className="myPageTitle">2021 후원 그래프</div>
+      <div className="myPageSubTitle">2021년 월별 후원 금액을 살펴보실 수 있습니다.</div>
+      <div id="myMonthlyDonationGraph"></div>
     </div>
   )
 }

@@ -1,19 +1,45 @@
 #myRegularDonationListEntryContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   margin: 1rem 1rem;
-  border: 1px solid var(--main-color-gray);
   border-radius: 1rem;
+  background-color: white;
+  height: 3.5rem;
 }
-
-#myRegularDonationListLeft {
-  margin-left: 2rem;
+#myRegularDonationListEntryContainer button {
+  background-color: rgba(245, 153, 125, 0.55);
+  border-radius: 0 1rem 1rem 0;
+  padding: 0 1.25rem;
+  border-left: 0.5px solid #66666681;
+  width: 15%;
 }
-
-#myRegularDonationListRight {
+#myRegularDonationListEntryContainer button:hover {
+  background-color: rgba(245, 153, 125);
+}
+#myRegularDonationListEntryContainer div {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+#myRegularDonationNGO {
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-left: 3.5rem;
+}
+#myRegularDonationPrice {
+  font-size: 1.125rem;
+  margin-left: 50%;
+}
+@media (max-width: 1024px) {
+  #myRegularDonationListContainer {
+    width: 80%;
+    margin: 0 auto;
+  }
+  #myRegularDonationListEntryContainer button {
+    font-size: 0.825rem;
+  }
+}
+@media (max-width: 768px) {
 }

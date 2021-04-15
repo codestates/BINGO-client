@@ -12,8 +12,8 @@ function MyAllDonationGraph(){
   }
 
   useEffect(() => {
-    const width = 500;
-    const height = 500;
+    const width = 400;
+    const height = 400;
     const data = [
       {name: 'A', value: 1000, color: '#efa86b'},
       {name: 'B', value: 1500, color: '#c1484f'},
@@ -25,7 +25,7 @@ function MyAllDonationGraph(){
       {name: 'H', value: 600, color: '#f8d690'}
     ];
     
-    const arc = d3.arc<PieArcDatum<MyData>>().innerRadius(100).outerRadius(Math.min(width, height) / 2);
+    const arc = d3.arc<PieArcDatum<MyData>>().innerRadius(75).outerRadius(Math.min(width, height) / 2);
     // .arc() 새로운 기본값의 아치(호) 생성
     // .innerRadius() 안쪽 반지름 값, 0이면 완전한 원이되고 값이 있으면 도넛 형태가 됩니다.
     // .outerRadius() 바깥쪽 반지름값
@@ -95,6 +95,7 @@ function MyAllDonationGraph(){
   return (
   <div id="myAllDonationGraphContainer">
     <div className="myPageTitle">후원 그래프</div>
+    <div className="myPageSubTitle">김빙고님의 총 후원내역을 단체별로 한눈에 살펴볼 수 있습니다.</div>
     <div id="myAllDonationGraph">
     </div>
   </div>

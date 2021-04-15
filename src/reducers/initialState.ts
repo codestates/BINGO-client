@@ -8,6 +8,7 @@ export const initialState =
     googleId: "",
     kakaoId: "",
     accessToken: "",
+    likeNgo: [],
   },
   ngoList: [],
   loginInfo:{
@@ -24,6 +25,8 @@ export const initialState =
   listInfo: {
     data: [{ logo: "", title: "", description: "" }],
   },
+  currentNgoId: 1,
+  currentNewsList: {newsList: [{description: "", link: "", originallink: "", title: "", pubDate: ""}]},
   optionList: [
     {
       name: "아동",

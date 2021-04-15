@@ -1,17 +1,27 @@
+#myRegularDonationListContainer * {
+  /* border: 1px solid black; */
+}
 #myRegularDonationListContainer {
   margin: 2rem;
-  width: 1024px;
+  width: 1000px;
 }
-
 #regularDonationBox {
   background-color: var(--main-color-white);
   padding: 1rem;
   border-radius: 1rem;
 }
-
 .myPageTitle {
   font-size: 1.325rem;
   font-weight: 500;
   padding: 1rem;
   color: var(--main-color-gray);
+}
+@media (max-width: 1024px) {
+  #myRegularDonationListContainer {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
 }
