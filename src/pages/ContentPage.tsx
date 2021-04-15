@@ -8,12 +8,15 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../reducers';
 import { showNewsContent } from '../action';
+import { Motion, spring } from 'react-motion';
 
 function ContentPage() {
   const dispatch = useDispatch();
   const [ngoInfo, setNgoInfo] = useState({data: {name: "", description: "", link: "", logo: "", ngocategorys: [], since: "", video: ""}, newsList: []});
   const state = useSelector((state: RootState) => state.contentReducer);
   const { currentNgoId } = state;
+  const [top, setTop] = useState(150);
+  const [opacity, setOpacity] = useState(0);
 
   const handleLogoClick = () => {
     window.location.href = "./guide.html"
@@ -27,6 +30,9 @@ function ContentPage() {
   }
 
   useEffect(() => {
+    setTop(0);
+    setOpacity(1);
+    
     axios.get(`http://localhost:5000/contentpage/${currentNgoId}`)
     .then((res) => {
       console.log(res.data);
@@ -61,8 +67,12 @@ function ContentPage() {
             <button className="shadow">후원하기</button>
           </div>
         </div>
-        <div id="contentMainBottom">
-          <div id="videoAndDescription">
+        
+        <div id="contentMainBottom" >
+        <Motion style={{ top: spring(top), opacity: spring(opacity) }}>
+        {
+          ({ top, opacity }) => 
+          <div id="videoAndDescription" style={Object.assign({}, {  }, { top, opacity } )}>
             <div id="contentDescription">
               <div className="contentBoxTitle">{`${ngoInfo.data.name}는?`}</div>
               <div className="contentBoxSubTitle">{`사회단체 ${ngoInfo.data.name}를 소개합니다.`}</div>
@@ -75,10 +85,13 @@ function ContentPage() {
               <div className="contentBoxSubTitle">영상의 타이틀을 클릭하면 유튜브로 이동하실 수 있습니다.</div>
               <iframe id="videoBox" className="shadow" src={ngoInfo.data.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
-            </div>
+          </div>
+          }
+          </Motion>
           <ContentNewsList ngoName={ngoInfo.data.name}/>
           <ContentMessageList />
         </div>
+        
       </div>
     </div>
   )
