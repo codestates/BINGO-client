@@ -10,7 +10,11 @@ interface ContentNewsListProps {
   ngoName: string
 }
 
-function ContentNewsList() {
+function ContentNewsList(props: ContentNewsListProps ) {
+  const state = useSelector((state: RootState) => state.contentReducer);
+  const { currentNewsList } = state;
+  console.log(currentNewsList);
+
   const [top, setTop] = useState(150);
   const [opacity, setOpacity] = useState(0);
 
@@ -24,14 +28,7 @@ function ContentNewsList() {
     }
   });
 
-function ContentNewsList(props: ContentNewsListProps ) {
-  const state = useSelector((state: RootState) => state.contentReducer);
-  const { currentNewsList } = state;
-  console.log(currentNewsList);
-
   return (
-    <div id="contentNewsListContainer">
-      <div className="contentBoxTitle">{`${props.ngoName} 관련 뉴스`}</div>
     <Motion style={{ top: spring(top), opacity: spring(opacity) }}>
     {
       ({ top, opacity }) => 
@@ -53,4 +50,3 @@ function ContentNewsList(props: ContentNewsListProps ) {
 }
 
 export default ContentNewsList
-
