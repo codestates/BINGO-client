@@ -7,6 +7,8 @@ export const ANIMATE_TEST = "ANIMATE_TEST";
 export const SHOW_LIST = "SHOW_LIST";
 export const SHOWMODAL_PAY = "SHOWMODAL_PAY";
 export const SHOWMESSAGE_PAY = "SHOWMESSAGE_PAY";
+export const SHOW_CONTENT = "SHOW_CONTENT"
+export const SHOW_NEWS_CONTENT = "SHOW_NEWS_CONTENT"
 
 // actions creator functions
 export const doLogin = (accessToken: string) => {
@@ -80,6 +82,24 @@ export const showPostMessage = (messageDisplay: boolean) => {
     type: SHOWMESSAGE_PAY,
     payload: {
       messageDisplay,
+    }
+  }
+}
+
+export const showContent = (ngoId: number) => {
+  return {
+    type: SHOW_CONTENT,
+    payload: {
+      ngoId,
+    }
+  }
+}
+
+export const showNewsContent = (newsList: Array<Object>) => {
+  return {
+    type: SHOW_NEWS_CONTENT,
+    payload: {
+      newsList,
     }
   }
 }
