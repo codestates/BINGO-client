@@ -169,7 +169,7 @@ function TestPage() {
               </div>
             </div>
             }
-      </Motion>
+          </Motion>
           } else {
             return <Motion key={i} style={{ left: spring(test.left), opacity: spring(test.opacity) }}>
             {
