@@ -33,29 +33,60 @@ function PayPage() {
     ]
   });
 
+  const [data2, setData2] = useState({
+    tasks:
+    [
+      {id: 0, title:"옥스팜", body: 5000, color: "beige", type:"one"}, 
+      {id: 1, title:"굿네이버스", body: 15000, color: "beige", type:"subscribe"}, 
+      {id: 2, title:"함께하는사랑밭", body: 20000, color: "beige", type:"subscribe"},
+    ]
+  })
+
+  let left: string;
+  const [top, setTop] = useState(0);
+
   const handleMouseDown = (id:number, e: any) => {
     console.log(document.querySelectorAll(".payBoxContent")[id]);
     const box = document.querySelectorAll(".payBoxContent")[id];
     console.log(e.pageX, e.pageY);
+    setTop(e.pageY); //클릭했을때 위치
 
-    let shiftX = e.clientX - box.getBoundingClientRect().left;
-    let shiftY = e.clientY - box.getBoundingClientRect().top;
-
-    console.log(shiftX, shiftY);
-
-    const moveAt = (pageX:number, pageY:number) => {
-    }
-    // const onMouseMove = () => {
-    // }
+    // let shiftX = e.clientX - box.getBoundingClientRect().left;
+    // let shiftY = e.clientY - box.getBoundingClientRect().top;
+    // moveAt(e.pageX, e.pageY);
   }
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseUp = (e: any) => {
+    // console.log(document.querySelectorAll(".payBoxContent")[id]);
+    const box = document.querySelector("#payListPart");
     console.log(e.pageX, e.pageY);
+    console.log(box?.clientWidth, box?.clientHeight);
+    if(e.pageY > 660 && top < 660) { // 일시후원에서 마우스를 땔때
+      setData2({
+        tasks:
+        [
+          {id: 0, title:"옥스팜", body: 5000, color: "beige", type:"one"}, 
+          {id: 1, title:"굿네이버스", body: 15000, color: "beige", type:"subscribe"}, 
+          {id: 2, title:"함께하는사랑밭", body: 20000, color: "beige", type:"subscribe"},
+          {id: 3, title:"함께하는사랑밭", body: 20000, color: "beige", type:"subscribe"},
+        ]
+      })
+    } else if(e.pageY < 660 && top > 660){ //정기후원에서 마우스를 땔때
+      setData({
+        tasks:
+        [
+          {id: 0, title:"기아대책", body: 5000, color: "beige", type:"one"}, 
+          {id: 1, title:"세이브더칠드런.............", body: 15000, color: "beige", type:"subscribe"}, 
+          {id: 2, title:"유니세프", body: 20000, color: "beige", type:"subscribe"},
+          {id: 3, title:"함께하는사랑밭", body: 20000, color: "beige", type:"subscribe"},
+        ]
+      })
+    }
   }
 
   const itemRenderer = (item:Item, index:number): JSX.Element => {
     return (
-      <div className="payBoxContent shadow" onMouseDown={(e)=>handleMouseDown(item.id, e)} onMouseMove={handleMouseMove}>
+      <div className="payBoxContent shadow" onMouseDown={(e)=>handleMouseDown(index, e)} onMouseUp={(e)=>handleMouseUp(e)} style={{left: left, top: top}}>
         <div className="payBoxContentImg"></div>
       <div draggable className="payBoxContentTitle" style={{background: item.color}}>
         <p>N G O : {item.title}</p>
@@ -73,6 +104,10 @@ function PayPage() {
 
   const handleRLDDChange = (reorderedItems: Array<Item>) => {
     setData({ tasks: reorderedItems})
+  }
+
+  const handleRLDDChange2 = (reorderedItems: Array<Item>) => {
+    setData2({ tasks: reorderedItems})
   }
 
   const handleClickPayBtn = () => {
@@ -114,9 +149,9 @@ function PayPage() {
         <div className="payBoxTitle">일시후원하기</div>
         <div className="payBoxContentBox">
           <RLDD
-            items ={data.tasks}
+            items ={data2.tasks}
             itemRenderer={itemRenderer}
-            onChange={handleRLDDChange}
+            onChange={handleRLDDChange2}
           />
         </div>
         <div className="payBoxPayBtnBox">
