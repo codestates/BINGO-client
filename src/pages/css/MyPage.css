@@ -3,7 +3,7 @@
 }
 
 #myPageNavPart {
-  height: 5rem;
+  height: 9rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,6 +12,8 @@
 }
 
 #myPageNavLogo {
+  position: relative;
+  top: -1.5rem;
   display: flex;
   align-items: center;
   font-size: 1.75rem;
@@ -27,7 +29,19 @@
   color: var(--main-color-gray);
   font-weight: 700;
   padding: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--main-color-white);
+}
+
+#myPageLogoutBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 0.75em;
   border-radius: 1rem 0 0 1rem;
   background-color: var(--main-color-white);
 }
@@ -38,7 +52,7 @@
     var(--main-color-green) 35%,
     var(--main-color-dark-green) 100%
   );
-  height: 12.5rem;
+  height: 10rem;
   padding-bottom: 170px;
   box-sizing: border-box;
   width: 100%;
@@ -80,4 +94,31 @@
 #myPageMainContentMiddle {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.myPageTitle {
+  color: var(--main-color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-left: 1rem;
+  margin-bottom: -0.5rem;
+  margin-top: 2rem;
+}
+
+.myPageSubTitle {
+  color: var(--main-color-light-gray);
+  font-size: 1rem;
+  font-weight: 300;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 1024px) {
+  #myPageMainContentMiddle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
 }

@@ -4,7 +4,7 @@
 
 #testPageContainer {
   background: var(--main-color-green);
-  height: 100vh;
+  height: 110vh;
 }
 
 #testNavPart {
@@ -40,6 +40,18 @@
 #testExtraPart {
   margin: 0 auto;
   max-width: 1024px;
+}
+
+#testMainPart1 {
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 47%;
+  width: 80%;
+  transform: translate(-50%, -50%);
 }
 
 #testMainPart {
@@ -81,7 +93,7 @@
   margin: 1rem;
   border: 1px solid var(--main-color-gray);
   border-radius: 1rem;
-  width: 18%;
+  width: 22%;
 }
 
 #optionBtn:hover {
@@ -130,24 +142,143 @@
 
 #testExtraSubmitBtn {
   font-size: 1.25rem;
-  color: var(--main-color-gray);
+  color: white;
   font-weight: 700;
   padding: 1rem;
-  margin-top: 0.5rem;
   border-radius: 1rem;
-  background-color: var(--main-color-white);
+  background-color: var(--main-color-beige);
+  width: 40%;
+  margin: 0 auto;
+  transition: all 2s;
+}
+
+#toastMessage {
   position: absolute;
-  top: 43.4%;
-  width: 150px;
+  font-size: 1.25rem;
+  text-align: center;
+  width: 60%;
+  top: 75%;
+  left: 50%;
+  font-weight: 500;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  background-color: #ddd;
+}
+
+#resultPart {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  width: 80%;
+  height: 60%;
+  margin: 5rem auto;
+  transition: all 2s;
+}
+
+#textResult {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  margin-top: 15%;
+}
+
+#resultPart > div {
+  padding: 1rem;
+  width: 50%;
+}
+
+#textPart {
+  border-right: 1px solid;
+}
+
+#textPartTitle,
+#ngoPartTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--main-color-beige);
+}
+
+#cardResult {
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-around;
+}
+
+#selectedCard {
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.25rem;
+  border-radius: 1rem;
+  background-color: var(--main-color-beige);
+}
+
+#imageDiv {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 20%;
+}
+
+#imageDiv img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#ngoName {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 5% 0;
+}
+
+#ngoDescription {
+  font-size: 1.25rem;
 }
 
 @media (max-width: 1054px) {
+  #testMainPart1,
   #testMainPart {
     width: 80%;
+  }
+
+  #textResult {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+
+  #selectedCard {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    background-color: var(--main-color-beige);
   }
 }
 
 @media (max-width: 768px) {
+  #testPageContainer {
+    background: var(--main-color-green);
+    min-height: 130vh;
+    height: 100%;
+  }
+
+  #testMainPart1 {
+    width: 90%;
+    height: 100%;
+    top: 55%;
+  }
+
   #testMainPart {
     width: 90%;
     height: 70%;
@@ -159,12 +290,53 @@
     margin-top: 40%;
   }
 
+  #optionBtn {
+    padding: 1rem;
+    margin: 1rem;
+    width: 40%;
+  }
+
+  #testMainBtnBox #testMainNextBtn {
+    width: auto;
+    margin-top: -65%;
+  }
+
   #testMainBtnBox button {
     width: auto;
     margin-top: auto;
   }
+
   #testExtraSubmitBtn {
-    width: 82%;
-    top: 60%;
+    width: 96%;
+    top: 120%;
+  }
+
+  #resultPart {
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #resultPart > div {
+    padding: 1rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #textPart {
+    border: none;
+  }
+
+  #imageDiv {
+    margin-top: 1%;
+  }
+}
+
+@media (max-width: 390px) {
+  #optionBtn {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 90%;
   }
 }

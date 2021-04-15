@@ -5,6 +5,11 @@
   justify-content: space-around;
 }
 
+#contentNewsListContainer {
+  position: relative;
+  transition: top 0.2s;
+}
+
 @media (max-width: 1024px) {
 }
 

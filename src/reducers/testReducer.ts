@@ -1,4 +1,4 @@
-import { ANIMATE_TEST, PUSH_OPTION, CHANGE_OPTION_COLOR } from "../action/index";
+import { ANIMATE_TEST, PUSH_OPTION, CHANGE_OPTION_COLOR, CHANGE_TEST_VALUE } from "../action/index";
 import { initialState } from "./initialState";
 
 const testReducer = (state = initialState, action: any) => {
@@ -6,6 +6,11 @@ const testReducer = (state = initialState, action: any) => {
     case PUSH_OPTION:
       return Object.assign({}, state, {
         selectedOptions: action.payload.array
+      });
+
+    case CHANGE_TEST_VALUE:
+      return Object.assign({}, state, {
+        testList: state.testList.map((el, i) => i === action.payload.index ? { ...el, value: action.payload.value } : el)
       });
 
     case CHANGE_OPTION_COLOR:
