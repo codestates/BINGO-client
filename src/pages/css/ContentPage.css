@@ -170,6 +170,8 @@ li {
   justify-content: space-between;
   margin-bottom: 4rem;
   height: 22.5rem;
+  position: relative;
+  transition: top 0.2s;
 }
 
 #contentDescription {
