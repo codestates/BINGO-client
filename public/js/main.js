@@ -12,11 +12,16 @@ loginBtn.addEventListener("click", handleLoginBtnClick);
 startBtn.addEventListener("click", handleStartBtnClick);
 
 const getAccessTokenGoogle = async (authorizationCode) => {
-  console.log("abc");
+  console.log(authorizationCode);
   await fetch("http://localhost:5000/googlelogin", {
-    method: "POST",
-    body: { authorizationCode },
     credentials: "include",
+    method: "POST",
+    body: JSON.stringify({
+      authorizationCode
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
   })
     .then((res) => {
       console.log(res);
@@ -27,8 +32,13 @@ const getAccessTokenKakao = async (authorizationCode) => {
   console.log("abc");
   await fetch("http://localhost:5000/kakaologin", {
     method: "POST",
-    body: { authorizationCode },
     credentials: "include",
+    body: JSON.stringify({
+      authorizationCode
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
   })
     .then((res) => {
       console.log(res);
