@@ -1,6 +1,5 @@
 import "./css/ContentNewsList.css"
 import ContentNewsListEntry from "./ContentNewsListEntry"
-import axios from "axios";
 import { useSelector } from 'react-redux';
 import { RootState } from '../reducers';
 import { useState } from 'react';
