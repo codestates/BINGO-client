@@ -8,7 +8,6 @@ function ContentMessageList() {
   const [opacity, setOpacity] = useState(0);
 
   document.addEventListener('scroll', function() {
-    console.log(document.documentElement.scrollTop)
     if (document.documentElement.scrollTop > 470) {
       setTop(0);
       setOpacity(1);
