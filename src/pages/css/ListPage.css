@@ -62,20 +62,25 @@
 }
 
 #listSearchCategory {
+  display: flex;
   padding-bottom: 1rem;
 }
 
-#listSearchCategory span {
+.listSearchTitle {
+  text-align: center;
   margin-right: 1rem;
   font-size: 1.125rem;
-  color: var(--main-color-light-green);
+  color: var(--main-color-beige);
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--main-color-white);
+  border-radius: 50%;
 }
 @media (max-width: 1024px) {
   #listNavPart {
     height: 5rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
     background-color: var(--main-color-green);
   }
