@@ -20,44 +20,49 @@ export interface ExampleState {
 }
 
 function PayPage() {
-
   const state = useSelector((state: RootState) => state.payReducer);
   const dispatch = useDispatch();
 
-  const [data, setData] = useState({
-    tasks:
+  const [data, setData] = useState(
     [
       {id: 0, title:"기아대책", body: 5000, color: "beige", type:"one"}, 
       {id: 1, title:"세이브더칠드런.............", body: 15000, color: "beige", type:"subscribe"}, 
       {id: 2, title:"유니세프", body: 20000, color: "beige", type:"subscribe"},
     ]
-  });
+  );
+  const [repeatData, setrepeatData] = useState(
+    [
+      {id: 3, title:"원래 정기데이터1", body: 5000, color: "beige", type:"one"}, 
+      {id: 4, title:"원래 정기데이터2", body: 15000, color: "beige", type:"subscribe"}, 
+      {id: 5, title:"원래 정기데이터3", body: 20000, color: "beige", type:"subscribe"},
+    ]
+  );
+  const [currentItem, setCurrentItem] = useState(-1);
 
-  const handleMouseDown = (id:number, e: any) => {
-    console.log(document.querySelectorAll(".payBoxContent")[id]);
-    const box = document.querySelectorAll(".payBoxContent")[id];
-    console.log(e.pageX, e.pageY);
-
-    let shiftX = e.clientX - box.getBoundingClientRect().left;
-    let shiftY = e.clientY - box.getBoundingClientRect().top;
-
-    console.log(shiftX, shiftY);
-
-    const moveAt = (pageX:number, pageY:number) => {
+  const dragAndDrop = (type: string) => {
+    console.log(type)
+    if (currentItem !== -1) {
+      if (type === 'once') {
+        const dataList = data.map(el => el.id);
+        if (dataList.includes(currentItem)) return;
+        setrepeatData(repeatData.filter(el => el.id !== currentItem))
+        const ingTask = repeatData.filter(el => el.id === currentItem)
+        setData([...data, ingTask[0]])
+      } else {
+        const dataList = repeatData.map(el => el.id);
+        if (dataList.includes(currentItem)) return;
+        setData(data.filter(el => el.id !== currentItem))
+        const ingTask = data.filter(el => el.id === currentItem)
+        setrepeatData([...repeatData, ingTask[0]])
+      }
     }
-    // const onMouseMove = () => {
-    // }
   }
 
-  const handleMouseMove = (e: any) => {
-    console.log(e.pageX, e.pageY);
-  }
-
-  const itemRenderer = (item:Item, index:number): JSX.Element => {
+  const itemRenderer = (item: any) => {
     return (
-      <div className="payBoxContent shadow" onMouseDown={(e)=>handleMouseDown(item.id, e)} onMouseMove={handleMouseMove}>
+      <div className="payBoxContent shadow" onMouseDown={()=>setCurrentItem(item.id)}>
         <div className="payBoxContentImg"></div>
-      <div draggable className="payBoxContentTitle" style={{background: item.color}}>
+      <div className="payBoxContentTitle" style={{background: item.color}}>
         <p>N G O : {item.title}</p>
         <div>
           {/* item.id: {item.id} - index: {index} */}
@@ -71,10 +76,6 @@ function PayPage() {
     )
   }
 
-  const handleRLDDChange = (reorderedItems: Array<Item>) => {
-    setData({ tasks: reorderedItems})
-  }
-
   const handleClickPayBtn = () => {
     dispatch(showPayModal(true));
   }
@@ -86,7 +87,7 @@ function PayPage() {
     window.location.href = "./mypage"
   }
   return (
-  <div id="payPageContainer">
+  <div id="payPageContainer" onMouseUp={()=>setCurrentItem(-1)}>
     <PayPageModal />
     <div id="payNavPart">
       <div className="navLogo" onClick={handleLogoClick}>B I N G O</div>
@@ -94,14 +95,12 @@ function PayPage() {
     </div>
     <div id="payListPart">
       {state.payMessageInfo.messageDisplay ? (
-        <div className="payListEntryPart shadow">
+        <div className="payListEntryPart shadow" onMouseUp={() => dragAndDrop('repeat')}>
         <div className="payBoxTitle">정기후원하기</div>
         <div className="payBoxContentBox">
-          <RLDD
-            items ={data.tasks}
-            itemRenderer={itemRenderer}
-            onChange={handleRLDDChange}
-          />
+          {
+            repeatData.map(el => itemRenderer(el))
+          }
         </div>
         <div className="payBoxPayBtnBox">
           <div>총후원금: 40000 ₩</div>
@@ -110,14 +109,12 @@ function PayPage() {
       </div>
       ) : null}
       {state.payMessageInfo.messageDisplay ? (
-        <div className="payListEntryPart shadow">
+        <div className="payListEntryPart shadow" onMouseUp={() => dragAndDrop('once')}>
         <div className="payBoxTitle">일시후원하기</div>
         <div className="payBoxContentBox">
-          <RLDD
-            items ={data.tasks}
-            itemRenderer={itemRenderer}
-            onChange={handleRLDDChange}
-          />
+          {
+            data.map(el => itemRenderer(el))
+          }
         </div>
         <div className="payBoxPayBtnBox">
           <div>총후원금: 40000 ₩</div>
@@ -131,7 +128,7 @@ function PayPage() {
         <div className="payBoxTitle">응원메세지</div>
         <div id="payBoxSubTitle">각 단체의 힘이 되는 따뜻한 말을 남겨주세요</div>
         <div id="payBoxPostMessageBox">
-          {data.tasks.map((item) => {
+          {data.map((item) => {
             return(
             <div key ={item.id} className="payPagePostMessage shadow">
               <div className="payBoxPostMessageImg"></div>
