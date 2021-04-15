@@ -3,7 +3,8 @@ import "./css/ContentNewsListEntry.css"
 interface Props {
   newsTitle: string,
   newsLink: string,
-  newsDesc: string
+  newsDesc: string,
+  key: string
 }
 
 function ContentNewsListEntry(props: Props) {
