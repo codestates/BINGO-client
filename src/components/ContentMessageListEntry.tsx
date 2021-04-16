@@ -1,13 +1,18 @@
 import "./css/ContentMessageListEntry.css"
 
-function ContentMessageListEntry() {
+interface ContentMessageProps {
+  user: {username: string, propfileImage: string},
+  message: string
+}
+
+function ContentMessageListEntry(props: ContentMessageProps) {
   return (
   <div id="contentMessageListEntryContainer" className="shadow">
     <div id="contentMessageImgAndName">
       <img src="https://i.imgur.com/FP3hraO.png" alt="profile_img" />
-      <div id="contentMessageName">김코딩</div>
+      <div id="contentMessageName">{props.user.username}</div>
     </div>
-    <p id="contentMessageMessage">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo atque magnam nam. Ex aspernatur odit ab numquam ad! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo atque magnam nam. Ex aspernatur odit ab numquam ad!</p>
+    <p id="contentMessageMessage">{props.message}</p>
   </div>
   )
 }

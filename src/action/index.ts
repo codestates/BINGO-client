@@ -7,9 +7,11 @@ export const ANIMATE_TEST = "ANIMATE_TEST";
 export const SHOW_LIST = "SHOW_LIST";
 export const SHOWMODAL_PAY = "SHOWMODAL_PAY";
 export const SHOWMESSAGE_PAY = "SHOWMESSAGE_PAY";
-export const SHOW_CONTENT = "SHOW_CONTENT";
-export const SHOW_NEWS_CONTENT = "SHOW_NEWS_CONTENT";
+export const SHOW_CONTENT = "SHOW_CONTENT"
+export const SHOW_NEWS_CONTENT = "SHOW_NEWS_CONTENT"
+export const SHOW_MESSAGE_CONTENT = "SHOW_MESSAGE_CONTENT"
 export const SHOWMODAL_CONTENT = "SHOWMODAL_CONTENT";
+
 
 // actions creator functions
 export const doLogin = (accessToken: string) => {
@@ -105,11 +107,22 @@ export const showNewsContent = (newsList: Array<Object>) => {
   }
 }
 
+
+export const showMessageContent = (messageList: Array<Object>) => {
+  return {
+    type: SHOW_MESSAGE_CONTENT,
+    payload: {
+      messageList,
+    }
+  }
+}
+
 export const showcontentModal = (modalDisplay: boolean) => {
   return {
     type: SHOWMODAL_CONTENT,
     payload: {
       modalDisplay,
+
     }
   }
 }

@@ -29,33 +29,25 @@ li {
 }
 
 #contentHeaderImgContainer ul {
-  width: calc(100% * 4);
+  width: calc(100% * 3);
   display: flex;
-  animation: slide 60s infinite;
+  animation: slide 10s infinite;
 }
 
 #contentHeaderImgContainer li {
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   height: 300px;
 }
 
 #contentHeaderImgContainer li:nth-child(1) {
-  background-image: url("https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F");
   background-position: center;
   background-size: cover;
 }
 #contentHeaderImgContainer li:nth-child(2) {
-  background-image: url("https://www.sejong.go.kr/images/welfare/sub04/children_1.jpg");
   background-position: center;
   background-size: cover;
 }
 #contentHeaderImgContainer li:nth-child(3) {
-  background-image: url("https://blog.kakaocdn.net/dn/czHiGp/btqDJfS6avh/U65P3U5Jt370Dme1h8pz01/img.jpg");
-  background-position: center;
-  background-size: cover;
-}
-#contentHeaderImgContainer li:nth-child(4) {
-  background-image: url("http://pds.medicaltimes.com/NewsPhoto/202001/1131536_1.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -63,30 +55,24 @@ li {
 @keyframes slide {
   0% {
     margin-left: 0;
-  } /* 0 ~ 10  : 정지 */
+  }
   20% {
     margin-left: 0;
-  } /* 10 ~ 25 : 변이 */
-  25% {
+  }
+  33% {
     margin-left: -100%;
-  } /* 25 ~ 35 : 정지 */
+  }
   45% {
     margin-left: -100%;
-  } /* 35 ~ 50 : 변이 */
-  50% {
+  }
+  66% {
     margin-left: -200%;
   }
   70% {
     margin-left: -200%;
   }
-  75% {
-    margin-left: -300%;
-  }
-  95% {
-    margin-left: -300%;
-  }
   100% {
-    margin-left: 0;
+    margin-left: 0%;
   }
 }
 
@@ -124,7 +110,6 @@ li {
 
 #contentMainPart {
   position: relative;
-  z-index: 30;
 }
 
 #contentMainTop {
