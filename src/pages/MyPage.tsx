@@ -5,8 +5,16 @@ import MyCitizenInfo from "../components/MyCitizenInfo"
 import MyAllDonationGraph from "../components/MyAllDonationGraph"
 import MyMonthlyDonationGraph from "../components/MyMonthlyDonationGraph"
 import Footer from "../components/Footer"
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../reducers';
+import { showMypage } from "../action"
+import axios from 'axios';
 
 function MyPage() {
+  const state = useSelector((state: RootState) => state.loginReducer);
+  const { userInfo, mypageInfo } = state;
+  const dispatch = useDispatch();
 
   const handleLogoClick = () => {
     window.location.href = "./guide.html"
@@ -14,6 +22,16 @@ function MyPage() {
   const handlePayPageClick = () => {
     window.location.href = "./pay"
   }
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/mypage?user_id=${userInfo.id}`)
+    .then((res) => {
+      dispatch(showMypage(res.data));
+      return res.data
+    })
+    .then(res => console.log(mypageInfo))
+  })
+
   return (
   <div id="myPageContainer">
       <div id="myPageNavPart">
@@ -40,6 +58,7 @@ function MyPage() {
         <MyMonthlyDonationGraph />
       </div>
     </div>
+    <Footer />
   </div>
   )
 }

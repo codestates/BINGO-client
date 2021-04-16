@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
 import "./css/MyCitizenInfo.css";
+import axios from 'axios';
+
+const data = ["동물권행동 카라", "강아지", "고양이", "유기견", "참여형 후원", "반려동물", "동물", "진돗개", "닥스훈트"]
 
 function MyCitizenInfo(){
   useEffect(()=> {
-    const data = ["동물권행동 카라", "강아지", "고양이", "유기견", "참여형 후원", "반려동물", "동물", "진돗개", "닥스훈트"]
-
     let layout = cloud()
     .words(data.map(function(d) {
       return {text: d, size: 10 + Math.random() * 90};
