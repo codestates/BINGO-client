@@ -100,6 +100,10 @@ function ContentPage() {
       setNgoInfo(res.data);
       dispatch(showNewsContent(res.data.newsList));
       dispatch(showMessageContent(res.data.messageList));
+      return res.data.data.ngocategorys
+    })
+    .then(res => {
+      pickImages(res);
     })
     .catch(err => console.log(err));
     }, [])
@@ -157,7 +161,7 @@ function ContentPage() {
           <ContentNewsList ngoName={ngoInfo.data.name}/>
           <ContentMessageList ngoName={ngoInfo.data.name}/>
         </div>
-        
+        <Footer />
       </div>
     </div>
   )
