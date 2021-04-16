@@ -5,7 +5,7 @@ import MyCitizenInfo from "../components/MyCitizenInfo"
 import MyAllDonationGraph from "../components/MyAllDonationGraph"
 import MyMonthlyDonationGraph from "../components/MyMonthlyDonationGraph"
 import Footer from "../components/Footer"
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../reducers';
 import { showMypage } from "../action"
@@ -15,6 +15,7 @@ function MyPage() {
   const state = useSelector((state: RootState) => state.loginReducer);
   const { userInfo, mypageInfo } = state;
   const dispatch = useDispatch();
+  const [isLoading, setLoading] = useState(true);
 
   const handleLogoClick = () => {
     window.location.href = "./guide.html"
@@ -27,12 +28,14 @@ function MyPage() {
     axios.get(`http://localhost:5000/mypage?user_id=${userInfo.id}`)
     .then((res) => {
       dispatch(showMypage(res.data));
-      return res.data
     })
-    .then(res => console.log(mypageInfo))
+    .then(()=> setLoading(false))
+    .catch(err => console.log(err))
   })
 
   return (
+  <>
+  { isLoading ? <div>로딩중</div> :
   <div id="myPageContainer">
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
@@ -60,6 +63,8 @@ function MyPage() {
     </div>
     <Footer />
   </div>
+  }
+  </>
   )
 }
 

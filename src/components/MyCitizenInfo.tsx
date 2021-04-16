@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
 import "./css/MyCitizenInfo.css";
-import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '../reducers';
 
 const data = ["동물권행동 카라", "강아지", "고양이", "유기견", "참여형 후원", "반려동물", "동물", "진돗개", "닥스훈트"]
 
