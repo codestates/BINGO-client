@@ -65,6 +65,45 @@ button:hover {
   transform: translate(0.75rem, 0rem);
 }
 
+.modalWholeContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 40;
+}
+
+.modalContainer {
+  background: var(--main-color-green);
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  height: 350px;
+  max-width: 100%;
+  min-height: 300px;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.modalContentPart {
+  background-color: var(--main-color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border-radius: 5px;
+}
+
 @font-face {
   font-family: "S-CoreDream";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
