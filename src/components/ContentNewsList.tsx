@@ -17,7 +17,7 @@ function ContentNewsList(props: ContentNewsListProps ) {
   const [opacity, setOpacity] = useState(0);
 
   document.addEventListener('scroll', function() {
-    if (document.documentElement.scrollTop > 60) {
+    if (document.documentElement.scrollTop > 0) {
       setTop(0);
       setOpacity(1);
     } else {
@@ -43,6 +43,7 @@ function ContentNewsList(props: ContentNewsListProps ) {
     </div>
     }
     </Motion>
+    
   )
 }
 

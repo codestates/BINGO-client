@@ -1,32 +1,3 @@
-#payPageModalWholeContainer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  z-index: 1;
-}
-
-#payPageModalContainer {
-  background: var(--main-color-green);
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
-  overflow: hidden;
-  width: 768px;
-  max-width: 100%;
-  min-height: 300px;
-  display: flex;
-  padding: 2rem;
-  flex-direction: column;
-}
-
 .payPageModalCloseBtn {
   position: absolute;
   cursor: pointer;
@@ -35,27 +6,15 @@
   margin: 0.3rem;
 }
 
-#payPageModalContentPart {
-  background-color: var(--main-color-white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  border-radius: 5px;
-}
-
-#payModalTitle {
-  font-size: 2rem;
+#contentModalTitle {
+  font-size: 1.7rem;
   margin: 2rem;
-}
-
-#payModalSubtitle {
-  font-size: 1.5rem;
+  margin-top: 6rem;
   margin-bottom: 5rem;
 }
 
-#payModalConfirmBtn {
-  margin: 3rem;
+#contentModalConfirmBtn {
+  margin: 2rem;
   font-size: 1.5rem;
   padding: 0.8rem;
   border-radius: 6px;
@@ -64,42 +23,16 @@
 }
 
 @media screen and (max-width: 1024px) {
-  #payPageModalContainer {
-    width: 50%;
+  #contentModalTitle {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #payPageModalContainer {
-    width: 50%;
-    justify-content: center;
-  }
-
-  #payPageModalContentPart {
-    height: 80%;
-    margin: 0px;
-    padding: 0px;
-    justify-content: center;
-  }
-
-  #payModalTitle {
+  #contentModalTitle {
     font-size: 1.2rem;
-    margin: 1.2rem;
+    margin: 1.5rem;
     margin-top: 0;
-  }
-
-  #payModalSubtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  #payModalSubtitle2 {
-    font-size: 0.8rem;
-    display: none;
-  }
-
-  #payModalConfirmBtn {
-    margin: 0;
   }
 
   .payPageModalCloseBtn {
@@ -110,5 +43,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+  }
+
+  #contentModalConfirmBtn {
+    margin: 0;
+    margin-top: 1.5rem;
   }
 }

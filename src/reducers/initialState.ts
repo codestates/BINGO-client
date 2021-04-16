@@ -21,6 +21,9 @@ export const initialState =
   payMessageInfo: {
     messageDisplay: true,
   },
+  contentModalInfo:{
+    modalDisplay: false,
+  },
   selectedOptions: [],
   listInfo: {
     data: [{ logo: "", title: "", description: "" }],

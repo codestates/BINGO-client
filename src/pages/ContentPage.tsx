@@ -7,8 +7,9 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../reducers';
-import { showNewsContent, showMessageContent } from '../action';
+import { showcontentModal, showNewsContent, showMessageContent } from '../action';
 import { Motion, spring } from 'react-motion';
+import ContentPageModal from "../components/ContentPageModal"
 
 const bannerImages = {
   아동: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
@@ -84,6 +85,10 @@ function ContentPage() {
     setFilteredBannerImages(ImageArr);
   }
 
+  const handleSupportBtn = () => {
+    dispatch(showcontentModal(true));
+  }
+
   useEffect(() => {
     setTop(0);
     setOpacity(1);
@@ -101,6 +106,7 @@ function ContentPage() {
 
   return (
     <div id="contentPageContainer">
+      <ContentPageModal ngoName={ngoInfo.data.name} />
       <div id="contentHeaderPart">
         <div id="contentHeaderPartTitle">{ngoInfo.data.name}</div>
         <div id="contentHeaderImgContainer">
@@ -123,6 +129,7 @@ function ContentPage() {
             <button className="shadow" onClick={() => {
               console.log(ngoInfo.data.ngocategorys)
               pickImages(ngoInfo.data.ngocategorys)
+              handleSupportBtn()
               }}>후원하기</button>
           </div>
         </div>
