@@ -1,7 +1,6 @@
 import { withRouter } from "react-router";
 import "./css/PayPage.css";
 import React, { useState } from 'react';
-import RLDD from 'react-list-drag-and-drop/lib/RLDD';
 import PayPageModal from "../components/PayPageModal"
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
@@ -39,8 +38,11 @@ function PayPage() {
   );
   const [currentItem, setCurrentItem] = useState(-1);
 
-  const dragAndDrop = (type: string) => {
-    console.log(type)
+  const onDragOver = (event: any) => {
+    event.preventDefault()
+  }
+
+  const drop = (event: any, type: string) => {
     if (currentItem !== -1) {
       if (type === 'once') {
         const dataList = data.map(el => el.id);
@@ -56,11 +58,12 @@ function PayPage() {
         setrepeatData([...repeatData, ingTask[0]])
       }
     }
+    event.preventDefault();
   }
 
   const itemRenderer = (item: any) => {
     return (
-      <div className="payBoxContent shadow" onMouseDown={()=>setCurrentItem(item.id)}>
+      <div className="payBoxContent shadow" draggable="true" onDrag={()=>setCurrentItem(item.id)}>
         <div className="payBoxContentImg"></div>
       <div className="payBoxContentTitle" style={{background: item.color}}>
         <p>N G O : {item.title}</p>
@@ -95,7 +98,7 @@ function PayPage() {
     </div>
     <div id="payListPart">
       {state.payMessageInfo.messageDisplay ? (
-        <div className="payListEntryPart shadow" onMouseUp={() => dragAndDrop('repeat')}>
+        <div className="payListEntryPart shadow" onDragOver={(event) => onDragOver(event)} onDrop={(event) => drop(event, 'repeat')}>
         <div className="payBoxTitle">정기후원하기</div>
         <div className="payBoxContentBox">
           {
@@ -109,7 +112,7 @@ function PayPage() {
       </div>
       ) : null}
       {state.payMessageInfo.messageDisplay ? (
-        <div className="payListEntryPart shadow" onMouseUp={() => dragAndDrop('once')}>
+        <div className="payListEntryPart shadow" onDragOver={(event) => onDragOver(event)} onDrop={(event) => drop(event, 'once')}>
         <div className="payBoxTitle">일시후원하기</div>
         <div className="payBoxContentBox">
           {
