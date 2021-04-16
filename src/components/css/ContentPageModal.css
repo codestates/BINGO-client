@@ -6,17 +6,14 @@
   margin: 0.3rem;
 }
 
-#payModalTitle {
-  font-size: 2rem;
+#contentModalTitle {
+  font-size: 1.7rem;
   margin: 2rem;
+  margin-top: 6rem;
+  margin-bottom: 5rem;
 }
 
-#payModalSubtitle {
-  font-size: 1.5rem;
-  margin-bottom: 7rem;
-}
-
-#payModalConfirmBtn {
+#contentModalConfirmBtn {
   margin: 2rem;
   font-size: 1.5rem;
   padding: 0.8rem;
@@ -26,42 +23,16 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .modalContainer {
-    width: 50%;
+  #contentModalTitle {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .modalContainer {
-    width: 50%;
-    justify-content: center;
-  }
-
-  .modalContentPart {
-    height: 80%;
-    margin: 0px;
-    padding: 0px;
-    justify-content: center;
-  }
-
-  #payModalTitle {
+  #contentModalTitle {
     font-size: 1.2rem;
-    margin: 1.2rem;
+    margin: 1.5rem;
     margin-top: 0;
-  }
-
-  #payModalSubtitle {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  #payModalSubtitle2 {
-    font-size: 0.8rem;
-    display: none;
-  }
-
-  #payModalConfirmBtn {
-    margin: 0;
   }
 
   .payPageModalCloseBtn {
@@ -72,5 +43,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+  }
+
+  #contentModalConfirmBtn {
+    margin: 0;
+    margin-top: 1.5rem;
   }
 }

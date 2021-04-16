@@ -12,19 +12,27 @@ export default function ListContentEntry() {
   const state = useSelector((state: RootState) => state.listReducer);
   const dispatch = useDispatch();
   // const [ngolist, setNgoList] = useState("");
-  // axios.get("https://localhost:3000/listpage", {}).then(res => {
-  //   const lists = res.data; //수정필요
-  //   dispatch(showList(lists));
-  // });
-  const lists = [
-    { logo: "example1", title: "name1", description: " null" },
-    { logo: "example2", title: "name2", description: " null" },
-    { logo: "example1", title: "name1", description: " null" },
-    { logo: "example2", title: "name2", description: " null" },
-    { logo: "example1", title: "name1", description: " null" },
-  ];
+  // let lists;
+
+  // const lists = [
+  //   { logo: "example1", title: "name1", description: " null" },
+  //   { logo: "example2", title: "name2", description: " null" },
+  //   { logo: "example1", title: "name1", description: " null" },
+  //   { logo: "example2", title: "name2", description: " null" },
+  //   { logo: "example1", title: "name1", description: " null" },
+  // ];
+  // console.log("check_list:", lists);
   useEffect(() => {
-    dispatch(showList(lists));
+    axios
+      .get("http://localhost:5000/listpage")
+      .then(res => {
+        console.log("check get list:", res.data.data);
+        const lists = res.data.data;
+
+        dispatch(showList(lists));
+      })
+      .catch(err => console.log("list_err:", err));
+    // dispatch(showList(lists));
     console.log("state_check:", state.listInfo.data);
   }, []);
 
@@ -38,12 +46,11 @@ export default function ListContentEntry() {
             onClick={handleContentListEntryClick}
           >
             <div className='front'>
-              <img id='ListContentEntryLogo' alt='NGO_logo' src='' />
-              <div id='ListContentEntryTitle'>{item.title}</div>
-              <div id='ListContentEntryDescription'>{item.description}</div>
+              <img id='ListContentEntryLogo' alt='NGO_logo' src={item.logo} />
+              <div id='ListContentEntryTitle'>{item.name}</div>
             </div>
             <div className='back'>
-              <div>description</div>
+              <div id='ListContentEntryDescription'>{item.description}</div>
             </div>
           </div>
         );
