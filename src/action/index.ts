@@ -9,6 +9,7 @@ export const SHOWMODAL_PAY = "SHOWMODAL_PAY";
 export const SHOWMESSAGE_PAY = "SHOWMESSAGE_PAY";
 export const SHOW_CONTENT = "SHOW_CONTENT"
 export const SHOW_NEWS_CONTENT = "SHOW_NEWS_CONTENT"
+export const SHOW_MESSAGE_CONTENT = "SHOW_MESSAGE_CONTENT"
 
 // actions creator functions
 export const doLogin = (accessToken: string) => {
@@ -100,6 +101,15 @@ export const showNewsContent = (newsList: Array<Object>) => {
     type: SHOW_NEWS_CONTENT,
     payload: {
       newsList,
+    }
+  }
+}
+
+export const showMessageContent = (messageList: Array<Object>) => {
+  return {
+    type: SHOW_MESSAGE_CONTENT,
+    payload: {
+      messageList,
     }
   }
 }

@@ -1,13 +1,13 @@
 import "./css/ContentNewsListEntry.css"
 
-interface Props {
+interface ContentNewsProps {
   newsTitle: string,
   newsLink: string,
   newsDesc: string,
   key: string
 }
 
-function ContentNewsListEntry(props: Props) {
+function ContentNewsListEntry(props: ContentNewsProps) {
 
   const handleNewsClick = () => {
     window.open(props.newsLink)

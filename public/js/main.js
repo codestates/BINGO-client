@@ -89,6 +89,10 @@ console.log(authorizationCode);
   let prevScrollHeight = 0;
   let currentScene = 0;
   let enterNewScene = false;
+  let acc = 0.1;
+  let delayedYOffset = 0;
+  let rafId;
+  let rafState;
 
   const sceneInfo = [
     {
@@ -315,7 +319,6 @@ console.log(authorizationCode);
       sceneInfo[5].objs.images.push(imgElem5);
     }
   }
-  setCanvasImages();
 
   function setLayout() {
     for (let i = 0; i < sceneInfo.length; i++) {
@@ -384,10 +387,10 @@ console.log(authorizationCode);
 
     switch (currentScene) {
       case 0:
-        let sequence = Math.round(
-          calcValues(values.imageSequence, currentYOffset)
-        );
-        objs.context.drawImage(objs.videoImages[sequence], 0, 0);
+        // let sequence = Math.round(
+        //   calcValues(values.imageSequence, currentYOffset)
+        // );
+        // objs.context.drawImage(objs.videoImages[sequence], 0, 0);
         objs.canvas.style.opacity = calcValues(
           values.canvas_opacity,
           currentYOffset
@@ -476,10 +479,10 @@ console.log(authorizationCode);
         break;
 
       case 2:
-        let sequence2 = Math.round(
-          calcValues(values.imageSequence, currentYOffset)
-        );
-        objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
+        // let sequence2 = Math.round(
+        //   calcValues(values.imageSequence, currentYOffset)
+        // );
+        // objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
 
         if (scrollRatio <= 0.5) {
           objs.canvas.style.opacity = calcValues(
@@ -576,10 +579,10 @@ console.log(authorizationCode);
         break;
 
       case 3:
-        let sequence3 = Math.round(
-          calcValues(values.imageSequence, currentYOffset)
-        );
-        objs.context.drawImage(objs.videoImages[sequence3], 0, 0);
+        // let sequence3 = Math.round(
+        //   calcValues(values.imageSequence, currentYOffset)
+        // );
+        // objs.context.drawImage(objs.videoImages[sequence3], 0, 0);
 
         if (scrollRatio <= 0.5) {
           objs.canvas.style.opacity = calcValues(
@@ -676,10 +679,10 @@ console.log(authorizationCode);
         break;
 
       case 4:
-        let sequence4 = Math.round(
-          calcValues(values.imageSequence, currentYOffset)
-        );
-        objs.context.drawImage(objs.videoImages[sequence4], 0, 0);
+        // let sequence4 = Math.round(
+        //   calcValues(values.imageSequence, currentYOffset)
+        // );
+        // objs.context.drawImage(objs.videoImages[sequence4], 0, 0);
 
         if (scrollRatio <= 0.5) {
           objs.canvas.style.opacity = calcValues(
@@ -960,12 +963,15 @@ console.log(authorizationCode);
     for (let i = 0; i < currentScene; i++) {
       prevScrollHeight += sceneInfo[i].scrollHeight;
     }
-    if (yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight) {
+    if (
+      delayedYOffset >
+      prevScrollHeight + sceneInfo[currentScene].scrollHeight
+    ) {
       enterNewScene = true;
       currentScene++;
       document.body.setAttribute("id", `show-scene-${currentScene}`);
     }
-    if (yOffset < prevScrollHeight) {
+    if (delayedYOffset < prevScrollHeight) {
       enterNewScene = true;
       if (currentScene === 0) return;
       currentScene--;
@@ -976,14 +982,88 @@ console.log(authorizationCode);
     playAnimation();
   }
 
+  function loop() {
+    delayedYOffset = delayedYOffset + (yOffset - delayedYOffset) * acc;
+
+    if (!enterNewScene) {
+      if (
+        currentScene === 0 ||
+        currentScene === 2 ||
+        currentScene === 3 ||
+        currentScene === 4
+      ) {
+        const currentYOffset = delayedYOffset - prevScrollHeight;
+        const objs = sceneInfo[currentScene].objs;
+        const values = sceneInfo[currentScene].values;
+        let sequence = Math.round(
+          calcValues(values.imageSequence, currentYOffset)
+        );
+        if (objs.videoImages[sequence]) {
+          objs.context.drawImage(objs.videoImages[sequence], 0, 0);
+        }
+      }
+    }
+
+    // if (!enterNewScene) {
+    //   if (currentScene === 0 || currentScene === 2) {
+    //     const currentYOffset = delayedYOffset - prevScrollHeight;
+    //     const objs = sceneInfo[currentScene].objs;
+    //     const values = sceneInfo[currentScene].values;
+    //     let sequence = Math.round(
+    //       calcValues(values.imageSequence, currentYOffset)
+    //     );
+    //     if (objs.videoImages[sequence]) {
+    //       objs.context.drawImage(objs.videoImages[sequence], 0, 0);
+    //     }
+    //   }
+    // }
+
+    // // 일부 기기에서 페이지 끝으로 고속 이동하면 body id가 제대로 인식 안되는 경우를 해결
+    // // 페이지 맨 위로 갈 경우: scrollLoop와 첫 scene의 기본 캔버스 그리기 수행
+    // if (delayedYOffset < 1) {
+    //   scrollLoop();
+    //   sceneInfo[0].objs.canvas.style.opacity = 1;
+    //   sceneInfo[0].objs.context.drawImage(
+    //     sceneInfo[0].objs.videoImages[0],
+    //     0,
+    //     0
+    //   );
+    // }
+    // // 페이지 맨 아래로 갈 경우: 마지막 섹션은 스크롤 계산으로 위치 및 크기를 결정해야할 요소들이 많아서 1픽셀을 움직여주는 것으로 해결
+    // if (document.body.offsetHeight - window.innerHeight - delayedYOffset < 1) {
+    //   let tempYOffset = yOffset;
+    //   scrollTo(0, tempYOffset - 1);
+    // }
+
+    rafId = requestAnimationFrame(loop);
+
+    if (Math.abs(yOffset - delayedYOffset) < 1) {
+      cancelAnimationFrame(rafId);
+      rafState = false;
+    }
+  }
+
   window.addEventListener("scroll", function () {
     yOffset = window.pageYOffset;
     scrollLoop();
+
+    if (!rafState) {
+      rafId = requestAnimationFrame(loop);
+      rafState = true;
+    }
   });
   // window.addEventListener("DOMcontentLoaded", setLayout); // html 돔구조만 로드가 끝나면 바로 실행
   window.addEventListener("load", () => {
     setLayout();
     sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0);
   }); //리소스까지 포함 (이미지 동영상 등)
-  window.addEventListener("resize", setLayout);
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 600) {
+      setLayout();
+    }
+    sceneInfo[3].values.rectStartY = 0;
+  });
+  window.addEventListener("orientationchange", setLayout);
+
+  setCanvasImages();
 })();

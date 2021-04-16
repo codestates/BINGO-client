@@ -2,14 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;500;800&family=Noto+Serif+KR:wght@200;400;700&display=swap");
 
 :root {
+  --main-color-blue: rgb(59, 150, 220);
+  --main-color-dark-blue: rgb(29, 90, 170);
+  --main-color-yellow: rgb(255, 237, 101);
+  --main-color-white: rgb(245, 245, 245);
+  --main-color-black: rgb(34, 34, 34);
+  --main-color-gray: rgb(55, 55, 58);
+
   --main-color-green: rgb(15, 86, 70);
   --main-color-dark-green: rgb(9, 58, 47);
   --main-color-light-green: #fefefeb3;
-  --main-color-gray: #666666;
-  --main-color-light-gray: #666666b3;
   --main-color-beige: rgb(245, 154, 125);
-  --main-color-black: rgb(34, 31, 32);
-  --main-color-white: rgb(242, 242, 242);
 }
 
 * {

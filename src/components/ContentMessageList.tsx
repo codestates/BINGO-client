@@ -2,8 +2,19 @@ import "./css/ContentMessageList.css"
 import ContentMessageListEntry from "./ContentMessageListEntry"
 import { useState } from 'react';
 import { Motion, spring } from 'react-motion';
+import { useSelector } from 'react-redux';
+import { RootState } from '../reducers';
 
-function ContentMessageList() {
+interface ContentMessageListProps {
+  ngoName: string
+}
+
+function ContentMessageList(props: ContentMessageListProps) {
+  const state = useSelector((state: RootState) => state.contentReducer);
+  const { currentMessageList } = state;
+  console.log(currentMessageList);
+
+
   const [top, setTop] = useState(150);
   const [opacity, setOpacity] = useState(0);
 
@@ -24,11 +35,13 @@ function ContentMessageList() {
       ({ top, opacity }) => 
     <div id="contentMessageListContainer" style={Object.assign({}, {  }, { top, opacity } )}>
       <div className="contentBoxTitle">후원회원들의 응원메시지</div>
-      <div className="contentBoxSubTitle">동물권행동 카라를 후원한 회원들이 직접 남긴 메시지입니다.</div>
+      <div className="contentBoxSubTitle">{props.ngoName}의 후원회원들이 직접 남긴 메시지입니다.</div>
       <div id="contentMessageListBox">
-      <ContentMessageListEntry />
-      <ContentMessageListEntry />
-      <ContentMessageListEntry />
+        {currentMessageList.messageList.map(item => {
+          return (
+            <ContentMessageListEntry key={item.index} user={item.user} message={item.message}/>
+          )
+        })}
       </div>
     </div>
     }
