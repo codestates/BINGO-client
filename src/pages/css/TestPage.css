@@ -49,9 +49,9 @@
   margin-bottom: 1rem;
   border-radius: 1rem;
   position: absolute;
-  top: 47%;
+  top: 3%;
   width: 80%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
 
 #testMainPart {
@@ -61,9 +61,9 @@
   margin-bottom: 1rem;
   border-radius: 1rem;
   position: absolute;
-  top: 30%;
+  top: 3%;
   width: 80%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
 
 #testMainNumber {
@@ -276,13 +276,13 @@
   #testMainPart1 {
     width: 90%;
     height: 100%;
-    top: 55%;
+    top: 3%;
   }
 
   #testMainPart {
     width: 90%;
     height: 70%;
-    top: 40%;
+    top: 3%;
   }
 
   #testMainBtnBox {
