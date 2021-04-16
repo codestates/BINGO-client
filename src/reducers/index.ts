@@ -4,6 +4,7 @@ import testReducer from "./testReducer";
 import listReducer from "./listReducer";
 import payReducer from "./payReducer";
 import contentReducer from "./contentReducer"
+import mypageReducer from "./mypageReducer"
 
 const rootReducer = combineReducers({
   loginReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   listReducer,
   payReducer,
   contentReducer,
+  mypageReducer,
 });
 export default rootReducer;
 
