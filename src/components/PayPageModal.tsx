@@ -22,9 +22,9 @@ function PayPageModal() {
   return(
     <>
     {state.payModalInfo.modalDisplay ? (
-      <div id="payPageModalWholeContainer">
-        <div id="payPageModalContainer" className="shadow">
-          <div id="payPageModalContentPart" className="shadow">
+      <div className="modalWholeContainer">
+        <div className="modalContainer shadow">
+          <div className="modalContentPart shadow">
             <div id="payModalTitle">결제하시겠습니까?</div>
             <div id="payModalSubtitle">총금액: 40,000 ₩</div>
             <div id="payModalSubtitle2">아래버튼을 누를시 pay_pal 페이지로 이동합니다</div>

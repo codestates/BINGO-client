@@ -1,47 +1,9 @@
-#payPageModalWholeContainer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  z-index: 1;
-}
-
-#payPageModalContainer {
-  background: var(--main-color-green);
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  position: relative;
-  overflow: hidden;
-  width: 768px;
-  max-width: 100%;
-  min-height: 300px;
-  display: flex;
-  padding: 2rem;
-  flex-direction: column;
-}
-
 .payPageModalCloseBtn {
   position: absolute;
   cursor: pointer;
   border-radius: 4px;
   padding: 0.5rem;
   margin: 0.3rem;
-}
-
-#payPageModalContentPart {
-  background-color: var(--main-color-white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  border-radius: 5px;
 }
 
 #payModalTitle {
@@ -51,11 +13,11 @@
 
 #payModalSubtitle {
   font-size: 1.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 #payModalConfirmBtn {
-  margin: 3rem;
+  margin: 2rem;
   font-size: 1.5rem;
   padding: 0.8rem;
   border-radius: 6px;
@@ -64,18 +26,18 @@
 }
 
 @media screen and (max-width: 1024px) {
-  #payPageModalContainer {
+  .modalContainer {
     width: 50%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #payPageModalContainer {
+  .modalContainer {
     width: 50%;
     justify-content: center;
   }
 
-  #payPageModalContentPart {
+  .modalContentPart {
     height: 80%;
     margin: 0px;
     padding: 0px;
