@@ -31,7 +31,6 @@ function MyPage() {
     })
     .then(()=> setLoading(false))
     .catch(err => console.log(err))
-
   })
 
   return (

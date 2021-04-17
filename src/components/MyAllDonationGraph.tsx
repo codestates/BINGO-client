@@ -88,57 +88,60 @@ function MyAllDonationGraph(){
     }
 
     console.log(arrangedData);
-    const width = 400;
-    const height = 400;
-    
-    const arc = d3.arc<PieArcDatum<MyData>>().innerRadius(75).outerRadius(Math.min(width, height) / 2);
-    
-    const arcLabel = (() => {
-      const radius = Math.min(width, height) / 2 * 0.8;
-      return d3.arc().innerRadius(radius).outerRadius(radius);
-    })();
-    
-    const pie = d3.pie<MyData>()
-      .sort((a, b) => b.value - a.value)
-      .value(d => d.value);
-    
-    const arcs = pie(data);
-    
-    const svg = d3.select('#myAllDonationGraph').append('svg').style('width', width).style('height', height)
-      .attr('text-anchor', 'middle')
-      .style('font-size', '12px S-CoreDream');
-    
-    const g = svg.append('g')
-      .attr('transform', `translate(${width/2}, ${height/2})`);
-    
-    g.selectAll('path')
-      .data(arcs)
-      .enter().append('path')
-        .attr('fill', d => d.data.color)
-            .attr('stroke', 'white')
-            .attr('d', arc)
-          .append('title')
-            .text(d => `${d.data.name}: ${d.data.value}`);
-        
-    const text = g.selectAll('text')
-      .data(arcs)
-      .enter().append('text')
-        .attr('transform', (d: any) => `translate(${arcLabel.centroid(d)})`)
-        .attr('dy', '0.35em');
-    
-    text.append('tspan')
-      .attr('x', 0)
-      .attr('y', '-0.7em')
-      // .style('font-weight', 'bold')
-      .text(d => d.data.name)
-    
-    text.filter(d => (d.endAngle - d.startAngle > 0.25)).append('tspan')
-      .attr('x', 0)
-      .attr('y', '0.7em')
-      .attr('fill-opacity', 0.7)
-      // .text(d => d.data.value);
-    
-    // svg.node();
+
+    if(count === 0){
+      const width = 400;
+      const height = 400;
+      
+      const arc = d3.arc<PieArcDatum<MyData>>().innerRadius(75).outerRadius(Math.min(width, height) / 2);
+      
+      const arcLabel = (() => {
+        const radius = Math.min(width, height) / 2 * 0.8;
+        return d3.arc().innerRadius(radius).outerRadius(radius);
+      })();
+      
+      const pie = d3.pie<MyData>()
+        .sort((a, b) => b.value - a.value)
+        .value(d => d.value);
+      
+      const arcs = pie(data);
+      
+      const svg = d3.select('#myAllDonationGraph').append('svg').style('width', width).style('height', height)
+        .attr('text-anchor', 'middle')
+        .style('font-size', '12px S-CoreDream');
+      
+      const g = svg.append('g')
+        .attr('transform', `translate(${width/2}, ${height/2})`);
+      
+      g.selectAll('path')
+        .data(arcs)
+        .enter().append('path')
+          .attr('fill', d => d.data.color)
+              .attr('stroke', 'white')
+              .attr('d', arc)
+            .append('title')
+              .text(d => `${d.data.name}: ${d.data.value}`);
+          
+      const text = g.selectAll('text')
+        .data(arcs)
+        .enter().append('text')
+          .attr('transform', (d: any) => `translate(${arcLabel.centroid(d)})`)
+          .attr('dy', '0.35em');
+      
+      text.append('tspan')
+        .attr('x', 0)
+        .attr('y', '-0.7em')
+        // .style('font-weight', 'bold')
+        .text(d => d.data.name)
+      
+      text.filter(d => (d.endAngle - d.startAngle > 0.25)).append('tspan')
+        .attr('x', 0)
+        .attr('y', '0.7em')
+        .attr('fill-opacity', 0.7)
+        // .text(d => d.data.value);
+      
+      // svg.node();
+    }
 
     window.addEventListener('scroll', () => {
       if(count === 0){
