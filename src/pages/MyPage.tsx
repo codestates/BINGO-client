@@ -17,6 +17,7 @@ function MyPage() {
   const { userInfo, mypageInfo } = state;
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(true);
+
   const handleLogoClick = () => {
     window.location.href = "./guide.html"
   }
@@ -28,7 +29,9 @@ function MyPage() {
     .then((res) => {
       dispatch(showMypage(res.data));
     })
-    .then(() => setLoading(false))
+    .then(()=> setLoading(false))
+    .catch(err => console.log(err))
+
   })
 
   return (
