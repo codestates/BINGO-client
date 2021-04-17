@@ -8,8 +8,9 @@ import Footer from "../components/Footer"
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../reducers';
-import { showMypage } from "../action"
+import { showMypage, showMypageModal } from "../action"
 import axios from 'axios';
+import MyPageModal from "../components/MyPageModal"
 
 function MyPage() {
   const state = useSelector((state: RootState) => state.loginReducer);
@@ -23,7 +24,6 @@ function MyPage() {
   const handlePayPageClick = () => {
     window.location.href = "./pay"
   }
-
   useEffect(() => {
     axios.get(`http://localhost:5000/mypage?user_id=${userInfo.id}`)
     .then((res) => {
@@ -31,12 +31,14 @@ function MyPage() {
     })
     .then(()=> setLoading(false))
     .catch(err => console.log(err))
+
   })
 
   return (
   <>
   { isLoading ? <div>로딩중</div> :
   <div id="myPageContainer">
+    <MyPageModal />
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
           <div>
@@ -67,5 +69,4 @@ function MyPage() {
   </>
   )
 }
-
 export default withRouter(MyPage);

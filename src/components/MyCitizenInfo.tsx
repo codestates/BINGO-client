@@ -1,14 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
 import "./css/MyCitizenInfo.css";
 import { useSelector } from 'react-redux';
 import { RootState } from '../reducers';
 
-const data = ["동물권행동 카라", "강아지", "고양이", "유기견", "참여형 후원", "반려동물", "동물", "진돗개", "닥스훈트"]
+interface ItemDonate {
+  ngo: { categoryName: [], ngoName: string }
+}
+interface ItemLove {
+  categoryName: [], ngoName: string 
+}
+let count = 0;
 
 function MyCitizenInfo(){
-  useEffect(()=> {
+  const state = useSelector((state: RootState) => state.mypageReducer);
+  const { mypageInfo } = state;
+  const [data, setData] = useState([""]);
+  const donates = mypageInfo.mypageInfo.donates;
+  const loves = mypageInfo.mypageInfo.loves;
+  const tempArr = [""];
+
+  donates.map((item: ItemDonate) => {
+    tempArr.push(item.ngo.ngoName);
+    for(let i of item.ngo.categoryName){
+      tempArr.push(i)
+    }
+  })
+
+  loves.map((item: ItemLove) => {
+    tempArr.push(item.ngoName);
+    for(let i of item.categoryName){
+      tempArr.push(i)
+    }
+  })
+
+  const filteredArr = tempArr.filter((element, index) => {
+    return tempArr.indexOf(element) === index
+  });
+
     let layout = cloud()
     .words(data.map(function(d) {
       return {text: d, size: 10 + Math.random() * 90};
@@ -39,7 +69,14 @@ function MyCitizenInfo(){
           })
           .text(function(d: any) { return d.text; });
         }
-  }, [])
+
+        window.addEventListener('scroll', () => {
+          if(count === 0){
+            d3.select('#myCitizenInfoMain').selectAll("svg").remove();
+            setData(filteredArr);
+            count++;
+          }
+        })
 
   return (
   <div id="myCitizenInfoContainer">
