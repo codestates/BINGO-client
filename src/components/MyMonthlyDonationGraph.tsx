@@ -7,8 +7,8 @@ import { useSpring, animated } from "react-spring";
 function MyMonthlyDonationGraph(){
   const state = useSelector((state: RootState) => state.mypageReducer);
   const { mypageInfo } = state;
-  const donates = mypageInfo.mypageList.donates
 
+  const donates = mypageInfo.mypageInfo.donates
   const yearMonthMoney: any[] = []
   const donateYears: number[] = [];
   const [currentYear, changeYear] = useState(2021);

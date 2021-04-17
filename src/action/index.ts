@@ -12,6 +12,7 @@ export const SHOW_NEWS_CONTENT = "SHOW_NEWS_CONTENT"
 export const SHOW_MESSAGE_CONTENT = "SHOW_MESSAGE_CONTENT"
 export const SHOWMODAL_CONTENT = "SHOWMODAL_CONTENT";
 export const SHOW_MYPAGE = "SHOW_MYPAGE"
+export const SHOW_MYPAGE_MODAL = "SHOW_MYPAGE_MODAL"
 
 
 // actions creator functions
@@ -128,11 +129,20 @@ export const showcontentModal = (modalDisplay: boolean) => {
   }
 }
 
-export const showMypage = (mypageList: Object) => {
+export const showMypage = (mypageInfo: Object) => {
   return {
     type: SHOW_MYPAGE,
     payload: {
-      mypageList,
+      mypageInfo,
+    }
+  }
+}
+
+export const showMypageModal = (modalDisplay: boolean) => {
+  return {
+    type: SHOW_MYPAGE_MODAL,
+    payload: {
+      modalDisplay,
     }
   }
 }

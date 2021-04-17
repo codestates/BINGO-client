@@ -25,6 +25,9 @@ export const initialState =
   contentModalInfo:{
     modalDisplay: false,
   },
+  myModalInfo:{
+    modalDisplay: false,
+  },
   selectedOptions: [],
   listInfo: {
     data: [{ logo: "", title: "", description: "" }],
