@@ -50,7 +50,9 @@ function MyCitizenInfo(){
     .fontSize(function(d: any): any { return d.size })
     .on("end", draw);
 
-    layout.start();
+    if(count === 0){
+      layout.start();
+    }
 
     function draw(words: any) {
       d3.select("#myCitizenInfoMain").append("svg")

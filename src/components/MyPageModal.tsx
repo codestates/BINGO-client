@@ -7,7 +7,7 @@ import { showMypageModal } from "../action";
 function MyPageModal() {
 
   const disptach = useDispatch();
-  const state = useSelector((state: RootState) => state.contentReducer);
+  const state = useSelector((state: RootState) => state.mypageReducer);
 
   const handleClickClose = () => {
     disptach(showMypageModal(false));
