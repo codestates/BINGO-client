@@ -1,11 +1,18 @@
 const loginBtn = document.querySelector("#login-button");
 const startBtn = document.querySelector("#start-button");
 
+let userId = 0;
+
 const handleLoginBtnClick = () => {
   window.location.href = "./login";
 };
 const handleStartBtnClick = () => {
-  window.location.href = "./test";
+  console.log(userId)
+  if (userId === 0) {
+    window.location.href = "./test";
+  } else {
+    window.location.href = "./list";
+  }
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
@@ -65,6 +72,7 @@ const checkGoogleAuth = async () => {
     })
     .then((res) => {
       console.log(res.data);
+      userId = res.data.id;
     })
     .catch((err) => console.log(err));
 };

@@ -2,10 +2,29 @@ import { withRouter } from "react-router";
 import "./css/ListPage.css";
 import ListContentList from "../components/ListContentList";
 import store from "../store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import { showList } from "../action";
+import { useDispatch } from 'react-redux';
 
 function ListPage() {
   const [categoryNum, setCategoryNum] = useState(0);
+  const dispatch = useDispatch();
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/listpage")
+      .then(res => {
+        console.log("check get list:", res.data.data);
+        const lists = res.data.data;
+
+        dispatch(showList(lists));
+      })
+      .then(()=> setLoading(false))
+      .catch(err => console.log("list_err:", err));
+    // dispatch(showList(lists));
+  }, []);
 
   const handleClickBtn = () => {
     store.dispatch({ type: "INCREMENT", size: categoryNum });
@@ -22,6 +41,8 @@ function ListPage() {
   };
 
   return (
+    <>
+    { isLoading ? <div>로딩중</div> :
     <div id='listPageContainer'>
       <div id='listNavPart'>
         <div id='listNavLogo' onClick={handleLogoClick}>
@@ -52,6 +73,8 @@ function ListPage() {
         <ListContentList />
       </div>
     </div>
+}
+</>
   );
 }
 
