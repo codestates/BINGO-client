@@ -19,13 +19,13 @@ function App() {
         <Route exact path='/'>
           <GuidePage />
         </Route>
-        <Route exact path='/login'>
+        <Route exact path='/index.html/login'>
           <LoginPage />
         </Route>
-        <Route exact path='/test'>
+        <Route exact path='/index.html'>
           <TestPage />
         </Route>
-        <Route exact path='/list'>
+        <Route exact path='/index.html/list'>
           <ListPage />
         </Route>
         <Route exact path='/content'>

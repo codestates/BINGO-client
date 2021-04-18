@@ -4,13 +4,13 @@ import {useSelector, useDispatch} from "react-redux"
 import { doLogin } from "../action/index"
 import { RootState } from "../reducers";
 
-function LoginPage() {
+function LoginPage(props: any) {
   const state = useSelector((state: RootState) => state.loginReducer)
   const {loginInfo} = state;
   const dispatch = useDispatch();
 
   const handleStartBtnClick = () => {
-    window.location.href = "./test"
+    props.history.push('/test')
   }
 
   const handleLogoClick = () => {

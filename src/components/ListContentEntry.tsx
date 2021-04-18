@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 import { showContent, showList } from "../action";
 import { RootState } from "../reducers";
 import store from "../store";
@@ -10,27 +11,14 @@ interface Props {
   result: Array<string>;
 }
 
-export default function ListContentEntry(result) {
+export default function ListContentEntry() {
   const state = useSelector((state: RootState) => state.listReducer);
   const dispatch = useDispatch();
   const [count, setCount] = useState(30); //페이지 랜더단체 갯수
   const [content, setContent] = useState([]); //페이지 랜더단체
 
-  // const [ngolist, setNgoList] = useState("");
-  // let lists;
-
-  // const lists = [
-  //   { logo: "example1", title: "name1", description: " null" },
-  //   { logo: "example2", title: "name2", description: " null" },
-  //   { logo: "example1", title: "name1", description: " null" },
-  //   { logo: "example2", title: "name2", description: " null" },
-  //   { logo: "example1", title: "name1", description: " null" },
-  // ];
-  // console.log("check_list:", lists);
-
   const handleContentListEntryClick = (ngoId: number) => {
     dispatch(showContent(ngoId));
-    window.location.href = "./content";
   };
 
   const handleMoreBtnClick = () => {
@@ -56,21 +44,22 @@ export default function ListContentEntry(result) {
     if(category === "전체") {
       setContent(listAll);
     } else {
-      setContent(listAll.filter(item => {
+      setContent(listAll.filter((item: any) => {
         return item.ngocategorys[0].category.name === category;
       }))
     }
   })
 
   return (
+    
     <div id='card'>
       {content.map((item: any, index) => {
         if(index < count) {
         return (
+          <Link onClick={()=> handleContentListEntryClick(item.id)} to="/content">
           <div
             id='ListContentEntryContainer'
             className='shadow'
-            onClick={()=> handleContentListEntryClick(item.id)}
           >
             <div className='front'>
               <div id="ListContentEntryLogoBox">
@@ -86,10 +75,12 @@ export default function ListContentEntry(result) {
               <div id='ListContentEntryDescription'>{item.description}</div>
             </div>
           </div>
+          </Link>
         );
       }
       })}
       <div id="listContentShowMore" onClick={handleMoreBtnClick}>더보기</div>
     </div>
+    
   );
 }
