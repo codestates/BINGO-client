@@ -1,4 +1,4 @@
-import { SHOW_LIST } from "../action/index";
+import { SHOW_LIST, CHANGE_LIST_CATEGORY } from "../action/index";
 import { initialState } from "./initialState";
 
 const listReducer = (state = initialState, action: any) => {
@@ -8,6 +8,12 @@ const listReducer = (state = initialState, action: any) => {
       return Object.assign({}, state, {
         listInfo: action.payload,
       });
+
+      case CHANGE_LIST_CATEGORY:
+        return Object.assign({}, state, {
+          listInfoCategory: action.payload
+        })
+
     default:
       return state;
   }
