@@ -59,7 +59,7 @@ function ContentPage() {
   const handleLoveClick =() => {
     if(isAlreadyLove){
       setIsAlreadyLove(false);
-      axios.delete("http://localhost:5000/like", {data: {
+      axios.delete("http://localhost:5000/love", {data: {
         ngoId: currentNgoId,
         userId: userInfo.id
       }})
@@ -67,10 +67,10 @@ function ContentPage() {
       .catch((err) => console.log(err))
     } else if (!isAlreadyLove){
       setIsAlreadyLove(true);
-      axios.post("http://localhost:5000/like", {data: {
+      axios.post("http://localhost:5000/love", {
         ngoId: currentNgoId,
         userId: userInfo.id
-      }})
+      })
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
     }
@@ -86,7 +86,15 @@ function ContentPage() {
   }
 
   const handleSupportBtn = () => {
-    dispatch(showcontentModal(true));
+    axios.post("http://localhost:5000/pocket", {
+      userId: userInfo.id,
+      ngoId: currentNgoId,
+      type: 'once',
+      money: 10000,
+    })
+    .then(() => dispatch(showcontentModal(true)))
+    .catch((err) => console.log(err))
+    
   }
 
   useEffect(() => {

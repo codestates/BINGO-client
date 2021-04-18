@@ -41,7 +41,8 @@ function TestPage() {
       }
     }
     postOptions = postOptions.map((el: number) => el+12);
-    axios.get('http://localhost:5000/testpage',{
+    axios.get('http://localhost:5000/testpage', {
+      withCredentials: true,
       params: {
         options: {
           selectedOptions: plusoneIndex,
