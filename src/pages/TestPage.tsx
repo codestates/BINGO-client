@@ -9,7 +9,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-function TestPage() {
+function TestPage(props: any) {
   const text1 = ['당신은', '당신은'];
   const text2 = ['먼 곳보다 가까운 이웃들에게 도움을 주는 것에 더 관심이 있고', '지구 전역의 불우한 이웃들에게 관심이 많고'];
   const text3 = ['특정 소수보다는 다수가 골고루 혜택을 받는 것을 선호하며,', '한 사람과 좀 더 깊은 관계를 가지는 것을 선호하며,'];
@@ -119,7 +119,7 @@ function TestPage() {
   }
 
   const handleSkipBtnClick = () => {
-    window.location.href = "./list"
+    props.history.push('/index.html/list')
   }
   const handleLogoClick = () => {
     window.location.href = "./guide.html"

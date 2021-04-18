@@ -5,7 +5,7 @@ let userId = 0;
 let ngoIdOfLoveList = [];
 
 const handleLoginBtnClick = () => {
-  window.location.href = "./login";
+  window.location.href = "index.html/login";
 };
 const handleStartBtnClick = async () => {
   await fetch("http://localhost:5000/testcookie", {
@@ -17,9 +17,9 @@ const handleStartBtnClick = async () => {
   })
   .then((res) => {
     if (!res) {
-      window.location.href = "./test";
+      window.location.href = "./index.html";
     } else {
-      window.location.href = `./list?userId=${userId}`;
+      window.location.href = `index.html/list?userId=${userId}`;
     }
   })
   .catch(() => window.location.href = "./test")

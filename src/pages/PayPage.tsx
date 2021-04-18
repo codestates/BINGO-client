@@ -19,7 +19,7 @@ export interface ExampleState {
   item: Item[];
 }
 
-function PayPage() {
+function PayPage(props: any) {
   const state = useSelector((state: RootState) => state.payReducer);
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(false);
@@ -188,7 +188,7 @@ function PayPage() {
       .catch(err => console.log(err))
     }
     alert('결제가 완료되었습니다');
-    window.location.href = "./mypage"
+    props.history.push('/mypage')
   }
 
   const handleClickPayBtn = () => {
@@ -199,7 +199,7 @@ function PayPage() {
     window.location.href = "./guide.html"
   }
   const handleMyPageClick = () => {
-    window.location.href = "./mypage"
+    props.history.push('/mypage')
   }
   return (
   <>

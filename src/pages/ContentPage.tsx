@@ -32,7 +32,7 @@ const bannerImages = {
   종교: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
 }
 
-function ContentPage() {
+function ContentPage(props: any) {
   const dispatch = useDispatch();
   const [ngoInfo, setNgoInfo] = useState({data: {name: "", description: "", link: "", logo: "", ngocategorys: [], since: "", video: ""}, newsList: []});
   const [isAlreadyLove, setIsAlreadyLove] = useState(false);
@@ -46,7 +46,7 @@ function ContentPage() {
     window.location.href = "./guide.html"
   }
   const handleMyPageClick = () => {
-    window.location.href = "./mypage"
+    props.history.push('/mypage')
   }
   const handleNgoLogoClick = () => {
     window.open(ngoInfo.data.link)
