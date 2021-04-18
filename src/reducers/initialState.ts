@@ -1,7 +1,7 @@
 export const initialState =
 {
   userInfo: {
-    id: 0,
+    id: 1,
     username: "",
     profileImage: "",
     level: "",
@@ -10,6 +10,7 @@ export const initialState =
     accessToken: "",
     ngoIdOfLoveList: [1, 2, 3]
   },
+  mypageInfo: {},
   ngoList: [],
   loginInfo:{
     isLogin: false,
@@ -22,6 +23,9 @@ export const initialState =
     messageDisplay: true,
   },
   contentModalInfo:{
+    modalDisplay: false,
+  },
+  myModalInfo:{
     modalDisplay: false,
   },
   selectedOptions: [],

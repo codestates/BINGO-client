@@ -1,12 +1,65 @@
 #myMonthlyDonationGraphContainer {
+  cursor: default;
   margin: 1rem;
 }
 #myMonthlyDonationGraph {
   background-color: var(--main-color-white);
+  justify-content: space-between;
   height: 500px;
   border-radius: 1rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-bottom: 10rem;
+}
+
+#preYear {
+  background-color: var(--main-color-white);
+  text-align: center;
+  flex: 1;
+  font-size: 1.5rem;
+}
+
+#nextYear {
+  background-color: var(--main-color-white);
+  text-align: center;
+  flex: 1;
+  font-size: 1.5rem;
+}
+
+#preYear:focus,
+#nextYear:focus {
+  outline: none;
+}
+
+#graph {
+  display: flex;
+  justify-content: space-around;
+  flex: 18;
+  height: 94%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 7%;
+  text-align: center;
+}
+
+.money {
+  transform: rotate(180deg);
+  margin-top: 10%;
+  font-size: 1.5vh;
+}
+
+.bar {
+  background-color: gray;
+}
+
+.text {
+  margin-top: 15%;
+}
+
+#aDiv {
+  transform: rotate(180deg);
 }
