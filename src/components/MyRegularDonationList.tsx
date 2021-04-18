@@ -9,6 +9,7 @@ function MyRegularDonationList(){
   const state = useSelector((state: RootState) => state.mypageReducer);
   const { mypageInfo } = state;
   const donates = mypageInfo.mypageInfo.donates
+  console.log(donates)
 
   return (
   <div id="myRegularDonationListContainer">
@@ -17,7 +18,7 @@ function MyRegularDonationList(){
     <div id="regularDonationBox">{
       donates.map((item) => {
         if(item.type === "repeat" && item.ing === true){
-          return (<MyRegularDonationListEntry money={item.money} ngoName={item.ngo.ngoName}/>)
+          return (<MyRegularDonationListEntry money={item.money} ngoName={item.ngo.ngoName} donateId={item.donateId}/>)
         }
       })
     }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import store from "../store";
 import ListContentEntry from "./ListContentEntry";
 import "./css/ListContentList.css";
 import { Motion, spring } from 'react-motion';

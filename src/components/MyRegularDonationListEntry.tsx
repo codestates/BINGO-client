@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../reducers';
 import "./css/MyRegularDonationListEntry.css";
 import { showMypageModal } from "../action"
+import axios from 'axios';
 
 interface MyRegularProps{
-  money: number
-  ngoName: string
+  money: number;
+  ngoName: string;
+  donateId: number;
 }
 
 function MyRegularDonationListEntry(props: MyRegularProps){
@@ -14,7 +16,10 @@ function MyRegularDonationListEntry(props: MyRegularProps){
 
   const handleSupportCancelClick = () => {
     dispatch(showMypageModal(true));
-    console.log("정기후원 해지버튼 클릭")
+    axios.patch("http://localhost:5000/donation", {
+      donateId: props.donateId,
+      ing: 'false',
+    })
   }
 
   return (
@@ -23,7 +28,7 @@ function MyRegularDonationListEntry(props: MyRegularProps){
       <div id="myRegularDonationNGO">{props.ngoName}</div>
       <div id="myRegularDonationPrice">{`${props.money}원`}</div>
     </div>
-    <button onClick={handleSupportCancelClick}>정기후원 해지</button>
+    <button onClick={() => handleSupportCancelClick()}>정기후원 해지</button>
   </div>
   )
 }

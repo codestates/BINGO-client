@@ -1,11 +1,28 @@
 const loginBtn = document.querySelector("#login-button");
 const startBtn = document.querySelector("#start-button");
 
+let userId = 0;
+let ngoIdOfLoveList = [];
+
 const handleLoginBtnClick = () => {
   window.location.href = "./login";
 };
-const handleStartBtnClick = () => {
-  window.location.href = "./test";
+const handleStartBtnClick = async () => {
+  await fetch("http://localhost:5000/testcookie", {
+    method: "GET",
+    credentials: "include",
+  })
+  .then((res) => {
+    return res.json();
+  })
+  .then((res) => {
+    if (!res) {
+      window.location.href = "./test";
+    } else {
+      window.location.href = `./list?userId=${userId}`;
+    }
+  })
+  .catch(() => window.location.href = "./test")
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
@@ -65,11 +82,12 @@ const checkGoogleAuth = async () => {
     })
     .then((res) => {
       console.log(res.data);
+      userId = res.data.id;
+      ngoIdOfLoveList = res.data.ngoIdOfLoveList;
     })
     .catch((err) => console.log(err));
 };
 const checkKakaoAuth = async () => {
-  console.log("체크카카오어스 실행됨!");
   await fetch("http://localhost:5000/checkkakaoauth", {
     method: "GET",
     credentials: "include",
@@ -92,7 +110,6 @@ if (authorizationCode) {
   getAccessTokenGoogle(authorizationCode);
   getAccessTokenKakao(authorizationCode);
 }
-console.log(authorizationCode);
 
 (() => {
   let yOffset = 0;

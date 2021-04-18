@@ -88,7 +88,6 @@
 }
 
 .payBoxContentTitle > div {
-  width: 14rem;
   text-align: start;
 }
 
@@ -96,6 +95,10 @@
   font-size: 1.2rem;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+
+.payBoxContentDelete:hover {
+  transform: scale(1.2);
 }
 
 .payBoxPayBtn {
@@ -151,6 +154,20 @@
   font-size: 1.4rem;
   margin-left: auto;
   margin-right: 1rem;
+}
+
+.selectMoney {
+  border: none;
+  background-color: var(--main-color-white);
+  font-size: 1.5rem;
+}
+
+.selectMoney:hover {
+  cursor: pointer;
+}
+
+.selectMoney:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 1024px) {

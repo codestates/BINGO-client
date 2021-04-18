@@ -15,6 +15,7 @@ export default function ListContentEntry(result) {
   const dispatch = useDispatch();
   const [count, setCount] = useState(30); //페이지 랜더단체 갯수
   const [content, setContent] = useState([]); //페이지 랜더단체
+
   // const [ngolist, setNgoList] = useState("");
   // let lists;
 
@@ -26,6 +27,7 @@ export default function ListContentEntry(result) {
   //   { logo: "example1", title: "name1", description: " null" },
   // ];
   // console.log("check_list:", lists);
+
   const handleContentListEntryClick = (ngoId: number) => {
     dispatch(showContent(ngoId));
     window.location.href = "./content";
