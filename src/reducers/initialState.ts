@@ -30,7 +30,10 @@ export const initialState =
   },
   selectedOptions: [],
   listInfo: {
-    data: [{ logo: "", title: "", description: "" }],
+    data: [{ logo: "", title: "", description: "", id: 1, }],
+  },
+  listInfoCategory: {
+    category: "",
   },
   currentNgoId: 4,
   currentNewsList: {newsList: [{description: "", link: "", originallink: "", title: "", pubDate: ""}]},

@@ -4,38 +4,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--main-color-green);
-}
-
-#listNavLogo {
-  display: flex;
-  align-items: center;
-  font-size: 1.75rem;
-  color: var(--main-color-white);
-  font-weight: 900;
-  padding: 1.5rem 2rem;
-}
-
-#listMyPageBtn {
-  display: flex;
-  align-items: center;
-  font-size: 1.25rem;
-  color: var(--main-color-gray);
-  font-weight: 700;
-  padding: 1rem;
-  margin-top: 0.5rem;
-  border-radius: 1rem 0 0 1rem;
   background-color: var(--main-color-white);
 }
 
 #listCoverPart {
-  background-color: #0581bb;
-  background: linear-gradient(
-    180deg,
-    var(--main-color-green) 35%,
-    var(--main-color-dark-green) 100%
-  );
-  height: 20rem;
+  background-size: cover;
+  background-image: url("https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F");
+  height: 30rem;
   padding-bottom: 170px;
   box-sizing: border-box;
   width: 100%;
@@ -50,176 +25,138 @@
 }
 
 #listMainTitle {
+  display: flex;
+  justify-content: center;
   font-size: 1.625rem;
   font-weight: 600;
   padding: 2rem 0;
-  color: var(--main-color-white);
+  width: 30%;
+  border-radius: 1.5rem;
+  color: var(--main-color-dark-blue);
+  background-color: var(--main-color-white);
 }
 
 #listSearchBox {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 #listSearchCategory {
   display: flex;
-  padding-bottom: 1rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  height: 15rem;
 }
 
 .listSearchTitle {
-  text-align: center;
-  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
   font-size: 1.125rem;
-  color: var(--main-color-beige);
+  font-weight: bold;
+  color: var(--main-color-green);
   width: 6rem;
   height: 6rem;
   background-color: var(--main-color-white);
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.listSearchTitle:hover {
+  background-color: var(--main-color-beige);
+}
+
+#listSearchTextBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+#listSearchTextClose {
+  display: flex;
+  padding: 1rem;
+  margin-right: 2rem;
+  background-color: var(--main-color-white);
+  color: var(--main-color-blue);
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#listSearchText {
+  height: 2rem;
+  width: 23rem;
+  border-radius: 10px;
+  border: 3px solid var(--main-color-dark-blue);
 }
 @media (max-width: 1024px) {
-  #listNavPart {
-    height: 5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--main-color-green);
-  }
-
-  #listNavLogo {
-    display: flex;
-    align-items: center;
-    font-size: 1.75rem;
-    color: var(--main-color-white);
-    font-weight: 900;
-    padding: 1.5rem 2rem;
-  }
-
-  #listMyPageBtn {
-    display: flex;
-    align-items: center;
-    font-size: 1.25rem;
-    color: var(--main-color-gray);
-    font-weight: 700;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    border-radius: 1rem 0 0 1rem;
-    background-color: var(--main-color-white);
+  #listMainPart {
+    width: 90%;
   }
 
   #listCoverPart {
-    background-color: #0581bb;
-    background: linear-gradient(
-      180deg,
-      var(--main-color-green) 35%,
-      var(--main-color-dark-green) 100%
-    );
-    height: 20rem;
-    padding-bottom: 170px;
-    box-sizing: border-box;
     width: 100%;
-    text-align: center;
-    color: #fefefe;
-  }
-
-  #listMainPart {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: -15rem;
   }
 
   #listMainTitle {
-    font-size: 1.625rem;
-    font-weight: 600;
-    padding: 2rem 0;
-    color: var(--main-color-white);
-  }
-
-  #listSearchBox {
-    display: flex;
-    flex-direction: row;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
   }
 
   #listSearchCategory {
-    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: 34rem;
   }
 
-  #listSearchCategory span {
-    margin-right: 1rem;
-    font-size: 1.125rem;
-    color: var(--main-color-light-green);
+  .listSearchTitle {
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+  }
+
+  #listSearchKeyword {
+    width: 100%;
+    margin-top: 1.5rem;
+    height: 4.5rem;
+    border-radius: 0px;
+    position: relative;
   }
 }
 @media (max-width: 768px) {
-  #listNavPart {
-    height: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--main-color-green);
-  }
-
-  #listNavLogo {
-    display: flex;
-    align-items: center;
-    font-size: 1.75rem;
-    color: var(--main-color-white);
-    font-weight: 900;
-    padding: 1.5rem 2rem;
-  }
-
-  #listMyPageBtn {
-    display: flex;
-    align-items: center;
-    font-size: 1.25rem;
-    color: var(--main-color-gray);
-    font-weight: 700;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    border-radius: 1rem 0 0 1rem;
-    background-color: var(--main-color-white);
-  }
-
-  #listCoverPart {
-    background-color: #0581bb;
-    background: linear-gradient(
-      180deg,
-      var(--main-color-green) 35%,
-      var(--main-color-dark-green) 100%
-    );
-    height: 20rem;
-    padding-bottom: 170px;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: center;
-    color: #fefefe;
-  }
-
   #listMainPart {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: -15rem;
-  }
-
-  #listMainTitle {
-    font-size: 1.625rem;
-    font-weight: 600;
-    padding: 2rem 0;
-    color: var(--main-color-white);
-  }
-
-  #listSearchBox {
-    display: flex;
-    flex-direction: row;
+    width: 70%;
   }
 
   #listSearchCategory {
-    padding-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: first baseline;
+    height: 40rem;
   }
 
-  #listSearchCategory span {
-    margin-right: 1rem;
-    font-size: 1.125rem;
-    color: var(--main-color-light-green);
+  #listMainTitle {
+    width: 80%;
+  }
+
+  #listCoverPart {
+    background-color: var(--main-color-white);
+  }
+
+  .listSearchTitle {
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+  }
+
+  #listSearchKeyword {
+    height: 2.5rem;
+  }
+
+  #listSearchTextClose {
+    position: relative;
   }
 }

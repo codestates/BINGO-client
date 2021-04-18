@@ -11,6 +11,7 @@ export const SHOW_CONTENT = "SHOW_CONTENT"
 export const SHOW_NEWS_CONTENT = "SHOW_NEWS_CONTENT"
 export const SHOW_MESSAGE_CONTENT = "SHOW_MESSAGE_CONTENT"
 export const SHOWMODAL_CONTENT = "SHOWMODAL_CONTENT";
+export const CHANGE_LIST_CATEGORY = "CHANGE_LIST_CATEGORY";
 export const SHOW_MYPAGE = "SHOW_MYPAGE"
 export const SHOW_MYPAGE_MODAL = "SHOW_MYPAGE_MODAL"
 
@@ -72,6 +73,15 @@ export const showList = (data: Object) => {
     },
   };
 };
+
+export const changeList = (category: string) => {
+  return {
+    type: CHANGE_LIST_CATEGORY,
+    payload: {
+      category,
+    }
+  }
+}
 
 export const showPayModal = (modalDisplay: boolean) => {
   return {
