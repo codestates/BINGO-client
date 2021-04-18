@@ -1,13 +1,20 @@
+#card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: auto;
+}
+
 #ListContentEntryContainer {
-  width: 23rem;
-  height: 12rem;
-  background-color: var(--main-color-white);
+  width: 20rem;
+  height: 22rem;
+  background-color: var(--main-color-green);
   border-radius: 1rem;
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   transform-style: preserve-3d;
   transition: all 1s;
   margin-right: 1rem;
@@ -17,35 +24,64 @@
   transform: rotateY(180deg);
   cursor: pointer;
 }
+
 .front {
   transform: rotateY(0deg);
-  padding: 1.5rem;
+  padding: 1rem;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
 .back {
   transform: rotateY(180deg);
   z-index: 1;
   padding: 1rem;
-
   position: absolute;
 }
 
-#ListContentEntryLogo {
-  margin-top: 1rem;
-  height: 5rem;
-  width: 9rem;
-  border: 1px solid black;
+#ListContentEntryLogoBox {
+  display: flex;
+  width: 17rem;
+  height: 15rem;
   border-radius: 0.5rem;
+  background-color: white;
 }
+
+#ListContentEntryLogo {
+  margin-top: auto;
+  margin-bottom: auto;
+  align-self: center;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
 #ListContentEntryTitle {
   padding: 1rem 0;
-  color: var(--main-color-gray);
-  font-size: 1em;
+  color: var(--main-color-white);
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  font-size: 1.2rem;
   font-weight: 600;
+  align-self: center;
 }
+
 #ListContentEntryDescription {
   color: var(--main-color-light-gray);
   margin-bottom: 1rem;
+}
+
+.front:hover {
+  display: none;
 }
 
 @media (max-width: 1024px) {
@@ -53,7 +89,7 @@
 @media (max-width: 768px) {
   #ListContentEntryContainer {
     width: 80%;
-    background-color: var(--main-color-white);
+    background-color: var(--main-color-green);
     border-radius: 0.5rem;
     margin: 0.5rem 0;
     display: flex;
@@ -68,29 +104,25 @@
     transform: rotateY(180deg);
     cursor: pointer;
   }
+
   .front {
     transform: rotateY(0deg);
     z-index: 2;
   }
+
   .back {
     transform: rotateY(180deg);
     z-index: 1;
   }
 
-  #ListContentEntryLogo {
-    margin-top: 0.5rem;
-    height: 2rem;
-    width: 4rem;
-    border: 1px solid black;
-    border-radius: 0.5rem;
-  }
   #ListContentEntryTitle {
     padding: 0.5rem 0;
-    color: var(--main-color-gray);
-    font-weight: 300;
+    color: var(--main-color-white);
+    font-weight: bold;
   }
+
   #ListContentEntryDescription {
-    color: var(--main-color-light-gray);
+    color: var(--main-color-white);
     margin-bottom: 0.5rem;
   }
 }

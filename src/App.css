@@ -45,7 +45,7 @@ button:hover {
   display: flex;
   align-items: center;
   font-size: 1.75rem;
-  color: var(--main-color-white);
+  color: var(--main-color-blue);
   font-weight: 900;
   padding: 1.5rem 2rem;
   cursor: pointer;
@@ -66,6 +66,7 @@ button:hover {
 
 .navMyPage:hover {
   transform: translate(0.75rem, 0rem);
+  background-color: var(--main-color-yellow);
 }
 
 .modalWholeContainer {
