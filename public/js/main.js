@@ -34,10 +34,10 @@ const getAccessTokenGoogle = async (authorizationCode) => {
     credentials: "include",
     method: "POST",
     body: JSON.stringify({
-      authorizationCode
+      authorizationCode,
     }),
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
   })
     .then((res) => {
@@ -51,10 +51,10 @@ const getAccessTokenKakao = async (authorizationCode) => {
     method: "POST",
     credentials: "include",
     body: JSON.stringify({
-      authorizationCode
+      authorizationCode,
     }),
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
   })
     .then((res) => {
@@ -111,6 +111,21 @@ if (authorizationCode) {
   getAccessTokenKakao(authorizationCode);
 }
 
+let toTopCount = 0;
+let tempTopYOffset = 5;
+const toTop = document.querySelector("#toTop");
+toTop.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+  let toTopId = setInterval(() => {
+    window.scrollTo(0, tempTopYOffset);
+    tempTopYOffset += 5;
+    if (toTopCount > 20) {
+      clearInterval(toTopId);
+    }
+    toTopCount++;
+  }, 20);
+});
+
 (() => {
   let yOffset = 0;
   let prevScrollHeight = 0;
@@ -125,7 +140,7 @@ if (authorizationCode) {
     {
       //0
       type: "sticky",
-      heightNum: 5,
+      heightNum: 10,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-0"),
@@ -138,8 +153,8 @@ if (authorizationCode) {
         videoImages: [],
       },
       values: {
-        videoImageCount: 300,
-        imageSequence: [0, 299],
+        videoImageCount: 510,
+        imageSequence: [0, 509],
         canvas_opacity: [1, 0, { start: 0.9, end: 1 }],
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
         messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
@@ -171,7 +186,7 @@ if (authorizationCode) {
     {
       //2
       type: "sticky",
-      heightNum: 5,
+      heightNum: 10,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-2"),
@@ -184,8 +199,8 @@ if (authorizationCode) {
         videoImages: [],
       },
       values: {
-        videoImageCount: 300,
-        imageSequence: [0, 299],
+        videoImageCount: 390,
+        imageSequence: [0, 389],
         canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
         canvas_opacity_out: [1, 0, { start: 0.9, end: 1 }],
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
@@ -209,7 +224,7 @@ if (authorizationCode) {
     {
       //3
       type: "sticky",
-      heightNum: 5,
+      heightNum: 10,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-3"),
@@ -222,8 +237,8 @@ if (authorizationCode) {
         videoImages: [],
       },
       values: {
-        videoImageCount: 300,
-        imageSequence: [0, 299],
+        videoImageCount: 230,
+        imageSequence: [0, 229],
         canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
         canvas_opacity_out: [1, 0, { start: 0.9, end: 1 }],
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
@@ -247,7 +262,7 @@ if (authorizationCode) {
     {
       //4
       type: "sticky",
-      heightNum: 5,
+      heightNum: 10,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-4"),
@@ -260,8 +275,8 @@ if (authorizationCode) {
         videoImages: [],
       },
       values: {
-        videoImageCount: 300,
-        imageSequence: [0, 299],
+        videoImageCount: 436,
+        imageSequence: [0, 435],
         canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
         canvas_opacity_out: [1, 0, { start: 0.9, end: 1 }],
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
@@ -285,7 +300,7 @@ if (authorizationCode) {
     {
       //5
       type: "sticky",
-      heightNum: 5,
+      heightNum: 10,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-5"),
@@ -314,28 +329,28 @@ if (authorizationCode) {
     let imgElem;
     for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
       imgElem = new Image();
-      imgElem.src = `./video/000/IMG_${6726 + i}.JPG`;
+      imgElem.src = `./video/BINGO_SCENE1/BINGO_SCENE${1000 + i}.JPG`;
       sceneInfo[0].objs.videoImages.push(imgElem);
     }
 
     let imgElem2;
     for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
       imgElem2 = new Image();
-      imgElem2.src = `./video/000/IMG_${6726 + i}.JPG`;
+      imgElem2.src = `./video/BINGO_SCENE2/BINGO_SCENE${2000 + i}.JPG`;
       sceneInfo[2].objs.videoImages.push(imgElem2);
     }
 
     let imgElem3;
     for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
       imgElem3 = new Image();
-      imgElem3.src = `./video/000/IMG_${6726 + i}.JPG`;
+      imgElem3.src = `./video/BINGO_SCENE3/BINGO_SCENE${3000 + i}.JPG`;
       sceneInfo[3].objs.videoImages.push(imgElem3);
     }
 
     let imgElem4;
     for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
       imgElem4 = new Image();
-      imgElem4.src = `./video/000/IMG_${6726 + i}.JPG`;
+      imgElem4.src = `./video/BINGO_SCENE4/BINGO_SCENE${4000 + i}.JPG`;
       sceneInfo[4].objs.videoImages.push(imgElem4);
     }
 
@@ -371,9 +386,10 @@ if (authorizationCode) {
     document.body.setAttribute("id", `show-scene-${currentScene}`);
 
     const heightRatio = window.innerHeight / 1080;
+    const widthRatio = window.innerWidth / 1920;
     sceneInfo[0].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
     sceneInfo[2].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
-    sceneInfo[3].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
+    sceneInfo[3].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${widthRatio})`;
     sceneInfo[4].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
   }
 
@@ -991,11 +1007,22 @@ if (authorizationCode) {
       prevScrollHeight += sceneInfo[i].scrollHeight;
     }
     if (
+      delayedYOffset <
+      prevScrollHeight + sceneInfo[currentScene].scrollHeight
+    ) {
+      document.body.classList.remove("scroll-effect-end");
+    }
+    if (
       delayedYOffset >
       prevScrollHeight + sceneInfo[currentScene].scrollHeight
     ) {
       enterNewScene = true;
-      currentScene++;
+      if (currentScene === sceneInfo.length - 1) {
+        document.body.classList.add("scroll-effect-end");
+      }
+      if (currentScene < sceneInfo.length - 1) {
+        currentScene++;
+      }
       document.body.setAttribute("id", `show-scene-${currentScene}`);
     }
     if (delayedYOffset < prevScrollHeight) {
@@ -1070,27 +1097,54 @@ if (authorizationCode) {
     }
   }
 
-  window.addEventListener("scroll", function () {
-    yOffset = window.pageYOffset;
-    scrollLoop();
-
-    if (!rafState) {
-      rafId = requestAnimationFrame(loop);
-      rafState = true;
-    }
-  });
   // window.addEventListener("DOMcontentLoaded", setLayout); // html 돔구조만 로드가 끝나면 바로 실행
   window.addEventListener("load", () => {
+    document.body.classList.remove("before-load");
     setLayout();
     sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0);
-  }); //리소스까지 포함 (이미지 동영상 등)
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 600) {
-      setLayout();
+
+    let tempYOffset = yOffset;
+    let tempScrollCount = 0;
+    if (yOffset > 0) {
+      let siId = setInterval(() => {
+        window.scrollTo(0, tempYOffset);
+        tempYOffset += 5;
+        if (tempScrollCount > 20) {
+          clearInterval(siId);
+        }
+        tempScrollCount++;
+      }, 20);
     }
-    sceneInfo[3].values.rectStartY = 0;
-  });
-  window.addEventListener("orientationchange", setLayout);
+
+    window.addEventListener("scroll", function () {
+      yOffset = window.pageYOffset;
+      scrollLoop();
+
+      if (!rafState) {
+        rafId = requestAnimationFrame(loop);
+        rafState = true;
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        window.location.reload();
+      }
+    });
+
+    window.addEventListener("orientationchange", () => {
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.location.reload();
+      });
+    });
+
+    document
+      .querySelector(".loading")
+      .addEventListener("transitionend", (e) => {
+        document.body.removeChild(e.currentTarget);
+      });
+  }); //리소스까지 포함 (이미지 동영상 등)
 
   setCanvasImages();
 })();

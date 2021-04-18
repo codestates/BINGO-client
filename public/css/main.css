@@ -7,17 +7,24 @@ html {
 body {
   overflow-x: hidden;
   /* 가로스크롤 방지 */
-  color: rgb(255, 255, 255);
+  color: rgb(233, 232, 228);
   letter-spacing: -0.05em;
-  background: rgb(15, 86, 70);
+  background: rgb(56, 82, 79);
 }
 p {
   line-height: 1.6;
   /* 행간 떨어뜨리기 */
 }
 
+body.before-load {
+  overflow: hidden;
+}
+.container {
+  overflow-x: hidden;
+}
+
 .nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -29,11 +36,11 @@ p {
 }
 
 .nav-links {
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 100vw;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 2.5rem;
 }
 
 .nav .product-name {
@@ -53,14 +60,82 @@ p {
   font-size: 4rem;
   text-align: center;
 }
-
-#start-button {
-  position: fixed;
-  z-index: 9;
-  color: rgb(15, 86, 70);
-  background-color: rgb(29, 29, 31);
+#start-description {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: -7rem;
 }
-
+#start-description span {
+  padding: 0 0.5rem;
+  font-size: 1.25rem;
+  background-color: rgb(50, 50, 50);
+  margin: 0.125rem;
+  color: rgb(142, 155, 154);
+}
+#start-description button {
+  margin: 1.5rem;
+  font-size: 1.3rem;
+  background-color: rgb(50, 50, 50);
+  color: rgb(142, 155, 154);
+}
+#start-description button:hover {
+  background-color: rgb(142, 155, 154);
+  color: rgb(50, 50, 50);
+}
+#login-button {
+  color: rgb(233, 232, 228);
+  border: 1px solid rgb(233, 232, 228);
+  border-radius: 50%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 1rem;
+}
+#login-button:hover {
+  background-color: rgb(29, 29, 31);
+  cursor: pointer;
+}
+@keyframes scroll {
+  0% {
+    top: 82.5vh;
+  }
+  25% {
+    top: 85vh;
+  }
+  100% {
+    top: 82.5vh;
+  }
+}
+#scrollDiv {
+  position: fixed;
+  top: 82.5vh;
+  left: 1vw;
+  color: rgb(233, 232, 228);
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  z-index: 300;
+  font-size: 1.4rem;
+  animation-name: scroll;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+#toTop {
+  color: rgb(233, 232, 228);
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  border: 1px solid rgb(233, 232, 228);
+  padding: 0.5rem;
+  position: fixed;
+  z-index: 15;
+  top: 90vh;
+  left: 94vw;
+}
+#toTop:hover {
+  background-color: rgb(50, 50, 50);
+  cursor: pointer;
+}
 .main-message {
   display: flex;
   align-items: center;
@@ -124,7 +199,7 @@ p {
   font-size: 1.2rem;
   color: #888;
   max-width: 1000px;
-  margin: -8em auto 0;
+  margin: -24rem auto 0;
 }
 .footer {
   display: flex;
@@ -147,6 +222,10 @@ p {
 #show-scene-4 #scroll-section-4 .sticky-elem,
 #show-scene-5 #scroll-section-5 .sticky-elem {
   display: block;
+  will-change: transform, opacity;
+}
+.scroll-effect-end .sticky-elem {
+  display: none !important;
 }
 .sticky-elem-canvas {
   top: 0;
@@ -168,7 +247,59 @@ p {
 .image-blend-canvas.sticky {
   position: fixed;
 }
-
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: rgb(229, 229, 225);
+  opacity: 0;
+  transition: 0.5s;
+}
+.loading img {
+  width: 360px;
+  height: 202.5px;
+}
+.before-load .container {
+  display: none;
+}
+.before-load .loading {
+  opacity: 1;
+}
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-circle-ani {
+  0% {
+    stroke-dashoffset: 157;
+  }
+  75% {
+    stroke-dashoffset: -147;
+  }
+  100% {
+    stroke-dashoffset: -157;
+  }
+}
+.loading-circle {
+  width: 54px;
+  height: 54px;
+  animation: loading-spin 3s infinite;
+}
+.loading-circle circle {
+  stroke: black;
+  stroke-width: 4;
+  stroke-dasharray: 157;
+  stroke-dashoffset: -157;
+  fill: transparent;
+  animation: loading-circle-ani 1s infinite;
+}
 @media (min-width: 1024px) {
   #scroll-section-0 h1 {
     font-size: 9vw;
@@ -201,5 +332,6 @@ p {
   .canvas-caption {
     font-size: 2rem;
     padding: 0;
+    margin-top: -8rem;
   }
 }

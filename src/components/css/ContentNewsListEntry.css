@@ -1,9 +1,10 @@
 #contentNewsListEntryContainer {
-  background-color: var(--main-color-white);
+  /* background-color: var(--main-color-white); */
   margin: 1rem;
   padding: 1rem;
   border-radius: 1rem;
   width: 40%;
+  border: 2px solid var(--main-color-white);
 }
 
 #contentNewsTitle {
