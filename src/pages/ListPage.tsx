@@ -33,9 +33,9 @@ function ListPage() {
     // dispatch(showList(lists));
   }, []);
 
-  const handleClickBtn = () => {
-    store.dispatch({ type: "INCREMENT", size: categoryNum });
-  };
+  // const handleClickBtn = () => {
+  //   store.dispatch({ type: "INCREMENT", size: categoryNum });
+  // };
 
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
