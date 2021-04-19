@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { changeList } from "../action";
 
-function ListPage() {
+function ListPage(props: any) {
   const [category, setCategory] = useState(["전체", "아동", "장애인", "여성", "성소수자", "동물", "환경", "노인", "보건", "다문화"]);
   const [displaySearch, setDisplaySearch] = useState(false);
   const [dataOfCategory, setDataOfCategory] = useState("전체");
@@ -33,15 +33,11 @@ function ListPage() {
     // dispatch(showList(lists));
   }, []);
 
-  // const handleClickBtn = () => {
-  //   store.dispatch({ type: "INCREMENT", size: categoryNum });
-  // };
-
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
   };
   const handleMyPageClick = () => {
-    window.location.href = "./mypage";
+    props.history.push('/mypage');
   };
   const handleSearchClick = () => {
     if(displaySearch) { //검색 닫기 버튼 누를떄
@@ -59,7 +55,7 @@ function ListPage() {
     dispatch(changeList(category))
   }
 
-  let findname;
+  let findname: any;
   useEffect(() => {
     if (query) {
       findname = state.listInfo.data.filter((item: any) =>

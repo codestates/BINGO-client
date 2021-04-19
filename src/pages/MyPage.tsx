@@ -12,7 +12,7 @@ import { showMypage, showMypageModal } from "../action"
 import axios from 'axios';
 import MyPageModal from "../components/MyPageModal"
 
-function MyPage() {
+function MyPage(props: any) {
   const state = useSelector((state: RootState) => state.loginReducer);
   const { userInfo, mypageInfo } = state;
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function MyPage() {
     window.location.href = "./guide.html"
   }
   const handlePayPageClick = () => {
-    window.location.href = "./pay"
+    props.history.push('/pay')
   }
   useEffect(() => {
     axios.get(`http://localhost:5000/mypage?user_id=${userInfo.id}`)
