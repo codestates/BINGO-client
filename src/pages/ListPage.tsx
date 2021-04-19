@@ -47,7 +47,7 @@ function ListPage(props: any) {
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
   };
-  const handleMyPageClick = () => {
+  const handleMyPageClick = () => { //마이페이지로 이동
     props.history.push('/mypage');
   };
   const handleSearchClick = () => {
