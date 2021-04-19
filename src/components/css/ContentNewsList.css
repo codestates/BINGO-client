@@ -5,6 +5,10 @@
   justify-content: space-around;
 }
 
+#contentNewsListBox:hover {
+  cursor: pointer;
+}
+
 #contentNewsListContainer {
   position: relative;
   transition: top 0.2s;

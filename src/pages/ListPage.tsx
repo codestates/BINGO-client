@@ -100,9 +100,11 @@ function ListPage(props: any) {
         <div id='listMainTitle' className="shadow">더 많은 NGO단체 찾아보기</div>
         <div id='listSearchBox'>
           <div id='listSearchCategory'>
+            <div id="listSearchTitleBox">
             {category.map((item) => {return(
               <div className='listSearchTitle shadow' onClick={() => handleCategoryClick(item)}>{item}</div>
             )})}
+
             <Motion style={{ width: spring(searchWidth) }}>
             {
               ({ width}) => 

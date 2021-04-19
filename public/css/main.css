@@ -196,6 +196,14 @@ body.before-load {
 .mid-message strong {
   color: rgb(29, 29, 31);
 }
+.moving-message {
+  font-size: 10rem;
+  font-weight: bolder;
+  color: rgb(56, 82, 79);
+  width: max-content;
+  text-shadow: -1px 0 rgb(211, 190, 193), 0 1px rgb(211, 190, 193),
+    1px 0 rgb(211, 190, 193), 0 -1px rgb(211, 190, 193);
+}
 
 .canvas-caption {
   padding: 0 1rem;

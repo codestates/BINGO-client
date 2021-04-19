@@ -1,3 +1,7 @@
+#listContentEntryWholeContainer {
+  margin-left: 6rem;
+}
+
 #card {
   display: flex;
   flex-direction: row;
@@ -18,11 +22,19 @@
   transform-style: preserve-3d;
   transition: all 1s;
   margin-right: 1rem;
+  position: relative;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
 }
 
 #ListContentEntryContainer:hover {
   transform: rotateY(180deg);
   cursor: pointer;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 .front {
@@ -32,13 +44,22 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* position: absolute;*/
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
 }
 
 .back {
   transform: rotateY(180deg);
   z-index: 1;
   padding: 1rem;
-  position: absolute;
+  /* position: absolute; */
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 #ListContentEntryLogoBox {
@@ -85,34 +106,30 @@
 }
 
 @media (max-width: 1024px) {
+  #ListContentEntryLogoBox {
+    width: 16rem;
+    height: 15rem;
+  }
+
+  #listContentEntryWholeContainer {
+    margin-left: 8rem;
+  }
 }
 @media (max-width: 768px) {
+  #listContentEntryWholeContainer {
+    margin-left: 0.3rem;
+  }
+
   #ListContentEntryContainer {
-    width: 80%;
-    background-color: var(--main-color-green);
     border-radius: 0.5rem;
-    margin: 0.5rem 0;
-    display: flex;
-    flex-direction: column;
+    margin: 0.5rem 3rem;
     align-items: center;
     position: relative;
-    transform-style: preserve-3d;
-    transition: all 1s;
   }
 
   #ListContentEntryContainer:hover {
     transform: rotateY(180deg);
     cursor: pointer;
-  }
-
-  .front {
-    transform: rotateY(0deg);
-    z-index: 2;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-    z-index: 1;
   }
 
   #ListContentEntryTitle {
