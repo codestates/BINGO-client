@@ -1,3 +1,7 @@
+#listContentEntryWholeContainer {
+  margin-left: 6rem;
+}
+
 #card {
   display: flex;
   flex-direction: row;
@@ -85,34 +89,30 @@
 }
 
 @media (max-width: 1024px) {
+  #ListContentEntryLogoBox {
+    width: 16rem;
+    height: 15rem;
+  }
+
+  #listContentEntryWholeContainer {
+    margin-left: 8rem;
+  }
 }
 @media (max-width: 768px) {
+  #listContentEntryWholeContainer {
+    margin-left: 0.3rem;
+  }
+
   #ListContentEntryContainer {
-    width: 80%;
-    background-color: var(--main-color-green);
     border-radius: 0.5rem;
-    margin: 0.5rem 0;
-    display: flex;
-    flex-direction: column;
+    margin: 0.5rem 3rem;
     align-items: center;
     position: relative;
-    transform-style: preserve-3d;
-    transition: all 1s;
   }
 
   #ListContentEntryContainer:hover {
     transform: rotateY(180deg);
     cursor: pointer;
-  }
-
-  .front {
-    transform: rotateY(0deg);
-    z-index: 2;
-  }
-
-  .back {
-    transform: rotateY(180deg);
-    z-index: 1;
   }
 
   #ListContentEntryTitle {
