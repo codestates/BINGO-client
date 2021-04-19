@@ -255,7 +255,7 @@ function ContentPage(props: any) {
                 </div>
 
               </div>
-            )}
+            }
           </Motion>
           {scrollDisplay ? <div id='scrollDiv'>∨∨scroll∨∨</div> : null}
           <ContentNewsList ngoName={ngoInfo.data.name} />
