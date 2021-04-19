@@ -8,10 +8,12 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { changeList } from "../action";
+import { Motion, spring } from 'react-motion';
 
 function ListPage(props: any) {
   const [category, setCategory] = useState(["전체", "아동", "장애인", "여성", "성소수자", "동물", "환경", "노인", "보건", "다문화"]);
   const [displaySearch, setDisplaySearch] = useState(false);
+  const [searchWidth, setSearchWidth] = useState(6);
   const [dataOfCategory, setDataOfCategory] = useState("전체");
   const state = useSelector((state: RootState) => state.listReducer);
   const dispatch = useDispatch();
@@ -20,6 +22,15 @@ function ListPage(props: any) {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    const url = new URL(window.location.href);
+    const userId = url.searchParams.get("userId");
+    const ngoIdOfLoveList = url.searchParams.get("ngoIdOfLoveList");
+    if (userId) {
+      console.log(userId);
+    }
+    if (ngoIdOfLoveList) {
+      console.log(ngoIdOfLoveList);
+    }
     axios
       .get("http://localhost:5000/listpage")
       .then(res => {
@@ -45,9 +56,11 @@ function ListPage(props: any) {
       setDisplaySearch(false);
       setResult([]);
       setQuery("");
+      setSearchWidth(6);
     } else { //검색 버튼 누를때
       setCategory([]);
       setDisplaySearch(true);
+      setSearchWidth(23);
     }
   };
 
@@ -90,15 +103,22 @@ function ListPage(props: any) {
             {category.map((item) => {return(
               <div className='listSearchTitle shadow' onClick={() => handleCategoryClick(item)}>{item}</div>
             )})}
-            {displaySearch ? (
+            <Motion style={{ width: spring(searchWidth) }}>
+            {
+              ({ width}) => 
+            <div id="listSearchKeyword" className='listSearchTitle' onClick={handleSearchClick} style={Object.assign({}, {}, { width: `${width}rem` } )}>
+            {displaySearch ? 
               <div id="listSearchTextBox">
                 <div id="listSearchTextClose" onClick={handleSearchClick}>X</div>
                 <input type="test" id="listSearchText" placeholder="검색할단체를 입력하세요" value={query} onChange={e => setQuery(e.target.value)}></input>
-              </div>):
-            (<div id="listSearchKeyword" className='listSearchTitle' onClick={handleSearchClick}>
+              </div> 
+              :
               <div>검색</div>
-            </div>)
             }
+            </div>
+            }
+            </Motion>
+            
           </div>
         </div>
         {result.length === 0 && <ListContentList />}

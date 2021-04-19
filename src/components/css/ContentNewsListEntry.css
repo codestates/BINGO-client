@@ -7,6 +7,10 @@
   border: 2px solid var(--main-color-white);
 }
 
+#contentNewsListEntryContainer:hover {
+  cursor: pointer;
+}
+
 #contentNewsTitle {
   font-weight: 600;
   font-size: 1.125rem;

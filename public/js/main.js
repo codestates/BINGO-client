@@ -17,9 +17,9 @@ const handleStartBtnClick = async () => {
   })
   .then((res) => {
     if (!res) {
-      window.location.href = "/test";
+      window.location.href = `/test?userId=${userId}&ngoIdOfLoveList=${ngoIdOfLoveList}`;
     } else {
-      window.location.href = `/list?userId=${userId}`;
+      window.location.href = `/list?userId=${userId}&ngoIdOfLoveList=${ngoIdOfLoveList}`;
     }
   })
   .catch(() => window.location.href = "/test")

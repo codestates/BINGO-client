@@ -152,7 +152,7 @@ function ContentPage(props: any) {
           ({ top, opacity }) => 
           <div id="videoAndDescription" style={Object.assign({}, {  }, { top, opacity } )}>
             <div id="contentDescription">
-              <div className="contentBoxTitle">{`${ngoInfo.data.name}?`}</div>
+              <div className="contentBoxTitle">{`${ngoInfo.data.name}`}</div>
               <div className="contentBoxSubTitle">{`사회단체 ${ngoInfo.data.name}을(를) 소개합니다.`}</div>
               <div id="descriptionBox" className="shadow">
                 {ngoInfo.data.description}

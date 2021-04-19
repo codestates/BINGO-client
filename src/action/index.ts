@@ -14,6 +14,7 @@ export const SHOWMODAL_CONTENT = "SHOWMODAL_CONTENT";
 export const CHANGE_LIST_CATEGORY = "CHANGE_LIST_CATEGORY";
 export const SHOW_MYPAGE = "SHOW_MYPAGE"
 export const SHOW_MYPAGE_MODAL = "SHOW_MYPAGE_MODAL"
+export const CHANGE_USERINFO = "CHANGE_USERINFO";
 
 
 // actions creator functions
@@ -158,3 +159,19 @@ export const showMypageModal = (modalDisplay: boolean, ngoName: string, donateId
     }
   }
 }
+
+export const changeUserInfo = (id: number, username?: string, profileImage?: string, level?: string, googleId?: string, kakaoId?: string,) => {
+  return {
+    type: CHANGE_USERINFO,
+    payload: {
+      id: 0,
+      username,
+      profileImage: "",
+      level: "",
+      googleId: "",
+      kakaoId: "",
+      accessToken: "",
+      ngoIdOfLoveList: []
+    },
+  };
+};
