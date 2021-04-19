@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as d3 from 'd3';
 import { PieArcDatum } from 'd3-shape';
 import "./css/MyAllDonationGraph.css";
 import { useSelector } from 'react-redux';
 import { RootState } from '../reducers';
+import { pathToFileURL } from 'node:url';
     
 interface MyData {
   name: string,
   value: number,
   color: string,
+  percent: number,
 }
 
 let count = 0;
@@ -19,13 +21,6 @@ function MyAllDonationGraph(){
   const { mypageInfo } = state;
   const [data, setData] = useState([
     {name: 'A', value: 1000, color: '#efa86b'},
-    {name: 'B', value: 1000, color: '#c1484f'},
-    {name: 'C', value: 1000, color: '#d35d50'},
-    {name: 'D', value: 1000, color: '#f4c17c'},
-    {name: 'E', value: 1000, color: '#fae8a4'},
-    {name: 'F', value: 1000, color: '#df7454'},
-    {name: 'G', value: 1000, color: '#e88d5d'},
-    {name: 'H', value: 1000, color: '#f8d690'}
   ])
 
   console.log(mypageInfo);
@@ -34,7 +29,7 @@ function MyAllDonationGraph(){
     let yearNow = now.getFullYear();
     let monthNow = now.getMonth() + 1;
     let donates = mypageInfo.mypageInfo.donates;
-    let arrangedData = [{name: "", value: 0, color: ""}];
+    let arrangedData = [{name: "", value: 0, color: "", percent: 0}];
     let alreadyInNgo = { "": 0 };
   
     for(let i = 0; i < donates.length; i++){
@@ -68,23 +63,26 @@ function MyAllDonationGraph(){
         else {
           let yearEnd = donates[i].updatedAt.slice(0, 4);
           let monthEnd = donates[i].updatedAt.slice(5, 7);
-          let howManyMonthNotIng = (yearEnd - yearStart) * 12 - (monthStart - 1) + monthEnd
+          let howManyMonthNotIng = (yearEnd - yearStart) * 12 - (Number(monthStart) - 1) + Number(monthEnd)
           alreadyInNgo[donates[i].ngo.ngoName] += donates[i].money * howManyMonthNotIng;
         }
       }
     }
   
     for(let key in alreadyInNgo){
-      let newObj = {name: "", value: 0, color: ""};
+      let newObj = {name: "", value: 0, color: "", percent: 0};
       newObj.name = key
       newObj.value = alreadyInNgo[key]
       arrangedData.push(newObj);
     }
     arrangedData.shift();
     arrangedData.shift();
+    arrangedData = arrangedData.sort((a, b) => b.value - a.value);
+    let total = arrangedData.reduce((acc, cur) => {return acc + cur.value}, 0)
 
     for(let i = 0; i < arrangedData.length; i++){
       arrangedData[i].color = color[i % 8];
+      arrangedData[i].percent = arrangedData[i].value / total * 100
     }
 
     console.log(arrangedData);
@@ -100,7 +98,7 @@ function MyAllDonationGraph(){
         return d3.arc().innerRadius(radius).outerRadius(radius);
       })();
       
-      const pie = d3.pie<MyData>()
+      const pie = d3.pie<MyData>(data)
         .sort((a, b) => b.value - a.value)
         .value(d => d.value);
       
@@ -111,17 +109,28 @@ function MyAllDonationGraph(){
         .style('font-size', '12px S-CoreDream');
       
       const g = svg.append('g')
-        .attr('transform', `translate(${width/2}, ${height/2})`);
+        .attr('transform', `translate(${width/2}, ${height/2})`)
       
       g.selectAll('path')
         .data(arcs)
         .enter().append('path')
-          .attr('fill', d => d.data.color)
-              .attr('stroke', 'white')
-              .attr('d', arc)
-            .append('title')
-              .text(d => `${d.data.name}: ${d.data.value}`);
-          
+        .style("fill", function (d) {
+          return d.data.color
+        })
+        .attr('stroke', 'white')
+        .transition()
+        .delay(function (d, i) {
+          return i * 500;
+        })
+        .duration(500)
+        .attrTween("d", function (d) {
+          var i = d3.interpolate(d.startAngle + 0.1, d.endAngle);
+          return function (t) {
+            d.endAngle = i(t);
+            return arc(d);
+          };
+        })
+
       const text = g.selectAll('text')
         .data(arcs)
         .enter().append('text')
@@ -138,7 +147,23 @@ function MyAllDonationGraph(){
         .attr('x', 0)
         .attr('y', '0.7em')
         .attr('fill-opacity', 0.7)
-        // .text(d => d.data.value);
+
+      var div = d3.select('#myAllDonationGraph').append("div").attr("class", "toolTip");
+      d3.selectAll("path")
+      .on("mousemove", function(d){
+        div.style("left", d.pageX + 10 + "px");
+        div.style("top", d.pageY - 25 + "px");
+        div.style("display", "inline-block");
+        div.html(
+          d.path[0].__data__.data.name + "<br>" + d.path[0].__data__.data.value + "<br>" + parseInt(d.path[0].__data__.data.percent) + "%"
+        );
+        d.target.style.opacity = 0.5;
+      })
+
+      d3.selectAll("path").on("mouseout", function (d) {
+        div.style("display", "none");
+        d.target.style.opacity = 1;
+      });
       
       // svg.node();
     }
