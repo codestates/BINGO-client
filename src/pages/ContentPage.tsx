@@ -253,9 +253,8 @@ function ContentPage(props: any) {
                     allowFullScreen
                   ></iframe>
                 </div>
-
               </div>
-            )}
+            }
           </Motion>
           {scrollDisplay ? <div id='scrollDiv'>∨∨scroll∨∨</div> : null}
           <ContentNewsList ngoName={ngoInfo.data.name} />

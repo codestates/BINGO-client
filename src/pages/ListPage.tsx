@@ -104,7 +104,7 @@ function ListPage(props: any) {
             {category.map((item) => {return(
               <div className='listSearchTitle shadow' onClick={() => handleCategoryClick(item)}>{item}</div>
             )})}
-
+            </div>
             <Motion style={{ width: spring(searchWidth) }}>
             {
               ({ width}) => 
