@@ -5,24 +5,24 @@ let userId = 0;
 let ngoIdOfLoveList = [];
 
 const handleLoginBtnClick = () => {
-  window.location.href = "index.html/login";
+  window.location.href = "/login";
 };
 const handleStartBtnClick = async () => {
   await fetch("http://localhost:5000/testcookie", {
     method: "GET",
     credentials: "include",
   })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      if (!res) {
-        window.location.href = "./index.html";
-      } else {
-        window.location.href = `index.html/list?userId=${userId}`;
-      }
-    })
-    .catch(() => (window.location.href = "./test"));
+  .then((res) => {
+    return res.json();
+  })
+  .then((res) => {
+    if (!res) {
+      window.location.href = "/test";
+    } else {
+      window.location.href = `/list?userId=${userId}`;
+    }
+  })
+  .catch(() => window.location.href = "/test")
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);

@@ -5,7 +5,7 @@ import "./css/GuidePage.css";
 
 function GuidePage() {
 
-  return (<div></div>)
+  return (<div>Hello World!</div>)
 }
 
 export default withRouter(GuidePage);

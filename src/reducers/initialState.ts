@@ -27,6 +27,8 @@ export const initialState =
   },
   myModalInfo:{
     modalDisplay: false,
+    ngoName: '',
+    donateId: 0,
   },
   selectedOptions: [],
   listInfo: {

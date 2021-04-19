@@ -119,7 +119,7 @@ function TestPage(props: any) {
   }
 
   const handleSkipBtnClick = () => {
-    props.history.push('/index.html/list')
+    props.history.push('/list')
   }
   const handleLogoClick = () => {
     window.location.href = "./guide.html"
