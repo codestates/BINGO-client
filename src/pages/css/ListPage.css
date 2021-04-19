@@ -46,9 +46,9 @@
 #listSearchCategory {
   display: flex;
   padding: 1rem;
+  height: 8rem;
   align-items: center;
   justify-content: space-between;
-  height: 15rem;
 }
 
 .listSearchTitle {
@@ -74,16 +74,20 @@
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
+  width: 100%;
 }
 
 #listSearchTextClose {
   display: flex;
-  padding: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
   margin-right: 2rem;
   background-color: var(--main-color-white);
   color: var(--main-color-blue);
-  font-size: 1.2rem;
-  border-radius: 10px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -93,6 +97,23 @@
   border-radius: 10px;
   border: 3px solid var(--main-color-dark-blue);
 }
+
+#listSearchTitleBox {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#listSearchKeyword {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  color: var(--main-color-green);
+}
+
 @media (max-width: 1024px) {
   #listMainPart {
     width: 90%;
@@ -110,9 +131,18 @@
   }
 
   #listSearchCategory {
+    display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     height: 34rem;
+    margin-bottom: 5rem;
+    padding: 1rem;
+  }
+
+  #listSearchTitleBox {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 4.3rem;
   }
 
   .listSearchTitle {
@@ -121,11 +151,31 @@
   }
 
   #listSearchKeyword {
-    width: 100%;
+    width: 70%;
     margin-top: 1.5rem;
-    height: 4.5rem;
-    border-radius: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2rem;
+    border-radius: 3px;
     position: relative;
+  }
+
+  #listSearchTextClose {
+    position: relative;
+    margin: 0px;
+  }
+
+  #listSearchTextBox {
+    border: 2px solid var(--main-color-green);
+    padding: 0.5rem;
+    height: 3rem;
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  #listSearchText {
+    height: 100%;
+    margin-left: auto;
   }
 }
 @media (max-width: 768px) {
@@ -137,6 +187,7 @@
     flex-wrap: wrap;
     justify-content: first baseline;
     height: 40rem;
+    margin-bottom: 5rem;
   }
 
   #listMainTitle {
@@ -149,7 +200,7 @@
 
   .listSearchTitle {
     margin-right: 0.5rem;
-    margin-left: 2rem;
+    margin-left: 0.5rem;
   }
 
   #listSearchKeyword {
@@ -158,5 +209,16 @@
 
   #listSearchTextClose {
     position: relative;
+    margin: 0px;
+  }
+
+  #listSearchTextBox {
+    padding: 0.5rem;
+    height: 3rem;
+  }
+
+  #listSearchText {
+    height: 100%;
+    margin-left: 0.8rem;
   }
 }

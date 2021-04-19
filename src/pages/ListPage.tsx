@@ -87,16 +87,18 @@ function ListPage(props: any) {
         <div id='listMainTitle' className="shadow">더 많은 NGO단체 찾아보기</div>
         <div id='listSearchBox'>
           <div id='listSearchCategory'>
+            <div id="listSearchTitleBox">
             {category.map((item) => {return(
               <div className='listSearchTitle shadow' onClick={() => handleCategoryClick(item)}>{item}</div>
             )})}
+            </div>
             {displaySearch ? (
               <div id="listSearchTextBox">
-                <div id="listSearchTextClose" onClick={handleSearchClick}>X</div>
-                <input type="test" id="listSearchText" placeholder="검색할단체를 입력하세요" value={query} onChange={e => setQuery(e.target.value)}></input>
+                <i id="listSearchTextClose" className="fas fa-times" onClick={handleSearchClick}></i>
+                <input type="test" id="listSearchText" placeholder="검색할 단체를 입력하세요" value={query} onChange={e => setQuery(e.target.value)}></input>
               </div>):
-            (<div id="listSearchKeyword" className='listSearchTitle' onClick={handleSearchClick}>
-              <div>검색</div>
+            (<div id="listSearchKeyword" className='listSearchTitle shadow' onClick={handleSearchClick}>
+              <i className="fas fa-search"></i>
             </div>)
             }
           </div>

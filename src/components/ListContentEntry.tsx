@@ -51,7 +51,7 @@ export default function ListContentEntry() {
   })
 
   return (
-    
+    <div id="listContentEntryWholeContainer">
     <div id='card'>
       {content.map((item: any, index) => {
         if(index < count) {
@@ -81,6 +81,6 @@ export default function ListContentEntry() {
       })}
       <div id="listContentShowMore" onClick={handleMoreBtnClick}>더보기</div>
     </div>
-    
+    </div>
   );
 }
