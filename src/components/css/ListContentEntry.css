@@ -18,11 +18,19 @@
   transform-style: preserve-3d;
   transition: all 1s;
   margin-right: 1rem;
+  position: relative;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
 }
 
 #ListContentEntryContainer:hover {
   transform: rotateY(180deg);
   cursor: pointer;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 .front {
@@ -32,13 +40,22 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* position: absolute;*/
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
 }
 
 .back {
   transform: rotateY(180deg);
   z-index: 1;
   padding: 1rem;
-  position: absolute;
+  /* position: absolute; */
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 #ListContentEntryLogoBox {
