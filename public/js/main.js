@@ -12,17 +12,18 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      if (!res) {
-        window.location.href = "/test";
-      } else {
-        window.location.href = `/list?userId=${userId}`;
-      }
-    })
-    .catch(() => (window.location.href = "/test"));
+  .then((res) => {
+    return res.json();
+  })
+  .then((res) => {
+    if (!res) {
+      window.location.href = `/test?userId=${userId}&ngoIdOfLoveList=${ngoIdOfLoveList}`;
+    } else {
+      window.location.href = `/list?userId=${userId}&ngoIdOfLoveList=${ngoIdOfLoveList}`;
+    }
+  })
+  .catch(() => window.location.href = "/test")
+
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);

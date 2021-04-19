@@ -18,6 +18,10 @@
   font-size: 2rem;
 }
 
+#contentHeaderPartTitle:hover {
+  cursor: default;
+}
+
 #contentHeaderImgContainer ul,
 li {
   list-style: none;
@@ -110,6 +114,9 @@ li {
   margin-top: 0.5rem;
   border-radius: 1rem 0 0 1rem;
   background-color: var(--main-color-white);
+}
+#contentMyPageBtn:hover {
+  cursor: pointer;
 }
 
 #contentMyPageBtn:hover {

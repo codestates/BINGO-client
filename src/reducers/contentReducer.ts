@@ -7,7 +7,7 @@ const contentReducer = (state = initialState, action: any) => {
     case SHOW_CONTENT:
       console.log(action.payload);
       return Object.assign({}, state, {
-        currentNgoId: action.payload,
+        currentNgoId: action.payload.ngoId,
       });
       
       case SHOW_NEWS_CONTENT:

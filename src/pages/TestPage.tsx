@@ -7,6 +7,7 @@ import { RootState } from '../reducers';
 import { animateCard, pushOption, changeOptionColor, changeTestValue } from '../action';
 import { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 function TestPage(props: any) {
@@ -192,7 +193,9 @@ function TestPage(props: any) {
       <div id="toastMessage" style={ { display: toast.visible, zIndex: 200 } }>{toast.message}</div>
       <div id="testExtraPart">
         {/* <div id="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div> */}
-        <button id="testExtraSubmitBtn" style={ { opacity: resultVisible } }>더 많은 단체 보러가기</button>
+        <Link to="/list" style={ { opacity: resultVisible } }>
+        <button id="testExtraSubmitBtn">더 많은 단체 보러가기</button>
+        </Link>
       </div>
       <Footer />
     </div>

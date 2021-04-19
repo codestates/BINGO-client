@@ -224,18 +224,18 @@ function ContentPage(props: any) {
           </div>
         </div>
 
-        <div id='contentMainBottom'>
-          <Motion style={{ top: spring(top), opacity: spring(opacity) }}>
-            {({ top, opacity }) => (
-              <div
-                id='videoAndDescription'
-                style={Object.assign({}, {}, { top, opacity })}
-              >
-                <div id='contentDescription'>
-                  <div className='contentBoxTitle'>{`${ngoInfo.data.name}?`}</div>
-                  <div className='contentBoxSubTitle'>{`사회단체 ${ngoInfo.data.name}을(를) 소개합니다.`}</div>
-                  <div id='descriptionBox' className='shadow'>
-                    {ngoInfo.data.description}
+        
+        <div id="contentMainBottom" >
+        <Motion style={{ top: spring(top), opacity: spring(opacity) }}>
+        {
+          ({ top, opacity }) => 
+          <div id="videoAndDescription" style={Object.assign({}, {  }, { top, opacity } )}>
+            <div id="contentDescription">
+              <div className="contentBoxTitle">{`${ngoInfo.data.name}`}</div>
+              <div className="contentBoxSubTitle">{`사회단체 ${ngoInfo.data.name}을(를) 소개합니다.`}</div>
+              <div id="descriptionBox" className="shadow">
+                {ngoInfo.data.description}
+
                   </div>
                 </div>
                 <div id='contentVideo'>
@@ -253,6 +253,7 @@ function ContentPage(props: any) {
                     allowFullScreen
                   ></iframe>
                 </div>
+
               </div>
             )}
           </Motion>
