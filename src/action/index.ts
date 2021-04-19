@@ -84,11 +84,12 @@ export const changeList = (category: string) => {
   }
 }
 
-export const showPayModal = (modalDisplay: boolean) => {
+export const showPayModal = (modalDisplay: boolean, money: number) => {
   return {
     type: SHOWMODAL_PAY,
     payload: {
       modalDisplay,
+      money,
     }
   }
 }
@@ -160,18 +161,9 @@ export const showMypageModal = (modalDisplay: boolean, ngoName: string, donateId
   }
 }
 
-export const changeUserInfo = (id: number, username?: string, profileImage?: string, level?: string, googleId?: string, kakaoId?: string,) => {
+export const changeUserInfo = (userData: any) => {
   return {
     type: CHANGE_USERINFO,
-    payload: {
-      id: 0,
-      username,
-      profileImage: "",
-      level: "",
-      googleId: "",
-      kakaoId: "",
-      accessToken: "",
-      ngoIdOfLoveList: []
-    },
+    payload: userData,
   };
 };

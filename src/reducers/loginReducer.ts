@@ -1,13 +1,17 @@
-import { DO_LOGIN } from "../action/index";
+import { DO_LOGIN, CHANGE_USERINFO } from "../action/index";
 import { initialState } from "./initialState";
 
 const loginReducer = (state = initialState, action: any) => {
   
   switch (action.type) {
     case DO_LOGIN:
-      console.log(action.payload)
       return Object.assign({}, state, {
         loginInfo: action.payload,
+      });
+
+    case CHANGE_USERINFO:
+      return Object.assign({}, state, {
+        userInfo: action.payload,
       });
       
     default:

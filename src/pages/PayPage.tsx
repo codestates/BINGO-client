@@ -23,6 +23,8 @@ function PayPage(props: any) {
   const state = useSelector((state: RootState) => state.payReducer);
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(false);
+  const userState = useSelector((state: RootState) => state.loginReducer);
+  const { userInfo } = userState;
 
   const [data, setData] = useState(
     [
@@ -37,9 +39,12 @@ function PayPage(props: any) {
 
   useEffect(() => {
     axios.get("http://localhost:5000/paypage", {
-    params: {
-      user_id: 1,
-    }
+      headers: {
+        authorization: `${userInfo.accessToken}`
+      },
+      params: {
+        user_id: userInfo.userId,
+      }
     })
     .then(res => {
       const pocketList = res.data;
@@ -83,6 +88,7 @@ function PayPage(props: any) {
         const dataList = data.map(el => el.id);
         if (dataList.includes(currentItem)) return;
         axios.patch("http://localhost:5000/pocket", {
+          accessToken: userInfo.accessToken,
           pocketId: currentItem,
           type: 'once',
           money: repeatData.filter(el => el.id === currentItem)[0].body,
@@ -94,6 +100,7 @@ function PayPage(props: any) {
         const dataList = repeatData.map(el => el.id);
         if (dataList.includes(currentItem)) return;
         axios.patch("http://localhost:5000/pocket", {
+          accessToken: userInfo.accessToken,
           pocketId: currentItem,
           type: 'repeat',
           money: data.filter(el => el.id === currentItem)[0].body,
@@ -108,6 +115,9 @@ function PayPage(props: any) {
 
   const deleteItem = async (pocketId: number) => {
     await axios.delete("http://localhost:5000/pocket", {
+      headers: {
+        authorization: `${userInfo.accessToken}`
+      },
       data: {
         pocketId,
       }
@@ -164,7 +174,8 @@ function PayPage(props: any) {
   const pay = async () => {
     for (let item of data) {
       await axios.post("http://localhost:5000/donation", {
-        userId: 1,
+        accessToken: userInfo.accessToken,
+        userId: userInfo.userId,
         ngoId: item.ngoId,
         money: item.body,
         type: 'once',
@@ -177,7 +188,8 @@ function PayPage(props: any) {
 
     for (let item of repeatData) {
       await axios.post("http://localhost:5000/donation", {
-        userId: 1,
+        accessToken: userInfo.accessToken,
+        userId: userInfo.userId,
         ngoId: item.ngoId,
         money: item.body,
         type: 'repeat',
@@ -192,7 +204,16 @@ function PayPage(props: any) {
   }
 
   const handleClickPayBtn = () => {
-    dispatch(showPayModal(true));
+    if (data.length + repeatData.length === 0) {
+
+    } else {
+      const money = data.reduce((a, c) => {
+        return Number(a) + Number(c.body);
+      }, 0) + repeatData.reduce((a, c) => {
+        return Number(a) + Number(c.body);
+      }, 0)
+      dispatch(showPayModal(true, money));
+    }
   }
 
   const handleLogoClick = () => {

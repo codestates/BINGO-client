@@ -23,14 +23,13 @@ function MyAllDonationGraph(){
     {name: 'A', value: 1000, color: '#efa86b'},
   ])
 
-  console.log(mypageInfo);
-
     let now = new Date();
     let yearNow = now.getFullYear();
     let monthNow = now.getMonth() + 1;
-    let donates = mypageInfo.mypageInfo.donates;
     let arrangedData = [{name: "", value: 0, color: "", percent: 0}];
     let alreadyInNgo = { "": 0 };
+    if (mypageInfo.mypageInfo.donate) {
+    let donates = mypageInfo.mypageInfo.donates;
   
     for(let i = 0; i < donates.length; i++){
       if(donates[i].type === "once" && !alreadyInNgo[donates[i].ngo.ngoName]){
@@ -67,6 +66,7 @@ function MyAllDonationGraph(){
           alreadyInNgo[donates[i].ngo.ngoName] += donates[i].money * howManyMonthNotIng;
         }
       }
+    }
     }
   
     for(let key in alreadyInNgo){
