@@ -148,11 +148,13 @@ export const showMypage = (mypageInfo: Object) => {
   }
 }
 
-export const showMypageModal = (modalDisplay: boolean) => {
+export const showMypageModal = (modalDisplay: boolean, ngoName: string, donateId: number) => {
   return {
     type: SHOW_MYPAGE_MODAL,
     payload: {
       modalDisplay,
+      ngoName,
+      donateId,
     }
   }
 }
