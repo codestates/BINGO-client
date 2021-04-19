@@ -43,10 +43,11 @@ function ListPage(props: any) {
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
   };
-  const handleMyPageClick = () => {
-    //마이페이지로 이동
-    props.history.push("/mypage");
+
+  const handleMyPageClick = () => { //마이페이지로 이동
+    props.history.push('/mypage');
   };
+  
   const handleSearchClick = () => {
     if (displaySearch) {
       //검색 닫기 버튼 누를떄
