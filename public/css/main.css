@@ -22,6 +22,9 @@ body.before-load {
 .container {
   overflow-x: hidden;
 }
+.container::-webkit-scrollbar-track {
+  background-color: rgb(56, 82, 79);
+}
 
 .nav {
   position: fixed;
