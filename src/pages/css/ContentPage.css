@@ -96,6 +96,10 @@ li {
   padding: 1.5rem 2rem;
 }
 
+#contentNavLogo:hover {
+  cursor: pointer;
+}
+
 #contentMyPageBtn {
   display: flex;
   align-items: center;
@@ -106,6 +110,10 @@ li {
   margin-top: 0.5rem;
   border-radius: 1rem 0 0 1rem;
   background-color: var(--main-color-white);
+}
+
+#contentMyPageBtn:hover {
+  cursor: pointer;
 }
 
 #contentMainPart {
@@ -135,6 +143,11 @@ li {
   background-color: white;
   border-radius: 1rem;
   margin: 1rem;
+}
+
+#contentMainTopLogo:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 #contentMainTopRight button {
@@ -206,6 +219,34 @@ li {
 
 #contentMainBottom iframe {
   margin: 1rem;
+}
+
+@keyframes scroll {
+  0% {
+    top: 82.5vh;
+  }
+  25% {
+    top: 85vh;
+  }
+  100% {
+    top: 82.5vh;
+  }
+}
+
+#scrollDiv {
+  position: fixed;
+  text-align: center;
+  left: 40%;
+  /* margin: auto; */
+  color: rgb(233, 232, 228);
+  z-index: 300;
+  font-size: 1.4rem;
+  animation-name: scroll;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.test {
+  opacity: 0;
 }
 
 @media (max-width: 1024px) {
