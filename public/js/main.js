@@ -12,17 +12,17 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-  .then((res) => {
-    return res.json();
-  })
-  .then((res) => {
-    if (!res) {
-      window.location.href = "/test";
-    } else {
-      window.location.href = `/list?userId=${userId}`;
-    }
-  })
-  .catch(() => window.location.href = "/test")
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      if (!res) {
+        window.location.href = "/test";
+      } else {
+        window.location.href = `/list?userId=${userId}`;
+      }
+    })
+    .catch(() => (window.location.href = "/test"));
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
@@ -176,11 +176,17 @@ toTop.addEventListener("click", () => {
     },
     {
       //1
-      type: "normal",
-      // heightNum: 5,
+      type: "sticky",
+      heightNum: 3,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-1"),
+        messageA: document.querySelector("#scroll-section-1 .moving-message.a"),
+        messageB: document.querySelector("#scroll-section-1 .moving-message.b"),
+      },
+      values: {
+        messageA_moving_in: [-10, -60, { start: -0.2, end: 0.5 }],
+        messageB_moving_in: [-60, -10, { start: -0.2, end: 0.5 }],
       },
     },
     {
@@ -520,6 +526,18 @@ toTop.addEventListener("click", () => {
         }
 
         break;
+
+      case 1:
+        if (scrollRatio < 0.4) {
+          objs.messageA.style.transform = `translate3d(${calcValues(
+            values.messageA_moving_in,
+            currentYOffset
+          )}%, 0, 0)`;
+          objs.messageB.style.transform = `translate3d(${calcValues(
+            values.messageB_moving_in,
+            currentYOffset
+          )}%, 0, 0)`;
+        }
 
       case 2:
         // let sequence2 = Math.round(
