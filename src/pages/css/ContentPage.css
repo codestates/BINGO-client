@@ -154,7 +154,7 @@ li {
 
 #contentMainTopLogo:hover {
   cursor: pointer;
-  opacity: 0.5;
+  border: solid var(--main-color-gray);
 }
 
 #contentMainTopRight button {
@@ -224,6 +224,13 @@ li {
   margin-top: 0.5rem;
 }
 
+#noMessage {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
 #contentMainBottom iframe {
   margin: 1rem;
 }
@@ -243,8 +250,8 @@ li {
 #scrollDiv {
   position: fixed;
   text-align: center;
-  left: 40%;
-  /* margin: auto; */
+  padding-top: 4rem;
+  left: 45%;
   color: rgb(233, 232, 228);
   z-index: 300;
   font-size: 1.4rem;
@@ -268,6 +275,10 @@ li {
   #contentMainBottom {
     width: 80%;
   }
+  #scrollDiv {
+    padding-top: 4rem;
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -282,5 +293,9 @@ li {
   #contentDescription,
   #contentVideo {
     width: 100%;
+  }
+  #scrollDiv {
+    padding-top: 7rem;
+    font-size: 1.1rem;
   }
 }

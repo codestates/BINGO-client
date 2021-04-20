@@ -9,10 +9,10 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-    .then((res) => {
+    .then(res => {
       return res.json();
     })
-    .then((res) => {
+    .then(res => {
       if (!res) {
         window.location.href = `/test`;
       } else {
@@ -1073,11 +1073,9 @@ toTop.addEventListener("click", () => {
       });
     });
 
-    document
-      .querySelector(".loading")
-      .addEventListener("transitionend", (e) => {
-        document.body.removeChild(e.currentTarget);
-      });
+    document.querySelector(".loading").addEventListener("transitionend", e => {
+      document.body.removeChild(e.currentTarget);
+    });
   }); //리소스까지 포함 (이미지 동영상 등)
 
   setCanvasImages();
