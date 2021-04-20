@@ -3,11 +3,13 @@ import "./css/ListPage.css";
 import ListContentList from "../components/ListContentList";
 import store from "../store";
 import axios from "axios";
-import { changeUserInfo, showList } from "../action";
+import { changeUserInfo, showList, showContent } from "../action";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { changeList } from "../action";
+import { Link } from 'react-router-dom';
+
 function ListPage(props: any) {
   const [category, setCategory] = useState([
     "전체",
@@ -113,6 +115,7 @@ function ListPage(props: any) {
       .then((data) => dispatch(showList(data)))
       .then(() => setLoading(false))
       .catch(err => console.log("list_err:", err));
+
     })
 
     const url = new URL(window.location.href);
@@ -124,8 +127,6 @@ function ListPage(props: any) {
     }
 
     
-    
-    
   }, []);
 
   const handleLogoClick = () => {
@@ -135,10 +136,13 @@ function ListPage(props: any) {
   const handleMyPageClick = () => { //마이페이지로 이동
     props.history.push('/mypage');
   };
+
+  const handleContentListEntryClick = (ngoId: number) => {
+    dispatch(showContent(ngoId));
+  };
   
   const handleSearchClick = () => {
     if (displaySearch) {
-      //검색 닫기 버튼 누를떄
       setCategory([
         "전체",
         "아동",
@@ -155,15 +159,17 @@ function ListPage(props: any) {
       setResult([]);
       setQuery("");
     } else {
-      //검색 버튼 누를때
       setCategory([]);
       setDisplaySearch(true);
     }
   };
+
   const handleCategoryClick = (category: string) => {
     dispatch(changeList(category));
   };
+
   let findname: any;
+
   useEffect(() => {
     if (query) {
       findname = state.listInfo.data.filter((item: any) =>
@@ -171,12 +177,12 @@ function ListPage(props: any) {
       );
     }
     if (findname) {
-      console.log("reeeeee:", result);
       setResult(findname);
     } else {
       setResult([]);
     }
   }, [query]);
+
   return (
     <>
       {isLoading ? (
@@ -238,32 +244,33 @@ function ListPage(props: any) {
             </div>
             {result.length === 0 && <ListContentList />}
             {result.length > 0 && (
+              <div id='listContentListContainer'>
               <div className='card'>
                 {result.map((item: any) => {
                   return (
-                    <div
-                      id='ListContentEntryContainer'
-                      className='shadow'
-                      // onClick={handleContentListEntryClick}
-                    >
-                      <div className='front'>
-                        <div id='ListContentEntryLogoBox'>
-                          <img
-                            id='ListContentEntryLogo'
-                            alt='NGO_logo'
-                            src={item.logo}
-                          />
-                        </div>
-                        <div id='ListContentEntryTitle'>{item.name}</div>
-                      </div>
-                      <div className='back'>
-                        <div id='ListContentEntryDescription'>
-                          {item.description}
-                        </div>
-                      </div>
-                    </div>
+                    <Link onClick={()=> handleContentListEntryClick(item.id)} to="/content">
+          <div
+            id='ListContentEntryContainer'
+            className='shadow'
+          >
+            <div className='front'>
+              <div id="ListContentEntryLogoBox">
+              <img
+                id='ListContentEntryLogo'
+                alt='NgoLogo'
+                src={item.logo}
+              />
+              </div>
+              <div id='ListContentEntryTitle'>{item.name}</div>
+            </div>
+              <div className='listBackPart'>
+              <div id='ListContentEntryDescription'>{item.description}</div>
+            </div>
+          </div>
+          </Link>
                   );
                 })}
+              </div>
               </div>
             )}
           </div>

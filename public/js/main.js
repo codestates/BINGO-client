@@ -20,7 +20,6 @@ const handleStartBtnClick = async () => {
     }
   })
   .catch(() => window.location.href = "/test")
-
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
@@ -92,7 +91,7 @@ toTop.addEventListener("click", () => {
     {
       //1
       type: "sticky",
-      heightNum: 3,
+      heightNum: 2,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-1"),
@@ -254,26 +253,26 @@ toTop.addEventListener("click", () => {
       sceneInfo[0].objs.videoImages.push(imgElem);
     }
 
-    // let imgElem2;
-    // for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
-    //   imgElem2 = new Image();
-    //   imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
-    //   sceneInfo[2].objs.videoImages.push(imgElem2);
-    // }
+    let imgElem2;
+    for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
+      imgElem2 = new Image();
+      imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
+      sceneInfo[2].objs.videoImages.push(imgElem2);
+    }
 
-    // let imgElem3;
-    // for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
-    //   imgElem3 = new Image();
-    //   imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
-    //   sceneInfo[3].objs.videoImages.push(imgElem3);
-    // }
+    let imgElem3;
+    for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
+      imgElem3 = new Image();
+      imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
+      sceneInfo[3].objs.videoImages.push(imgElem3);
+    }
 
-    // let imgElem4;
-    // for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
-    //   imgElem4 = new Image();
-    //   imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
-    //   sceneInfo[4].objs.videoImages.push(imgElem4);
-    // }
+    let imgElem4;
+    for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
+      imgElem4 = new Image();
+      imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
+      sceneInfo[4].objs.videoImages.push(imgElem4);
+    }
 
     let imgElem5;
     for (let i = 0; i < sceneInfo[5].objs.imagesPath.length; i++) {
@@ -453,6 +452,8 @@ toTop.addEventListener("click", () => {
             currentYOffset
           )}%, 0, 0)`;
         }
+
+        break;
 
       case 2:
         // let sequence2 = Math.round(

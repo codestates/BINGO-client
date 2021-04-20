@@ -222,10 +222,24 @@ function PayPage(props: any) {
   const handleMyPageClick = () => {
     props.history.push('/mypage')
   }
+
+  window.addEventListener('load', () => {
+    let tutorial = document.getElementById("payTutorialContainer")
+    tutorial!.style.animation = "disappear 10s";
+    setTimeout(() => {
+      tutorial!.style.zIndex = "-10";
+    }, 10000)
+  })
+
   return (
   <>
   { !isLoading ? <div>로딩중</div> :
   <div id="payPageContainer" onMouseUp={()=>setCurrentItem(-1)}>
+    <div id="payTutorialContainer">
+      <div>DRAG & DROP</div>
+      <i className="fas fa-mouse-pointer"> </i>
+      <p>후원 상자 안의 NGO카드를 드래그앤드롭해서<br/> 후원유형을 자유롭게 변경하세요</p>
+    </div>
     <PayPageModal />
     <div id="payNavPart">
       <div className="navLogo" onClick={handleLogoClick}>B I N G O</div>

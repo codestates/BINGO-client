@@ -145,7 +145,7 @@ function TestPage(props: any) {
         <div id="ngoPart">
         <div id='ngoPartTitle'>추천 후원단체</div>
           <div id="imageDiv">
-          <img id='ngoImage' src={result.logo}></img>
+          <img id='ngoImage' alt="NgoLogo" src={result.logo}></img>
           </div>
           <div id='ngoName'>{result.name}</div>
           <div id='ngoDescription'>{result.description}</div>
