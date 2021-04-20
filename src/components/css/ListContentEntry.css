@@ -13,61 +13,71 @@
 #ListContentEntryContainer {
   width: 20rem;
   height: 22rem;
-  background-color: var(--main-color-green);
-  border-radius: 1rem;
-  margin: 1rem 0;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: var(--main-color-green);
   transform-style: preserve-3d;
   transition: all 1s;
-  margin-right: 1rem;
-  position: relative;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -o-transition: all 1s;
+  border-radius: 4px;
 }
 
 #ListContentEntryContainer:hover {
   transform: rotateY(180deg);
+  transform-style: preserve-3d;
   cursor: pointer;
-  -webkit-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
+}
+
+#ListContentEntryContainer:hover .listBackPart {
+  opacity: 100%;
+  background-color: var(--main-color-green);
+  color: var(--main-color-white);
+}
+
+#ListContentEntryContainer:hover .front {
+  display: none;
 }
 
 .front {
-  transform: rotateY(0deg);
-  padding: 1rem;
-  z-index: 2;
+  width: 18rem;
+  height: 18rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  /* position: absolute;*/
-  -webkit-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  -moz-transform: rotateY(0deg);
-  -o-transform: rotateY(0deg);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
 }
 
-.back {
+.listBackPart {
+  width: 100%;
+  height: 22rem;
+  display: flex;
+  position: absolute;
   transform: rotateY(180deg);
-  z-index: 1;
-  padding: 1rem;
-  /* position: absolute; */
-  -webkit-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
+  -webkit-transform: scaleX(-1);
+  opacity: 0%;
+}
+
+#ListContentEntryDescription {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  font-size: 1.25rem;
 }
 
 #ListContentEntryLogoBox {
   display: flex;
   width: 17rem;
   height: 15rem;
-  border-radius: 0.5rem;
+  border-radius: 4px;
   background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ListContentEntryLogoBox:hover {
+  opacity: 0%;
 }
 
 #ListContentEntryLogo {
@@ -94,15 +104,6 @@
   font-size: 1.2rem;
   font-weight: 600;
   align-self: center;
-}
-
-#ListContentEntryDescription {
-  color: var(--main-color-light-gray);
-  margin-bottom: 1rem;
-}
-
-.front:hover {
-  display: none;
 }
 
 @media (max-width: 1024px) {
@@ -136,10 +137,5 @@
     padding: 0.5rem 0;
     color: var(--main-color-white);
     font-weight: bold;
-  }
-
-  #ListContentEntryDescription {
-    color: var(--main-color-white);
-    margin-bottom: 0.5rem;
   }
 }

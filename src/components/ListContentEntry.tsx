@@ -16,6 +16,7 @@ export default function ListContentEntry() {
   const dispatch = useDispatch();
   const [count, setCount] = useState(30); //페이지 랜더단체 갯수
   const [content, setContent] = useState([]); //페이지 랜더단체
+  const [backPartDisplay, setBackPartDisplay] = useState(false);
 
   const handleContentListEntryClick = (ngoId: number) => {
     dispatch(showContent(ngoId));
@@ -24,6 +25,11 @@ export default function ListContentEntry() {
   const handleMoreBtnClick = () => {
     setCount(count + 9); //더보기 누를시 9개씩 추가랜더
   }
+
+  // const enterMouseContent = () => {
+  //   const toggle = (backPartDisplay ? false : true)
+  //   setBackPartDisplay(toggle);
+  // }
 
   useEffect(() => {
     axios
@@ -65,13 +71,13 @@ export default function ListContentEntry() {
               <div id="ListContentEntryLogoBox">
               <img
                 id='ListContentEntryLogo'
-                alt='NGO_logo'
+                alt='NgoLogo'
                 src={item.logo}
               />
               </div>
               <div id='ListContentEntryTitle'>{item.name}</div>
             </div>
-            <div className='back'>
+              <div className='listBackPart'>
               <div id='ListContentEntryDescription'>{item.description}</div>
             </div>
           </div>
