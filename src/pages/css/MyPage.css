@@ -11,6 +11,21 @@
   background-color: var(--main-color-green);
 }
 
+#myPageNavBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--main-color-white);
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
 #myPageNavLogo {
   position: relative;
   top: -1.5rem;

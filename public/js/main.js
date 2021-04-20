@@ -33,12 +33,12 @@ const checkKakaoAuth = async () => {
 checkGoogleAuth();
 checkKakaoAuth();
 
-if (userId > 0) {
+if (userId) {
   loginBtn.style.visibility="hidden"
 }
 
 const handleLoginBtnClick = () => {
-  if (userId === 0) {
+  if (!userId) {
     window.location.href = "/login";
   }
 };
