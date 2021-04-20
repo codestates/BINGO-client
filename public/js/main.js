@@ -48,17 +48,17 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-  .then((res) => {
-    return res.json();
-  })
-  .then((res) => {
-    if (!res) {
-      window.location.href = `/test`;
-    } else {
-      window.location.href = `/list`;
-    }
-  })
-  .catch(() => window.location.href = "/test")
+    .then(res => {
+      return res.json();
+    })
+    .then(res => {
+      if (!res) {
+        window.location.href = `/test`;
+      } else {
+        window.location.href = `/list`;
+      }
+    })
+    .catch(() => (window.location.href = "/test"));
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
@@ -1112,11 +1112,9 @@ toTop.addEventListener("click", () => {
       });
     });
 
-    document
-      .querySelector(".loading")
-      .addEventListener("transitionend", (e) => {
-        document.body.removeChild(e.currentTarget);
-      });
+    document.querySelector(".loading").addEventListener("transitionend", e => {
+      document.body.removeChild(e.currentTarget);
+    });
   }); //리소스까지 포함 (이미지 동영상 등)
 
   setCanvasImages();

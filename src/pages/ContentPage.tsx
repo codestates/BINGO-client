@@ -67,7 +67,8 @@ function ContentPage(props: any) {
   const { userInfo } = userState;
   const [top, setTop] = useState(150);
   const [opacity, setOpacity] = useState(0);
-  const [scrollDisplay, setScrollDisplay] = useState(true);
+  const [scrollDisplay, setScrollDisplay] = useState(0);
+  const [display, setDisplay] = useState(true);
 
   // window.onscroll = () => {
   //   if (
@@ -91,9 +92,9 @@ function ContentPage(props: any) {
   };
   const checkLove = () => {
     if (userInfo.ngoIdOfLoveList.length > 0) {
-    if (userInfo.ngoIdOfLoveList.indexOf(currentNgoId) >= 0) {
-      setIsAlreadyLove(true);
-    }
+      if (userInfo.ngoIdOfLoveList.indexOf(currentNgoId) >= 0) {
+        setIsAlreadyLove(true);
+      }
     }
   };
   const handleLoveClick = () => {
@@ -102,7 +103,7 @@ function ContentPage(props: any) {
         axios
           .delete("http://localhost:5000/love", {
             headers: {
-              authorization: `${userInfo.accessToken}`
+              authorization: `${userInfo.accessToken}`,
             },
             data: {
               userId: userInfo.userId,
@@ -122,7 +123,7 @@ function ContentPage(props: any) {
           .catch(err => console.log(err));
       }
     } else {
-      alert('로그인 해줘')
+      alert("로그인 해줘");
       // 로그인이 필요합니다. 토스트
     }
   };
@@ -139,32 +140,38 @@ function ContentPage(props: any) {
   const handleSupportBtn = () => {
     if (userInfo.accessToken) {
       axios
-      .post("http://localhost:5000/pocket", {
-        accessToken: userInfo.accessToken,
-        userId: userInfo.userId,
-        ngoId: currentNgoId,
-        type: "once",
-        money: 10000,
-      })
-      .then(() => dispatch(showcontentModal(true)))
-      .catch(err => console.log(err));
+        .post("http://localhost:5000/pocket", {
+          accessToken: userInfo.accessToken,
+          userId: userInfo.userId,
+          ngoId: currentNgoId,
+          type: "once",
+          money: 10000,
+        })
+        .then(() => dispatch(showcontentModal(true)))
+        .catch(err => console.log(err));
     } else {
-      alert('로그인 해줘')
+      alert("로그인 해줘");
       // 로그인이 필요합니다. 토스트
     }
   };
+  // console.log("qqqqqqqq:", document.documentElement.scrollTop);
+  // console.log("스크롤위치:", window.scrollY);
 
-  const scrollEvent = () => {
-    setScrollDisplay(false);
-    console.log(window.scrollY); // 0일때
-  };
+  useEffect(() => {
+    console.log("eeeeeeeeeeeee:", window.scrollY);
+    if (scrollDisplay > 50) {
+      setDisplay(false);
+    } else {
+      setDisplay(true);
+    }
+  }, [scrollDisplay]);
 
   useEffect(() => {
     setTop(0);
     setOpacity(1);
     if (userInfo.accessToken) {
       checkLove();
-    } 
+    }
 
     axios
       .get(`http://localhost:5000/contentpage/${currentNgoId}`)
@@ -184,9 +191,9 @@ function ContentPage(props: any) {
   return (
     <div
       id='contentPageContainer'
-      onScroll={scrollEvent}
+      onWheel={e => setScrollDisplay(window.scrollY)}
       // style={{
-      //   overflow: "scroll",
+      //   overflow: "auto",
       // }}
     >
       <ContentPageModal ngoName={ngoInfo.data.name} />
@@ -241,18 +248,18 @@ function ContentPage(props: any) {
           </div>
         </div>
 
-        
-        <div id="contentMainBottom" >
-        <Motion style={{ top: spring(top), opacity: spring(opacity) }}>
-        {
-          ({ top, opacity }) => 
-          <div id="videoAndDescription" style={Object.assign({}, {  }, { top, opacity } )}>
-            <div id="contentDescription">
-              <div className="contentBoxTitle">{`${ngoInfo.data.name}`}</div>
-              <div className="contentBoxSubTitle">{`사회단체 ${ngoInfo.data.name}을(를) 소개합니다.`}</div>
-              <div id="descriptionBox" className="shadow">
-                {ngoInfo.data.description}
-
+        <div id='contentMainBottom'>
+          <Motion style={{ top: spring(top), opacity: spring(opacity) }}>
+            {({ top, opacity }) => (
+              <div
+                id='videoAndDescription'
+                style={Object.assign({}, {}, { top, opacity })}
+              >
+                <div id='contentDescription'>
+                  <div className='contentBoxTitle'>{`${ngoInfo.data.name}`}</div>
+                  <div className='contentBoxSubTitle'>{`사회단체 ${ngoInfo.data.name}을(를) 소개합니다.`}</div>
+                  <div id='descriptionBox' className='shadow'>
+                    {ngoInfo.data.description}
                   </div>
                 </div>
                 <div id='contentVideo'>
@@ -271,9 +278,9 @@ function ContentPage(props: any) {
                   ></iframe>
                 </div>
               </div>
-            }
+            )}
           </Motion>
-          {scrollDisplay ? <div id='scrollDiv'>∨∨scroll∨∨</div> : null}
+          {display ? <div id='scrollDiv'>∨∨scroll∨∨</div> : null}
           <ContentNewsList ngoName={ngoInfo.data.name} />
           <ContentMessageList ngoName={ngoInfo.data.name} />
         </div>

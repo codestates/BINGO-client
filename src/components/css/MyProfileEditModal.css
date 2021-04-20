@@ -1,0 +1,42 @@
+#myEditModalPreview {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 3.5rem;
+  background-image: url("");
+  background-position: center;
+  background-size: cover;
+  background-color: var(--main-color-green);
+  margin: 1.5rem 1rem 1rem;
+}
+#myEditModalInputImage {
+  margin: 0.5rem;
+  border: 1px solid var(--main-color-black);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+#myEditModalInputName {
+  margin: 0.5rem;
+  width: 40%;
+  padding: 0.25rem;
+  background-color: var(--main-color-white);
+  border: none;
+  border-bottom: 1px solid var(--main-color-green);
+  text-align: center;
+}
+#myEditModalSubmitButton {
+  margin: 0.5rem;
+  border: 1px solid var(--main-color-green);
+  padding: 0.5rem;
+  background-color: var(--main-color-green);
+  border-radius: 1rem;
+  color: var(--main-color-white);
+}
+#myEditModalAlertMessageBox {
+  background-color: white;
+  padding: 1rem;
+  width: 80%;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

@@ -17,7 +17,13 @@ function MyCitizenInfo(){
   const state = useSelector((state: RootState) => state.mypageReducer);
   const { mypageInfo } = state;
   const [data, setData] = useState([""]);
+  const [isThereEnoughData, setIsThereEnoughData] = useState(false);
   const tempArr = [""];
+
+  const handleTourButton = () => {
+    window.location.href = "./list"
+  }
+
   if (mypageInfo.mypageInfo.donates) {
     let donates = mypageInfo.mypageInfo.donates;
     donates.map((item: ItemDonate) => {
@@ -78,7 +84,13 @@ function MyCitizenInfo(){
         window.addEventListener('scroll', () => {
           if(count === 0){
             d3.select('#myCitizenInfoMain').selectAll("svg").remove();
-            setData(filteredArr);
+            if(filteredArr[0] === ""){
+              setData([""])
+              d3.select('#myCitizenInfoMain').selectAll("svg").remove();
+            } else {
+              setIsThereEnoughData(true);
+              setData(filteredArr);
+            }
             count++;
           }
         })
@@ -87,7 +99,13 @@ function MyCitizenInfo(){
   <div id="myCitizenInfoContainer">
     <div className="myPageTitle">소셜 키워드</div>
     <div className="myPageSubTitle">후원과 좋아요를 통해 분석한 랜덤키워드를 띄워드립니다.</div>
-    <div id="myCitizenInfoMain"></div>
+    <div id="myCitizenInfoMain">
+      {isThereEnoughData ? null :      
+      <div id="myAlertContainer">
+        <div>빙고가 당신의 후원활동을 분석할 수 있도록 <br /> NGO단체에 좋아요를 누르거나 후원해주세요!</div>
+        <button onClick={handleTourButton}>NGO단체 둘러보기</button>
+      </div>}
+    </div>
   </div>
   )
 }

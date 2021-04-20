@@ -29,6 +29,9 @@ export const initialState =
     ngoName: '',
     donateId: 0,
   },
+  myEditModalInfo: {
+    modalDisplay: false,
+  },
   selectedOptions: [],
   listInfo: {
     data: [{ logo: "", title: "", description: "", id: 1, }],
