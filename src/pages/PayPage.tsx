@@ -25,6 +25,7 @@ function PayPage(props: any) {
   const [isLoading, setLoading] = useState(false);
   const userState = useSelector((state: RootState) => state.loginReducer);
   const { userInfo } = userState;
+  const [zIndex, setzIndex] = useState(10);
 
   const [data, setData] = useState([
     { id: 0, title: "", body: 10000, logo: "", message: "", ngoId: 0 },
@@ -32,7 +33,6 @@ function PayPage(props: any) {
   const [repeatData, setrepeatData] = useState([
     { id: 0, title: "", body: 10000, logo: "", message: "", ngoId: 0 },
   ]);
-  const [showData, setShowData] = useState(false); /////
 
   useEffect(() => {
     axios
@@ -72,6 +72,9 @@ function PayPage(props: any) {
       })
       .catch(err => console.log(err));
     setLoading(true);
+    setTimeout(() => {
+      setzIndex(-10);
+    }, 5000)
   }, []);
 
   const [currentItem, setCurrentItem] = useState(-1);
@@ -246,28 +249,13 @@ function PayPage(props: any) {
     props.history.push("/mypage");
   };
 
-  window.addEventListener("load", () => {
-    let tutorial = document.getElementById("payTutorialContainer");
-    tutorial!.style.animation = "disappear 10s";
-    setTimeout(() => {
-      tutorial!.style.zIndex = "-10";
-    }, 10000);
-  });
-  useEffect(() => {
-    if (data) {
-      setShowData(false);
-    } else {
-      setShowData(false);
-    }
-  }, []);
-
   return (
     <>
       {!isLoading ? (
         <div>로딩중</div>
       ) : (
         <div id='payPageContainer' onMouseUp={() => setCurrentItem(-1)}>
-          <div id='payTutorialContainer'>
+          <div id='payTutorialContainer' style={{ zIndex, }}>
             <div>DRAG & DROP</div>
             <i className='fas fa-mouse-pointer'> </i>
             <p>
@@ -292,7 +280,7 @@ function PayPage(props: any) {
                 onDrop={event => drop(event, "once")}
               >
                 <div className='payBoxTitle'>일시후원하기</div>
-                {showData ? (
+                {data.length > 0 ? (
                   <div className='payBoxContentBox'>
                     {data.map(el => itemRenderer(el))}
                   </div>
@@ -310,9 +298,9 @@ function PayPage(props: any) {
               >
                 <div className='payBoxTitle'>정기후원하기</div>
 
-                {showData ? (
+                {repeatData.length > 0 ? (
                   <div className='payBoxContentBox'>
-                    {data.map(el => itemRenderer(el))}
+                    {repeatData.map(el => itemRenderer(el))}
                   </div>
                 ) : (
                   <div id='noPayList'>정기후원하기에 담은 내역이 없습니다</div>

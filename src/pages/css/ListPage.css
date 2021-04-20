@@ -106,14 +106,6 @@
   margin-right: auto;
 }
 
-#listSearchKeyword {
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 2px;
-  color: var(--main-color-green);
-}
-
 @media (max-width: 1024px) {
   #listMainPart {
     width: 90%;

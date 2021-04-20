@@ -63,3 +63,9 @@
 #aDiv {
   transform: rotate(180deg);
 }
+
+@media (max-width: 1024px) {
+  .money {
+    display: none;
+  }
+}
