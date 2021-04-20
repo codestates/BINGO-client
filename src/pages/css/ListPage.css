@@ -106,6 +106,39 @@
   margin-right: auto;
 }
 
+#listSearchKeyword {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  color: var(--main-color-green);
+}
+
+#ListContentSearchResultContainer {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+#ListContentSearchContentBox {
+  display: flex;
+  margin: 0.3rem;
+  border-radius: 4px;
+  background-color: var(--main-color-green);
+  padding: 0.4rem;
+}
+
+.listSearchDescription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color-white);
+}
+
 @media (max-width: 1024px) {
   #listMainPart {
     width: 90%;
@@ -212,5 +245,9 @@
   #listSearchText {
     height: 100%;
     margin-left: 0.8rem;
+  }
+
+  #ListContentSearchContentBox {
+    flex-direction: column;
   }
 }

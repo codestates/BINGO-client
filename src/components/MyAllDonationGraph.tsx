@@ -33,7 +33,7 @@ function MyAllDonationGraph(){
     let monthNow = now.getMonth() + 1;
     let arrangedData = [{name: "", value: 0, color: "", percent: 0}];
     let alreadyInNgo = { "": 0 };
-    if (mypageInfo.mypageInfo.donate) {
+    if (mypageInfo.mypageInfo.donates) {
     let donates = mypageInfo.mypageInfo.donates;
   
     for(let i = 0; i < donates.length; i++){
@@ -176,19 +176,19 @@ function MyAllDonationGraph(){
     window.addEventListener('scroll', () => {
       if(count === 0){
         d3.select('#myAllDonationGraph').selectAll("svg").remove();
+        setData(arrangedData);
+        count++;
         if(arrangedData.length === 0){
-          d3.select('#myCitizenInfoMain').selectAll("svg").remove();
+          d3.select('#myAllDonationGraph').selectAll("svg").remove();
         } else {
           setIsThereEnoughData(true);
-          setData(arrangedData);
         }
-        count++;
       }
     })
 
   return (
       <div id="myAllDonationGraphContainer">
-      <div className="myPageTitle">후원 그래프</div>
+      <div className="myPageTitle">나의 후원 비율</div>
       <div className="myPageSubTitle">김빙고님의 총 후원내역을 단체별로 한눈에 살펴볼 수 있습니다.</div>
       <div id="myAllDonationGraph">
       {isThereEnoughData ? null :      
