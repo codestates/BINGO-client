@@ -253,7 +253,6 @@ function ContentPage(props: any) {
                     allowFullScreen
                   ></iframe>
                 </div>
-
               </div>
             }
           </Motion>
