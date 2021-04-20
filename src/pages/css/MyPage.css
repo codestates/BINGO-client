@@ -127,7 +127,16 @@
 }
 
 #navBox {
-  margin-top: 90px;
+  margin-top: 140px;
+  transition: all 2s;
+}
+
+#navBox:hover {
+  cursor: pointer;
+}
+
+#navBox div {
+  transition: all 2s;
 }
 
 @media (max-width: 1024px) {

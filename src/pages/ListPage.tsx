@@ -33,47 +33,38 @@ function ListPage(props: any) {
   const [isLoading, setLoading] = useState(true);
 
   const getAccessTokenGoogle = async (authorizationCode: string) => {
-    await fetch("http://localhost:5000/googlelogin", {
-      credentials: "include",
-      method: "POST",
-      body: JSON.stringify({
-        authorizationCode,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    await axios.post("http://localhost:5000/googlelogin", {
+      authorizationCode,
+    }, {
+      withCredentials: true,
     })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+    // await fetch("http://localhost:5000/googlelogin", {
+    //   credentials: "include",
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     authorizationCode,
+    //   }),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => console.log(err));
   };
   const getAccessTokenKakao = async (authorizationCode: string) => {
-    await fetch("http://localhost:5000/kakaologin", {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify({
-        authorizationCode,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    await axios.post("http://localhost:5000/kakaologin", {
+      authorizationCode,
+    }, {
+      withCredentials: true,
     })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
   };
-  const logout = async () => {
-    await fetch("http://localhost:5000/logout", {
-      method: "POST",
-      credentials: "include",
-    })
-      .then((res) => {
-        console.log("로그아웃 res:", res);
-      })
-      .catch((err) => console.log(err));
-  };
+  
   const checkGoogleAuth = async () => {
     await fetch("http://localhost:5000/checkgoogleauth", {
       method: "GET",
@@ -122,9 +113,9 @@ function ListPage(props: any) {
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
     if (authorizationCode) {
-      getAccessTokenGoogle(authorizationCode);
-      getAccessTokenKakao(authorizationCode);
-      window.location.href = `/test`;
+      getAccessTokenGoogle(authorizationCode)
+      .then(() => getAccessTokenKakao(authorizationCode))
+      .then(() => window.location.href = `/test`)
     }
 
     

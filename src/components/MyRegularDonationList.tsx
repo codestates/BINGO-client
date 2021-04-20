@@ -8,7 +8,6 @@ import MyRegularDonationListEntry from "./MyRegularDonationListEntry"
 function MyRegularDonationList(){
   const state = useSelector((state: RootState) => state.mypageReducer);
   const { mypageInfo } = state;
-  console.log(mypageInfo)
   let count = 0;
   let donates;
   if(mypageInfo.mypageInfo.donates) {

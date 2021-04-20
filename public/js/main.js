@@ -1,9 +1,48 @@
 const loginBtn = document.querySelector("#login-button");
 const startBtn = document.querySelector("#start-button");
+let userId = 0;
+
+const checkGoogleAuth = async () => {
+  await fetch("http://localhost:5000/checkgoogleauth", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res.data);
+      userId = res.data.userId;
+    })
+    .catch((err) => console.log(err));
+};
+const checkKakaoAuth = async () => {
+  await fetch("http://localhost:5000/checkkakaoauth", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res.data);
+      userId = res.data.userId;
+    })
+    .catch((err) => console.log(err));
+};
+checkGoogleAuth();
+checkKakaoAuth();
+
+if (userId > 0) {
+  loginBtn.style.visibility="hidden"
+}
 
 const handleLoginBtnClick = () => {
-  window.location.href = "/login";
+  if (userId === 0) {
+    window.location.href = "/login";
+  }
 };
+
 const handleStartBtnClick = async () => {
   await fetch("http://localhost:5000/testcookie", {
     method: "GET",
