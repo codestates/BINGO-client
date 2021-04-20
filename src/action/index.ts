@@ -15,6 +15,7 @@ export const CHANGE_LIST_CATEGORY = "CHANGE_LIST_CATEGORY";
 export const SHOW_MYPAGE = "SHOW_MYPAGE"
 export const SHOW_MYPAGE_MODAL = "SHOW_MYPAGE_MODAL"
 export const CHANGE_USERINFO = "CHANGE_USERINFO";
+export const SHOW_MY_PROFILE_EDIT_MODAL = "SHOW_MY_PROFILE_EDIT_MODAL";
 
 
 // actions creator functions
@@ -167,3 +168,12 @@ export const changeUserInfo = (userData: any) => {
     payload: userData,
   };
 };
+
+export const showMyProfileEditModal = (modalDisplay: boolean) => {
+  return {
+    type: SHOW_MY_PROFILE_EDIT_MODAL,
+    payload: {
+      modalDisplay,
+    }
+  }
+}

@@ -8,9 +8,10 @@ import Footer from "../components/Footer"
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../reducers';
-import { showMypage, showMypageModal } from "../action"
+import { showMypage, showMypageModal, showMyProfileEditModal } from "../action"
 import axios from 'axios';
 import MyPageModal from "../components/MyPageModal"
+import MyProfileEditModal from '../components/MyProfileEditModal';
 
 function MyPage(props: any) {
   const state = useSelector((state: RootState) => state.loginReducer);
@@ -23,6 +24,12 @@ function MyPage(props: any) {
   }
   const handlePayPageClick = () => {
     props.history.push('/pay')
+  }
+  const handleTestPageClick = () => {
+    props.history.push('/test')
+  }
+  const handleEditClick = () => {
+    dispatch(showMyProfileEditModal(true));
   }
   useEffect(() => {
     axios.get(`http://localhost:5000/mypage?user_id=${userInfo.userId}`, {
@@ -43,12 +50,13 @@ function MyPage(props: any) {
   { isLoading ? <div>로딩중</div> :
   <div id="myPageContainer">
     <MyPageModal />
+    <MyProfileEditModal />
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
           <div id="navBox">
             <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick}>페이페이지</div>
             <div id="myPageLogoutBtn" className="shadow" onClick={handlePayPageClick}>로그아웃</div>
-            <div id="myPageTestBtn" className="shadow" onClick={handlePayPageClick}>테스트</div>
+            <div id="myPageTestBtn" className="shadow" onClick={handleTestPageClick}>테스트</div>
           </div>
       </div>
     <div id="myPageCoverPart">
@@ -58,6 +66,7 @@ function MyPage(props: any) {
         <div id="myPageProfilePic" className="shadow" style={{ backgroundImage: `url(${userInfo.profileImage})`}}></div>
         <div id="myPageUsername">{userInfo.username}</div>
         <div>Level {userInfo.level}</div>
+        <i className="fas fa-pen" onClick={handleEditClick}/>
       </div>
       <div id="myPageMainContent">
         <MyRegularDonationList />

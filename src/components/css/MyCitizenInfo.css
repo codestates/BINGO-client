@@ -18,6 +18,25 @@
 #myCitizenInfoMain span {
   padding: 3rem;
 }
+#myAlertContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#myAlertContainer div {
+  text-align: center;
+}
+#myAlertContainer button {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--main-color-green);
+  border-radius: 2rem;
+}
 @media (max-width: 1024px) {
   #myCitizenInfoContainer {
     width: 80vw;

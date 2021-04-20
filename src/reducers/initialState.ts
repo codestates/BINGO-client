@@ -1,7 +1,7 @@
 export const initialState =
 {
   userInfo: {
-    userId: 0,
+    userId: 2,
     username: "",
     profileImage: "",
     level: "",
@@ -28,6 +28,9 @@ export const initialState =
     modalDisplay: false,
     ngoName: '',
     donateId: 0,
+  },
+  myEditModalInfo: {
+    modalDisplay: false,
   },
   selectedOptions: [],
   listInfo: {
