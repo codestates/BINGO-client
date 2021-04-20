@@ -1,11 +1,11 @@
 export const initialState =
 {
   userInfo: {
-    userId: 0,
-    username: "",
-    profileImage: "",
-    level: "",
-    accessToken: "",
+    userId: 1,
+    username: "체험 유저",
+    profileImage: "https://i.imgur.com/FP3hraO.png",
+    level: "새싹",
+    accessToken: "accessToken",
     ngoIdOfLoveList: []
   },
   mypageInfo: {},

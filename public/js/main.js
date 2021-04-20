@@ -1,9 +1,48 @@
 const loginBtn = document.querySelector("#login-button");
 const startBtn = document.querySelector("#start-button");
+let userId = 0;
+
+const checkGoogleAuth = async () => {
+  await fetch("http://localhost:5000/checkgoogleauth", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res.data);
+      userId = res.data.userId;
+    })
+    .catch((err) => console.log(err));
+};
+const checkKakaoAuth = async () => {
+  await fetch("http://localhost:5000/checkkakaoauth", {
+    method: "GET",
+    credentials: "include",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res.data);
+      userId = res.data.userId;
+    })
+    .catch((err) => console.log(err));
+};
+checkGoogleAuth();
+checkKakaoAuth();
+
+if (userId > 0) {
+  loginBtn.style.visibility="hidden"
+}
 
 const handleLoginBtnClick = () => {
-  window.location.href = "/login";
+  if (userId === 0) {
+    window.location.href = "/login";
+  }
 };
+
 const handleStartBtnClick = async () => {
   await fetch("http://localhost:5000/testcookie", {
     method: "GET",
@@ -253,26 +292,26 @@ toTop.addEventListener("click", () => {
       sceneInfo[0].objs.videoImages.push(imgElem);
     }
 
-    let imgElem2;
-    for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
-      imgElem2 = new Image();
-      imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
-      sceneInfo[2].objs.videoImages.push(imgElem2);
-    }
+    // let imgElem2;
+    // for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
+    //   imgElem2 = new Image();
+    //   imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
+    //   sceneInfo[2].objs.videoImages.push(imgElem2);
+    // }
 
-    let imgElem3;
-    for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
-      imgElem3 = new Image();
-      imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
-      sceneInfo[3].objs.videoImages.push(imgElem3);
-    }
+    // let imgElem3;
+    // for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
+    //   imgElem3 = new Image();
+    //   imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
+    //   sceneInfo[3].objs.videoImages.push(imgElem3);
+    // }
 
-    let imgElem4;
-    for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
-      imgElem4 = new Image();
-      imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
-      sceneInfo[4].objs.videoImages.push(imgElem4);
-    }
+    // let imgElem4;
+    // for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
+    //   imgElem4 = new Image();
+    //   imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
+    //   sceneInfo[4].objs.videoImages.push(imgElem4);
+    // }
 
     let imgElem5;
     for (let i = 0; i < sceneInfo[5].objs.imagesPath.length; i++) {

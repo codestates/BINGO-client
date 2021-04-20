@@ -17,12 +17,45 @@ function MyPage(props: any) {
   const { userInfo } = state;
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(true);
+  const [display, setDisplay] = useState('none');
+  const [btnDisplay, setbtnDisplay] = useState('block');
+
+  document.addEventListener("scroll", function () {
+    // if (!ing) {
+    //   setIng(true);
+    //   setOpacity(1);
+    //   setRight(0);
+    //   setTimeout(() => {
+    //     setOpacity(0);
+    //     setRight(-112);
+    //     setIng(false);
+    //   }, 2000);
+    // }
+  });
 
   const handleLogoClick = () => {
     window.location.href = "./guide.html"
   }
+  const logout = async () => {
+    await fetch("http://localhost:5000/logout", {
+      method: "POST",
+      credentials: "include",
+    })
+    .then((res) => {
+      console.log("로그아웃 res:", res);
+    })
+    .catch((err) => console.log(err));
+    window.location.href = "./guide.html";
+  };
+
+  const handleListPageClick = () => {
+    props.history.push('/list')
+  }
   const handlePayPageClick = () => {
     props.history.push('/pay')
+  }
+  const handleTestClick = () => {
+    props.history.push('/test')
   }
   useEffect(() => {
     axios.get(`http://localhost:5000/mypage?user_id=${userInfo.userId}`, {
@@ -45,10 +78,12 @@ function MyPage(props: any) {
     <MyPageModal />
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
-          <div id="navBox">
-            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick}>페이페이지</div>
-            <div id="myPageLogoutBtn" className="shadow" onClick={handlePayPageClick}>로그아웃</div>
-            <div id="myPageTestBtn" className="shadow" onClick={handlePayPageClick}>테스트</div>
+          <div id="navBox" onMouseOver={() => {setDisplay('block'); setbtnDisplay('none');}} onMouseOut={() => {setDisplay('none'); setbtnDisplay('block');}}>
+            <div id="myPageTestBtn" className="shadow" onClick={handleTestClick} style={{ display: btnDisplay}}>페이지 이동</div>
+            <div id="myPageTestBtn" className="shadow" onClick={handleTestClick} style={{ display }} >테스트</div>
+            <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display }}>리스트</div>
+            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display }}>페이페이지</div>
+            <div id="myPageLogoutBtn" className="shadow" onClick={logout} style={{ display }}>로그아웃</div>
           </div>
       </div>
     <div id="myPageCoverPart">
