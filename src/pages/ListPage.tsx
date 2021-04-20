@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { changeList } from "../action";
 import { Link } from 'react-router-dom';
+import Footer from "../components/Footer";
 
 function ListPage(props: any) {
   const [category, setCategory] = useState([
@@ -276,6 +277,7 @@ function ListPage(props: any) {
           </div>
         </div>
       )}
+      <Footer></Footer>
     </>
   );
 }
