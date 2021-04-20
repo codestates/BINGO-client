@@ -92,9 +92,9 @@ function ContentPage(props: any) {
   };
   const checkLove = () => {
     if (userInfo.ngoIdOfLoveList.length > 0) {
-    if (userInfo.ngoIdOfLoveList.indexOf(currentNgoId) >= 0) {
-      setIsAlreadyLove(true);
-    }
+      if (userInfo.ngoIdOfLoveList.indexOf(currentNgoId) >= 0) {
+        setIsAlreadyLove(true);
+      }
     }
   };
   const handleLoveClick = () => {
@@ -103,7 +103,7 @@ function ContentPage(props: any) {
         axios
           .delete("http://localhost:5000/love", {
             headers: {
-              authorization: `${userInfo.accessToken}`
+              authorization: `${userInfo.accessToken}`,
             },
             data: {
               userId: userInfo.userId,
@@ -123,7 +123,7 @@ function ContentPage(props: any) {
           .catch(err => console.log(err));
       }
     } else {
-      alert('로그인 해줘')
+      alert("로그인 해줘");
       // 로그인이 필요합니다. 토스트
     }
   };
@@ -140,17 +140,17 @@ function ContentPage(props: any) {
   const handleSupportBtn = () => {
     if (userInfo.accessToken) {
       axios
-      .post("http://localhost:5000/pocket", {
-        accessToken: userInfo.accessToken,
-        userId: userInfo.userId,
-        ngoId: currentNgoId,
-        type: "once",
-        money: 10000,
-      })
-      .then(() => dispatch(showcontentModal(true)))
-      .catch(err => console.log(err));
+        .post("http://localhost:5000/pocket", {
+          accessToken: userInfo.accessToken,
+          userId: userInfo.userId,
+          ngoId: currentNgoId,
+          type: "once",
+          money: 10000,
+        })
+        .then(() => dispatch(showcontentModal(true)))
+        .catch(err => console.log(err));
     } else {
-      alert('로그인 해줘')
+      alert("로그인 해줘");
       // 로그인이 필요합니다. 토스트
     }
   };
@@ -171,7 +171,7 @@ function ContentPage(props: any) {
     setOpacity(1);
     if (userInfo.accessToken) {
       checkLove();
-    } 
+    }
 
     axios
       .get(`http://localhost:5000/contentpage/${currentNgoId}`)
@@ -278,7 +278,7 @@ function ContentPage(props: any) {
                   ></iframe>
                 </div>
               </div>
-            }
+            )}
           </Motion>
           {display ? <div id='scrollDiv'>∨∨scroll∨∨</div> : null}
           <ContentNewsList ngoName={ngoInfo.data.name} />
