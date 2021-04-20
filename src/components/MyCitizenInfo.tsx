@@ -17,24 +17,27 @@ function MyCitizenInfo(){
   const state = useSelector((state: RootState) => state.mypageReducer);
   const { mypageInfo } = state;
   const [data, setData] = useState([""]);
-  const donates = mypageInfo.mypageInfo.donates;
-  const loves = mypageInfo.mypageInfo.loves;
   const tempArr = [""];
+  if (mypageInfo.mypageInfo.donates) {
+    let donates = mypageInfo.mypageInfo.donates;
+    donates.map((item: ItemDonate) => {
+      tempArr.push(item.ngo.ngoName);
+      for(let i of item.ngo.categoryName){
+        tempArr.push(i)
+      }
+    })
+  }
 
-  donates.map((item: ItemDonate) => {
-    tempArr.push(item.ngo.ngoName);
-    for(let i of item.ngo.categoryName){
-      tempArr.push(i)
-    }
-  })
-
-  loves.map((item: ItemLove) => {
-    tempArr.push(item.ngoName);
-    for(let i of item.categoryName){
-      tempArr.push(i)
-    }
-  })
-
+  if (mypageInfo.mypageInfo.loves) {
+    let loves = mypageInfo.mypageInfo.loves;
+    loves.map((item: ItemLove) => {
+      tempArr.push(item.ngoName);
+      for(let i of item.categoryName){
+        tempArr.push(i)
+      }
+    })
+  }
+  
   const filteredArr = tempArr.filter((element, index) => {
     return tempArr.indexOf(element) === index
   });

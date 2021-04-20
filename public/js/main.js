@@ -1,9 +1,6 @@
 const loginBtn = document.querySelector("#login-button");
 const startBtn = document.querySelector("#start-button");
 
-let userId = 0;
-let ngoIdOfLoveList = [];
-
 const handleLoginBtnClick = () => {
   window.location.href = "/login";
 };
@@ -12,104 +9,21 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      if (!res) {
-        window.location.href = `/test?userId=${userId}&ngoIdOfLoveList=${ngoIdOfLoveList}`;
-      } else {
-        window.location.href = `/list?userId=${userId}&ngoIdOfLoveList=${ngoIdOfLoveList}`;
-      }
-    })
-    .catch(() => (window.location.href = "/test"));
+  .then((res) => {
+    return res.json();
+  })
+  .then((res) => {
+    if (!res) {
+      window.location.href = `/test`;
+    } else {
+      window.location.href = `/list`;
+    }
+  })
+  .catch(() => window.location.href = "/test")
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
 startBtn.addEventListener("click", handleStartBtnClick);
-
-const getAccessTokenGoogle = async (authorizationCode) => {
-  console.log(authorizationCode);
-  await fetch("http://localhost:5000/googlelogin", {
-    credentials: "include",
-    method: "POST",
-    body: JSON.stringify({
-      authorizationCode,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => console.log(err));
-};
-const getAccessTokenKakao = async (authorizationCode) => {
-  console.log("abc");
-  await fetch("http://localhost:5000/kakaologin", {
-    method: "POST",
-    credentials: "include",
-    body: JSON.stringify({
-      authorizationCode,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => console.log(err));
-};
-const logout = async () => {
-  await fetch("http://localhost:5000/logout", {
-    method: "POST",
-    credentials: "include",
-  })
-    .then((res) => {
-      console.log("로그아웃 res:", res.data);
-    })
-    .catch((err) => console.log(err));
-};
-const checkGoogleAuth = async () => {
-  await fetch("http://localhost:5000/checkgoogleauth", {
-    method: "GET",
-    credentials: "include",
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res.data);
-      userId = res.data.id;
-      ngoIdOfLoveList = res.data.ngoIdOfLoveList;
-    })
-    .catch((err) => console.log(err));
-};
-const checkKakaoAuth = async () => {
-  await fetch("http://localhost:5000/checkkakaoauth", {
-    method: "GET",
-    credentials: "include",
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => console.log(err));
-};
-
-checkGoogleAuth();
-checkKakaoAuth();
-
-const url = new URL(window.location.href);
-const authorizationCode = url.searchParams.get("code");
-if (authorizationCode) {
-  getAccessTokenGoogle(authorizationCode);
-  getAccessTokenKakao(authorizationCode);
-}
 
 let toTopCount = 0;
 let tempTopYOffset = 5;

@@ -62,7 +62,9 @@ function ContentPage(props: any) {
     "https://chingusai.net/xe/files/attach/images/296431/450/544/bdf2df8fbfc1794c371dd4cf17c95dc0.jpg",
   ]);
   const state = useSelector((state: RootState) => state.contentReducer);
-  const { currentNgoId, userInfo } = state;
+  const userState = useSelector((state: RootState) => state.loginReducer);
+  const { currentNgoId } = state;
+  const { userInfo } = userState;
   const [top, setTop] = useState(150);
   const [opacity, setOpacity] = useState(0);
   const [scrollDisplay, setScrollDisplay] = useState(true);
@@ -88,31 +90,40 @@ function ContentPage(props: any) {
     window.open(ngoInfo.data.link);
   };
   const checkLove = () => {
+    if (userInfo.ngoIdOfLoveList.length > 0) {
     if (userInfo.ngoIdOfLoveList.indexOf(currentNgoId) >= 0) {
       setIsAlreadyLove(true);
     }
+    }
   };
   const handleLoveClick = () => {
-    if (isAlreadyLove) {
-      setIsAlreadyLove(false);
-      axios
-        .delete("http://localhost:5000/love", {
-          data: {
+    if (userInfo.accessToken) {
+      if (isAlreadyLove) {
+        axios
+          .delete("http://localhost:5000/love", {
+            headers: {
+              authorization: `${userInfo.accessToken}`
+            },
+            data: {
+              userId: userInfo.userId,
+              ngoId: currentNgoId,
+            },
+          })
+          .then(res => setIsAlreadyLove(false))
+          .catch(err => console.log(err));
+      } else if (!isAlreadyLove) {
+        axios
+          .post("http://localhost:5000/love", {
+            accessToken: userInfo.accessToken,
+            userId: userInfo.userId,
             ngoId: currentNgoId,
-            userId: userInfo.id,
-          },
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    } else if (!isAlreadyLove) {
-      setIsAlreadyLove(true);
-      axios
-        .post("http://localhost:5000/love", {
-          ngoId: currentNgoId,
-          userId: userInfo.id,
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
+          })
+          .then(res => setIsAlreadyLove(true))
+          .catch(err => console.log(err));
+      }
+    } else {
+      alert('로그인 해줘')
+      // 로그인이 필요합니다. 토스트
     }
   };
   const pickImages = categoryArr => {
@@ -126,15 +137,21 @@ function ContentPage(props: any) {
   };
 
   const handleSupportBtn = () => {
-    axios
+    if (userInfo.accessToken) {
+      axios
       .post("http://localhost:5000/pocket", {
-        userId: userInfo.id,
+        accessToken: userInfo.accessToken,
+        userId: userInfo.userId,
         ngoId: currentNgoId,
         type: "once",
         money: 10000,
       })
       .then(() => dispatch(showcontentModal(true)))
       .catch(err => console.log(err));
+    } else {
+      alert('로그인 해줘')
+      // 로그인이 필요합니다. 토스트
+    }
   };
 
   const scrollEvent = () => {
@@ -145,7 +162,9 @@ function ContentPage(props: any) {
   useEffect(() => {
     setTop(0);
     setOpacity(1);
-    checkLove();
+    if (userInfo.accessToken) {
+      checkLove();
+    } 
 
     axios
       .get(`http://localhost:5000/contentpage/${currentNgoId}`)
@@ -214,8 +233,6 @@ function ContentPage(props: any) {
             <button
               className='shadow'
               onClick={() => {
-                console.log(ngoInfo.data.ngocategorys);
-                pickImages(ngoInfo.data.ngocategorys);
                 handleSupportBtn();
               }}
             >

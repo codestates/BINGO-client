@@ -10,6 +10,7 @@ function MyPageModal() {
 
   const disptach = useDispatch();
   const state = useSelector((state: RootState) => state.mypageReducer);
+  const userState = useSelector((state: RootState) => state.loginReducer);
 
   const handleClickClose = () => {
     disptach(showMypageModal(false, "", 0));
@@ -17,9 +18,11 @@ function MyPageModal() {
 
   const stopSubcribe = () => {
     axios.patch("http://localhost:5000/donation", {
+      accessToken: userState.userInfo.accessToken,
       donateId: state.myModalInfo.donateId,
       ing: 'false',
     })
+    .then(handleClickClose)
     .catch(err => console.log(err))
   }
 

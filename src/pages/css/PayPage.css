@@ -39,6 +39,7 @@
   font-size: 1.5rem;
   padding: 1rem;
   padding-top: 2.5rem;
+  min-height: 150px;
 }
 
 .payBoxContentBox {

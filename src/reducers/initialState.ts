@@ -1,14 +1,12 @@
 export const initialState =
 {
   userInfo: {
-    id: 1,
+    userId: 0,
     username: "",
     profileImage: "",
     level: "",
-    googleId: "",
-    kakaoId: "",
     accessToken: "",
-    ngoIdOfLoveList: [1, 2, 3]
+    ngoIdOfLoveList: []
   },
   mypageInfo: {},
   ngoList: [],
@@ -18,6 +16,7 @@ export const initialState =
   },
   payModalInfo: {
     modalDisplay: false,
+    money: 0,
   },
   payMessageInfo: {
     messageDisplay: true,

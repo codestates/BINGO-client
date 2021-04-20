@@ -8,15 +8,18 @@ import MyRegularDonationListEntry from "./MyRegularDonationListEntry"
 function MyRegularDonationList(){
   const state = useSelector((state: RootState) => state.mypageReducer);
   const { mypageInfo } = state;
-  const donates = mypageInfo.mypageInfo.donates
-  console.log(donates)
+  console.log(mypageInfo)
   let count = 0;
-
-  donates.map((item: any) => {
-    if(item.type === "repeat" && item.ing === true){
-      count++;
-    }
-  })
+  let donates;
+  if(mypageInfo.mypageInfo.donates) {
+    donates = mypageInfo.mypageInfo.donates;
+  
+    donates.map((item: any) => {
+      if(item.type === "repeat" && item.ing === true){
+        count++;
+      }
+    })
+  }
   
   return (
   <>

@@ -46,6 +46,18 @@
   background-color: var(--main-color-white);
 }
 
+#myPageTestBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 700;
+  padding: 1rem;
+  margin-top: 0.75em;
+  border-radius: 1rem 0 0 1rem;
+  background-color: var(--main-color-white);
+}
+
 #myPageCoverPart {
   background: linear-gradient(
     180deg,
@@ -113,6 +125,11 @@
   padding-left: 1rem;
   margin-bottom: 1rem;
 }
+
+#navBox {
+  margin-top: 90px;
+}
+
 @media (max-width: 1024px) {
   #myPageMainContentMiddle {
     display: flex;

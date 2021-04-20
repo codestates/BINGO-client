@@ -12,7 +12,7 @@ const mypageReducer = (state = initialState, action: any) => {
 
     case SHOW_MYPAGE_MODAL:
       return Object.assign({}, state, {
-        myModalInfo: action.payload,
+        myModalInfo: action.payload
       });
       
     default:
