@@ -85,7 +85,7 @@ function MyPage(props: any) {
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
 
           <div id="navBox" onMouseOver={() => {setDisplay('block'); setbtnDisplay('none');}} onMouseOut={() => {setDisplay('none'); setbtnDisplay('block');}}>
-            <div id="myPageTestBtn" className="shadow" onClick={handleTestClick} style={{ display: btnDisplay}}>페이지 이동</div>
+            <div id="myPageTestBtn" className="shadow" style={{ display: btnDisplay}}>페이지 이동</div>
             <div id="myPageTestBtn" className="shadow" onClick={handleTestPageClick} style={{ display }} >테스트</div>
             <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display }}>리스트</div>
             <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display }}>페이페이지</div>

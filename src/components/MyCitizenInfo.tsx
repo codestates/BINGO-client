@@ -46,7 +46,7 @@ function MyCitizenInfo(){
   
   const filteredArr = tempArr.filter((element, index) => {
     return tempArr.indexOf(element) === index
-  });
+  })
 
     let layout = cloud()
     .words(data.map(function(d) {
@@ -82,16 +82,15 @@ function MyCitizenInfo(){
         }
 
         window.addEventListener('scroll', () => {
+          console.log(filteredArr)
           if(count === 0){
-            d3.select('#myCitizenInfoMain').selectAll("svg").remove();
-            if(filteredArr[0] === ""){
-              setData([""])
+            setData(filteredArr);
+            count++;
+            if(filteredArr.length === 1){
               d3.select('#myCitizenInfoMain').selectAll("svg").remove();
             } else {
               setIsThereEnoughData(true);
-              setData(filteredArr);
             }
-            count++;
           }
         })
 
