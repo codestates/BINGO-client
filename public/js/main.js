@@ -9,17 +9,17 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-  .then((res) => {
-    return res.json();
-  })
-  .then((res) => {
-    if (!res) {
-      window.location.href = `/test`;
-    } else {
-      window.location.href = `/list`;
-    }
-  })
-  .catch(() => window.location.href = "/test")
+    .then(res => {
+      return res.json();
+    })
+    .then(res => {
+      if (!res) {
+        window.location.href = `/test`;
+      } else {
+        window.location.href = `/list`;
+      }
+    })
+    .catch(() => (window.location.href = "/test"));
 };
 
 loginBtn.addEventListener("click", handleLoginBtnClick);
@@ -253,26 +253,26 @@ toTop.addEventListener("click", () => {
       sceneInfo[0].objs.videoImages.push(imgElem);
     }
 
-    let imgElem2;
-    for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
-      imgElem2 = new Image();
-      imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
-      sceneInfo[2].objs.videoImages.push(imgElem2);
-    }
+    // let imgElem2;
+    // for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
+    //   imgElem2 = new Image();
+    //   imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
+    //   sceneInfo[2].objs.videoImages.push(imgElem2);
+    // }
 
-    let imgElem3;
-    for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
-      imgElem3 = new Image();
-      imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
-      sceneInfo[3].objs.videoImages.push(imgElem3);
-    }
+    // let imgElem3;
+    // for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
+    //   imgElem3 = new Image();
+    //   imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
+    //   sceneInfo[3].objs.videoImages.push(imgElem3);
+    // }
 
-    let imgElem4;
-    for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
-      imgElem4 = new Image();
-      imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
-      sceneInfo[4].objs.videoImages.push(imgElem4);
-    }
+    // let imgElem4;
+    // for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
+    //   imgElem4 = new Image();
+    //   imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
+    //   sceneInfo[4].objs.videoImages.push(imgElem4);
+    // }
 
     let imgElem5;
     for (let i = 0; i < sceneInfo[5].objs.imagesPath.length; i++) {
@@ -1073,11 +1073,9 @@ toTop.addEventListener("click", () => {
       });
     });
 
-    document
-      .querySelector(".loading")
-      .addEventListener("transitionend", (e) => {
-        document.body.removeChild(e.currentTarget);
-      });
+    document.querySelector(".loading").addEventListener("transitionend", e => {
+      document.body.removeChild(e.currentTarget);
+    });
   }); //리소스까지 포함 (이미지 동영상 등)
 
   setCanvasImages();

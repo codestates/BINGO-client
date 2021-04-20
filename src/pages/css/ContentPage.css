@@ -154,7 +154,7 @@ li {
 
 #contentMainTopLogo:hover {
   cursor: pointer;
-  opacity: 0.5;
+  border: solid var(--main-color-gray);
 }
 
 #contentMainTopRight button {
