@@ -22,6 +22,11 @@ function MyAllDonationGraph(){
   const [data, setData] = useState([
     {name: 'A', value: 1000, color: '#efa86b'},
   ])
+  const [isThereEnoughData, setIsThereEnoughData] = useState(false);
+
+  const handleTourButton = () => {
+    window.location.href = "./list"
+  }
 
     let now = new Date();
     let yearNow = now.getFullYear();
@@ -171,7 +176,12 @@ function MyAllDonationGraph(){
     window.addEventListener('scroll', () => {
       if(count === 0){
         d3.select('#myAllDonationGraph').selectAll("svg").remove();
-        setData(arrangedData)
+        if(arrangedData.length === 0){
+          d3.select('#myCitizenInfoMain').selectAll("svg").remove();
+        } else {
+          setIsThereEnoughData(true);
+          setData(arrangedData);
+        }
         count++;
       }
     })
@@ -181,6 +191,11 @@ function MyAllDonationGraph(){
       <div className="myPageTitle">후원 그래프</div>
       <div className="myPageSubTitle">김빙고님의 총 후원내역을 단체별로 한눈에 살펴볼 수 있습니다.</div>
       <div id="myAllDonationGraph">
+      {isThereEnoughData ? null :      
+      <div id="myAlertContainer">
+        <div>빙고가 당신의 후원활동을 분석할 수 있도록 <br />최소 1개의 단체를 후원해주세요!</div>
+        <button onClick={handleTourButton}>NGO단체 둘러보기</button>
+      </div>}
       </div>
     </div>
   )
