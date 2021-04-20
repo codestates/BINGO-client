@@ -236,16 +236,16 @@ function ListPage(props: any) {
             </div>
             {result.length === 0 && <ListContentList />}
             {result.length > 0 && (
-              <div id='listContentListContainer'>
+              <div id='ListContentSearchResultContainer'>
               <div className='card'>
                 {result.map((item: any) => {
                   return (
                     <Link onClick={()=> handleContentListEntryClick(item.id)} to="/content">
           <div
-            id='ListContentEntryContainer'
+            id='ListContentSearchContentBox'
             className='shadow'
           >
-            <div className='front'>
+            <div>
               <div id="ListContentEntryLogoBox">
               <img
                 id='ListContentEntryLogo'
@@ -255,7 +255,7 @@ function ListPage(props: any) {
               </div>
               <div id='ListContentEntryTitle'>{item.name}</div>
             </div>
-              <div className='listBackPart'>
+              <div className='listSearchDescription'>
               <div id='ListContentEntryDescription'>{item.description}</div>
             </div>
           </div>
