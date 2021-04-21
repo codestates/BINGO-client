@@ -65,7 +65,6 @@ export default function ListContentEntry() {
           <Link onClick={()=> handleContentListEntryClick(item.id)} to="/content">
           <div
             id='ListContentEntryContainer'
-            className='shadow'
           >
             <div className='front'>
               <div id="ListContentEntryLogoBox">
@@ -75,11 +74,11 @@ export default function ListContentEntry() {
                 src={item.logo}
               />
               </div>
-              <div id='ListContentEntryTitle'>{item.name}</div>
+              {/* <div id='ListContentEntryTitle'>{item.name}</div> */}
             </div>
-              <div className='listBackPart'>
-              <div id='ListContentEntryDescription'>{item.description}</div>
-            </div>
+              {/* <div className='listBackPart'>
+                <div id='ListContentEntryDescription'>{item.description}</div>
+              </div> */}
           </div>
           </Link>
         );

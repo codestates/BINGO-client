@@ -32,6 +32,7 @@ function MyProfileEditModal() {
     let file = inputImage.files[0]
     let alertMessageBox: any = document.getElementById("myEditModalAlertMessageBox")
 
+    const accessToken = userState.userInfo.accessToken;
     let userId = userState.userInfo.userId;
     let username = inputName.value ? inputName.value : userState.userInfo.username;
     let profileImage = file ? imageSrc : userState.userInfo.profileImage;
@@ -45,12 +46,14 @@ function MyProfileEditModal() {
       alertMessageBox.innerText = "변경한 정보가 없다능~"
     } else {
       axios.patch("http://localhost:5000/userinfo", {
+        accessToken,
         userId,
         username,
         profileImage,
       })
       .then(res => {
         alertMessageBox.innerText = "정보변경 완료됐다능"
+        handleClickClose();
       })
       .catch(err => {
         alertMessageBox.innerText = "에러 났다능~"
