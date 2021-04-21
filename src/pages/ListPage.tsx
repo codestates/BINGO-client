@@ -13,16 +13,16 @@ import Footer from "../components/Footer";
 
 function ListPage(props: any) {
   const [category, setCategory] = useState([
-    "전체",
-    "아동",
-    "장애인",
-    "여성",
-    "성소수자",
-    "동물",
-    "환경",
-    "노인",
-    "보건",
-    "다문화",
+    ["전체", "https://ifh.cc/g/QIUoyt.png"],
+    ["아동", "https://ifh.cc/g/jQOkYQ.png"],
+    ["장애인", "https://ifh.cc/g/sEQiUx.png"],
+    ["여성", "https://ifh.cc/g/1VjOOz.png"],
+    ["성소수자", "https://ifh.cc/g/uMeLdG.png"],
+    ["동물", "https://ifh.cc/g/oKw5XI.png"],
+    ["환경", "https://ifh.cc/g/mMAjPS.png"],
+    ["노인", "https://ifh.cc/g/SIidJ4.png"],
+    ["보건", "https://ifh.cc/g/6bgLMg.png"],
+    ["다문화", "https://ifh.cc/g/MQxSvS.png"],
   ]);
   const [displaySearch, setDisplaySearch] = useState(false);
   const [dataOfCategory, setDataOfCategory] = useState("전체");
@@ -145,16 +145,16 @@ function ListPage(props: any) {
   const handleSearchClick = () => {
     if (displaySearch) {
       setCategory([
-        "전체",
-        "아동",
-        "장애인",
-        "여성",
-        "성소수자",
-        "동물",
-        "환경",
-        "노인",
-        "보건",
-        "다문화",
+        ["전체", "https://ifh.cc/g/QIUoyt.png"],
+    ["아동", "https://ifh.cc/g/jQOkYQ.png"],
+    ["장애인", "https://ifh.cc/g/sEQiUx.png"],
+    ["여성", "https://ifh.cc/g/1VjOOz.png"],
+    ["성소수자", "https://ifh.cc/g/uMeLdG.png"],
+    ["동물", "https://ifh.cc/g/oKw5XI.png"],
+    ["환경", "https://ifh.cc/g/mMAjPS.png"],
+    ["노인", "https://ifh.cc/g/SIidJ4.png"],
+    ["보건", "https://ifh.cc/g/6bgLMg.png"],
+    ["다문화", "https://ifh.cc/g/MQxSvS.png"],
       ]);
       setDisplaySearch(false);
       setResult([]);
@@ -208,12 +208,16 @@ function ListPage(props: any) {
                 <div id='listSearchTitleBox'>
                   {category.map(item => {
                     return (
+                      <div id="listSearchTitlePart">
                       <div
                         className='listSearchTitle'
-                        onClick={() => handleCategoryClick(item)}
+                        onClick={() => handleCategoryClick(item[0])}
                       >
-                        <img src="../images/iconfilder_Pets_3775229.png"></img>
-                        {item}
+                      <div>
+                        <img id="listSearchImg" src={item[1]} alt="categoryImg"/>
+                      </div>
+                      </div>
+                      <div id="listSearchName">{item[0]}</div>
                       </div>
                     );
                   })}

@@ -106,6 +106,16 @@
   margin-right: auto;
 }
 
+#listSearchTitlePart {
+  display: flex;
+  flex-direction: column;
+}
+
+#listSearchName {
+  text-align: center;
+  width: 100%;
+}
+
 #ListContentSearchResultContainer {
   display: flex;
   width: 80%;
@@ -127,6 +137,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#listSearchImg {
+  width: 50px;
+  height: 50px;
 }
 
 @media (max-width: 1024px) {
