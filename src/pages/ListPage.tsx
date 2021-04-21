@@ -31,6 +31,15 @@ function ListPage(props: any) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [bannerHeight, setHeight] = useState(50);
+
+  document.addEventListener("scroll", function () {
+    if (document.documentElement.scrollTop > 0) {
+      setHeight(25)
+    } else {
+      setHeight(50)
+    }
+  });
 
   const getAccessTokenGoogle = async (authorizationCode: string) => {
     await axios.post("http://localhost:5000/googlelogin", {
@@ -189,7 +198,7 @@ function ListPage(props: any) {
               마이페이지
             </div>
           </div>
-          <div id='listCoverPart'></div>
+          <div id='listCoverPart' style={{ height: `${bannerHeight}rem`, }}></div>
           <div id='listMainPart'>
             <div id='listMainTitle' className='shadow'>
               더 많은 NGO단체 찾아보기
@@ -203,6 +212,7 @@ function ListPage(props: any) {
                         className='listSearchTitle'
                         onClick={() => handleCategoryClick(item)}
                       >
+                        <img src="../images/iconfilder_Pets_3775229.png"></img>
                         {item}
                       </div>
                     );
