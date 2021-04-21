@@ -36,7 +36,7 @@ function PayPage(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/paypage", {
+      .get("https://server.ibingo.link/paypage", {
         headers: {
           authorization: `${userInfo.accessToken}`,
         },
@@ -88,7 +88,7 @@ function PayPage(props: any) {
       if (type === "once") {
         const dataList = data.map(el => el.id);
         if (dataList.includes(currentItem)) return;
-        axios.patch("http://localhost:5000/pocket", {
+        axios.patch("https://server.ibingo.link/pocket", {
           accessToken: userInfo.accessToken,
           pocketId: currentItem,
           type: "once",
@@ -100,7 +100,7 @@ function PayPage(props: any) {
       } else {
         const dataList = repeatData.map(el => el.id);
         if (dataList.includes(currentItem)) return;
-        axios.patch("http://localhost:5000/pocket", {
+        axios.patch("https://server.ibingo.link/pocket", {
           accessToken: userInfo.accessToken,
           pocketId: currentItem,
           type: "repeat",
@@ -116,7 +116,7 @@ function PayPage(props: any) {
 
   const deleteItem = async (pocketId: number) => {
     await axios
-      .delete("http://localhost:5000/pocket", {
+      .delete("https://server.ibingo.link/pocket", {
         headers: {
           authorization: `${userInfo.accessToken}`,
         },
@@ -140,7 +140,7 @@ function PayPage(props: any) {
         el.id === pocketId ? { ...el, body: Number(value) } : el
       )
     );
-    axios.patch("http://localhost:5000/pocket", {
+    axios.patch("https://server.ibingo.link/pocket", {
       pocketId,
       money: Number(value),
     });
@@ -197,7 +197,7 @@ function PayPage(props: any) {
   const pay = async () => {
     for (let item of data) {
       await axios
-        .post("http://localhost:5000/donation", {
+        .post("https://server.ibingo.link/donation", {
           accessToken: userInfo.accessToken,
           userId: userInfo.userId,
           ngoId: item.ngoId,
@@ -212,7 +212,7 @@ function PayPage(props: any) {
 
     for (let item of repeatData) {
       await axios
-        .post("http://localhost:5000/donation", {
+        .post("https://server.ibingo.link/donation", {
           accessToken: userInfo.accessToken,
           userId: userInfo.userId,
           ngoId: item.ngoId,
@@ -225,6 +225,7 @@ function PayPage(props: any) {
         .catch(err => console.log(err));
     }
     alert("결제가 완료되었습니다");
+    dispatch(showPayModal(false, 0));
     props.history.push("/mypage");
   };
 

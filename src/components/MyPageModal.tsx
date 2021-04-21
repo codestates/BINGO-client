@@ -17,7 +17,7 @@ function MyPageModal() {
   }
 
   const stopSubcribe = () => {
-    axios.patch("http://localhost:5000/donation", {
+    axios.patch("https://server.ibingo.link/donation", {
       accessToken: userState.userInfo.accessToken,
       donateId: state.myModalInfo.donateId,
       ing: 'false',

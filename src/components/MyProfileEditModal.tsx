@@ -45,7 +45,7 @@ function MyProfileEditModal() {
     } else if (!inputImage.value && !inputName.value) {
       alertMessageBox.innerText = "변경한 정보가 없다능~"
     } else {
-      axios.patch("http://localhost:5000/userinfo", {
+      axios.patch("https://server.ibingo.link/userinfo", {
         accessToken,
         userId,
         username,

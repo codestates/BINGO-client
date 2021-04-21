@@ -26,7 +26,7 @@ function MyPage(props: any) {
     window.location.href = "./guide.html";
   };
   const logout = async () => {
-    await fetch("http://localhost:5000/logout", {
+    await fetch("https://server.ibingo.link/logout", {
       method: "POST",
       credentials: "include",
     })
@@ -51,7 +51,7 @@ function MyPage(props: any) {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/mypage?user_id=${userInfo.userId}`, {
+      .get(`https://server.ibingo.link/mypage?user_id=${userInfo.userId}`, {
         headers: {
           authorization: `${userInfo.accessToken}`,
         },

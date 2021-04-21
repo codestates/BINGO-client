@@ -33,7 +33,7 @@ export default function ListContentEntry() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/listpage")
+      .get("https://server.ibingo.link/listpage")
       .then(res => {
         console.log("check get list:", res.data.data);
         const lists = res.data.data;

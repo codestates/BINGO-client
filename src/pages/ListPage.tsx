@@ -42,14 +42,14 @@ function ListPage(props: any) {
   });
 
   const getAccessTokenGoogle = async (authorizationCode: string) => {
-    await axios.post("http://localhost:5000/googlelogin", {
+    await axios.post("https://server.ibingo.link/googlelogin", {
       authorizationCode,
     }, {
       withCredentials: true,
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
-    // await fetch("http://localhost:5000/googlelogin", {
+    // await fetch("https://server.ibingo.link/googlelogin", {
     //   credentials: "include",
     //   method: "POST",
     //   body: JSON.stringify({
@@ -65,7 +65,7 @@ function ListPage(props: any) {
     //   .catch((err) => console.log(err));
   };
   const getAccessTokenKakao = async (authorizationCode: string) => {
-    await axios.post("http://localhost:5000/kakaologin", {
+    await axios.post("https://server.ibingo.link/kakaologin", {
       authorizationCode,
     }, {
       withCredentials: true,
@@ -75,7 +75,7 @@ function ListPage(props: any) {
   };
   
   const checkGoogleAuth = async () => {
-    await fetch("http://localhost:5000/checkgoogleauth", {
+    await fetch("https://server.ibingo.link/checkgoogleauth", {
       method: "GET",
       credentials: "include",
     })
@@ -89,7 +89,7 @@ function ListPage(props: any) {
       .catch((err) => console.log(err));
   };
   const checkKakaoAuth = async () => {
-    await fetch("http://localhost:5000/checkkakaoauth", {
+    await fetch("https://server.ibingo.link/checkkakaoauth", {
       method: "GET",
       credentials: "include",
     })
@@ -109,7 +109,7 @@ function ListPage(props: any) {
     .then(() => checkKakaoAuth())
     .then(() => {
       axios
-      .get("http://localhost:5000/listpage")
+      .get("https://server.ibingo.link/listpage")
       .then(res => {
         return res.data.data;
       })
