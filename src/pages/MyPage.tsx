@@ -4,7 +4,7 @@ import MyRegularDonationList from "../components/MyRegularDonationList";
 import MyCitizenInfo from "../components/MyCitizenInfo";
 import MyAllDonationGraph from "../components/MyAllDonationGraph";
 import MyMonthlyDonationGraph from "../components/MyMonthlyDonationGraph";
-import Footer from "../components/Footer";
+import MyFooter from "../components/MyFooter";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
@@ -90,9 +90,9 @@ function MyPage(props: any) {
             <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display, opacity }}>리스트</div>
             <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display, opacity }}>페이페이지</div>
             <div id="myPageLogoutBtn" className="shadow" onClick={logout} style={{ display, opacity }}>로그아웃</div>
+          </div>
         </div>
-        </div>
-       <div id='myPageCoverPart'></div>
+        <div id='myPageCoverPart'></div>
           <div id='myPageMainPart'>
             <div id='myPageUserInfo'>
               <div
@@ -112,7 +112,10 @@ function MyPage(props: any) {
               </div>
               <MyMonthlyDonationGraph />
             </div>
-      )}
+          </div>
+          <MyFooter/>
+        </div>
+      }
     </>
   );
 }

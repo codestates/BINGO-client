@@ -9,6 +9,7 @@
   --main-color-pink: rgb(211, 190, 193);
 
   --main-color-white: rgb(233, 232, 228);
+  --main-color-light-gray: rgb(110, 110, 110);
   --main-color-gray: rgb(50, 50, 50);
   --main-color-black: rgb(15, 18, 25);
 }
@@ -37,6 +38,12 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 .navLogo {

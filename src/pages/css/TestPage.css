@@ -1,10 +1,6 @@
-#testPageContainer * {
-  /* border: 1px solid black; */
-}
-
 #testPageContainer {
-  background: var(--main-color-green);
-  height: 110vh;
+  background: var(--main-color-white);
+  height: 100vh;
 }
 
 #testNavPart {
@@ -19,7 +15,7 @@
   display: flex;
   align-items: center;
   font-size: 1.75rem;
-  color: var(--main-color-white);
+  color: var(--main-color-green);
   font-weight: 900;
   padding: 1.5rem 2rem;
 }
@@ -29,11 +25,12 @@
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 500;
   padding: 1rem;
   margin-top: 0.5rem;
-  border-radius: 1rem 0 0 1rem;
-  background-color: var(--main-color-white);
+  border-radius: 2rem 0 0 2rem;
+  background-color: var(--main-color-light-green);
+  border: 1px solid var(--main-color-green);
 }
 
 #testMainPart,
@@ -49,9 +46,10 @@
   margin-bottom: 1rem;
   border-radius: 1rem;
   position: absolute;
-  top: 3%;
-  width: 80%;
+  top: 6%;
+  width: 50%;
   transform: translate(-50%, 0);
+  border: 1px solid var(--main-color-green);
 }
 
 #testMainPart {
@@ -61,43 +59,54 @@
   margin-bottom: 1rem;
   border-radius: 1rem;
   position: absolute;
-  top: 3%;
-  width: 80%;
+  top: 6%;
+  width: 47.5%;
   transform: translate(-50%, 0);
+  border: 1px solid var(--main-color-green);
+  -webkit-box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
 }
 
 #testMainNumber {
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   font-size: 1.25rem;
-  border: 1px;
-  color: var(--main-color-light-gray);
+  color: var(--main-color-gray);
+  background-color: var(--main-color-light-green);
   font-weight: 500;
+  border: 1px solid var(--main-color-green);
+  border-radius: 50%;
+  position: relative;
+  top: 1.5rem;
+  left: 0.5rem;
 }
 
 #testMainQuestion {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 500;
   color: var(--main-color-gray);
   text-align: center;
-  padding: 2.5rem;
+  padding: 1.5rem;
+  margin-top: 3rem;
 }
 
 #testOptions {
-  padding: 2.5rem;
+  padding: 1rem;
   text-align: center;
+  width: 80%;
+  margin: auto;
 }
 
 #optionBtn {
   background-color: var(--main-color-white);
-  padding: 1.5rem;
-  margin: 1rem;
+  padding: 1rem 1.5rem;
+  margin: 0.5rem;
   border: 1px solid var(--main-color-gray);
-  border-radius: 1rem;
-  width: 22%;
+  border-radius: 2rem;
 }
 
 #optionBtn:hover {
   transform: scale(1.1);
+  background-color: var(--main-color-light-green);
 }
 
 #optionBtn:focus {
@@ -111,19 +120,21 @@
 }
 
 #testMainBtnBox button {
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: var(--main-color-white);
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--main-color-gray);
   padding: 0.75rem;
-  background-color: var(--main-color-green);
+  /* background-color: var(--main-color-light-green); */
   border-style: none;
-  border-radius: 1rem;
-  width: 15%;
-  margin: 50px;
+  border-radius: 2rem;
+  width: 20%;
+  margin: 40px;
+  border: 1px solid var(--main-color-gray);
 }
 
 #testMainBtnBox button:hover {
-  background-color: var(--main-color-dark-green);
+  background-color: var(--main-color-light-green);
+  color: var(--main-color-gray);
   cursor: pointer;
 }
 
@@ -133,34 +144,28 @@
   color: var(--main-color-light-green);
 }
 
-#testExtraDescription {
-  margin: 3rem 1rem 1rem;
-  font-size: 1.125rem;
+#testExtraSubmitBtn {
+  padding: 1rem;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
 }
 
-#testExtraSubmitBtn {
-  font-size: 1.25rem;
-  color: white;
-  font-weight: 700;
-  padding: 1rem;
-  border-radius: 1rem;
-  background-color: var(--main-color-beige);
-  width: 40%;
-  margin: 0 auto;
-  transition: all 2s;
+#testExtraSubmitBtn:hover {
+  background-color: var(--main-color-light-green);
 }
 
 #toastMessage {
   position: absolute;
   font-size: 1.25rem;
   text-align: center;
-  width: 60%;
-  top: 75%;
+  width: 20%;
+  top: 52.5%;
   left: 50%;
-  font-weight: 500;
+  font-weight: 400;
   transform: translate(-50%, -50%);
   padding: 1rem;
-  border: 1px solid #ddd;
   border-radius: 1rem;
   background-color: #ddd;
 }
@@ -168,63 +173,71 @@
 #resultPart {
   display: flex;
   flex-direction: row;
-  background-color: var(--main-color-white);
   padding: 1rem;
   margin-top: 5rem;
   margin-bottom: 1rem;
   border-radius: 1rem;
-  width: 80%;
-  height: 60%;
-  margin: 5rem auto;
+  width: 50%;
+  height: 65%;
+  margin: 2rem auto;
   transition: all 2s;
 }
 
 #textResult {
-  font-size: 1.5rem;
-  line-height: 2.25rem;
-  margin-top: 15%;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
 }
 
 #resultPart > div {
+  width: 90%;
+  border: 1px solid var(--main-color-green);
+  border-radius: 1rem;
   padding: 1rem;
-  width: 50%;
+  margin: 1rem;
 }
-
-#textPart {
-  border-right: 1px solid;
+#ngoPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #textPartTitle,
 #ngoPartTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 500;
   text-align: center;
   color: var(--main-color-beige);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 #cardResult {
   display: flex;
-  margin-top: 5%;
   justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 #selectedCard {
   padding: 1rem;
-  margin: 1rem;
-  font-size: 1.25rem;
-  border-radius: 1rem;
-  background-color: var(--main-color-beige);
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 2rem;
+  background-color: var(--main-color-pink);
 }
 
 #imageDiv {
   width: 200px;
   height: 200px;
   position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
-  margin-top: 20%;
   background-color: white;
   display: flex;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
 }
 
 #imageDiv img {
@@ -244,13 +257,15 @@
 
 #ngoName {
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 500;
   margin: 5% 0;
 }
 
 #ngoDescription {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  text-align: center;
 }
 
 @media (max-width: 1054px) {
