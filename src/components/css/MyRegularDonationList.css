@@ -10,7 +10,6 @@
   padding: 1rem;
   border-radius: 1rem;
   min-height: 4rem;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
