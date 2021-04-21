@@ -24,7 +24,7 @@ const testReducer = (state = initialState, action: any) => {
       });
       
     default:
-      return state;
+      return initialState;
   }
 }
 

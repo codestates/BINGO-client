@@ -5,7 +5,7 @@ import {Motion, spring} from 'react-motion';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../reducers';
 import { animateCard, pushOption, changeOptionColor, changeTestValue } from '../action';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -27,6 +27,10 @@ function TestPage(props: any) {
   const [resultVisible, showResult] = useState(0);
   const [result, getResult] = useState({logo: '', name: '', description: ''})
   let postOrder = false;
+
+  useEffect(() => {
+    dispatch({ type: 'default' });
+  }, [])
 
   const getText = () => {
     return `${text1[testList[0].value]} ${text2[testList[1].value]} ${text3[testList[2].value]} ${text4[testList[3].value]} 
