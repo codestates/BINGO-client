@@ -10,7 +10,8 @@
   flex-direction: column;
   transform-style: preserve-3d;
   transition: all 1s;
-  border-radius: 4px;
+  border-radius: 2rem;
+  margin-bottom: 20px;
 }
 
 #ListContentEntryContainer:hover {
@@ -21,11 +22,10 @@
 
 #ListContentEntryContainer:hover .listBackPart {
   opacity: 100%;
-  background-color: var(--main-color-green);
-  color: var(--main-color-white);
+  color: black;
 }
 
-#ListContentEntryContainer:hover .front {
+#ListContentEntryContainer:hover #ListContentEntryLogo {
   display: none;
 }
 
@@ -34,24 +34,25 @@
   height: 13rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .listBackPart {
   width: 100%;
-  height: 22rem;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   position: absolute;
   transform: rotateY(180deg);
   -webkit-transform: scaleX(-1);
   opacity: 0%;
+  justify-content: center;
+  align-items: center;
 }
 
 #ListContentEntryDescription {
-  margin-bottom: auto;
   margin-left: 0.8rem;
   margin-right: 0.8rem;
-  font-size: 1.25rem;
   color: gray;
 }
 

@@ -74,11 +74,11 @@ export default function ListContentEntry() {
                 src={item.logo}
               />
               </div>
-              {/* <div id='ListContentEntryTitle'>{item.name}</div> */}
             </div>
-              {/* <div className='listBackPart'>
-                <div id='ListContentEntryDescription'>{item.description}</div>
-              </div> */}
+            <div className='listBackPart'>
+                <div id='ListContentEntryDescription'>{item.name}</div>
+                <div id='ListContentEntryDescription'>{item.since}</div>
+              </div>
           </div>
           </Link>
         );
