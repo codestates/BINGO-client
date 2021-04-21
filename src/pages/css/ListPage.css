@@ -10,11 +10,8 @@
 #listCoverPart {
   background-size: cover;
   background-image: url("https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F");
-  height: 50rem;
-  padding-bottom: 170px;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: center;
+  background-position: center;
+  transition: all 2s;
   /* color: #fefefe; */
 }
 
