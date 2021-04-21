@@ -1,6 +1,3 @@
-#testPageContainer * {
-}
-
 #testPageContainer {
   background: var(--main-color-white);
   height: 100vh;

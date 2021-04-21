@@ -4,8 +4,6 @@
   width: 100%;
   height: 5rem;
   cursor: default;
-  top: 100%;
-  transform: translateY(-5rem);
 }
 
 a {
