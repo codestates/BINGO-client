@@ -200,7 +200,7 @@ function ListPage(props: any) {
                   {category.map(item => {
                     return (
                       <div
-                        className='listSearchTitle shadow'
+                        className='listSearchTitle'
                         onClick={() => handleCategoryClick(item)}
                       >
                         {item}
@@ -226,7 +226,7 @@ function ListPage(props: any) {
                 ) : (
                   <div
                     id='listSearchKeyword'
-                    className='listSearchTitle shadow'
+                    className='listSearchTitle'
                     onClick={handleSearchClick}
                   >
                     <i className='fas fa-search'></i>
@@ -243,7 +243,6 @@ function ListPage(props: any) {
                     <Link onClick={()=> handleContentListEntryClick(item.id)} to="/content">
           <div
             id='ListContentSearchContentBox'
-            className='shadow'
           >
             <div>
               <div id="ListContentEntryLogoBox">
@@ -253,11 +252,11 @@ function ListPage(props: any) {
                 src={item.logo}
               />
               </div>
-              <div id='ListContentEntryTitle'>{item.name}</div>
             </div>
               <div className='listSearchDescription'>
-              <div id='ListContentEntryDescription'>{item.description}</div>
-            </div>
+                <div id='ListContentEntryTitle'>{item.name}</div>
+                <div id='ListContentEntryDescription'>{item.description}</div>
+              </div>
           </div>
           </Link>
                   );
