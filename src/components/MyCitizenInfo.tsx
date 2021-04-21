@@ -82,7 +82,6 @@ function MyCitizenInfo(){
         }
 
         window.addEventListener('scroll', () => {
-          console.log(filteredArr)
           if(count === 0){
             setData(filteredArr);
             count++;

@@ -90,7 +90,6 @@ function MyAllDonationGraph(){
       arrangedData[i].percent = arrangedData[i].value / total * 100
     }
 
-    console.log(arrangedData);
 
     if(count === 0){
       const width = 400;
