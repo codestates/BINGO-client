@@ -3,16 +3,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: center;
 }
 
 #ListContentEntryContainer {
-  width: 20rem;
-  height: 22rem;
-  margin: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--main-color-green);
   transform-style: preserve-3d;
   transition: all 1s;
   border-radius: 4px;
@@ -36,12 +31,10 @@
 
 .front {
   width: 18rem;
-  height: 18rem;
+  height: 13rem;
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem;
+  margin-bottom: 20px;
 }
 
 .listBackPart {
@@ -55,21 +48,22 @@
 }
 
 #ListContentEntryDescription {
-  margin-top: auto;
   margin-bottom: auto;
   margin-left: 0.8rem;
   margin-right: 0.8rem;
   font-size: 1.25rem;
+  color: gray;
 }
 
 #ListContentEntryLogoBox {
   display: flex;
   width: 17rem;
-  height: 15rem;
-  border-radius: 4px;
+  height: 13rem;
+  border-radius: 2rem;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #ddd;
 }
 
 #ListContentEntryLogo {
@@ -83,19 +77,16 @@
   background-position: center;
   background-size: cover;
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   overflow: hidden;
 }
 
 #ListContentEntryTitle {
   padding: 1rem 0;
-  color: var(--main-color-white);
   display: flex;
-  margin-top: auto;
-  justify-content: center;
   font-size: 1.2rem;
   font-weight: 600;
-  align-self: center;
+  padding-left: 10px;
 }
 
 @media (max-width: 1024px) {
