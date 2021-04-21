@@ -50,7 +50,7 @@ button:focus {
   display: flex;
   align-items: center;
   font-size: 1.75rem;
-  color: var(--main-color-blue);
+  color: var(--main-color-green);
   font-weight: 900;
   padding: 1.5rem 2rem;
   cursor: pointer;
@@ -61,11 +61,12 @@ button:focus {
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 500;
   padding: 1rem;
   margin-top: 0.5rem;
-  border-radius: 1rem 0 0 1rem;
-  background-color: var(--main-color-white);
+  border-radius: 2rem 0 0 2rem;
+  background-color: var(--main-color-light-green);
+  border: 1px solid var(--main-color-green);
   cursor: pointer;
 }
 

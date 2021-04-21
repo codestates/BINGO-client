@@ -1,7 +1,7 @@
 #payPageContainer {
   width: 100vw;
-  height: 100vh;
-  background-color: var(--main-color-green);
+  min-height: 100vh;
+  background-color: var(--main-color-white);
   display: flex;
   flex-direction: column;
 }
@@ -12,15 +12,15 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--main-color-green);
+  background-color: var(--main-color-white);
 }
 
 #payListPart {
   display: flex;
   flex-direction: column;
-  margin-top: 5.5rem;
+  margin-top: 4rem;
   align-items: center;
-  width: 1024px;
+  width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -33,20 +33,26 @@
   display: flex;
   flex-direction: column;
   min-height: 170px;
+  border: 1px solid var(--main-color-green);
+  padding-bottom: 1rem;
 }
 
 .payBoxTitle {
   margin-left: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   padding: 1rem;
-  padding-top: 2.5rem;
+  margin-top: 1.5rem;
+  width: 15%;
+  text-align: center;
+  border: 1px solid var(--main-color-green);
+  border-radius: 2rem;
+  background-color: var(--main-color-light-green);
 }
 
 #noPayList {
   text-align: center;
   font-size: 1.3rem;
   color: var(--main-color-gray);
-  /* opacity: ; */
 }
 
 .payBoxContentBox {
@@ -56,24 +62,32 @@
 .payBoxPayBtnBox {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 1rem;
+  position: relative;
+  left: 35%;
+  margin-bottom: 3rem;
 }
 
 .payBoxContentImg {
   background-image: url("https://yt3.ggpht.com/ytc/AAUvwnjflo__ANfIHk0vJsNeap6C9HhLVy5bFtmLS5QbKg=s88-c-k-c0x00ffffff-no-rj");
-  background-size: cover;
-  width: 65px;
-  height: 55px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 15%;
+  height: 80%;
   border-radius: 4px;
+  padding-left: 2rem;
 }
 
 .payBoxContent {
-  height: 6rem;
-  border-radius: 0.5rem;
+  height: 4rem;
+  border-radius: 2rem;
   margin: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid var(--main-color-green);
 }
 
 .payBoxContent > * {
@@ -92,7 +106,7 @@
 
 .payBoxContentTitle > * {
   margin: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
 }
 
 .payBoxContentTitle > div {
@@ -101,73 +115,116 @@
 
 .payBoxContentDelete {
   font-size: 1.2rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .payBoxContentDelete:hover {
   transform: scale(1.2);
+  background-color: var(--main-color-pink);
 }
 
 .payBoxPayBtn {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--main-color-green);
+  border-radius: 2rem;
 }
 
 .payBoxPayBtnBox > div {
+  font-size: 1.25rem;
   margin: 1rem;
   margin-left: auto;
 }
 
 .payBoxPayBtn:hover {
-  font-size: 2rem;
-  color: var(--main-color-beige);
+  background-color: var(--main-color-pink);
 }
 
-#payBoxSubTitle {
-  font-size: 0.9rem;
-  margin-left: 1.2rem;
+#payMessageBoxSubTitle {
+  font-size: 1rem;
+  margin: 1rem 1rem 1rem 2rem;
 }
 
 #payBoxPostMessageBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .payPagePostMessage {
-  height: 7rem;
   width: 90%;
   display: flex;
+  flex-direction: column;
   margin: 1.5rem;
   align-items: center;
   border-radius: 0.8rem;
+  border: 1px solid var(--main-color-green);
+}
+
+.payPostMessageEntryPart {
+  width: 100%;
+  background-color: var(--main-color-white);
+  border-radius: 1rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+  padding-bottom: 1rem;
 }
 
 .payBoxPostMessageImg {
   background-image: url("https://yt3.ggpht.com/ytc/AAUvwnjflo__ANfIHk0vJsNeap6C9HhLVy5bFtmLS5QbKg=s88-c-k-c0x00ffffff-no-rj");
-  background-size: cover;
-  width: 55px;
-  height: 55px;
-  border-radius: 4px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 12rem;
+  height: 6rem;
+  border-radius: 8px;
 }
 
 .payPagePostMessage > div {
   margin: 0.8rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
-.payPagePostMessage > input {
-  width: 60%;
-  height: 2.2rem;
-  font-size: 1.4rem;
-  margin-left: auto;
-  margin-right: 1rem;
+.payPagePostMessage > textarea {
+  width: 75%;
+  height: 10rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  resize: none;
+  border-radius: 0.125rem;
+  border: none;
+  background-color: #fff;
+  border-bottom: 1px solid var(--main-color-green);
+}
+
+.payPagePostMessage > textarea:focus {
+  outline: none;
+}
+
+#payPostMessageBtnBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#payPostMessageSubmitBtn {
+  width: 10%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  border-radius: 2rem;
+  border: 1px solid var(--main-color-green);
+}
+#payPostMessageSubmitBtn:hover {
+  background-color: var(--main-color-light-green);
 }
 
 .selectMoney {
   border: none;
   background-color: var(--main-color-white);
-  font-size: 1.5rem;
+  font-size: 1.125rem;
 }
 
 .selectMoney:hover {
@@ -252,6 +309,9 @@
     margin-right: auto;
   }
 
+  #payMessageBoxSubTitle {
+  }
+
   .payBoxContent {
     width: 80%;
     margin-left: auto;
@@ -284,8 +344,6 @@
   }
 
   .payPagePostMessage > input {
-    margin-left: auto;
-    margin-right: auto;
     margin: 1rem;
   }
 }

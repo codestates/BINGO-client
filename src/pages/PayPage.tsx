@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { showPayModal } from "../action";
 import axios from "axios";
+import Footer from '../components/Footer';
+import TestFooter from '../components/TestFooter';
 
 interface Item {
   id: number;
@@ -174,12 +176,11 @@ function PayPage(props: any) {
             </select>
           </div>
         </div>
-        <div
-          className='payBoxContentDelete'
+        <i
+          className='fas fa-times payBoxContentDelete'
           onClick={() => deleteItem(item.id)}
         >
-          X
-        </div>
+        </i>
       </div>
     );
   };
@@ -275,6 +276,7 @@ function PayPage(props: any) {
           <div id='payListPart'>
             {state.payMessageInfo.messageDisplay ? (
               <div
+              id="payTempPart"
                 className='payListEntryPart shadow'
                 onDragOver={event => onDragOver(event)}
                 onDrop={event => drop(event, "once")}
@@ -292,6 +294,7 @@ function PayPage(props: any) {
 
             {state.payMessageInfo.messageDisplay ? (
               <div
+              id="payRegularPart"
                 className='payListEntryPart shadow'
                 onDragOver={event => onDragOver(event)}
                 onDrop={event => drop(event, "repeat")}
@@ -308,6 +311,7 @@ function PayPage(props: any) {
               </div>
             ) : null}
 
+            {state.payMessageInfo.messageDisplay ? 
             <div className='payBoxPayBtnBox'>
               <div>
                 총후원금:{" "}
@@ -322,12 +326,12 @@ function PayPage(props: any) {
               <button className='payBoxPayBtn' onClick={handleClickPayBtn}>
                 결제하기
               </button>
-            </div>
+            </div> : null}
 
             {state.payMessageInfo.messageDisplay ? null : (
-              <div className='payListEntryPart shadow'>
+              <div className='payPostMessageEntryPart'>
                 <div className='payBoxTitle'>응원메세지</div>
-                <div id='payBoxSubTitle'>
+                <div id='payMessageBoxSubTitle'>
                   각 단체에게 힘이 되는 따뜻한 말을 남겨주세요
                 </div>
                 <div id='payBoxPostMessageBox'>
@@ -339,11 +343,11 @@ function PayPage(props: any) {
                           style={{ backgroundImage: `url(${item.logo})` }}
                         ></div>
                         <div>{item.title}</div>
-                        <input
+                        <textarea 
                           onChange={e =>
                             saveMessage(item.id, e.target.value, "once")
                           }
-                        ></input>
+                        ></textarea>
                       </div>
                     );
                   })}
@@ -364,19 +368,17 @@ function PayPage(props: any) {
                     );
                   })}
                 </div>
-                <div
-                  className='payBoxPayBtnBox'
-                  style={{ flexDirection: "row-reverse" }}
-                >
-                  <button className='payBoxPayBtn' onClick={() => pay()}>
+                <div id="payPostMessageBtnBox">
+                  <button id='payPostMessageSubmitBtn' onClick={() => pay()}>
                     남기기
                   </button>
-                </div>
+                  </div>
               </div>
             )}
           </div>
         </div>
       )}
+      <Footer/>
     </>
   );
 }
