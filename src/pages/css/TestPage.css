@@ -31,6 +31,7 @@
   border-radius: 2rem 0 0 2rem;
   background-color: var(--main-color-light-green);
   border: 1px solid var(--main-color-green);
+  cursor: pointer;
 }
 
 #testMainPart,
