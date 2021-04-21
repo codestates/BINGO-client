@@ -17,7 +17,8 @@ import ContentPageModal from "../components/ContentPageModal";
 
 const bannerImages = {
   아동: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
-  장애인: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
+  장애인:
+    "https://www.inclusivecitymaker.com/wp-content/uploads/2019/10/AdobeStock_49622485-e1571306149811.jpeg",
   여성: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
   성소수자:
     "https://chingusai.net/xe/files/attach/images/296431/450/544/bdf2df8fbfc1794c371dd4cf17c95dc0.jpg",
@@ -27,17 +28,21 @@ const bannerImages = {
     "https://dt40dm21pj8em.cloudfront.net/uploads/froala/file/5336/%ED%99%98%EA%B2%BD%20%EA%B3%B5%EA%B8%B0%EC%97%85%201.jpg",
   노인: "https://cdn.thescoop.co.kr/news/photo/202010/41232_58111_3824.jpg",
   청소년: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
-  보건: "http://pds.medicaltimes.com/NewsPhoto/202001/1131536_1.jpg",
+  보건:
+    "https://msf.or.kr/sites/default/files/styles/gatepage/public/gatetemplate/MSB8062%20%28High%20res%29_0.jpg?itok=BVCsNvtr",
   가족:
     "https://blog.kakaocdn.net/dn/bBuB2L/btqBMObb4Ld/ygEHaSVBofOC2c7zHnzNnK/img.jpg",
   다문화: "https://cdn.epnc.co.kr/news/photo/202006/97811_90478_3248.jpg",
   기타: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
   지구촌: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
-  결연: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
+  결연:
+    "https://i0.wp.com/angelshaven.or.kr/wp-content/uploads/2020/07/1600-600-%EA%B2%B0%EC%97%B0%ED%9B%84%EC%9B%90.jpg?resize=1536%2C576",
   회원: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
-  참여: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
+  참여:
+    "https://yjservice.yju.ac.kr/files/attach/images/284/419/690/d55a410df6cc93fe49284a5bcd94fd0e.jpg",
   스토어: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
-  종교: "https://t1.daumcdn.net/cfile/tistory/996F99455EF3FBA61F",
+  종교:
+    "https://chopra.brightspotcdn.com/dims4/default/93718e7/2147483647/strip/true/crop/8660x3427+0+0/resize/1420x562!/quality/90/?url=http%3A%2F%2Fchopra-brightspot.s3.amazonaws.com%2Ff0%2F18%2F0aa5a6b548f3b932cb27ced9774c%2Fgettyimages-962321382.jpg",
 };
 
 function ContentPage(props: any) {
@@ -159,7 +164,7 @@ function ContentPage(props: any) {
 
   useEffect(() => {
     console.log("eeeeeeeeeeeee:", window.scrollY);
-    if (scrollDisplay > 50) {
+    if (scrollDisplay > 20) {
       setDisplay(false);
     } else {
       setDisplay(true);
