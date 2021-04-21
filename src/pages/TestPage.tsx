@@ -80,7 +80,7 @@ function TestPage(props: any) {
     }
     if (optionList[index].color === 'white') {
       if (count < 3) {
-        dispatch(changeOptionColor(index, 'rgb(245, 154, 125)'))
+        dispatch(changeOptionColor(index, 'rgb(211, 190, 193)'))
       } else {
         activeToast('3개까지만 선택해 주세요!')
       }
@@ -149,6 +149,9 @@ function TestPage(props: any) {
           </div>
           <div id='ngoName'>{result.name}</div>
           <div id='ngoDescription'>{result.description}</div>
+          <Link to="/list" style={ { opacity: resultVisible } }>
+        <button id="testExtraSubmitBtn">더 많은 단체 보러가기</button>
+        </Link>
         </div>
       </div>
       {
@@ -158,7 +161,7 @@ function TestPage(props: any) {
             {
               ({ left, opacity }) => 
             <div id="testMainPart1" className="shadow" style={Object.assign({}, { zIndex: 101 }, { left: `${left}%`, opacity } )}>
-              <div id="testMainNumber">{`${i+1}/8`}</div>
+              <span id="testMainNumber">{`${i+1}/8`}</span>
               <div id="testMainQuestion">{test.question}</div>
               <div id="testOptions">
               {
@@ -177,7 +180,7 @@ function TestPage(props: any) {
             {
               ({ left, opacity }) => 
             <div id="testMainPart" style={Object.assign({}, { zIndex: 100-i }, { left: `${left}%`, opacity } )}>
-              <div id="testMainNumber">{`${i+1}/8`}</div>
+              <span id="testMainNumber">{`${i+1}/8`}</span>
               <div id="testMainQuestion">{test.question}</div>
               <div id="testMainBtnBox">
                 <button id="testMainYesBtn" onClick={() => yesBtn(i)}>네</button>
@@ -193,9 +196,6 @@ function TestPage(props: any) {
       <div id="toastMessage" style={ { display: toast.visible, zIndex: 200 } }>{toast.message}</div>
       <div id="testExtraPart">
         {/* <div id="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div> */}
-        <Link to="/list" style={ { opacity: resultVisible } }>
-        <button id="testExtraSubmitBtn">더 많은 단체 보러가기</button>
-        </Link>
       </div>
       <Footer />
     </div>
