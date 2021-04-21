@@ -25,13 +25,14 @@ function ListPage(props: any) {
     ["다문화", "https://ifh.cc/g/MQxSvS.png"],
   ]);
   const [displaySearch, setDisplaySearch] = useState(false);
-  const [dataOfCategory, setDataOfCategory] = useState("전체");
   const state = useSelector((state: RootState) => state.listReducer);
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
   const [result, setResult] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [bannerHeight, setHeight] = useState(50);
+  const [scroll, setscroll] = useState(0);
+  const [curCategory, setCurCategory] = useState("전체");
 
   document.addEventListener("scroll", function () {
     if (document.documentElement.scrollTop > 0) {
@@ -167,6 +168,7 @@ function ListPage(props: any) {
 
   const handleCategoryClick = (category: string) => {
     dispatch(changeList(category));
+    setCurCategory(category);
   };
 
   let findname: any;
@@ -184,12 +186,16 @@ function ListPage(props: any) {
     }
   }, [query]);
 
+  useEffect(() => {
+    console.log(scroll);
+  }, [scroll])
+
   return (
     <>
       {isLoading ? (
         <div>로딩중</div>
       ) : (
-        <div id='listPageContainer'>
+        <div id='listPageContainer' onWheel={e => setscroll(window.scrollY)}>
           <div id='listNavPart'>
             <div className='navLogo' onClick={handleLogoClick}>
               B I N G O
@@ -209,7 +215,17 @@ function ListPage(props: any) {
                   {category.map(item => {
                     return (
                       <div id="listSearchTitlePart">
-                      <div
+                      {curCategory === item[0] ?
+                      (<div
+                        className='listSearchTitle'
+                        onClick={() => handleCategoryClick(item[0])}
+                        style={{backgroundColor:"beige"}}
+                      >
+                      <div>
+                        <img id="listSearchImg" src={item[1]} alt="categoryImg"/>
+                      </div>
+                      </div>):(
+                        <div
                         className='listSearchTitle'
                         onClick={() => handleCategoryClick(item[0])}
                       >
@@ -217,6 +233,7 @@ function ListPage(props: any) {
                         <img id="listSearchImg" src={item[1]} alt="categoryImg"/>
                       </div>
                       </div>
+                      )}
                       <div id="listSearchName">{item[0]}</div>
                       </div>
                     );

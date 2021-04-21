@@ -7,29 +7,19 @@ import { RootState } from "../reducers";
 import store from "../store";
 import "./css/ListContentEntry.css";
 
-interface Props {
-  result: Array<string>;
-}
-
 export default function ListContentEntry() {
   const state = useSelector((state: RootState) => state.listReducer);
   const dispatch = useDispatch();
-  const [count, setCount] = useState(30); //페이지 랜더단체 갯수
+  const [count, setCount] = useState(20); //페이지 랜더단체 갯수
   const [content, setContent] = useState([]); //페이지 랜더단체
-  const [backPartDisplay, setBackPartDisplay] = useState(false);
 
   const handleContentListEntryClick = (ngoId: number) => {
     dispatch(showContent(ngoId));
   };
 
   const handleMoreBtnClick = () => {
-    setCount(count + 9); //더보기 누를시 9개씩 추가랜더
+    setCount(count + 20); //더보기 누를시 9개씩 추가랜더
   }
-
-  // const enterMouseContent = () => {
-  //   const toggle = (backPartDisplay ? false : true)
-  //   setBackPartDisplay(toggle);
-  // }
 
   useEffect(() => {
     axios
@@ -41,7 +31,6 @@ export default function ListContentEntry() {
         setContent(lists); //받아온 데이터 리액트훅스에 저장
       })
       .catch(err => console.log("list_err:", err));
-    // console.log("state_check:", state.listInfo.data);
   }, []);
 
   store.subscribe(() => {
