@@ -73,7 +73,9 @@ export default function ListContentEntry() {
         );
       }
       })}
-      <div id="listContentShowMore" onClick={handleMoreBtnClick}>더보기</div>
+      <div id="listContentShowMore">
+        {count > content.length ? null:<div onClick={handleMoreBtnClick}>더보기</div>}
+      </div>
     </div>
     </div>
   );

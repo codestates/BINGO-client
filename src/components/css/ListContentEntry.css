@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
-  transition: all 1s;
+  transition: all 0.8s;
   border-radius: 2rem;
   margin-bottom: 20px;
 }
@@ -53,6 +53,7 @@
   margin-left: 0.8rem;
   margin-right: 0.8rem;
   color: gray;
+  font-weight: bold;
 }
 
 #ListContentEntryLogoBox {
@@ -90,6 +91,18 @@
   padding-left: 10px;
 }
 
+#listContentShowMore {
+  display: flex;
+}
+
+#listContentShowMore > div {
+  border: 1px solid #ddd;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   #ListContentEntryLogoBox {
     width: 16rem;
@@ -119,11 +132,6 @@
     margin: 0.5rem 3rem;
     align-items: center;
     position: relative;
-  }
-
-  #ListContentEntryContainer:hover {
-    transform: rotateY(180deg);
-    cursor: pointer;
   }
 
   #ListContentEntryTitle {
