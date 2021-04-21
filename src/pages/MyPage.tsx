@@ -21,18 +21,6 @@ function MyPage(props: any) {
   const [display, setDisplay] = useState("none");
   const [btnDisplay, setbtnDisplay] = useState("block");
   const [opacity, setOpacity] = useState(0);
-  document.addEventListener("scroll", function () {
-    // if (!ing) {
-    //   setIng(true);
-    //   setOpacity(1);
-    //   setRight(0);
-    //   setTimeout(() => {
-    //     setOpacity(0);
-    //     setRight(-112);
-    //     setIng(false);
-    //   }, 2000);
-    // }
-  });
 
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
