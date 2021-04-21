@@ -25,7 +25,7 @@ function LoginPage(props: any) {
         <div className="loginBtnBox shadow"
           onClick={() =>
             window.location.assign(
-              `https://accounts.google.com/o/oauth2/auth?client_id=326989630973-ugi3107frqm09i3v730v26f2ivj27hkn.apps.googleusercontent.com&redirect_uri=https://localhost:3000/list&response_type=code&scope=profile&access_type=offline`
+              `https://accounts.google.com/o/oauth2/auth?client_id=326989630973-ugi3107frqm09i3v730v26f2ivj27hkn.apps.googleusercontent.com&redirect_uri=https://ibingo.link/list&response_type=code&scope=profile&access_type=offline`
             )
           }
         >
@@ -35,7 +35,7 @@ function LoginPage(props: any) {
         <div className="loginBtnBox shadow"
           onClick={() =>
             window.location.assign(
-              `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=1f6fa43748f197dd179b4768a677578d&redirect_uri=https://localhost:3000/list`
+              `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=1f6fa43748f197dd179b4768a677578d&redirect_uri=https://ibingo.link/list`
             )
           }
         >

@@ -3,7 +3,7 @@ const startBtn = document.querySelector("#start-button");
 let userId = 0;
 
 const checkGoogleAuth = async () => {
-  await fetch("http://localhost:5000/checkgoogleauth", {
+  await fetch("https://server.ibingo.link/checkgoogleauth", {
     method: "GET",
     credentials: "include",
   })
@@ -17,7 +17,7 @@ const checkGoogleAuth = async () => {
     .catch((err) => console.log(err));
 };
 const checkKakaoAuth = async () => {
-  await fetch("http://localhost:5000/checkkakaoauth", {
+  await fetch("https://server.ibingo.link/checkkakaoauth", {
     method: "GET",
     credentials: "include",
   })
@@ -44,7 +44,7 @@ const handleLoginBtnClick = () => {
 };
 
 const handleStartBtnClick = async () => {
-  await fetch("http://localhost:5000/testcookie", {
+  await fetch("https://server.ibingo.link/testcookie", {
     method: "GET",
     credentials: "include",
   })

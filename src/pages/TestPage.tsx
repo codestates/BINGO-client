@@ -46,7 +46,7 @@ function TestPage(props: any) {
       }
     }
     postOptions = postOptions.map((el: number) => el+12);
-    axios.get('http://localhost:5000/testpage', {
+    axios.get('https://server.ibingo.link/testpage', {
       withCredentials: true,
       params: {
         options: {

@@ -106,7 +106,7 @@ function ContentPage(props: any) {
     if (userInfo.accessToken) {
       if (isAlreadyLove) {
         axios
-          .delete("http://localhost:5000/love", {
+          .delete("https://server.ibingo.link/love", {
             headers: {
               authorization: `${userInfo.accessToken}`,
             },
@@ -119,7 +119,7 @@ function ContentPage(props: any) {
           .catch(err => console.log(err));
       } else if (!isAlreadyLove) {
         axios
-          .post("http://localhost:5000/love", {
+          .post("https://server.ibingo.link/love", {
             accessToken: userInfo.accessToken,
             userId: userInfo.userId,
             ngoId: currentNgoId,
@@ -145,7 +145,7 @@ function ContentPage(props: any) {
   const handleSupportBtn = () => {
     if (userInfo.accessToken) {
       axios
-        .post("http://localhost:5000/pocket", {
+        .post("https://server.ibingo.link/pocket", {
           accessToken: userInfo.accessToken,
           userId: userInfo.userId,
           ngoId: currentNgoId,
@@ -179,7 +179,7 @@ function ContentPage(props: any) {
     }
 
     axios
-      .get(`http://localhost:5000/contentpage/${currentNgoId}`)
+      .get(`https://server.ibingo.link/contentpage/${currentNgoId}`)
       .then(res => {
         console.log(res.data);
         setNgoInfo(res.data);
