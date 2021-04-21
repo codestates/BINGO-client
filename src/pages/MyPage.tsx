@@ -4,7 +4,7 @@ import MyRegularDonationList from "../components/MyRegularDonationList";
 import MyCitizenInfo from "../components/MyCitizenInfo";
 import MyAllDonationGraph from "../components/MyAllDonationGraph";
 import MyMonthlyDonationGraph from "../components/MyMonthlyDonationGraph";
-import MyFooter from "../components/MyFooter";
+import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
@@ -113,7 +113,7 @@ function MyPage(props: any) {
               <MyMonthlyDonationGraph />
             </div>
           </div>
-          <MyFooter/>
+          <Footer/>
         </div>
       }
     </>

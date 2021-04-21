@@ -1,8 +1,8 @@
-import "./css/MyFooter.css";
+import "./css/TestFooter.css";
 import { useSpring, animated } from "react-spring";
 import { useState } from 'react';
 
-function MyFooter(){
+function TestFooter(){
   const [key, setKey] = useState(1);
   const [pause, setPause] = useState(false);
   
@@ -15,7 +15,7 @@ function MyFooter(){
   });
 
   return (
-    <div id="myFooterContainer">
+    <div id="testFooterContainer">
       <div id="footerContent">
         <div id="codeFarm">CodeFarm</div>
         <div id="github" onMouseOver={()=> setPause(true)} onMouseLeave={()=> setPause(false)}>
@@ -34,4 +34,4 @@ function MyFooter(){
   )
 }
 
-export default MyFooter;
+export default TestFooter;
