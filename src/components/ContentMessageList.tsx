@@ -58,7 +58,7 @@ function ContentMessageList(props: ContentMessageListProps) {
               })}
             </div>
           ) : (
-            <div id='noMessage'>응원메시지가 없습니다</div>
+            <div id='noMessage' className="shadow"><p>아직 응원메시지가 없습니다</p></div>
           )}
         </div>
       )}

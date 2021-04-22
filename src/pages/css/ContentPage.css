@@ -1,5 +1,6 @@
 #contentPageContainer {
-  background-color: var(--main-color-green);
+  background-color: var(--main-color-white);
+  padding-bottom: 5rem;
 }
 #contentHeaderPart {
   position: relative;
@@ -105,11 +106,12 @@ li {
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 500;
   padding: 1rem;
   margin-top: 0.5rem;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 2rem 0 0 2rem;
   background-color: var(--main-color-white);
+  cursor: pointer;
 }
 #contentMyPageBtn:hover {
   cursor: pointer;
@@ -121,6 +123,7 @@ li {
 
 #contentMainPart {
   position: relative;
+  padding-bottom: 9rem;
 }
 
 #contentMainTop {
@@ -146,22 +149,26 @@ li {
   background-color: white;
   border-radius: 1rem;
   margin: 1rem;
-  box-shadow: inset 0 0 0 0px var(--main-color-gray);
+  /* box-shadow: inset 0 0 0 0px var(--main-color-green); */
   box-sizing: border-box;
 }
 
 #contentMainTopLogo:hover {
   cursor: pointer;
-  border: solid var(--main-color-gray);
-  box-shadow: inset 0 0 0 4px var(--main-color-gray);
+  border: 1px solid var(--main-color-green);
+  box-shadow: inset 0 0 0 1px var(--main-color-green);
 }
 
 #contentMainTopRight button {
   font-weight: 500;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  padding: 0.65rem;
+  border-radius: 1rem;
   color: var(--main-color-gray);
   margin: 0.25rem 0.75rem 1rem 0.25rem;
+}
+
+#contentMainTopRight button:hover {
+  background-color: var(--main-color-light-green);
 }
 
 #contentMainBottom {
@@ -201,33 +208,42 @@ li {
   align-items: center;
   text-align: center;
   height: 100%;
+  border: 2px solid var(--main-color-green);
 }
 
 #videoBox {
   height: 100%;
   border-radius: 0.5rem;
   margin: 1rem;
+  border: 2px solid var(--main-color-green);
 }
 
 .contentBoxTitle {
-  color: var(--main-color-white);
+  color: var(--main-color-green);
   font-size: 1.5rem;
   font-weight: 700;
   padding-left: 1rem;
 }
 .contentBoxSubTitle {
-  color: var(--main-color-light-green);
+  color: var(--main-color-gray);
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   padding-left: 1rem;
   margin-top: 0.5rem;
 }
 
 #noMessage {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding-left: 1rem;
-  padding-top: 1rem;
+  border: 2px solid var(--main-color-green);
+  margin: 1rem;
+  border-radius: 1rem;
+  min-height: 4rem;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #contentMainBottom iframe {
@@ -249,14 +265,19 @@ li {
 #scrollDiv {
   position: fixed;
   text-align: center;
-  padding-top: 4rem;
-  left: 45%;
-  color: rgb(233, 232, 228);
+  padding: 1rem;
+  margin-top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--main-color-green);
   z-index: 300;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   animation-name: scroll;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2rem;
+  font-weight: 500;
 }
 .test {
   opacity: 0;
@@ -274,10 +295,6 @@ li {
   #contentMainBottom {
     width: 80%;
   }
-  #scrollDiv {
-    padding-top: 4rem;
-    font-size: 1.2rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -293,8 +310,9 @@ li {
   #contentVideo {
     width: 100%;
   }
-  #scrollDiv {
-    padding-top: 7rem;
-    font-size: 1.1rem;
+}
+@media (max-width: 430px) {
+  #contentMainTopRight button {
+    font-size: 0.4rem;
   }
 }

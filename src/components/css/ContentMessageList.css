@@ -1,12 +1,14 @@
 #contentMessageListBox {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding-bottom: 6rem;
 }
+
 #contentMessageListContainer {
   height: 15rem;
   margin-bottom: 1rem;
 }
+
 @media (max-width: 1024px) {
 }
 
