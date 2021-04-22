@@ -35,11 +35,13 @@ function ListPage(props: any) {
   const [curCategory, setCurCategory] = useState("전체");
 
   document.addEventListener("scroll", function () {
-    if (document.documentElement.scrollTop > 0) {
+    if (document.documentElement.scrollTop > 100) {
       setHeight(25)
-    } else {
+    }
+    if (document.documentElement.scrollTop === 0) {
       setHeight(50)
     }
+    
   });
 
   const getAccessTokenGoogle = async (authorizationCode: string) => {
@@ -128,29 +130,40 @@ function ListPage(props: any) {
   const handleContentListEntryClick = (ngoId: number) => {
     dispatch(showContent(ngoId));
   };
-  
+
+  const [justify, setJustify] = useState('center');
+  const [searchStyle, setSearchStyle] = useState([5.4, '50%']);
+
   const handleSearchClick = () => {
+    setJustify('flex-end')
     if (displaySearch) {
-      setCategory([
-        ["전체", "https://ifh.cc/g/QIUoyt.png"],
-    ["아동", "https://ifh.cc/g/jQOkYQ.png"],
-    ["장애인", "https://ifh.cc/g/sEQiUx.png"],
-    ["여성", "https://ifh.cc/g/1VjOOz.png"],
-    ["성소수자", "https://ifh.cc/g/uMeLdG.png"],
-    ["동물", "https://ifh.cc/g/oKw5XI.png"],
-    ["환경", "https://ifh.cc/g/mMAjPS.png"],
-    ["노인", "https://ifh.cc/g/SIidJ4.png"],
-    ["보건", "https://ifh.cc/g/6bgLMg.png"],
-    ["다문화", "https://ifh.cc/g/MQxSvS.png"],
-      ]);
-      setDisplaySearch(false);
-      setResult([]);
-      setQuery("");
+      
     } else {
       setCategory([]);
       setDisplaySearch(true);
+      setSearchStyle([30, '40px'])
     }
   };
+
+  const closeSearch = () => {
+    setCategory([
+      ["전체", "https://ifh.cc/g/QIUoyt.png"],
+      ["아동", "https://ifh.cc/g/jQOkYQ.png"],
+      ["장애인", "https://ifh.cc/g/sEQiUx.png"],
+      ["여성", "https://ifh.cc/g/1VjOOz.png"],
+      ["성소수자", "https://ifh.cc/g/uMeLdG.png"],
+      ["동물", "https://ifh.cc/g/oKw5XI.png"],
+      ["환경", "https://ifh.cc/g/mMAjPS.png"],
+      ["노인", "https://ifh.cc/g/SIidJ4.png"],
+      ["보건", "https://ifh.cc/g/6bgLMg.png"],
+      ["다문화", "https://ifh.cc/g/MQxSvS.png"],
+    ]);
+    setSearchStyle([5.4, '50%']);
+    setDisplaySearch(false);
+    setResult([]);
+    setQuery("");
+
+  }
 
   const handleCategoryClick = (category: string) => {
     dispatch(changeList(category));
@@ -178,6 +191,8 @@ function ListPage(props: any) {
         <div>로딩중</div>
       ) : (
         <div id='listPageContainer' onWheel={e => setscroll(window.scrollY)}>
+          
+          <div id='listCoverPart' style={{ height: `${bannerHeight}rem`, }}>
           <div id='listNavPart'>
             <div className='navLogo' onClick={handleLogoClick}>
               B I N G O
@@ -186,12 +201,12 @@ function ListPage(props: any) {
               마이페이지
             </div>
           </div>
-          <div id='listCoverPart' style={{ height: `${bannerHeight}rem`, }}></div>
+          </div>
           <div id='listMainPart'>
             <div id='listMainTitle' className='shadow'>
               더 많은 NGO단체 찾아보기
             </div>
-            <div id='listSearchBox'>
+            <div id='listSearchBox' style={{ justifyContent: justify }}>
               <div id='listSearchCategory'>
                 <div id='listSearchTitleBox'>
                   {category.map(item => {
@@ -220,30 +235,34 @@ function ListPage(props: any) {
                       </div>
                     );
                   })}
-                  {displaySearch ? (
-                  <div id='listSearchTextBox'>
-                    <i
-                      id='listSearchTextClose'
-                      className='fas fa-times'
-                      onClick={handleSearchClick}
-                    ></i>
-                    <input
-                      type='test'
-                      id='listSearchText'
-                      placeholder='검색할 단체를 입력하세요'
-                      value={query}
-                      onChange={e => setQuery(e.target.value)}
-                    ></input>
-                  </div>
-                ) : (
+                  
                   <div
                     id='listSearchKeyword'
                     className='listSearchTitle'
                     onClick={handleSearchClick}
+                    style={{ width: `${searchStyle[0]}rem`, borderRadius: `${searchStyle[1]}` }}
                   >
                     <i className='fas fa-search'></i>
+                    {
+                      displaySearch ? (
+                        <div id='listSearchTextBox'>
+                          <input
+                            type='test'
+                            id='listSearchText'
+                            placeholder='검색할 단체를 입력하세요'
+                            value={query}
+                            onChange={e => setQuery(e.target.value)}
+                          ></input>
+                          <div
+                            id='listSearchTextClose'
+                            className='fas fa-times'
+                            onClick={closeSearch}
+                          ></div>
+                        </div>
+                      ) : null
+                    }
                   </div>
-                )}
+                
                 </div>
                 
               </div>

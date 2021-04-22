@@ -1,6 +1,7 @@
 #contentMessageListContainer {
   position: relative;
   transition: top 0.2s;
+  min-height: 300px;
 }
 #contentMessageListEntryContainer {
   margin: 4rem 1rem 1rem 1rem;

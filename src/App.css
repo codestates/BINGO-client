@@ -64,8 +64,7 @@ button:focus {
   padding: 1rem;
   margin-top: 0.5rem;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--main-color-light-green);
-  border: 1px solid var(--main-color-green);
+  background-color: #fff;
   cursor: pointer;
 }
 
