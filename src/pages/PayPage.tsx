@@ -251,6 +251,10 @@ function PayPage(props: any) {
     props.history.push("/mypage");
   };
 
+  const handleClickBackBtn = () => {
+    dispatch(showPostMessage(true));
+  }
+
   return (
     <>
       {!isLoading ? (
@@ -369,6 +373,12 @@ function PayPage(props: any) {
                     );
                   })}
                 </div>
+                <div id="payPostMessageBtnBox">
+                  <button id='payPostMessageSubmitBtn'
+                  onClick={handleClickBackBtn}>
+                    뒤로가기
+                  </button>
+                  </div>
                 <div id="payPostMessageBtnBox">
                   <button id='payPostMessageSubmitBtn' onClick={() => pay()}>
                     남기기
