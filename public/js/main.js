@@ -34,7 +34,7 @@ checkGoogleAuth();
 checkKakaoAuth();
 
 if (userId) {
-  loginBtn.style.visibility="hidden"
+  loginBtn.style.visibility = "hidden";
 }
 
 const handleLoginBtnClick = () => {
@@ -48,10 +48,10 @@ const handleStartBtnClick = async () => {
     method: "GET",
     credentials: "include",
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       if (!res) {
         window.location.href = `/test`;
       } else {
@@ -136,10 +136,18 @@ toTop.addEventListener("click", () => {
         container: document.querySelector("#scroll-section-1"),
         messageA: document.querySelector("#scroll-section-1 .moving-message.a"),
         messageB: document.querySelector("#scroll-section-1 .moving-message.b"),
+        imageA: document.querySelector("#scroll-section-1 .moving-image.a"),
+        imageB: document.querySelector("#scroll-section-1 .moving-image.b"),
+        imageC: document.querySelector("#scroll-section-1 .moving-image.c"),
+        imageD: document.querySelector("#scroll-section-1 .moving-image.d"),
       },
       values: {
         messageA_moving_in: [-10, -60, { start: -0.2, end: 0.5 }],
         messageB_moving_in: [-60, -10, { start: -0.2, end: 0.5 }],
+        imageA_translateY: [140, -100, { start: 0, end: 0.6 }],
+        imageB_translateY: [110, -200, { start: 0, end: 0.6 }],
+        imageC_translateY: [120, -150, { start: 0, end: 0.6 }],
+        imageD_translateY: [130, -250, { start: 0, end: 0.6 }],
       },
     },
     {
@@ -259,7 +267,7 @@ toTop.addEventListener("click", () => {
     {
       //5
       type: "sticky",
-      heightNum: 10,
+      heightNum: 5,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-5"),
@@ -490,6 +498,22 @@ toTop.addEventListener("click", () => {
             values.messageB_moving_in,
             currentYOffset
           )}%, 0, 0)`;
+          objs.imageA.style.transform = `translateY(${calcValues(
+            values.imageA_translateY,
+            currentYOffset
+          )}%)`;
+          objs.imageB.style.transform = `translateY(${calcValues(
+            values.imageB_translateY,
+            currentYOffset
+          )}%)`;
+          objs.imageC.style.transform = `translateY(${calcValues(
+            values.imageC_translateY,
+            currentYOffset
+          )}%)`;
+          objs.imageD.style.transform = `translateY(${calcValues(
+            values.imageD_translateY,
+            currentYOffset
+          )}%)`;
         }
 
         break;
@@ -807,7 +831,7 @@ toTop.addEventListener("click", () => {
             canvasScaleRatio = widthRatio;
           }
           objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
-          objs.context.fillStyle = "white";
+          objs.context.fillStyle = "rgb(56, 82, 79)";
           objs.context.drawImage(objs.images[0], 0, 0);
 
           const recalculatedInnerWidth =
@@ -856,7 +880,7 @@ toTop.addEventListener("click", () => {
         }
 
         objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
-        objs.context.fillStyle = "white";
+        objs.context.fillStyle = "rgb(56, 82, 79)";
         objs.context.drawImage(objs.images[0], 0, 0);
 
         // 캔버스 사이즈에 맞춰 가정한 innerWidth와 innerHeight
@@ -1112,9 +1136,11 @@ toTop.addEventListener("click", () => {
       });
     });
 
-    document.querySelector(".loading").addEventListener("transitionend", e => {
-      document.body.removeChild(e.currentTarget);
-    });
+    document
+      .querySelector(".loading")
+      .addEventListener("transitionend", (e) => {
+        document.body.removeChild(e.currentTarget);
+      });
   }); //리소스까지 포함 (이미지 동영상 등)
 
   setCanvasImages();

@@ -56,6 +56,31 @@ body.before-load {
   padding-top: 50vh;
 }
 
+.moving-image.a {
+  position: relative;
+  z-index: -2;
+  left: 10%;
+  width: 20rem;
+}
+.moving-image.b {
+  position: relative;
+  z-index: -2;
+  left: 15%;
+  width: 20rem;
+}
+.moving-image.c {
+  position: relative;
+  z-index: -2;
+  left: 20%;
+  width: 20rem;
+}
+.moving-image.d {
+  position: relative;
+  z-index: -2;
+  left: 25%;
+  width: 20rem;
+}
+
 #scroll-section-0 h1 {
   position: relative;
   top: -10vh;
@@ -217,7 +242,7 @@ body.before-load {
   align-items: center;
   justify-content: center;
   height: 7rem;
-  background-color: azure;
+  background-color: rgb(56, 82, 79);
 }
 
 .sticky-elem {

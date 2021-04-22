@@ -91,9 +91,11 @@ function MyAllDonationGraph(){
     }
 
 
-    if(count === 0){
+    if(count === 1){
       const width = 400;
       const height = 400;
+
+      count++;
       
       const arc = d3.arc<PieArcDatum<MyData>>().innerRadius(75).outerRadius(Math.min(width, height) / 2);
       
@@ -145,7 +147,7 @@ function MyAllDonationGraph(){
         .attr('x', 0)
         .attr('y', '-0.7em')
         // .style('font-weight', 'bold')
-        .text(d => d.data.name)
+        .text(d => {return d.data.percent > 2 ? d.data.name : ""})
       
       text.filter(d => (d.endAngle - d.startAngle > 0.25)).append('tspan')
         .attr('x', 0)
