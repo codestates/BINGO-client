@@ -1,6 +1,8 @@
 #testPageContainer {
   background: var(--main-color-white);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #testNavPart {
@@ -158,6 +160,18 @@
   background-color: var(--main-color-light-green);
 }
 
+#moreInfoBtn {
+  padding: 1rem;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
+}
+
+#moreInfoBtn:hover {
+  background-color: var(--main-color-light-green);
+}
+
 #toastMessage {
   position: absolute;
   font-size: 1.25rem;
@@ -179,7 +193,7 @@
   margin-top: 5rem;
   margin-bottom: 1rem;
   border-radius: 1rem;
-  width: 1054px;
+  width: 1024px;
   height: 65%;
   margin: 2rem auto;
   transition: all 2s;
@@ -192,22 +206,37 @@
   padding: 0.5rem;
 }
 
-#resultPart > div {
+/* #resultPart > div {
   width: 90%;
   height: 100%;
-  border: 1px solid var(--main-color-green);
+  border: 2px solid var(--main-color-green);
   border-radius: 1rem;
   padding: 1rem;
   margin: 1rem;
-}
+} */
+
 #ngoPart {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
+  height: 100%;
+  min-height: 32rem;
+  border: 2px solid var(--main-color-green);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
 }
 #textPart {
   display: flex;
   flex-direction: column;
+  width: 90%;
+  height: 100%;
+  border: 2px solid var(--main-color-green);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  min-height: 32rem;
 
   /* align-items: center; */
 }
@@ -276,7 +305,7 @@
   text-align: center;
 }
 
-@media (max-width: 1054px) {
+@media (max-width: 1024px) {
   #testMainPart1,
   #testMainPart {
     width: 90%;
@@ -302,18 +331,31 @@
   }
   #resultPart {
     flex-direction: column;
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    height: auto;
     margin-bottom: 1rem;
+    justify-content: center;
   }
 
-  #resultPart > div {
-    padding: 1rem;
-    width: 90%;
-    margin: 1rem;
+  #textPart {
+    height: 20rem;
   }
   #testFooterContainer {
-    top: 150%;
+    top: 160%;
+  }
+  #logo {
+    font-size: 1.4rem;
+    font-weight: 7000;
+  }
+  #codeFarm {
+    font-size: 13px;
+  }
+  #address {
+    font-size: 13px;
+  }
+
+  #testNavPart {
+    height: 12rem;
   }
 }
 
@@ -368,22 +410,37 @@
     margin-bottom: 1rem;
   }
 
-  #resultPart > div {
+  #textPart {
+    border: none;
     padding: 1rem;
     width: 90%;
     margin: 1rem;
   }
-
-  #textPart {
+  #ngoPart {
     border: none;
+    padding: 1rem;
+    width: 90%;
+    margin: 1rem;
   }
 
   #imageDiv {
     margin-top: 1%;
   }
   #testFooterContainer {
-    top: 156%;
+    top: 167%;
+    height: 3rem;
+
     /* transform: translateY(-9rem); */
+  }
+  #logo {
+    font-size: 1.3rem;
+    font-weight: 7000;
+  }
+  #codeFarm {
+    font-size: 12px;
+  }
+  #testNavPart {
+    height: 4rem;
   }
 }
 

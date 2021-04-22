@@ -107,11 +107,11 @@ function ContentPage(props: any) {
   const handleLoveClick = () => {
     if (userInfo.userId === 1) {
       if (isAlreadyLove) {
-        dispatch(deleteLove(currentNgoId))
-        setIsAlreadyLove(false)
+        dispatch(deleteLove(currentNgoId));
+        setIsAlreadyLove(false);
       } else {
-        dispatch(addLove(currentNgoId))
-        setIsAlreadyLove(true)
+        dispatch(addLove(currentNgoId));
+        setIsAlreadyLove(true);
       }
       return;
     }
