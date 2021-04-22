@@ -65,6 +65,7 @@
   border: 1px solid var(--main-color-green);
   -webkit-box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
   box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
+  height: 17rem;
 }
 
 #testMainNumber {
@@ -177,7 +178,7 @@
   margin-top: 5rem;
   margin-bottom: 1rem;
   border-radius: 1rem;
-  width: 50%;
+  width: 1054px;
   height: 65%;
   margin: 2rem auto;
   transition: all 2s;
@@ -192,6 +193,7 @@
 
 #resultPart > div {
   width: 90%;
+  height: 100%;
   border: 1px solid var(--main-color-green);
   border-radius: 1rem;
   padding: 1rem;
@@ -202,7 +204,12 @@
   flex-direction: column;
   align-items: center;
 }
+#textPart {
+  display: flex;
+  flex-direction: column;
 
+  /* align-items: center; */
+}
 #textPartTitle,
 #ngoPartTitle {
   font-size: 1.35rem;
@@ -219,7 +226,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 0.2rem;
 }
 
 #selectedCard {
@@ -271,11 +278,11 @@
 @media (max-width: 1054px) {
   #testMainPart1,
   #testMainPart {
-    width: 80%;
+    width: 90%;
   }
 
   #textResult {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 2rem;
   }
 
@@ -286,12 +293,32 @@
     border-radius: 1rem;
     background-color: var(--main-color-beige);
   }
+  #cardResult {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  #resultPart {
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #resultPart > div {
+    padding: 1rem;
+    width: 90%;
+    margin: 1rem;
+  }
+  #testFooterContainer {
+    top: 150%;
+  }
 }
 
 @media (max-width: 768px) {
   #testPageContainer {
-    background: var(--main-color-green);
-    min-height: 130vh;
+    background: var(--main-color-white);
     height: 100%;
   }
 
@@ -343,7 +370,7 @@
   #resultPart > div {
     padding: 1rem;
     width: 90%;
-    margin: 0 auto;
+    margin: 1rem;
   }
 
   #textPart {
@@ -353,12 +380,16 @@
   #imageDiv {
     margin-top: 1%;
   }
+  #testFooterContainer {
+    top: 156%;
+    /* transform: translateY(-9rem); */
+  }
 }
 
-@media (max-width: 390px) {
+/* @media (max-width: 390px) {
   #optionBtn {
     padding: 0.5rem;
     margin: 0.5rem;
     width: 90%;
   }
-}
+} */
