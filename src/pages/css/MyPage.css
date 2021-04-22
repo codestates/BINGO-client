@@ -74,12 +74,8 @@
 }
 
 #myPageCoverPart {
-  background: linear-gradient(
-    180deg,
-    var(--main-color-green) 35%,
-    var(--main-color-dark-green) 100%
-  );
-  height: 10rem;
+  background: var(--main-color-green);
+  height: 15rem;
   padding-bottom: 170px;
   box-sizing: border-box;
   width: 100%;

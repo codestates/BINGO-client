@@ -47,7 +47,6 @@ function MyCitizenInfo(){
   const filteredArr = tempArr.filter((element, index) => {
     return tempArr.indexOf(element) === index
   })
-
     let layout = cloud()
     .words(data.map(function(d) {
       return {text: d, size: 10 + Math.random() * 90};
@@ -59,8 +58,9 @@ function MyCitizenInfo(){
     .fontSize(function(d: any): any { return d.size })
     .on("end", draw);
 
-    if(count === 0){
+    if(count === 1){
       layout.start();
+      count++;
     }
 
     function draw(words: any) {

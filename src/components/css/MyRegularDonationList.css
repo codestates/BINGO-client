@@ -1,6 +1,3 @@
-#myRegularDonationListContainer * {
-  /* border: 1px solid black; */
-}
 #myRegularDonationListContainer {
   margin: 2rem;
   width: 1000px;
@@ -19,6 +16,16 @@
   padding: 1rem;
   color: var(--main-color-gray);
 }
+#myRegularZero {
+  width: 25%;
+  height: 20%;
+  position: relative;
+  left: 50%;
+  margin-top: 1.5rem;
+  transform: translate(-50%);
+  text-align: center;
+}
+
 @media (max-width: 1024px) {
   #myRegularDonationListContainer {
     width: 80vw;
