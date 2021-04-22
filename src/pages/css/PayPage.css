@@ -53,6 +53,7 @@
   text-align: center;
   font-size: 1.3rem;
   color: var(--main-color-gray);
+  margin-top: 1rem;
 }
 
 .payBoxContentBox {
@@ -211,8 +212,9 @@
 }
 
 #payPostMessageSubmitBtn {
-  width: 10%;
+  width: 13%;
   padding: 1rem;
+  margin: 0.5rem;
   font-size: 1.125rem;
   border-radius: 2rem;
   border: 1px solid var(--main-color-green);
@@ -302,14 +304,12 @@
   .payBoxTitle {
     margin-left: auto;
     margin-right: auto;
+    width: 30%;
   }
 
   #payBoxSubTitle {
     margin-left: auto;
     margin-right: auto;
-  }
-
-  #payMessageBoxSubTitle {
   }
 
   .payBoxContent {
@@ -338,13 +338,38 @@
     align-items: center;
   }
 
+  #payBoxPostMessageBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .payPagePostMessage {
     height: 100%;
     flex-direction: column;
   }
 
+  #payMessageBoxSubTitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 1rem;
+  }
+
   .payPagePostMessage > input {
     margin: 1rem;
+  }
+
+  #payPostMessageBtnBox {
+    justify-content: center;
+  }
+
+  #payPostMessageSubmitBtn {
+    width: 40%;
   }
 }
 
@@ -389,7 +414,7 @@
     flex-direction: column;
   }
 
-  .payPagePostMessage {
-    width: 60%;
+  #payBoxPostMessageBox {
+    width: 85%;
   }
 }
