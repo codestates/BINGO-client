@@ -19,7 +19,7 @@ function MyRegularDonationListEntry(props: MyRegularProps){
       <div id="myRegularDonationNGO">{props.ngoName}</div>
       <div id="myRegularDonationPrice">{`${props.money}원`}</div>
     </div>
-    <button onClick={() => dispatch(showMypageModal(true, props.ngoName, props.donateId))}>정기후원 해지</button>
+    <button onClick={() => dispatch(showMypageModal(true, props.ngoName, props.donateId)) }>정기후원 해지</button>
   </div>
   )
 }

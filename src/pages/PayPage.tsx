@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import PayPageModal from "../components/PayPageModal";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
-import { showPayModal } from "../action";
+import { showPayModal, showPostMessage } from "../action";
 import axios from "axios";
 import Footer from '../components/Footer';
 import TestFooter from '../components/TestFooter';
@@ -226,7 +226,7 @@ function PayPage(props: any) {
         .catch(err => console.log(err));
     }
     alert("결제가 완료되었습니다");
-    dispatch(showPayModal(false, 0));
+    dispatch(showPostMessage(true));
     props.history.push("/mypage");
   };
 

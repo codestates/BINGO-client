@@ -50,20 +50,6 @@ function ListPage(props: any) {
     })
     .then(res => console.log(res))
     .catch(err => console.log(err))
-    // await fetch("https://server.ibingo.link/googlelogin", {
-    //   credentials: "include",
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     authorizationCode,
-    //   }),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => console.log(err));
   };
   const getAccessTokenKakao = async (authorizationCode: string) => {
     await axios.post("https://server.ibingo.link/kakaologin", {
@@ -186,10 +172,6 @@ function ListPage(props: any) {
     }
   }, [query]);
 
-  useEffect(() => {
-    console.log(scroll);
-  }, [scroll])
-
   return (
     <>
       {isLoading ? (
@@ -238,8 +220,7 @@ function ListPage(props: any) {
                       </div>
                     );
                   })}
-                </div>
-                {displaySearch ? (
+                  {displaySearch ? (
                   <div id='listSearchTextBox'>
                     <i
                       id='listSearchTextClose'
@@ -263,6 +244,8 @@ function ListPage(props: any) {
                     <i className='fas fa-search'></i>
                   </div>
                 )}
+                </div>
+                
               </div>
             </div>
             {result.length === 0 && <ListContentList />}

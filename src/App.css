@@ -21,7 +21,6 @@
   font-size: 14px;
 }
 
-/* 스크롤바 너무 거슬려서 지웠습니다.. 민제 */
 body::-webkit-scrollbar {
   display: none;
 }
