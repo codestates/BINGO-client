@@ -24,6 +24,12 @@
     justify-content: space-around;
   }
   #contentNewsListContainer {
-    margin-top: 7.5rem;
+    margin-top: 9rem;
+  }
+}
+
+@media (max-width: 550px) {
+  #contentNewsListContainer {
+    margin-top: 15rem;
   }
 }

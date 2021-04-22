@@ -253,7 +253,7 @@ function ContentPage(props: any) {
             onClick={handleNgoLogoClick}
           ></div>
           <div id='contentMainTopRight'>
-            <button className='shadow' onClick={handleLoveClick}>
+            <button className='shadow' onClick={handleLoveClick} style={{backgroundColor: isAlreadyLove ? "var(--main-color-light-green)": "rgb(239, 239, 239)"}}>
               {isAlreadyLove ? "관심단체 추가됨" : "관심단체 추가하기"}
             </button>
             <button
@@ -299,12 +299,12 @@ function ContentPage(props: any) {
               </div>
             )}
           </Motion>
-          {display ? <div id='scrollDiv'>∨∨scroll∨∨</div> : null}
+          {display ? <div id='scrollDiv'>scroll<br/><i className="fas fa-chevron-down" /></div> : null}
           <ContentNewsList ngoName={ngoInfo.data.name} />
           <ContentMessageList ngoName={ngoInfo.data.name} />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
