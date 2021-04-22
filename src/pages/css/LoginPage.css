@@ -11,11 +11,11 @@
 #loginTitle {
   display: flex;
   align-items: center;
-  font-size: 5rem;
+  font-size: 4rem;
   color: var(--main-color-white);
   font-weight: 900;
-  padding: 1.5rem 2rem;
-  margin-top: 2rem;
+  padding: 2rem 2rem;
+  margin: 2rem 1rem 1rem;
 }
 
 #loginTitle:hover {
@@ -25,22 +25,23 @@
 #loginMainBox {
   width: 30rem;
   height: 35rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3rem 3rem 10rem;
+  /* margin: 3rem 3rem 10rem; */
   background-color: var(--main-color-white);
 }
 
 #loginMainBox h1 {
   text-align: center;
-  color: var(--main-color-black);
-  font-size: 16px;
+  color: var(--main-color-gray);
+  font-size: 1.25rem;
   letter-spacing: -0.01em;
   line-height: 28px;
-  margin-top: 10px;
+  margin-top: 2rem;
   margin-bottom: 25px;
+  font-weight: 600;
 }
 
 #loginMainBox div {
@@ -50,15 +51,16 @@
 
 .loginBtnBox {
   width: 60%;
-  height: 5rem;
+  height: 4rem;
   display: flex;
   background-color: var(--main-color-beige);
-  border-radius: 1rem;
+  border-radius: 3rem;
   align-items: center;
+  border: 1px solid var(--main-color-green);
 }
 
 .loginBtnBox:hover {
-  background-color: var(--main-color-light-gray);
+  background-color: var(--main-color-light-green);
   cursor: pointer;
 }
 
@@ -78,4 +80,8 @@
 
 .loginLabel {
   font-size: 1.125rem;
+}
+
+#loginDescription {
+  font-size: 0.9rem;
 }

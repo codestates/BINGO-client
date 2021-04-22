@@ -19,7 +19,7 @@ function LoginPage(props: any) {
 
   return (
     <div id='loginPageContainer'>
-      <div id="loginTitle" onClick={handleLogoClick}>BINGO</div>
+      <div id="loginTitle" onClick={handleLogoClick}>B I N G O</div>
       <div id="loginMainBox" className="shadow">
         <h1>login to BINGO</h1>
         <div className="loginBtnBox shadow"
@@ -29,8 +29,8 @@ function LoginPage(props: any) {
             )
           }
         >
-        <div id="googleIcon"></div>
-        <div className="loginLabel">구글 로그인</div>
+          <div id="googleIcon"></div>
+          <div className="loginLabel">구글 로그인</div>
         </div>
         <div className="loginBtnBox shadow"
           onClick={() =>
@@ -45,8 +45,9 @@ function LoginPage(props: any) {
         <div className="loginBtnBox shadow" onClick={handleStartBtnClick}>
           <div className="loginLabel">비회원으로 시작하기</div>
         </div>
+        <p id="loginDescription">비회원 시작의 경우, 테스트 유저로 로그인됩니다</p>
       </div>
-      </div>
+    </div>
   );
 
 }
