@@ -4,7 +4,7 @@
   padding: 1rem;
   border-radius: 1rem;
   width: 40%;
-  border: 2px solid var(--main-color-white);
+  border: 2px solid var(--main-color-green);
 }
 
 #contentNewsListEntryContainer:hover {

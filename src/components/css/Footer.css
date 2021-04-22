@@ -24,6 +24,7 @@ a {
 #codeFarm {
   flex: 1;
   z-index: 10;
+  padding-right: 1rem;
 }
 
 #github {
@@ -47,4 +48,20 @@ a {
   font-weight: 900;
   font-family: "S-CoreDream";
   z-index: 10;
+  padding-left: 1rem;
+}
+
+@media (max-width: 900px) {
+  #logo {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 550px) {
+  #logo {
+    font-size: 0.8rem;
+  }
+  #codeFarm {
+    font-size: 1rem;
+  }
 }
