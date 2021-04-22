@@ -40,7 +40,17 @@ export default function ListContentEntry() {
       setContent(listAll);
     } else {
       setContent(listAll.filter((item: any) => {
-        return item.ngocategorys[0].category.name === category;
+        // return item.ngocategorys[0].category.name === category;
+        let arr = item.ngocategorys.map((item) => {
+          let result = false;
+          if(item.category.name === category) result = true;
+          if(result) {
+            return true;
+          }else {
+            return false;
+          }
+        })
+        return arr.reduce((acc, cur) => acc || cur)
       }))
     }
   })
