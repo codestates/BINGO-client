@@ -23,7 +23,9 @@ function MyPageModal() {
       ing: 'false',
     })
     .then(handleClickClose)
+    .then(() => window.location.href="/mypage")
     .catch(err => console.log(err))
+    
   }
 
   return(

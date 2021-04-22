@@ -18,20 +18,16 @@ function ContentPageModal(props: Props) {
     disptach(showcontentModal(false));
   }
 
-  const handleRedirectClick = () => {
-    // props.history.push("./pay")
-  }
-
   return(
     <>
     {state.contentModalInfo.modalDisplay ? (
       <div className="modalWholeContainer">
         <div className="modalContainer shadow">
           <div className="modalContentPart shadow">
-            <div id="contentModalTitle">{`${props.ngoName}단체가 MINJE님의 후원결제리스트에 담겼습니다`}</div>
+            <div id="contentModalTitle">{`${props.ngoName}단체가 결제리스트에 담겼습니다`}</div>
             <div id="payModalSubtitle2">아래버튼을 누를시 페이페이지로 이동합니다</div>
-            <Link to='/pay'>
-            <div id="contentModalConfirmBtn" className="shadow" onClick={handleRedirectClick}>이동</div>
+            <Link to='/pay' onClick={handleClickClose}>
+            <div id="contentModalConfirmBtn" className="shadow">이동</div>
             </Link>
           </div>
           <div className="payPageModalCloseBtn shadow" onClick={handleClickClose}>X</div>

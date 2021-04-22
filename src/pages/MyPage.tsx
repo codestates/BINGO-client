@@ -30,10 +30,10 @@ function MyPage(props: any) {
       method: "POST",
       credentials: "include",
     })
-      .then(res => {
-        console.log("로그아웃 res:", res);
-      })
-      .catch(err => console.log(err));
+    .then(res => {
+      dispatch({ type: 'default' });
+    })
+    .catch(err => console.log(err));
     window.location.href = "./guide.html";
   };
 
@@ -62,6 +62,7 @@ function MyPage(props: any) {
       })
       .then(() => setLoading(false))
       .catch(err => console.log(err));
+
   }, []);
 
   return (

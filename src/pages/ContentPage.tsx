@@ -11,6 +11,8 @@ import {
   showcontentModal,
   showNewsContent,
   showMessageContent,
+  deleteLove,
+  addLove,
 } from "../action";
 import { Motion, spring } from "react-motion";
 import ContentPageModal from "../components/ContentPageModal";
@@ -103,6 +105,16 @@ function ContentPage(props: any) {
     }
   };
   const handleLoveClick = () => {
+    if (userInfo.userId === 1) {
+      if (isAlreadyLove) {
+        dispatch(deleteLove(currentNgoId))
+        setIsAlreadyLove(false)
+      } else {
+        dispatch(addLove(currentNgoId))
+        setIsAlreadyLove(true)
+      }
+      return;
+    }
     if (userInfo.accessToken) {
       if (isAlreadyLove) {
         axios
@@ -115,7 +127,8 @@ function ContentPage(props: any) {
               ngoId: currentNgoId,
             },
           })
-          .then(res => setIsAlreadyLove(false))
+          .then(() => dispatch(deleteLove(currentNgoId)))
+          .then(() => setIsAlreadyLove(false))
           .catch(err => console.log(err));
       } else if (!isAlreadyLove) {
         axios
@@ -124,7 +137,8 @@ function ContentPage(props: any) {
             userId: userInfo.userId,
             ngoId: currentNgoId,
           })
-          .then(res => setIsAlreadyLove(true))
+          .then(() => dispatch(addLove(currentNgoId)))
+          .then(() => setIsAlreadyLove(true))
           .catch(err => console.log(err));
       }
     } else {

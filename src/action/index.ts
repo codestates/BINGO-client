@@ -16,6 +16,8 @@ export const SHOW_MYPAGE = "SHOW_MYPAGE"
 export const SHOW_MYPAGE_MODAL = "SHOW_MYPAGE_MODAL"
 export const CHANGE_USERINFO = "CHANGE_USERINFO";
 export const SHOW_MY_PROFILE_EDIT_MODAL = "SHOW_MY_PROFILE_EDIT_MODAL";
+export const ADD_LOVE = "ADD_LOVE";
+export const DELETE_LOVE = "DELETE_LOVE";
 
 
 // actions creator functions
@@ -177,3 +179,17 @@ export const showMyProfileEditModal = (modalDisplay: boolean) => {
     }
   }
 }
+
+export const addLove = (ngoId: number) => {
+  return {
+    type: ADD_LOVE,
+    payload: ngoId,
+  };
+};
+
+export const deleteLove = (ngoId: number) => {
+  return {
+    type: DELETE_LOVE,
+    payload: ngoId,
+  };
+};
