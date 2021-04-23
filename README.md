@@ -21,7 +21,7 @@ BINGO에서 사회적 가치를 구입하고,
 ## FRONT
 ![](https://img.shields.io/badge/Front-react-blue)
 
-![](https://img.shields.io/badge/Front-axios-blue)
+![](https://img.shields.io/badge/Front-Typescript-blue)
 
 ![](https://img.shields.io/badge/Front-Redux-yellow)
 
