@@ -193,14 +193,18 @@ function ListPage(props: any) {
         <div id='listPageContainer' onWheel={e => setscroll(window.scrollY)}>
           
           <div id='listCoverPart' style={{ height: `${bannerHeight}rem`, }}>
-          <div id='listNavPart'>
-            <div className='navLogo' onClick={handleLogoClick}>
-              B I N G O
+            <div id='listNavPart'>
+              <div className='navLogo' onClick={handleLogoClick}>
+                B I N G O
+              </div>
+              <div className='navMyPage shadow' onClick={handleMyPageClick}>
+                마이페이지
+              </div>
             </div>
-            <div className='navMyPage shadow' onClick={handleMyPageClick}>
-              마이페이지
+            <div id="listTitle">
+              슬기로운<br></br>후원생활
+              <div id="listSubTitle">BINGO와 함께 후원할 단체를 만나보세요.</div>
             </div>
-          </div>
           </div>
           <div id='listMainPart'>
             <div id='listMainTitle' className='shadow'>
