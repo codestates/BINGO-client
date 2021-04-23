@@ -196,34 +196,41 @@ function PayPage(props: any) {
   };
 
   const pay = async () => {
-    for (let item of data) {
-      await axios
-        .post("https://server.ibingo.link/donation", {
-          accessToken: userInfo.accessToken,
-          userId: userInfo.userId,
-          ngoId: item.ngoId,
-          money: item.body,
-          type: "once",
-          ing: "false",
-          message: item.message,
-        })
-        .then(() => deleteItem(item.id))
-        .catch(err => console.log(err));
+    let validMessage = data.filter(el => Object.keys(el).includes('message')) //데이터에 유효한 메세지가 있는 것만 저장
+    let validMessage2 = repeatData.filter(el => Object.keys(el).includes('message'))
+    console.log(validMessage);
+    if(validMessage.length !== 0) {
+      for (let item of validMessage) {
+        await axios
+          .post("https://server.ibingo.link/donation", {
+            accessToken: userInfo.accessToken,
+            userId: userInfo.userId,
+            ngoId: item.ngoId,
+            money: item.body,
+            type: "once",
+            ing: "false",
+            message: item.message,
+          })
+          .then(() => deleteItem(item.id))
+          .catch(err => console.log(err));
+      }
     }
 
-    for (let item of repeatData) {
-      await axios
-        .post("https://server.ibingo.link/donation", {
-          accessToken: userInfo.accessToken,
-          userId: userInfo.userId,
-          ngoId: item.ngoId,
-          money: item.body,
-          type: "repeat",
-          ing: true,
-          message: item.message,
-        })
-        .then(() => deleteItem(item.id))
-        .catch(err => console.log(err));
+    if(validMessage2.length !== 0) {
+      for (let item of validMessage2) {
+        await axios
+          .post("https://server.ibingo.link/donation", {
+            accessToken: userInfo.accessToken,
+            userId: userInfo.userId,
+            ngoId: item.ngoId,
+            money: item.body,
+            type: "repeat",
+            ing: true,
+            message: item.message,
+          })
+          .then(() => deleteItem(item.id))
+          .catch(err => console.log(err));
+      }
     }
     alert("결제가 완료되었습니다");
     dispatch(showPostMessage(true));
@@ -364,11 +371,11 @@ function PayPage(props: any) {
                           style={{ backgroundImage: `url(${item.logo})` }}
                         ></div>
                         <div>{item.title}</div>
-                        <input
+                        <textarea
                           onChange={e =>
                             saveMessage(item.id, e.target.value, "repeat")
                           }
-                        ></input>
+                        ></textarea>
                       </div>
                     );
                   })}

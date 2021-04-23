@@ -80,28 +80,30 @@ button:focus {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  z-index: 40;
+  z-index: 999;
+  transition: all 0.3s;
 }
 
 .modalContainer {
-  background: var(--main-color-green);
-  border-radius: 10px;
+  background: white;
+  border-radius: 2rem;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
-  width: 600px;
-  height: 350px;
+  width: 500px;
+  height: 300px;
   max-width: 100%;
-  min-height: 350px;
+  min-height: 300px;
   display: flex;
   padding: 2rem;
   flex-direction: column;
+  transform: translate(0%, -30%);
 }
 
 .modalContentPart {

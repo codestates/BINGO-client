@@ -92,10 +92,6 @@
   padding-left: 10px;
 }
 
-#listContentShowMore {
-  display: flex;
-}
-
 #listContentShowMore > div {
   border: 1px solid #ddd;
   margin-left: 3rem;

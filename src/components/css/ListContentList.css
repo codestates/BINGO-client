@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   transition: top 0.2s;
+  min-height: 52rem;
 }
 
 #listContentShowMore {
@@ -13,6 +14,7 @@
   border-radius: 4px;
   width: 80%;
   margin: 1rem;
+  margin-bottom: 3rem;
   height: 4rem;
   margin-left: auto;
   margin-right: auto;

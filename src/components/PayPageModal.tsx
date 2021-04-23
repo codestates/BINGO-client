@@ -25,12 +25,12 @@ function PayPageModal() {
       <div className="modalWholeContainer">
         <div className="modalContainer shadow">
           <div className="modalContentPart shadow">
-            <div id="payModalTitle">결제하시겠습니까?</div>
+            <div id="payModalTitle" className="shadow">결제하시겠습니까?</div>
             <div id="payModalSubtitle">총금액: {state.payModalInfo.money} ₩</div>
             <div id="payModalSubtitle2">아래버튼을 누를시 pay_pal 페이지로 이동합니다</div>
             <div id="payModalConfirmBtn" className="shadow" onClick={handleClickConfirm}>확인</div>
           </div>
-          <div className="payPageModalCloseBtn shadow" onClick={handleClickClose}>X</div>
+          <div className="payPageModalCloseBtn shadow" onClick={handleClickClose}><i className='fas fa-times'/></div>
         </div>
       </div>
     ) : null}
