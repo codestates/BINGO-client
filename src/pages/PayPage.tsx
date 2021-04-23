@@ -196,11 +196,7 @@ function PayPage(props: any) {
   };
 
   const pay = async () => {
-    let validMessage = data.filter(el => Object.keys(el).includes('message')) //데이터에 유효한 메세지가 있는 것만 저장
-    let validMessage2 = repeatData.filter(el => Object.keys(el).includes('message'))
-    console.log(validMessage);
-    if(validMessage.length !== 0) {
-      for (let item of validMessage) {
+      for (let item of data) {
         await axios
           .post("https://server.ibingo.link/donation", {
             accessToken: userInfo.accessToken,
@@ -214,10 +210,7 @@ function PayPage(props: any) {
           .then(() => deleteItem(item.id))
           .catch(err => console.log(err));
       }
-    }
-
-    if(validMessage2.length !== 0) {
-      for (let item of validMessage2) {
+      for (let item of repeatData) {
         await axios
           .post("https://server.ibingo.link/donation", {
             accessToken: userInfo.accessToken,
@@ -231,7 +224,6 @@ function PayPage(props: any) {
           .then(() => deleteItem(item.id))
           .catch(err => console.log(err));
       }
-    }
     alert("결제가 완료되었습니다");
     dispatch(showPostMessage(true));
     props.history.push("/mypage");
