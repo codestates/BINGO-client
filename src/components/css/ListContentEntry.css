@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   width: 100%;
   min-height: 400px;
+  justify-content: center;
 }
 
 #ListContentEntryContainer {
@@ -94,9 +95,8 @@
 
 #listContentShowMore > div {
   border: 1px solid #ddd;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  padding: 1rem;
+  padding: 1rem 4rem;
+  border-radius: 40px;
   cursor: pointer;
 }
 

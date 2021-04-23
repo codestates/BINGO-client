@@ -25,12 +25,13 @@
 #loginMainBox {
   width: 30rem;
   height: 35rem;
-  border-radius: 0.5rem;
+  border-radius: 0.45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* margin: 3rem 3rem 10rem; */
   background-color: var(--main-color-white);
+  z-index: 10;
 }
 
 #loginMainBox h1 {
@@ -45,7 +46,7 @@
 }
 
 #loginMainBox div {
-  margin: 2rem;
+  margin: 1.75rem;
   justify-content: center;
 }
 
@@ -84,4 +85,145 @@
 
 #loginDescription {
   font-size: 0.9rem;
+}
+
+/* #loginPageContainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+} */
+
+.layer {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.small {
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--main-color-pink);
+}
+
+.medium {
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--main-color-pink);
+}
+
+.large {
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--main-color-pink);
+}
+
+.full {
+  background-color: var(--main-color-pink);
+}
+
+.empty {
+  background-color: rgba(240, 248, 255, 0);
+  /* background-color: var(--main-color-pink); */
+  border: 2px solid var(--main-color-pink);
+}
+
+.large.a {
+  top: 45%;
+  left: 5%;
+}
+.large.b {
+  top: 55%;
+  left: 10%;
+}
+.large.c {
+  top: 65%;
+  left: 15%;
+}
+.large.d {
+  top: 75%;
+  left: 10%;
+}
+.large.e {
+  top: 80%;
+  left: 5%;
+}
+.large.f {
+  top: 75%;
+  left: 10%;
+}
+.large.g {
+  top: 70%;
+  left: 15%;
+}
+.large.h {
+  top: 65%;
+  left: 20%;
+}
+
+.medium.a {
+  top: 50%;
+  left: 10%;
+}
+.medium.b {
+  top: 60%;
+  left: 20%;
+}
+.medium.c {
+  top: 70%;
+  left: 30%;
+}
+.medium.d {
+  top: 80%;
+  left: 40%;
+}
+.medium.e {
+  top: 55%;
+  left: 50%;
+}
+.medium.f {
+  top: 65%;
+  left: 60%;
+}
+.medium.g {
+  top: 75%;
+  left: 70%;
+}
+.medium.h {
+  top: 85%;
+  left: 80%;
+}
+
+.small.a {
+  top: 85%;
+  left: 20%;
+}
+.small.b {
+  top: 75%;
+  left: 30%;
+}
+.small.c {
+  top: 65%;
+  left: 40%;
+}
+.small.d {
+  top: 55%;
+  left: 50%;
+}
+.small.e {
+  top: 80%;
+  left: 60%;
+}
+.small.f {
+  top: 70%;
+  left: 70%;
+}
+.small.g {
+  top: 60%;
+  left: 80%;
+}
+.small.h {
+  top: 50%;
+  left: 90%;
 }
