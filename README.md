@@ -4,8 +4,6 @@
 # 🎯 BI_NGO
 <img src=https://user-images.githubusercontent.com/48914716/89749904-b0283a80-db04-11ea-9a9f-827a9cecea8c.png width=300 height=300 />
 
-✅ [이미지를 통해 여러분의 서비스를 소개해주세요](https://worthpreading.tistory.com/83)
-
 사회단체 후원활동에 재미와 편리함을 더하다
 
 맞춤형 온라인 기부 플랫폼, BINGO!
@@ -90,20 +88,20 @@ BINGO에서 사회적 가치를 구입하고,
         <br>
       </td>
       <td>
-        <strong>🚩 Backend</strong>
+        <strong>🚩 Fullstack</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <a href="https://github.com/spark0109">
           <sub>
-            <b>박선아</b>
+            <b>양자경</b>
           </sub>
         </a>
         <br>
       </td>
       <td>
-        <strong>🏁 Backend</strong>
+        <strong>🏁 Fullstack</strong>
       </td>
     </tr>
     <tr>
@@ -114,4 +112,4 @@ BINGO에서 사회적 가치를 구입하고,
 
 # For project details
 
-### [checkout WIKI](https://github.com/codestates/Memory_log-client/wiki)
+### [checkout WIKI](https://github.com/codestates/BINGO-client/wiki)
