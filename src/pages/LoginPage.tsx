@@ -17,6 +17,30 @@ function LoginPage(props: any) {
     window.location.href = "./guide.html"
   }
 
+  const parallax = (e: any) => {
+    let layerArr = Array.from(document.getElementsByClassName("layer") as HTMLCollectionOf<HTMLElement>)
+    layerArr.forEach((layer) => {
+      const speed = layer.getAttribute("data-speed")
+
+      const x = (window.innerWidth - e.pageX * Number(speed)) / 100;
+      const y = (window.innerHeight - e.pageY * Number(speed)) / 100;
+
+      layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    })
+  }
+
+  document.addEventListener("mousemove", parallax);
+  // function parallax(e) {
+  //   document.querySelectorAll(".layer").forEach((layer) => {
+  //     const speed = layer.getAttribute("data-speed");
+
+  //     const x = (window.innerWidth - e.pageX * speed) / 100;
+  //     const y = (window.innerHeight - e.pageY * speed) / 100;
+
+  //     layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+  //   });
+  // }
+
   return (
     <div id='loginPageContainer'>
       <div id="loginTitle" onClick={handleLogoClick}>B I N G O</div>
@@ -47,6 +71,30 @@ function LoginPage(props: any) {
         </div>
         <p id="loginDescription">비회원 시작의 경우, 테스트 유저로 로그인됩니다</p>
       </div>
+      <div className="layer small full a" data-speed="2"/>
+      <div className="layer small empty b" data-speed="-4" />
+      <div className="layer small full c" data-speed="4" />
+      <div className="layer small empty d" data-speed="-2" />
+      <div className="layer small full e" data-speed="2"/>
+      <div className="layer small empty f" data-speed="-4" />
+      <div className="layer small full g" data-speed="4" />
+      <div className="layer small empty h" data-speed="-2" />
+      <div className="layer medium full a" data-speed="2" />
+      <div className="layer medium empty b" data-speed="-4" />
+      <div className="layer medium full c" data-speed="4" />
+      <div className="layer medium empty d" data-speed="-2" />
+      <div className="layer medium full e" data-speed="2" />
+      <div className="layer medium empty f" data-speed="-4" />
+      <div className="layer medium full g" data-speed="4" />
+      <div className="layer medium empty h" data-speed="-2" />
+      {/* <div className="layer large full a" data-speed="10" />
+      <div className="layer large empty b" data-speed="-9" />
+      <div className="layer large full c" data-speed="9" />
+      <div className="layer large empty d" data-speed="-10" />
+      <div className="layer large full e" data-speed="10" />
+      <div className="layer large empty f" data-speed="-9" />
+      <div className="layer large full g" data-speed="9" />
+      <div className="layer large empty h" data-speed="-10" /> */}
     </div>
   );
 
