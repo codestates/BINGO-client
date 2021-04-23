@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/BINGO-webservice-lightgrey)
 
 # 🎯 BI_NGO
-<img src=https://ifh.cc/g/beN6LT.jpg width=300 height=300 />
+<img src=https://ifh.cc/g/beN6LT.jpg />
 
 사회단체 후원활동에 재미와 편리함을 더하다
 
