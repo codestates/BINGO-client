@@ -30,11 +30,14 @@ function MyPage(props: any) {
       method: "POST",
       credentials: "include",
     })
-    .then(res => {
-      dispatch({ type: 'default' });
+    .then(() => {
+      dispatch(logout());
+    })
+    .then(() => {
+      window.location.href = "./guide.html";
     })
     .catch(err => console.log(err));
-    window.location.href = "./guide.html";
+    
   };
 
   const handleListPageClick = () => {

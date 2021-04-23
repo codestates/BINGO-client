@@ -18,6 +18,7 @@ export const CHANGE_USERINFO = "CHANGE_USERINFO";
 export const SHOW_MY_PROFILE_EDIT_MODAL = "SHOW_MY_PROFILE_EDIT_MODAL";
 export const ADD_LOVE = "ADD_LOVE";
 export const DELETE_LOVE = "DELETE_LOVE";
+export const LOGOUT = "LOGOUT";
 
 
 // actions creator functions
@@ -191,5 +192,11 @@ export const deleteLove = (ngoId: number) => {
   return {
     type: DELETE_LOVE,
     payload: ngoId,
+  };
+};
+
+export const logout = () => {
+  return {
+    type: LOGOUT,
   };
 };
