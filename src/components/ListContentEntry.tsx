@@ -15,6 +15,7 @@ export default function ListContentEntry() {
 
   const handleContentListEntryClick = (ngoId: number) => {
     dispatch(showContent(ngoId));
+    window.location.href = '/content'
   };
 
   const handleMoreBtnClick = () => {
@@ -61,9 +62,9 @@ export default function ListContentEntry() {
       {content.map((item: any, index) => {
         if(index < count) {
         return (
-          <Link onClick={()=> handleContentListEntryClick(item.id)} to="/content">
           <div
             id='ListContentEntryContainer'
+            onClick={()=> handleContentListEntryClick(item.id)}
           >
             <div className='front'>
               <div id="ListContentEntryLogoBox">
@@ -79,7 +80,6 @@ export default function ListContentEntry() {
                 <div id='ListContentEntryDescription'>{item.since}</div>
               </div>
           </div>
-          </Link>
         );
       }
       })}
