@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { showPayModal, showPostMessage } from "../action";
 import axios from "axios";
-import Footer from '../components/Footer';
-import TestFooter from '../components/TestFooter';
+import Footer from "../components/Footer";
 
 interface Item {
   id: number;
@@ -76,7 +75,7 @@ function PayPage(props: any) {
     setLoading(true);
     setTimeout(() => {
       setzIndex(-10);
-    }, 5000)
+    }, 5000);
   }, []);
 
   const [currentItem, setCurrentItem] = useState(-1);
@@ -179,8 +178,7 @@ function PayPage(props: any) {
         <i
           className='fas fa-times payBoxContentDelete'
           onClick={() => deleteItem(item.id)}
-        >
-        </i>
+        ></i>
       </div>
     );
   };
@@ -196,34 +194,34 @@ function PayPage(props: any) {
   };
 
   const pay = async () => {
-      for (let item of data) {
-        await axios
-          .post("https://server.ibingo.link/donation", {
-            accessToken: userInfo.accessToken,
-            userId: userInfo.userId,
-            ngoId: item.ngoId,
-            money: item.body,
-            type: "once",
-            ing: "false",
-            message: item.message,
-          })
-          .then(() => deleteItem(item.id))
-          .catch(err => console.log(err));
-      }
-      for (let item of repeatData) {
-        await axios
-          .post("https://server.ibingo.link/donation", {
-            accessToken: userInfo.accessToken,
-            userId: userInfo.userId,
-            ngoId: item.ngoId,
-            money: item.body,
-            type: "repeat",
-            ing: true,
-            message: item.message,
-          })
-          .then(() => deleteItem(item.id))
-          .catch(err => console.log(err));
-      }
+    for (let item of data) {
+      await axios
+        .post("https://server.ibingo.link/donation", {
+          accessToken: userInfo.accessToken,
+          userId: userInfo.userId,
+          ngoId: item.ngoId,
+          money: item.body,
+          type: "once",
+          ing: "false",
+          message: item.message,
+        })
+        .then(() => deleteItem(item.id))
+        .catch(err => console.log(err));
+    }
+    for (let item of repeatData) {
+      await axios
+        .post("https://server.ibingo.link/donation", {
+          accessToken: userInfo.accessToken,
+          userId: userInfo.userId,
+          ngoId: item.ngoId,
+          money: item.body,
+          type: "repeat",
+          ing: true,
+          message: item.message,
+        })
+        .then(() => deleteItem(item.id))
+        .catch(err => console.log(err));
+    }
     alert("결제가 완료되었습니다");
     dispatch(showPostMessage(true));
     props.history.push("/mypage");
@@ -252,7 +250,7 @@ function PayPage(props: any) {
 
   const handleClickBackBtn = () => {
     dispatch(showPostMessage(true));
-  }
+  };
 
   return (
     <>
@@ -260,7 +258,7 @@ function PayPage(props: any) {
         <div>로딩중</div>
       ) : (
         <div id='payPageContainer' onMouseUp={() => setCurrentItem(-1)}>
-          <div id='payTutorialContainer' style={{ zIndex, }}>
+          <div id='payTutorialContainer' style={{ zIndex }}>
             <div>DRAG & DROP</div>
             <i className='fas fa-mouse-pointer'> </i>
             <p>
@@ -280,7 +278,7 @@ function PayPage(props: any) {
           <div id='payListPart'>
             {state.payMessageInfo.messageDisplay ? (
               <div
-              id="payTempPart"
+                id='payTempPart'
                 className='payListEntryPart shadow'
                 onDragOver={event => onDragOver(event)}
                 onDrop={event => drop(event, "once")}
@@ -298,7 +296,7 @@ function PayPage(props: any) {
 
             {state.payMessageInfo.messageDisplay ? (
               <div
-              id="payRegularPart"
+                id='payRegularPart'
                 className='payListEntryPart shadow'
                 onDragOver={event => onDragOver(event)}
                 onDrop={event => drop(event, "repeat")}
@@ -315,22 +313,23 @@ function PayPage(props: any) {
               </div>
             ) : null}
 
-            {state.payMessageInfo.messageDisplay ? 
-            <div className='payBoxPayBtnBox'>
-              <div>
-                총후원금:{" "}
-                {data.reduce((a, c) => {
-                  return Number(a) + Number(c.body);
-                }, 0) +
-                  repeatData.reduce((a, c) => {
+            {state.payMessageInfo.messageDisplay ? (
+              <div className='payBoxPayBtnBox'>
+                <div>
+                  총후원금:{" "}
+                  {data.reduce((a, c) => {
                     return Number(a) + Number(c.body);
-                  }, 0)}{" "}
-                ₩
+                  }, 0) +
+                    repeatData.reduce((a, c) => {
+                      return Number(a) + Number(c.body);
+                    }, 0)}{" "}
+                  ₩
+                </div>
+                <button className='payBoxPayBtn' onClick={handleClickPayBtn}>
+                  결제하기
+                </button>
               </div>
-              <button className='payBoxPayBtn' onClick={handleClickPayBtn}>
-                결제하기
-              </button>
-            </div> : null}
+            ) : null}
 
             {state.payMessageInfo.messageDisplay ? null : (
               <div className='payPostMessageEntryPart'>
@@ -347,7 +346,7 @@ function PayPage(props: any) {
                           style={{ backgroundImage: `url(${item.logo})` }}
                         ></div>
                         <div>{item.title}</div>
-                        <textarea 
+                        <textarea
                           onChange={e =>
                             saveMessage(item.id, e.target.value, "once")
                           }
@@ -372,23 +371,25 @@ function PayPage(props: any) {
                     );
                   })}
                 </div>
-                <div id="payPostMessageBtnBox">
-                  <button id='payPostMessageSubmitBtn'
-                  onClick={handleClickBackBtn}>
+                <div id='payPostMessageBtnBox'>
+                  <button
+                    id='payPostMessageSubmitBtn'
+                    onClick={handleClickBackBtn}
+                  >
                     뒤로가기
                   </button>
-                  </div>
-                <div id="payPostMessageBtnBox">
+                </div>
+                <div id='payPostMessageBtnBox'>
                   <button id='payPostMessageSubmitBtn' onClick={() => pay()}>
                     남기기
                   </button>
-                  </div>
+                </div>
               </div>
             )}
           </div>
         </div>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }
