@@ -353,10 +353,6 @@
   #address {
     font-size: 13px;
   }
-
-  #testNavPart {
-    height: 12rem;
-  }
 }
 
 @media (max-width: 768px) {
