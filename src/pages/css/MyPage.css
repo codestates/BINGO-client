@@ -16,11 +16,12 @@
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 600;
   padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 1rem 0 0 1rem;
+  margin-top: 0.75rem;
+  border-radius: 2rem 0 0 2rem;
   background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
   position: absolute;
   right: 0;
   top: 10px;
@@ -35,6 +36,7 @@
   color: var(--main-color-white);
   font-weight: 900;
   padding: 1.5rem 2rem;
+  cursor: pointer;
 }
 
 #myPagePayPageBtn {
@@ -42,11 +44,12 @@
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 600;
   padding: 1rem;
   margin-top: 1rem;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 2rem 0 0 2rem;
   background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
 }
 
 #myPageLogoutBtn {
@@ -54,11 +57,12 @@
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 600;
   padding: 1rem;
   margin-top: 0.75em;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 2rem 0 0 2rem;
   background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
 }
 
 #myPageTestBtn {
@@ -66,16 +70,17 @@
   align-items: center;
   font-size: 1.25rem;
   color: var(--main-color-gray);
-  font-weight: 700;
+  font-weight: 600;
   padding: 1rem;
   margin-top: 0.75em;
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 2rem 0 0 2rem;
   background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
 }
 
 #myPageCoverPart {
   background: var(--main-color-green);
-  height: 15rem;
+  height: 13rem;
   padding-bottom: 170px;
   box-sizing: border-box;
   width: 100%;
@@ -106,12 +111,24 @@
   background-position: center;
   background-size: cover;
 }
+.fas.fa-pen {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.fas.fa-pen:hover {
+  background-color: var(--main-color-light-green);
+  cursor: pointer;
+}
+
+#myPageLevel {
+  margin: 0.75rem 0 0.25rem;
+}
 
 #myPageUsername {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 2rem;
   color: var(--main-color-gray);
-  margin-top: 1rem;
 }
 
 #myPageMainContentMiddle {

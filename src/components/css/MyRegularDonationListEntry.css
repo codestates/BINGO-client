@@ -15,7 +15,7 @@
   width: 15%;
 }
 #myRegularDonationListEntryContainer button:hover {
-  background-color: rgba(245, 153, 125);
+  background-color: rgb(185, 166, 169);
 }
 #myRegularDonationListEntryContainer > div {
   display: flex;

@@ -190,7 +190,7 @@ function MyAllDonationGraph(){
   return (
       <div id="myAllDonationGraphContainer">
       <div className="myPageTitle">나의 후원 비율</div>
-      <div className="myPageSubTitle">김빙고님의 총 후원내역을 단체별로 한눈에 살펴볼 수 있습니다.</div>
+      <div className="myPageSubTitle">아래 파이차트의 각 부분을 호버하면 상세정보를 확인하실 수 있습니다.</div>
       <div id="myAllDonationGraph">
       {isThereEnoughData ? null :      
       <div id="myAlertContainer">

@@ -71,30 +71,30 @@ function LoginPage(props: any) {
         </div>
         <p id="loginDescription">비회원 시작의 경우, 테스트 유저로 로그인됩니다</p>
       </div>
-      <div className="layer small full a" data-speed="2"/>
-      <div className="layer small empty b" data-speed="-4" />
-      <div className="layer small full c" data-speed="4" />
-      <div className="layer small empty d" data-speed="-2" />
-      <div className="layer small full e" data-speed="2"/>
-      <div className="layer small empty f" data-speed="-4" />
-      <div className="layer small full g" data-speed="4" />
-      <div className="layer small empty h" data-speed="-2" />
-      <div className="layer medium full a" data-speed="2" />
-      <div className="layer medium empty b" data-speed="-4" />
-      <div className="layer medium full c" data-speed="4" />
-      <div className="layer medium empty d" data-speed="-2" />
-      <div className="layer medium full e" data-speed="2" />
-      <div className="layer medium empty f" data-speed="-4" />
-      <div className="layer medium full g" data-speed="4" />
-      <div className="layer medium empty h" data-speed="-2" />
-      {/* <div className="layer large full a" data-speed="10" />
-      <div className="layer large empty b" data-speed="-9" />
-      <div className="layer large full c" data-speed="9" />
-      <div className="layer large empty d" data-speed="-10" />
-      <div className="layer large full e" data-speed="10" />
-      <div className="layer large empty f" data-speed="-9" />
-      <div className="layer large full g" data-speed="9" />
-      <div className="layer large empty h" data-speed="-10" /> */}
+      <div className="layer small full a" data-speed="3"/>
+      <div className="layer medium empty b" data-speed="5"/>
+      <div className="layer large full c" data-speed="8"/>
+      <div className="layer small full d" data-speed="3"/>
+      <div className="layer medium empty e" data-speed="5"/>
+      <div className="layer large full f" data-speed="8"/>
+      <div className="layer small empty g" data-speed="3"/>
+      <div className="layer medium empty h" data-speed="5"/>
+      <div className="layer medium full i" data-speed="5"/>
+      <div className="layer small empty j" data-speed="3"/>
+      <div className="layer medium full k" data-speed="5"/>
+      <div className="layer large full l" data-speed="8"/>
+      <div className="layer medium empty m" data-speed="5"/>
+      <div className="layer medium full n" data-speed="5"/>
+      <div className="layer large empty o" data-speed="8"/>
+      <div className="layer medium empty p" data-speed="5"/>
+      <div className="layer small full q" data-speed="3"/>
+      <div className="layer large empty r" data-speed="8"/>
+      <div className="layer large full s" data-speed="8"/>
+      <div className="layer small full t" data-speed="3"/>
+      <div className="layer medium empty u" data-speed="5"/>
+      <div className="layer small empty v" data-speed="3"/>
+      <div className="layer medium full w" data-speed="5"/>
+      <div className="layer large empty x" data-speed="8"/>
     </div>
   );
 
