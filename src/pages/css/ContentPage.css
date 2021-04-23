@@ -1,6 +1,8 @@
 #contentPageContainer {
   background-color: var(--main-color-white);
-  padding-bottom: 5rem;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 100px; /* footer height */
 }
 #contentHeaderPart {
   position: relative;
@@ -286,6 +288,7 @@ li {
 @media (max-width: 1024px) {
   #contentPageContainer {
     width: 100%;
+    position: relative;
   }
 
   #contentMainTop {
@@ -298,6 +301,12 @@ li {
 }
 
 @media (max-width: 768px) {
+  #contentPageContainer {
+    width: 100%;
+    position: relative;
+    padding-bottom: 280px;
+  }
+
   #contentMainTopRight button {
     font-size: 0.75rem;
   }

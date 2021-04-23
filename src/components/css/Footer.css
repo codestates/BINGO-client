@@ -4,6 +4,7 @@
   width: 100%;
   height: 5rem;
   cursor: default;
+  bottom: 0;
 }
 
 a {
