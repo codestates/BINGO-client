@@ -33,7 +33,7 @@ BINGO에서 사회적 가치를 구입하고,
 ![](https://img.shields.io/badge/BACK-Firebase-FFCA28?style=for-the-badge&logo=Firebase)
 
 
-<img width="1781" alt="TechStack" src="https://user-images.githubusercontent.com/48914716/89753542-b1149880-db13-11ea-9f00-d129920afd26.png">
+<img width="1781" alt="TechStack" src="https://ifh.cc/g/qmBsym.jpg">
 
 # 🔨 Architecture
 
