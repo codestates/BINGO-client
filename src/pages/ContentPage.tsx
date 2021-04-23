@@ -77,17 +77,6 @@ function ContentPage(props: any) {
   const [scrollDisplay, setScrollDisplay] = useState(0);
   const [display, setDisplay] = useState(true);
 
-  // window.onscroll = () => {
-  //   if (
-  //     document.body.scrollTop > 50 ||
-  //     document.documentElement.scrollTop > 50
-  //   ) {
-  //     document.getElementById("scrollDiv")?.textContent = "scroll";
-  //   } else {
-  //     document.getElementById("scrollDiv").textContent = "";
-  //   }
-  // };
-
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
   };

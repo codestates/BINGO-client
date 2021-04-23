@@ -1,4 +1,4 @@
-import { DO_LOGIN, CHANGE_USERINFO, ADD_LOVE, DELETE_LOVE } from "../action/index";
+import { DO_LOGIN, CHANGE_USERINFO, ADD_LOVE, DELETE_LOVE, LOGOUT } from "../action/index";
 import { initialState } from "./initialState";
 
 const loginReducer = (state = initialState, action: any) => {
@@ -29,9 +29,21 @@ const loginReducer = (state = initialState, action: any) => {
           ngoIdOfLoveList: state.userInfo.ngoIdOfLoveList.filter(el => el !== action.payload)
         }
       })
+
+    case LOGOUT:
+      return Object.assign({}, state, {
+        userInfo: {
+          userId: 1,
+          username: "체험 유저",
+          profileImage: "https://i.imgur.com/FP3hraO.png",
+          level: "새싹",
+          accessToken: "accessToken",
+          ngoIdOfLoveList: []
+        }
+      })
       
     default:
-      return initialState;
+      return state;
   }
 }
 
