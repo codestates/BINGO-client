@@ -40,10 +40,10 @@ function MyProfileEditModal() {
     console.log(userId, username, profileImage);
     console.log(file);
 
-    if(file && file.size > 5 * 1024 * 1024){
-      alertMessageBox.innerText = "파일 용량이 너무 크다능~"
+    if(file && file.size > 2 * 1024 * 1024){
+      alertMessageBox.innerText = "2MB이하의 파일을 사용해주세요"
     } else if (!inputImage.value && !inputName.value) {
-      alertMessageBox.innerText = "변경한 정보가 없다능~"
+      alertMessageBox.innerText = "변경한 정보가 없습니다"
     } else {
       axios.patch("https://server.ibingo.link/userinfo", {
         accessToken,
@@ -52,11 +52,11 @@ function MyProfileEditModal() {
         profileImage,
       })
       .then(res => {
-        alertMessageBox.innerText = "정보변경 완료됐다능"
+        alertMessageBox.innerText = "정보가 변경되었습니다"
         handleClickClose();
       })
       .catch(err => {
-        alertMessageBox.innerText = "에러 났다능~"
+        alertMessageBox.innerText = "에러가 발생했습니다"
       })
     }
   }
@@ -68,12 +68,13 @@ function MyProfileEditModal() {
         <div className="modalContainer shadow">
           <div className="modalContentPart shadow">
             <div style={{backgroundImage: `url(${imageSrc})`}} id="myEditModalPreview"/>
+            <label id="myEditModalCamera" htmlFor="myEditModalInputImage"><i className="fas fa-camera"/></label>
             <input type="file" id="myEditModalInputImage" onChange={(e) => readImage(e.target)} accept="image/*"/>
             <input type="text" id="myEditModalInputName" placeholder="변경할 유저네임을 입력해주세요"/>
             <div id="myEditModalAlertMessageBox">변경할 프로필사진을 업로드하고, <br/>변경할 유저네임을 입력해주세요</div>
             <button id="myEditModalSubmitButton" onClick={handleSubmitClick}>확인</button>
           </div>
-          <div className="payPageModalCloseBtn shadow" onClick={handleClickClose}>X</div>
+          <div className="payPageModalCloseBtn" onClick={handleClickClose}><i className="fas fa-times"/></div>
         </div>
       </div>
     ) : null}

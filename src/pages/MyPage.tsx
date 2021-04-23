@@ -89,8 +89,8 @@ function MyPage(props: any) {
                 className='shadow'
                 style={{ backgroundImage: `url(${userInfo.profileImage})` }}
               ></div>
+              <div id="myPageLevel">Level {userInfo.level}</div>
             <div id='myPageUsername'>{userInfo.username}</div>
-            <div>Level {userInfo.level}</div>
             <i className='fas fa-pen' onClick={handleEditClick} />
           </div>
           <div id='myPageMainContent'>
