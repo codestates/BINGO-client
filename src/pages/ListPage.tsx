@@ -298,9 +298,9 @@ function ListPage(props: any) {
               </div>
             )}
           </div>
+          <Footer></Footer>
         </div>
       )}
-      <Footer></Footer>
     </>
   );
 }
