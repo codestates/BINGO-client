@@ -1,5 +1,4 @@
 import { withRouter } from "react-router";
-import TestFooter from "../components/TestFooter";
 import "./css/TestPage.css";
 import { Motion, spring } from "react-motion";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,6 +13,7 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 function TestPage(props: any) {
   const text1 = ["당신은", "당신은"];
@@ -178,7 +178,7 @@ function TestPage(props: any) {
         <div id='testNavLogo' onClick={handleLogoClick}>
           B I N G O
         </div>
-        <div id='testSkipBtn' className='shadow' onClick={handleSkipBtnClick}>
+        <div className='navMyPage shadow' onClick={handleSkipBtnClick}>
           건너뛰기
         </div>
       </div>
@@ -293,7 +293,7 @@ function TestPage(props: any) {
       <div id='testExtraPart'>
         {/* <div id="testExtraDescription">위 열 가지 질문에 답해주시면, BINGO가 당신의 후원유형을 분석해드립니다</div> */}
       </div>
-      <TestFooter />
+      <Footer />
     </div>
   );
 }

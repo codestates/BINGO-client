@@ -3,6 +3,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 30px;
 }
 
 #testNavPart {
@@ -298,9 +301,15 @@
 }
 
 @media (max-width: 1024px) {
-  #testMainPart1,
-  #testMainPart {
+  #testPageContainer {
+    padding-bottom: 600px;
+  }
+  #testMainPart1 {
     width: 90%;
+  }
+
+  #testMainPart {
+    width: 87.5%;
   }
 
   #textResult {
@@ -352,8 +361,7 @@
 
 @media (max-width: 768px) {
   #testPageContainer {
-    background: var(--main-color-white);
-    height: 100%;
+    padding-bottom: 620px;
   }
 
   #testMainPart1 {
@@ -363,7 +371,7 @@
   }
 
   #testMainPart {
-    width: 90%;
+    width: 87.5%;
     height: 40rem;
     top: 3%;
   }
@@ -387,11 +395,6 @@
   #testMainBtnBox button {
     width: auto;
     margin-top: auto;
-  }
-
-  #testExtraSubmitBtn {
-    width: 96%;
-    top: 120%;
   }
 
   #resultPart {
@@ -422,21 +425,16 @@
   }
 
   #logo {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 7000;
   }
   #codeFarm {
     font-size: 12px;
   }
   #testNavPart {
-    height: 4rem;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 15rem;
+    min-height: 3rem;
   }
 }
-
-/* @media (max-width: 390px) {
-  #optionBtn {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    width: 90%;
-  }
-} */
