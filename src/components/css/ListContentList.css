@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   transition: top 0.2s;
+  min-height: 52rem;
 }
 
 #listContentShowMore {
@@ -12,8 +13,9 @@
   justify-content: center;
   border-radius: 4px;
   width: 80%;
+  margin: 1rem;
+  margin-bottom: 3rem;
   height: 4rem;
-  margin: 50px auto;
   background-color: var(--main-color-beige);
 }
 @media (max-width: 768px) {

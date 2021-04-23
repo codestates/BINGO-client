@@ -10,7 +10,7 @@ import "./css/ListContentEntry.css";
 export default function ListContentEntry() {
   const state = useSelector((state: RootState) => state.listReducer);
   const dispatch = useDispatch();
-  const [count, setCount] = useState(20); //페이지 랜더단체 갯수
+  const [count, setCount] = useState(12); //페이지 랜더단체 갯수
   const [content, setContent] = useState([]); //페이지 랜더단체
 
   const handleContentListEntryClick = (ngoId: number) => {
@@ -18,7 +18,7 @@ export default function ListContentEntry() {
   };
 
   const handleMoreBtnClick = () => {
-    setCount(count + 20); //더보기 누를시 9개씩 추가랜더
+    setCount(count + 12); //더보기 누를시 9개씩 추가랜더
   }
 
   useEffect(() => {
