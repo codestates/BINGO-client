@@ -37,8 +37,8 @@ BINGO에서 사회적 가치를 구입하고,
 
 # 🔨 Architecture
 
-### Client-Side Storyboard flow chart[DYNAMIC]
-![ezgif com-resize](https://user-images.githubusercontent.com/48914716/89759821-fcd03d80-db25-11ea-9ae0-4551a06b0607.gif)
+### Client-Side Storyboard flow chart
+![ezgif com-resize](https://ifh.cc/g/2Z2tZu.jpg)
 
 # 🗣 우리를 소개합니다.
 
