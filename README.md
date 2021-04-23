@@ -1,8 +1,5 @@
 ![](https://img.shields.io/badge/PROJECT-BINGO-brightgreen)
-![](https://img.shields.io/badge/Memory.log-Mobile-black?style=for-the-badge)
-<a href="https://gitmoji.carloscuesta.me">
-  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge" alt="Gitmoji">
-</a> 
+![](https://img.shields.io/badge/BINGO-webservice-lightgrey)
 
 
 ✅ [위의 뱃지를 활용하여 여러분의 저장소에 활용 해보세요](https://github.com/badges/shields)
