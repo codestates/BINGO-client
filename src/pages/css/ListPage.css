@@ -13,6 +13,21 @@
   /* color: #fefefe; */
 }
 
+#listTitle {
+  position: relative;
+  width: 1024px;
+  margin: 0 auto;
+  font-size: 4rem;
+  padding-left: 20px;
+  top: 30%;
+}
+
+#listSubTitle {
+  font-size: 1.5rem;
+  padding-left: 4px;
+  margin-top: 10px;
+}
+
 #listMainPart {
   width: 1024px;
   margin: 0 auto;
@@ -163,8 +178,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    height: 34rem;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
     padding: 1rem;
   }
 
@@ -173,18 +187,12 @@
     justify-content: center;
   }
 
-  .listSearchTitle {
-    margin-left: 3.2rem;
-    margin-right: 3.2rem;
-  }
-
   #listSearchTextClose {
     position: relative;
     margin: 0px;
   }
 
   #listSearchTextBox {
-    border: 2px solid var(--main-color-green);
     padding: 0.5rem;
     height: 3rem;
     width: 100%;
@@ -198,14 +206,14 @@
 }
 @media (max-width: 768px) {
   #listMainPart {
-    width: 70%;
+    width: 90%;
   }
 
   #listSearchCategory {
     flex-wrap: wrap;
     justify-content: first baseline;
-    height: 40rem;
-    margin-bottom: 5rem;
+    height: 100%;
+    margin-bottom: 1rem;
   }
 
   #listMainTitle {
@@ -214,15 +222,6 @@
 
   #listCoverPart {
     background-color: var(--main-color-white);
-  }
-
-  .listSearchTitle {
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
-  }
-
-  #listSearchKeyword {
-    height: 2.5rem;
   }
 
   #listSearchTextClose {

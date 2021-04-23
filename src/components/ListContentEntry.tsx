@@ -83,10 +83,10 @@ export default function ListContentEntry() {
         );
       }
       })}
+    </div>
       <div id="listContentShowMore">
         {count > content.length ? null:<div onClick={handleMoreBtnClick}>더보기</div>}
       </div>
-    </div>
     </div>
   );
 }
