@@ -175,4 +175,18 @@
   }
 }
 @media (max-width: 768px) {
+  #myCitizenInfoMain {
+    height: 10rem;
+    width: 32rem;
+    min-width: 32rem;
+    margin-right: 1rem;
+    margin-left: -1.5rem;
+  }
+
+  #myAllDonationGraph {
+    width: 32rem;
+    min-width: 32rem;
+    margin-right: 1rem;
+    margin-left: -1.5rem;
+  }
 }
