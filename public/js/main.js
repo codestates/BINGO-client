@@ -13,6 +13,9 @@ const checkGoogleAuth = async () => {
     .then((res) => {
       console.log(res.data);
       userId = res.data.userId;
+      if (userId > 1) {
+        loginBtn.style.visibility = "hidden";
+      }
     })
     .catch((err) => console.log(err));
 };
@@ -27,17 +30,17 @@ const checkKakaoAuth = async () => {
     .then((res) => {
       console.log(res.data);
       userId = res.data.userId;
+      if (userId > 1) {
+        loginBtn.style.visibility = "hidden";
+      }
     })
     .catch((err) => console.log(err));
 };
 checkGoogleAuth();
 checkKakaoAuth();
 
-if (userId > 1) {
-  loginBtn.style.visibility = "hidden";
-}
-
 const handleLoginBtnClick = () => {
+  console.log(userId);
   if (userId <= 1) {
     window.location.href = "/login";
   }

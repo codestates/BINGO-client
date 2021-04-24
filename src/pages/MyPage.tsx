@@ -31,7 +31,7 @@ function MyPage(props: any) {
       credentials: "include",
     })
     .then(() => {
-      dispatch(logout());
+      dispatch(logout);
     })
     .then(() => {
       window.location.href = "./guide.html";
