@@ -56,29 +56,85 @@ body.before-load {
   padding-top: 50vh;
 }
 
-.moving-image.a {
+.moving-image {
   position: relative;
   z-index: -2;
-  left: 10%;
-  width: 20rem;
+  width: 60%;
+}
+
+.moving-image.a {
+  top: 10%;
+  left: -2%;
 }
 .moving-image.b {
-  position: relative;
-  z-index: -2;
-  left: 15%;
-  width: 20rem;
+  top: 10%;
+  left: 50%;
 }
 .moving-image.c {
-  position: relative;
-  z-index: -2;
-  left: 20%;
-  width: 20rem;
+  top: -10%;
+  left: 10%;
 }
 .moving-image.d {
+  top: 1%;
+  left: 45%;
+}
+.moving-image.e {
+  top: -45%;
+  left: -10%;
+}
+
+#circle-section {
   position: relative;
-  z-index: -2;
-  left: 25%;
-  width: 20rem;
+  top: 5%;
+  left: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+}
+#circle-section .text {
+  position: absolute;
+  color: rgb(233, 232, 228);
+  font-size: 18px;
+  user-select: none;
+  pointer-events: none;
+  animation: rotate 7.5s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#circle-section .text .circle-letter {
+  position: absolute;
+  top: -100px;
+  text-transform: uppercase;
+  display: inline-block;
+  transform-origin: 0 100px;
+}
+
+#scroll-section-1 .description {
+  position: relative;
+  top: -75%;
+  font-size: 1rem;
+  width: 80%;
+  font-style: italic;
+  color: rgb(211, 190, 193);
+}
+
+#scroll-section-1 p {
+  color: rgb(255, 255, 254);
+}
+
+#scroll-section-4 p {
+  color: rgb(255, 255, 254);
+}
+
+#scroll-section-2 * {
+  color: rgb(255, 255, 254);
 }
 
 #scroll-section-0 h1 {
@@ -94,7 +150,8 @@ body.before-load {
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: -7rem;
+  top: -5rem;
+  margin: 0 2rem;
 }
 #start-description span {
   padding: 0 0.5rem;
@@ -102,6 +159,7 @@ body.before-load {
   background-color: rgb(50, 50, 50);
   margin: 0.125rem;
   color: rgb(142, 155, 154);
+  text-align: center;
 }
 #start-description button {
   margin: 1.5rem;
@@ -158,7 +216,7 @@ body.before-load {
   position: fixed;
   z-index: 15;
   top: 90vh;
-  left: 94vw;
+  left: 85vw;
 }
 #toTop:hover {
   background-color: rgb(50, 50, 50);
@@ -213,16 +271,20 @@ body.before-load {
 
 .mid-message {
   font-size: 2rem;
-  color: #888;
+  color: rgb(233, 232, 228);
+  font-weight: bold;
   padding: 0 1rem;
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  top: -1%;
+  text-align: end;
 }
 .mid-message strong {
   color: rgb(29, 29, 31);
 }
 .moving-message {
-  font-size: 10rem;
+  font-size: 4rem;
   font-weight: bolder;
   color: rgb(56, 82, 79);
   width: max-content;
@@ -232,10 +294,14 @@ body.before-load {
 
 .canvas-caption {
   padding: 0 1rem;
-  font-size: 1.2rem;
-  color: #888;
+  font-size: 0.9rem;
+  color: rgb(211, 190, 193);
   max-width: 1000px;
   margin: -24rem auto 0;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid rgb(211, 190, 193);
+  padding: 1.5rem;
 }
 .footer {
   display: flex;
@@ -353,21 +419,68 @@ body.before-load {
   .main-message small {
     font-size: 1.5vw;
   }
-  /* #scroll-section-2 .b {
-    top: 20%;
-    left: 53%;
-  }
-  #scroll-section-2 .c {
-    left: 55%;
-  } */
   .mid-message {
     width: 1000px;
     padding: 0;
     font-size: 4vw;
   }
   .canvas-caption {
-    font-size: 2rem;
+    font-size: 1.25rem;
     padding: 0;
     margin-top: -8rem;
+    border-radius: 50%;
+    border: 1px solid rgb(211, 190, 193);
+    padding: 1.5rem;
+  }
+  .moving-message {
+    font-size: 10rem;
+  }
+  #scroll-section-1 .description {
+    position: relative;
+    top: 20%;
+    font-size: 1.35rem;
+    width: 30%;
+    font-style: italic;
+    color: rgb(211, 190, 193);
+  }
+  #circle-section {
+    top: 20%;
+    left: -15%;
+  }
+  #toTop {
+    left: 94vw;
+  }
+  .canvas-caption {
+    font-size: 1.25rem;
+  }
+  .moving-image {
+    position: relative;
+    z-index: -2;
+    width: 16.5%;
+  }
+
+  .moving-image.a {
+    left: -2%;
+  }
+  .moving-image.b {
+    left: 4%;
+  }
+  .moving-image.c {
+    left: 10%;
+  }
+  .moving-image.d {
+    left: 16%;
+  }
+  .moving-image.e {
+    top: 3%;
+    left: 22%;
+  }
+  #start-description {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: -7rem;
   }
 }

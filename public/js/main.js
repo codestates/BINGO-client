@@ -79,6 +79,16 @@ toTop.addEventListener("click", () => {
   }, 20);
 });
 
+const text = document.querySelector(".text");
+text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+const section = document.querySelector("#circle-section");
+const element = section.querySelectorAll("span");
+for (let i = 0; i < element.length; i++) {
+  element[i].style.transform = "rotate(" + i * 14 + "deg)";
+  element[i].classList.add("circle-letter");
+}
+
 (() => {
   let yOffset = 0;
   let prevScrollHeight = 0;
@@ -130,7 +140,7 @@ toTop.addEventListener("click", () => {
     {
       //1
       type: "sticky",
-      heightNum: 2,
+      heightNum: 1,
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-1"),
@@ -140,14 +150,16 @@ toTop.addEventListener("click", () => {
         imageB: document.querySelector("#scroll-section-1 .moving-image.b"),
         imageC: document.querySelector("#scroll-section-1 .moving-image.c"),
         imageD: document.querySelector("#scroll-section-1 .moving-image.d"),
+        imageE: document.querySelector("#scroll-section-1 .moving-image.e"),
       },
       values: {
         messageA_moving_in: [-10, -60, { start: -0.2, end: 0.5 }],
         messageB_moving_in: [-60, -10, { start: -0.2, end: 0.5 }],
-        imageA_translateY: [140, -100, { start: 0, end: 0.6 }],
-        imageB_translateY: [110, -200, { start: 0, end: 0.6 }],
-        imageC_translateY: [120, -150, { start: 0, end: 0.6 }],
-        imageD_translateY: [130, -250, { start: 0, end: 0.6 }],
+        imageA_translateY: [110, -200, { start: 0, end: 0.8 }],
+        imageB_translateY: [110, -300, { start: 0, end: 0.8 }],
+        imageC_translateY: [110, -220, { start: 0, end: 0.8 }],
+        imageD_translateY: [110, -350, { start: 0, end: 0.8 }],
+        imageE_translateY: [110, -250, { start: 0, end: 0.8 }],
       },
     },
     {
@@ -296,30 +308,32 @@ toTop.addEventListener("click", () => {
     let imgElem;
     for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
       imgElem = new Image();
-      imgElem.src = `./video/BINGO_SCENE00/BINGO_SCENE${1000 + i}.JPG`;
+      imgElem.src = `https://s3.ap-northeast-2.amazonaws.com/ibingo.link/video/BINGO_SCENE00/BINGO_SCENE${
+        1000 + i
+      }.jpg`;
       sceneInfo[0].objs.videoImages.push(imgElem);
     }
 
-    // let imgElem2;
-    // for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
-    //   imgElem2 = new Image();
-    //   imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
-    //   sceneInfo[2].objs.videoImages.push(imgElem2);
-    // }
+    let imgElem2;
+    for (let i = 0; i < sceneInfo[2].values.videoImageCount; i++) {
+      imgElem2 = new Image();
+      imgElem2.src = `./video/BINGO_SCENE02/BINGO_SCENE${2000 + i}.JPG`;
+      sceneInfo[2].objs.videoImages.push(imgElem2);
+    }
 
-    // let imgElem3;
-    // for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
-    //   imgElem3 = new Image();
-    //   imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
-    //   sceneInfo[3].objs.videoImages.push(imgElem3);
-    // }
+    let imgElem3;
+    for (let i = 0; i < sceneInfo[3].values.videoImageCount; i++) {
+      imgElem3 = new Image();
+      imgElem3.src = `./video/BINGO_SCENE03/BINGO_SCENE${3000 + i}.JPG`;
+      sceneInfo[3].objs.videoImages.push(imgElem3);
+    }
 
-    // let imgElem4;
-    // for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
-    //   imgElem4 = new Image();
-    //   imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
-    //   sceneInfo[4].objs.videoImages.push(imgElem4);
-    // }
+    let imgElem4;
+    for (let i = 0; i < sceneInfo[4].values.videoImageCount; i++) {
+      imgElem4 = new Image();
+      imgElem4.src = `./video/BINGO_SCENE04/BINGO_SCENE${4000 + i}.JPG`;
+      sceneInfo[4].objs.videoImages.push(imgElem4);
+    }
 
     let imgElem5;
     for (let i = 0; i < sceneInfo[5].objs.imagesPath.length; i++) {
@@ -489,7 +503,7 @@ toTop.addEventListener("click", () => {
         break;
 
       case 1:
-        if (scrollRatio < 0.4) {
+        if (scrollRatio < 0.8) {
           objs.messageA.style.transform = `translate3d(${calcValues(
             values.messageA_moving_in,
             currentYOffset
@@ -512,6 +526,10 @@ toTop.addEventListener("click", () => {
           )}%)`;
           objs.imageD.style.transform = `translateY(${calcValues(
             values.imageD_translateY,
+            currentYOffset
+          )}%)`;
+          objs.imageE.style.transform = `translateY(${calcValues(
+            values.imageE_translateY,
             currentYOffset
           )}%)`;
         }
