@@ -83,7 +83,7 @@ function MyPage(props: any) {
           <div id="navBox" onMouseOver={() => {setDisplay('block'); setbtnDisplay('none'); setOpacity(1);}} onMouseOut={() => {setDisplay('none'); setbtnDisplay('block'); setOpacity(0);}}>
             <div id="myPageNavBtn" className="shadow" style={{ display: btnDisplay}}>페이지 이동</div>
             <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display, opacity }}>홈</div>
-            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display, opacity }}>결제리스트</div>
+            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display, opacity }}>결제페이지</div>
             <div id="myPageTestBtn" className="shadow" onClick={handleTestPageClick} style={{ display, opacity }} >테스트</div>
           </div>
         </div>
