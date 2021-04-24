@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../reducers";
-import { showMypage, showMypageModal, showMyProfileEditModal } from "../action";
+import { showMypage, showMyProfileEditModal, logoutState } from "../action";
 import axios from "axios";
 import MyPageModal from "../components/MyPageModal";
 import MyProfileEditModal from "../components/MyProfileEditModal";
@@ -26,18 +26,15 @@ function MyPage(props: any) {
     window.location.href = "./guide.html";
   };
   const logout = async () => {
+    dispatch(logoutState())
     await fetch("https://server.ibingo.link/logout", {
       method: "POST",
       credentials: "include",
     })
-    .then(() => {
-      dispatch(logout);
-    })
+    .catch(err => console.log(err))
     .then(() => {
       window.location.href = "./guide.html";
     })
-    .catch(err => console.log(err));
-    
   };
 
   const handleListPageClick = () => {

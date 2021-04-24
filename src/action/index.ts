@@ -195,7 +195,7 @@ export const deleteLove = (ngoId: number) => {
   };
 };
 
-export const logout = () => {
+export const logoutState = () => {
   return {
     type: LOGOUT,
   };
