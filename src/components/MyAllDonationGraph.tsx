@@ -191,7 +191,7 @@ function MyAllDonationGraph(){
       <div id="myAllDonationGraphContainer">
       <div className="myPageTitle">나의 후원 비율</div>
       <div className="myPageSubTitle">아래 파이차트의 각 부분을 호버하면 상세정보를 확인하실 수 있습니다.</div>
-      <div id="myAllDonationGraph">
+      <div id="myAllDonationGraph" className="shadow">
       {isThereEnoughData ? null :      
       <div id="myAlertContainer">
         <div>빙고가 당신의 후원활동을 분석할 수 있도록 <br />최소 1개의 단체를 후원해주세요!</div>

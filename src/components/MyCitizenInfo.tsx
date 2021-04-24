@@ -97,7 +97,7 @@ function MyCitizenInfo(){
   <div id="myCitizenInfoContainer">
     <div className="myPageTitle">소셜 키워드</div>
     <div className="myPageSubTitle">후원과 좋아요를 통해 분석한 랜덤키워드를 띄워드립니다.</div>
-    <div id="myCitizenInfoMain">
+    <div id="myCitizenInfoMain" className="shadow">
       {isThereEnoughData ? null :      
       <div id="myAlertContainer">
         <div>빙고가 당신의 후원활동을 분석할 수 있도록 <br /> NGO단체에 좋아요를 누르거나 후원해주세요!</div>
