@@ -88,7 +88,7 @@ BINGO에서 사회적 가치를 구입하고,
     </tr>
     <tr>
       <td align="center">
-        <a href="https://github.com/spark0109">
+        <a href="https://github.com/louis220">
           <sub>
             <b>양자경</b>
           </sub>
