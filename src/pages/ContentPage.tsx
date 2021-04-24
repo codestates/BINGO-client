@@ -229,7 +229,7 @@ function ContentPage(props: any) {
             className='navMyPage shadow'
             onClick={handleMyPageClick}
           >
-            마이페이지
+            나의 빙고
           </div>
           <div
             className='navMyPage shadow'

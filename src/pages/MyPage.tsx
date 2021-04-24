@@ -63,24 +63,28 @@ function MyPage(props: any) {
         console.log(res.data);
         dispatch(showMypage(res.data));
       })
-      .then(() => setLoading(false))
+      .then(() => {
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000)
+      })
       .catch(err => console.log(err));
 
   }, []);
 
   return (
   <>
-  { isLoading ? <div>로딩중</div> :
+  { isLoading ? <div id="loading"><img src="https://s3.ap-northeast-2.amazonaws.com/ibingo.link/images/%EC%B5%9C%EC%A0%95%ED%98%B8+%EB%B3%B4%EA%B1%B0%EB%9D%BC%EB%9D%BC.gif" id="loadingImg"></img></div> :
   <div id="myPageContainer">
     <MyPageModal />
     <MyProfileEditModal />
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
           <div id="navBox" onMouseOver={() => {setDisplay('block'); setbtnDisplay('none'); setOpacity(1);}} onMouseOut={() => {setDisplay('none'); setbtnDisplay('block'); setOpacity(0);}}>
-            <div id="myPageNavBtn" className="navMyPage shadow" style={{ display: btnDisplay}}>페이지 이동</div>
-            <div id="myPageTestBtn" className="navMyPage shadow" onClick={handleTestPageClick} style={{ display, opacity }} >테스트</div>
-            <div id="myPagePayPageBtn" className="navMyPage shadow" onClick={handlePayPageClick} style={{ display, opacity }}>결제페이지</div>
-            <div id="myPagePayPageBtn" className="navMyPage shadow" onClick={handleListPageClick} style={{ display, opacity }}>뒤로가기</div>
+            <div id="myPageNavBtn" className="shadow" style={{ display: btnDisplay}}>페이지 이동</div>
+            <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display, opacity }}>홈</div>
+            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display, opacity }}>결제리스트</div>
+            <div id="myPageTestBtn" className="shadow" onClick={handleTestPageClick} style={{ display, opacity }} >테스트</div>
           </div>
         </div>
         <div id='myPageCoverPart'></div>
