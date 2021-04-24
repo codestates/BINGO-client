@@ -103,7 +103,12 @@ function ListPage(props: any) {
         return res.data.data;
       })
       .then((data) => dispatch(showList(data)))
-      .then(() => setLoading(false))
+      .then(() => {
+        setTimeout(() => {
+          setLoading(false)
+        }, 1500)
+        
+      })
       .catch(err => console.log("list_err:", err));
 
     })
@@ -132,16 +137,21 @@ function ListPage(props: any) {
   };
 
   const [justify, setJustify] = useState('center');
-  const [searchStyle, setSearchStyle] = useState([5.4, '50%']);
+  const [searchStyle, setSearchStyle] = useState(['5.4rem', '50%']);
 
   const handleSearchClick = () => {
+    console.log(document.body.offsetWidth)
     setJustify('flex-end')
     if (displaySearch) {
       
     } else {
       setCategory([]);
       setDisplaySearch(true);
-      setSearchStyle([30, '40px'])
+      if (document.body.offsetWidth < 520) {
+        setSearchStyle(['90%', '40px'])
+      } else {
+        setSearchStyle(['30rem', '40px'])
+      }
     }
   };
 
@@ -158,7 +168,7 @@ function ListPage(props: any) {
       ["보건", "https://ifh.cc/g/6bgLMg.png"],
       ["다문화", "https://ifh.cc/g/MQxSvS.png"],
     ]);
-    setSearchStyle([5.4, '50%']);
+    setSearchStyle(['5.4rem', '50%']);
     setDisplaySearch(false);
     setResult([]);
     setQuery("");
@@ -188,7 +198,7 @@ function ListPage(props: any) {
   return (
     <>
       {isLoading ? (
-        <div>로딩중</div>
+        <div id="loading"><img src="https://s3.ap-northeast-2.amazonaws.com/ibingo.link/images/%EC%B5%9C%EC%A0%95%ED%98%B8+%EB%B3%B4%EA%B1%B0%EB%9D%BC%EB%9D%BC.gif" id="loadingImg"></img></div>
       ) : (
         <div id='listPageContainer' onWheel={e => setscroll(window.scrollY)}>
           
@@ -198,7 +208,7 @@ function ListPage(props: any) {
                 B I N G O
               </div>
               <div className='navMyPage shadow' onClick={handleMyPageClick}>
-                마이페이지
+                나의 빙고
               </div>
             </div>
             <div id="listTitle">
@@ -244,7 +254,7 @@ function ListPage(props: any) {
                     id='listSearchKeyword'
                     className='listSearchTitle'
                     onClick={handleSearchClick}
-                    style={{ width: `${searchStyle[0]}rem`, borderRadius: `${searchStyle[1]}` }}
+                    style={{ width: `${searchStyle[0]}`, borderRadius: `${searchStyle[1]}` }}
                   >
                     <i className='fas fa-search'></i>
                     {

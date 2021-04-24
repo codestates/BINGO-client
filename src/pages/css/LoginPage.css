@@ -234,3 +234,17 @@
     display: none;
   }
 }
+
+@media (max-width: 420px) {
+  #loginMainBox {
+    width: 100%;
+  }
+
+  .loginBtnBox {
+    width: 95%;
+  }
+
+  #loginTitle {
+    font-size: 3rem;
+  }
+}

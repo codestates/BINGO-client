@@ -33,8 +33,6 @@ const checkKakaoAuth = async () => {
 checkGoogleAuth();
 checkKakaoAuth();
 
-console.log(userId);
-
 if (userId > 1) {
   loginBtn.style.visibility = "hidden";
 }

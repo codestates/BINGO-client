@@ -114,15 +114,14 @@ li {
   padding: 1rem;
   margin-top: 0.5rem;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--main-color-white);
-  cursor: pointer;
-}
-#contentMyPageBtn:hover {
+  background-color: #fff;
   cursor: pointer;
 }
 
 #contentMyPageBtn:hover {
   cursor: pointer;
+  transform: translate(0.75rem, 0rem);
+  background-color: var(--main-color-yellow);
 }
 
 #contentMainPart {

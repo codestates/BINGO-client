@@ -217,6 +217,7 @@
   }
 
   #listSearchCategory {
+    width: 100%;
     flex-wrap: wrap;
     justify-content: first baseline;
     height: 100%;
@@ -248,5 +249,15 @@
 
   #ListContentSearchContentBox {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  #listTitle {
+    font-size: 3rem;
+  }
+
+  #listSubTitle {
+    font-size: 1rem;
   }
 }

@@ -23,7 +23,7 @@ export interface ExampleState {
 function PayPage(props: any) {
   const state = useSelector((state: RootState) => state.payReducer);
   const dispatch = useDispatch();
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const userState = useSelector((state: RootState) => state.loginReducer);
   const { userInfo } = userState;
   const [zIndex, setzIndex] = useState(10);
@@ -72,7 +72,9 @@ function PayPage(props: any) {
         setrepeatData(repeatList);
       })
       .catch(err => console.log(err));
-    setLoading(true);
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
     setTimeout(() => {
       setzIndex(-10);
     }, 5000);
@@ -254,8 +256,8 @@ function PayPage(props: any) {
 
   return (
     <>
-      {!isLoading ? (
-        <div>로딩중</div>
+      {isLoading ? (
+        <div id="loading"><img src="https://s3.ap-northeast-2.amazonaws.com/ibingo.link/images/%EC%B5%9C%EC%A0%95%ED%98%B8+%EB%B3%B4%EA%B1%B0%EB%9D%BC%EB%9D%BC.gif" id="loadingImg"></img></div>
       ) : (
         <div id='payPageContainer' onMouseUp={() => setCurrentItem(-1)}>
           <div id='payTutorialContainer' style={{ zIndex }}>
@@ -272,7 +274,7 @@ function PayPage(props: any) {
               B I N G O
             </div>
             <div className='navMyPage shadow' onClick={handleMyPageClick}>
-              mypage
+              나의 빙고
             </div>
           </div>
           <div id='payListPart'>

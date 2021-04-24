@@ -22,7 +22,7 @@
   padding: 1rem;
   margin-top: 0.75rem;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--main-color-white);
+  background-color: #fff;
   border: 1px solid var(--main-color-green);
   position: absolute;
   right: 0;
@@ -50,8 +50,13 @@
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--main-color-white);
+  background-color: #fff;
   border: 1px solid var(--main-color-green);
+}
+
+#myPagePayPageBtn:hover {
+  transform: translate(0.75rem, 0rem);
+  background-color: var(--main-color-yellow);
 }
 
 #myPageLogoutBtn {
@@ -63,8 +68,13 @@
   padding: 1rem;
   margin-top: 0.75em;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--main-color-white);
+  background-color: #fff;
   border: 1px solid var(--main-color-green);
+}
+
+#myPageLogoutBtn:hover {
+  transform: translate(0.75rem, 0rem);
+  background-color: var(--main-color-yellow);
 }
 
 #myPageTestBtn {
@@ -76,8 +86,13 @@
   padding: 1rem;
   margin-top: 0.75em;
   border-radius: 2rem 0 0 2rem;
-  background-color: var(--main-color-white);
+  background-color: #fff;
   border: 1px solid var(--main-color-green);
+}
+
+#myPageTestBtn:hover {
+  transform: translate(0.75rem, 0rem);
+  background-color: var(--main-color-yellow);
 }
 
 #myPageCoverPart {
@@ -157,16 +172,12 @@
 }
 
 #navBox {
-  margin-top: 140px;
+  padding-top: 270px;
   transition: all 2s;
 }
 
 #navBox:hover {
   cursor: pointer;
-}
-
-#navBox div {
-  transition: all 2s;
 }
 
 @media (max-width: 1024px) {
