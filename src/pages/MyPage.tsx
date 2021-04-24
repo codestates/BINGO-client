@@ -77,11 +77,10 @@ function MyPage(props: any) {
       <div id="myPageNavPart">
         <div id="myPageNavLogo" onClick={handleLogoClick}>B I N G O</div>
           <div id="navBox" onMouseOver={() => {setDisplay('block'); setbtnDisplay('none'); setOpacity(1);}} onMouseOut={() => {setDisplay('none'); setbtnDisplay('block'); setOpacity(0);}}>
-            <div id="myPageNavBtn" className="shadow" style={{ display: btnDisplay}}>페이지 이동</div>
-            <div id="myPageTestBtn" className="shadow" onClick={handleTestPageClick} style={{ display, opacity }} >테스트</div>
-            <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display, opacity }}>리스트</div>
-            <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display, opacity }}>페이페이지</div>
-            <div id="myPageLogoutBtn" className="shadow" onClick={logout} style={{ display, opacity }}>로그아웃</div>
+            <div id="myPageNavBtn" className="navMyPage shadow" style={{ display: btnDisplay}}>페이지 이동</div>
+            <div id="myPageTestBtn" className="navMyPage shadow" onClick={handleTestPageClick} style={{ display, opacity }} >테스트</div>
+            <div id="myPagePayPageBtn" className="navMyPage shadow" onClick={handlePayPageClick} style={{ display, opacity }}>결제페이지</div>
+            <div id="myPagePayPageBtn" className="navMyPage shadow" onClick={handleListPageClick} style={{ display, opacity }}>뒤로가기</div>
           </div>
         </div>
         <div id='myPageCoverPart'></div>
@@ -95,6 +94,7 @@ function MyPage(props: any) {
               <div id="myPageLevel">Level {userInfo.level}</div>
             <div id='myPageUsername'>{userInfo.username}</div>
             <i className='fas fa-pen' onClick={handleEditClick} />
+            <div id="myPageLogout" onClick={logout}>로그아웃</div>
           </div>
           <div id='myPageMainContent'>
             <MyRegularDonationList />

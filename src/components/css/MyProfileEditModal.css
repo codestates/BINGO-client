@@ -63,3 +63,9 @@
   text-align: center;
   margin: 0.5rem;
 }
+
+@media (max-width: 768px) {
+  #myEditModalAlertMessageBox {
+    display: none;
+  }
+}

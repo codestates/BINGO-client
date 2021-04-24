@@ -272,7 +272,7 @@ function PayPage(props: any) {
               B I N G O
             </div>
             <div className='navMyPage shadow' onClick={handleMyPageClick}>
-              mypage
+              마이페이지
             </div>
           </div>
           <div id='payListPart'>
@@ -387,9 +387,9 @@ function PayPage(props: any) {
               </div>
             )}
           </div>
+          <Footer />
         </div>
       )}
-      <Footer />
     </>
   );
 }
