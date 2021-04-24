@@ -77,26 +77,22 @@ function ContentPage(props: any) {
   const [scrollDisplay, setScrollDisplay] = useState(0);
   const [display, setDisplay] = useState(true);
 
-  // window.onscroll = () => {
-  //   if (
-  //     document.body.scrollTop > 50 ||
-  //     document.documentElement.scrollTop > 50
-  //   ) {
-  //     document.getElementById("scrollDiv")?.textContent = "scroll";
-  //   } else {
-  //     document.getElementById("scrollDiv").textContent = "";
-  //   }
-  // };
-
   const handleLogoClick = () => {
     window.location.href = "./guide.html";
   };
+
   const handleMyPageClick = () => {
     props.history.push("/mypage");
   };
+
+  const handleListPageClick = () => {
+    props.history.push("/list");
+  }
+  
   const handleNgoLogoClick = () => {
     window.open(ngoInfo.data.link);
   };
+
   const checkLove = () => {
     if (userInfo.ngoIdOfLoveList.length > 0) {
       if (userInfo.ngoIdOfLoveList.indexOf(currentNgoId) >= 0) {
@@ -142,8 +138,7 @@ function ContentPage(props: any) {
           .catch(err => console.log(err));
       }
     } else {
-      alert("로그인 해줘");
-      // 로그인이 필요합니다. 토스트
+      alert("로그인이 필요합니다");
     }
   };
   const pickImages = categoryArr => {
@@ -169,12 +164,9 @@ function ContentPage(props: any) {
         .then(() => dispatch(showcontentModal(true)))
         .catch(err => console.log(err));
     } else {
-      alert("로그인 해줘");
-      // 로그인이 필요합니다. 토스트
+      alert("로그인이 필요합니다");
     }
   };
-  // console.log("qqqqqqqq:", document.documentElement.scrollTop);
-  // console.log("스크롤위치:", window.scrollY);
 
   useEffect(() => {
     console.log("eeeeeeeeeeeee:", window.scrollY);
@@ -211,9 +203,6 @@ function ContentPage(props: any) {
     <div
       id='contentPageContainer'
       onWheel={e => setScrollDisplay(window.scrollY)}
-      // style={{
-      //   overflow: "auto",
-      // }}
     >
       <ContentPageModal ngoName={ngoInfo.data.name} />
       <div id='contentHeaderPart'>
@@ -235,12 +224,19 @@ function ContentPage(props: any) {
           <div id='contentNavLogo' onClick={handleLogoClick}>
             B I N G O
           </div>
+          <div style={{display: "flex", flexDirection: "column"}}>
           <div
-            id='contentMyPageBtn'
-            className='shadow'
+            className='navMyPage shadow'
             onClick={handleMyPageClick}
           >
             마이페이지
+          </div>
+          <div
+            className='navMyPage shadow'
+            onClick={handleListPageClick}
+          >
+            뒤로가기
+          </div>
           </div>
         </div>
       </div>

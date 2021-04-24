@@ -1,9 +1,10 @@
 #payPageContainer {
-  width: 100vw;
   min-height: 100vh;
+  height: 100vh;
   background-color: var(--main-color-white);
-  display: flex;
-  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 100px; /* footer height */
 }
 
 #payNavPart {
@@ -44,9 +45,10 @@
   margin-top: 1.5rem;
   width: 15%;
   text-align: center;
-  border: 1px solid var(--main-color-green);
   border-radius: 2rem;
   background-color: var(--main-color-light-green);
+  font-weight: bold;
+  color: var(--main-color-green);
 }
 
 #noPayList {
@@ -374,6 +376,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  #payPageContainer {
+    height: 120%;
+  }
+
   #payListPart {
     width: 80%;
   }

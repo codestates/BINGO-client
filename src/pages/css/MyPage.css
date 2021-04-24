@@ -119,7 +119,7 @@
   border-radius: 0.5rem;
 }
 .fas.fa-pen:hover {
-  background-color: var(--main-color-light-green);
+  background-color: var(--main-color-pink);
   cursor: pointer;
 }
 
@@ -157,7 +157,7 @@
 }
 
 #navBox {
-  margin-top: 140px;
+  margin-top: 80px;
   transition: all 2s;
 }
 
@@ -165,8 +165,13 @@
   cursor: pointer;
 }
 
-#navBox div {
-  transition: all 2s;
+#myPageLogout {
+  padding: 0.4rem;
+  border-radius: 20px;
+}
+
+#myPageLogout:hover {
+  background-color: var(--main-color-pink);
 }
 
 @media (max-width: 1024px) {

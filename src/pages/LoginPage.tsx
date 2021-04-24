@@ -67,7 +67,7 @@ function LoginPage(props: any) {
         <div className="loginLabel">카카오 로그인</div>
         </div>
         <div className="loginBtnBox shadow" onClick={handleStartBtnClick}>
-          <div className="loginLabel">비회원으로 시작하기</div>
+          <div id="noLoginLabel">비회원으로 시작하기</div>
         </div>
         <p id="loginDescription">비회원 시작의 경우, 테스트 유저로 로그인됩니다</p>
       </div>
