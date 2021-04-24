@@ -52,7 +52,7 @@ function MyMonthlyDonationGraph(){
     <div id="myMonthlyDonationGraphContainer" onMouseOver={() => show(1)} onMouseOut={() => show(0)}>
       <div className="myPageTitle">{`${currentYear} 후원 그래프`}</div>
       <div className="myPageSubTitle">{`${currentYear}년 월별 후원 금액을 살펴보실 수 있습니다.`}</div>
-      <div id="myMonthlyDonationGraph">
+      <div id="myMonthlyDonationGraph" className="shadow">
         <button id="preYear" style={{ opacity: isVisible }} onClick={() => donateYears[donateYears.indexOf(currentYear)-1] ? changeYear(donateYears[donateYears.indexOf(currentYear)-1]) : false}>{`<`}</button>
         <div id="graph">
           {
