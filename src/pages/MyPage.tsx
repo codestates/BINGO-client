@@ -85,7 +85,6 @@ function MyPage(props: any) {
             <div id="myPagePayPageBtn" className="shadow" onClick={handleListPageClick} style={{ display, opacity }}>홈</div>
             <div id="myPagePayPageBtn" className="shadow" onClick={handlePayPageClick} style={{ display, opacity }}>결제리스트</div>
             <div id="myPageTestBtn" className="shadow" onClick={handleTestPageClick} style={{ display, opacity }} >테스트</div>
-            <div id="myPageLogoutBtn" className="shadow" onClick={logout} style={{ display, opacity }}>로그아웃</div>
           </div>
         </div>
         <div id='myPageCoverPart'></div>
@@ -99,6 +98,7 @@ function MyPage(props: any) {
               <div id="myPageLevel">Level {userInfo.level}</div>
             <div id='myPageUsername'>{userInfo.username}</div>
             <i className='fas fa-pen' onClick={handleEditClick} />
+            <div id="myPageLogout" onClick={logout}>로그아웃</div>
           </div>
           <div id='myPageMainContent'>
             <MyRegularDonationList />

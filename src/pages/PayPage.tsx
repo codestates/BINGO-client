@@ -389,9 +389,9 @@ function PayPage(props: any) {
               </div>
             )}
           </div>
+          <Footer />
         </div>
       )}
-      <Footer />
     </>
   );
 }

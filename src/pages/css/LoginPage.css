@@ -81,6 +81,11 @@
 
 .loginLabel {
   font-size: 1.125rem;
+  width: 7rem;
+}
+
+#noLoginLabel {
+  font-size: 1.125rem;
 }
 
 #loginDescription {

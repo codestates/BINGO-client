@@ -38,7 +38,7 @@ function MyPageModal() {
             <div id="payModalSubtitle2">아래 버튼을 누르면 해당 단체에 대한 후원이 중단됩니다.</div>
             <div id="contentModalConfirmBtn" className="shadow" onClick={() => stopSubcribe()}>확인</div>
           </div>
-          <div className="payPageModalCloseBtn shadow" onClick={handleClickClose}>X</div>
+          <div className="payPageModalCloseBtn" onClick={handleClickClose}><i className="fas fa-times"/></div>
         </div>
       </div>
     ) : null}

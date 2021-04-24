@@ -90,11 +90,11 @@ button:focus {
   border-radius: 2rem 0 0 2rem;
   background-color: #fff;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .navMyPage:hover {
   transform: translate(0.75rem, 0rem);
-  background-color: var(--main-color-yellow);
 }
 
 .modalWholeContainer {
