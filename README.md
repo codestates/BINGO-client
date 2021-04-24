@@ -35,6 +35,10 @@ BINGO에서 사회적 가치를 구입하고,
 
 <img width="1781" alt="TechStack" src="https://ifh.cc/g/qmBsym.jpg">
 
+![bingo](https://user-images.githubusercontent.com/46963394/115964750-ddb4f700-a560-11eb-8852-15fb11603889.png)
+
+
+
 # 🔨 Architecture
 
 ### Client-Side Storyboard flow chart
