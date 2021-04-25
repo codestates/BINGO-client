@@ -198,9 +198,4 @@
   }
 }
 @media (max-width: 768px) {
-  #myCitizenInfoMain {
-    height: 10rem;
-    min-width: 32rem;
-    margin-left: -0.5rem;
-  }
 }
