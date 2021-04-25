@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid var(--main-color-green);
 }
 #myCitizenInfoMain span {
   padding: 3rem;

@@ -83,6 +83,10 @@ body.before-load {
   left: -10%;
 }
 
+#start-button:focus {
+  outline: 0;
+}
+
 #circle-section {
   position: relative;
   top: 5%;
