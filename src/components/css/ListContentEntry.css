@@ -1,0 +1,126 @@
+#card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 400px;
+}
+
+#ListContentEntryContainer {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.8s;
+  border-radius: 2rem;
+  margin-bottom: 20px;
+}
+
+#ListContentEntryContainer:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* #ListContentEntryContainer:hover .listBackPart {
+  opacity: 100%;
+  color: black;
+}
+
+#ListContentEntryContainer:hover #ListContentEntryLogo {
+  display: none;
+} */
+
+.front {
+  width: 18rem;
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.listBackPart {
+  width: 18rem;
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  opacity: 0%;
+  justify-content: center;
+  align-items: center;
+}
+
+#ListContentEntryDescription {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  color: gray;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#ListContentEntryLogoBox {
+  display: flex;
+  width: 17rem;
+  height: 13rem;
+  border-radius: 2rem;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ddd;
+  justify-content: center;
+}
+
+#ListContentEntryLogo {
+  margin-top: auto;
+  margin-bottom: auto;
+  align-self: center;
+  max-width: 90%;
+  max-height: 90%;
+  width: 100%;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#ListContentEntryTitle {
+  padding: 1rem 0;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+#listContentShowMore > div {
+  border: 1px solid #ddd;
+  padding: 1rem 4rem;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  #card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #ListContentEntryLogoBox {
+    width: 16rem;
+    height: 15rem;
+  }
+
+  #ListContentEntryContainer {
+    margin-bottom: 20px;
+  }
+
+  .front {
+    width: 18rem;
+    height: 15rem;
+  }
+}
+@media (max-width: 768px) {
+  #card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #ListContentEntryTitle {
+    padding: 0.5rem 0;
+    color: var(--main-color-white);
+    font-weight: bold;
+  }
+}

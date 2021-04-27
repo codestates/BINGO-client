@@ -1,0 +1,38 @@
+.toolTip {
+  position: absolute;
+  display: none;
+  width: auto;
+  height: auto;
+  background: none repeat scroll 0 0 white;
+  border: 0 none;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: -3px 3px 15px #888888;
+  color: black;
+  font: 12px sans-serif;
+  padding: 5px;
+  text-align: center;
+}
+
+#myAllDonationGraphContainer {
+  width: 47%;
+  margin: 1rem;
+}
+
+#myAllDonationGraph {
+  background-color: var(--main-color-white);
+  border-radius: 1rem;
+  height: 480px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--main-color-green);
+}
+@media (max-width: 1024px) {
+  #myAllDonationGraphContainer {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+}

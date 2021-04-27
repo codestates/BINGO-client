@@ -1,0 +1,38 @@
+#myRegularDonationListContainer {
+  margin: 2rem;
+  width: 1000px;
+}
+#regularDonationBox {
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  border-radius: 1rem;
+  min-height: 4rem;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--main-color-green);
+}
+.myPageTitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem;
+  color: var(--main-color-gray);
+}
+#myRegularZero {
+  width: 25%;
+  height: 20%;
+  position: relative;
+  left: 50%;
+  margin-top: 1.5rem;
+  transform: translate(-50%);
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  #myRegularDonationListContainer {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+}

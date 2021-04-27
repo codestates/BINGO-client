@@ -1,0 +1,86 @@
+.payPageModalCloseBtn {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 1rem;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+#payModalTitle {
+  font-size: 2rem;
+  margin: 2rem;
+  background-color: var(--main-color-light-green);
+  border-radius: 3rem;
+  padding: 1rem;
+}
+
+#payModalSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+#payModalConfirmBtn {
+  margin: 1.2rem;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--main-color-beige);
+  border: 1px solid black;
+}
+
+#payModalConfirmBtn:hover {
+  background-color: var(--main-color-pink);
+}
+
+@media screen and (max-width: 1024px) {
+  .modalContainer {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modalContainer {
+    width: 50%;
+    justify-content: center;
+  }
+
+  .modalContentPart {
+    height: 80%;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+  }
+
+  #payModalTitle {
+    font-size: 1.2rem;
+    margin: 1.2rem;
+    margin-top: 0;
+  }
+
+  #payModalSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  #payModalSubtitle2 {
+    font-size: 0.8rem;
+    display: none;
+  }
+
+  #payModalConfirmBtn {
+    margin: 0;
+  }
+
+  .payPageModalCloseBtn {
+    background-color: var(--main-color-white);
+    position: relative;
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+}

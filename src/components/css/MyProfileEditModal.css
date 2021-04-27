@@ -1,0 +1,71 @@
+#myEditModalPreview {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 3.5rem;
+  background-image: url("");
+  background-position: center;
+  background-size: cover;
+  background-color: var(--main-color-green);
+  margin: 1.5rem 1rem 1rem;
+}
+#myEditModalInputImage {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0rem;
+}
+#myEditModalCamera {
+  padding: 0.5rem;
+  background-color: var(--main-color-light-green);
+  border-radius: 2rem;
+  border: 1px solid var(--main-color-green);
+  position: relative;
+  top: -2.5rem;
+  left: 2rem;
+}
+#myEditModalCamera:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+#myEditModalInputName {
+  margin: 0.5rem;
+  width: 40%;
+  padding: 0.25rem;
+  background-color: var(--main-color-white);
+  border: none;
+  border-bottom: 1px solid var(--main-color-green);
+  text-align: center;
+  margin-top: -1.75rem;
+}
+#myEditModalSubmitButton {
+  margin: 0.5rem;
+  border: 1px solid var(--main-color-green);
+  padding: 0.5rem;
+  background-color: var(--main-color-white);
+  border-radius: 1rem;
+  color: var(--main-color-gray);
+  font-size: 1.125rem;
+}
+#myEditModalSubmitButton:hover {
+  background-color: var(--main-color-light-green);
+}
+#myEditModalAlertMessageBox {
+  background-color: white;
+  padding: 0.5rem;
+  width: 60%;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  #myEditModalAlertMessageBox {
+    display: none;
+  }
+}

@@ -1,0 +1,436 @@
+#testPageContainer {
+  background: var(--main-color-white);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 30px;
+}
+
+#testNavPart {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#testNavLogo {
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+  color: var(--main-color-green);
+  font-weight: 900;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+}
+
+#testSkipBtn {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  font-weight: 500;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 2rem 0 0 2rem;
+  background-color: var(--main-color-light-green);
+  border: 1px solid var(--main-color-green);
+  cursor: pointer;
+}
+
+#testMainPart,
+#testExtraPart {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+#testMainPart1 {
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 6%;
+  width: 50%;
+  transform: translate(-50%, 0);
+  border: 1px solid var(--main-color-green);
+}
+
+#testMainPart {
+  background-color: var(--main-color-white);
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: 6%;
+  width: 47.5%;
+  transform: translate(-50%, 0);
+  border: 1px solid var(--main-color-green);
+  -webkit-box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
+  height: 17rem;
+}
+
+#testMainNumber {
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  color: var(--main-color-gray);
+  background-color: var(--main-color-light-green);
+  font-weight: 500;
+  border: 1px solid var(--main-color-green);
+  border-radius: 50%;
+  position: relative;
+  top: 1.5rem;
+  left: 0.5rem;
+}
+
+#testMainQuestion {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--main-color-gray);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+}
+
+#testOptions {
+  padding: 1rem;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+#optionBtn {
+  background-color: var(--main-color-white);
+  padding: 1rem 1.5rem;
+  margin: 0.5rem;
+  border: 1px solid var(--main-color-gray);
+  border-radius: 2rem;
+}
+
+#optionBtn:hover {
+  transform: scale(1.1);
+  background-color: var(--main-color-light-green);
+}
+
+#optionBtn:focus {
+  outline: none;
+}
+
+#testMainBtnBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#testMainBtnBox button {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--main-color-gray);
+  padding: 0.75rem;
+  /* background-color: var(--main-color-light-green); */
+  border-style: none;
+  border-radius: 2rem;
+  width: 20%;
+  margin: 40px;
+  border: 1px solid var(--main-color-gray);
+}
+
+#testMainBtnBox button:hover {
+  background-color: var(--main-color-light-green);
+  color: var(--main-color-gray);
+  cursor: pointer;
+}
+
+#testExtraPart {
+  margin-bottom: 5rem;
+  text-align: center;
+  color: var(--main-color-light-green);
+}
+
+#testExtraSubmitBtn {
+  padding: 1rem;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
+}
+
+#testExtraSubmitBtn:hover {
+  background-color: var(--main-color-light-green);
+}
+
+#moreInfoBtn {
+  padding: 1rem;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: var(--main-color-white);
+  border: 1px solid var(--main-color-green);
+}
+
+#moreInfoBtn:hover {
+  background-color: var(--main-color-light-green);
+}
+
+#toastMessage {
+  position: absolute;
+  font-size: 1.25rem;
+  text-align: center;
+  width: 20%;
+  top: 52.5%;
+  left: 50%;
+  font-weight: 400;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #ddd;
+}
+
+#resultPart {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  width: 1024px;
+  height: 38rem;
+  margin: 2rem auto;
+  transition: all 2s;
+}
+
+#textResult {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+#ngoPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 38rem;
+  min-height: 32rem;
+  border: 2px solid var(--main-color-green);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+#textPart {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 38rem;
+  border: 2px solid var(--main-color-green);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  min-height: 32rem;
+
+  /* align-items: center; */
+}
+#textPartTitle,
+#ngoPartTitle {
+  font-size: 1.35rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--main-color-beige);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#cardResult {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+
+#selectedCard {
+  padding: 1rem;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 2rem;
+  background-color: var(--main-color-pink);
+}
+
+#imageDiv {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  background-color: white;
+  display: flex;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+#imageDiv img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  left: 50%;
+  transform: translate(-50%, 0);
+  overflow: hidden;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#ngoName {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 5% 0;
+}
+
+#ngoDescription {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  #testPageContainer {
+    padding-bottom: 600px;
+  }
+  #testMainPart1 {
+    width: 90%;
+  }
+
+  #testMainPart {
+    width: 87.5%;
+  }
+
+  #textResult {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  #selectedCard {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    background-color: var(--main-color-beige);
+  }
+  #cardResult {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  #resultPart {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+
+  #textPart {
+    height: 22rem;
+    min-height: 15rem;
+  }
+
+  #logo {
+    font-size: 1.4rem;
+    font-weight: 7000;
+  }
+  #codeFarm {
+    font-size: 13px;
+  }
+  #address {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  #testPageContainer {
+    padding-bottom: 620px;
+  }
+
+  #testMainPart1 {
+    width: 90%;
+    height: 50rem;
+    top: 3%;
+  }
+
+  #testMainPart {
+    width: 87.5%;
+    height: 40rem;
+    top: 3%;
+  }
+
+  #testMainBtnBox {
+    flex-direction: column;
+    margin-top: 40%;
+  }
+
+  #optionBtn {
+    padding: 1rem;
+    margin: 1rem;
+    width: 40%;
+  }
+
+  #testMainBtnBox #testMainNextBtn {
+    width: auto;
+    margin-top: -65%;
+  }
+
+  #testMainBtnBox button {
+    width: auto;
+    margin-top: auto;
+  }
+
+  #resultPart {
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #textPart {
+    border: none;
+    padding: 1rem;
+    height: 25rem;
+    min-height: 25rem;
+    width: 90%;
+    margin: 1rem;
+  }
+
+  #ngoPart {
+    border: none;
+    padding: 1rem;
+    width: 90%;
+    margin: 1rem;
+  }
+
+  #imageDiv {
+    margin-top: 1%;
+  }
+
+  #logo {
+    font-size: 1rem;
+    font-weight: 7000;
+  }
+  #codeFarm {
+    font-size: 12px;
+  }
+  #testNavPart {
+    height: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 15rem;
+    min-height: 3rem;
+  }
+}

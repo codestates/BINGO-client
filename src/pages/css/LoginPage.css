@@ -1,0 +1,255 @@
+#loginPageContainer {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: var(--main-color-green);
+  width: 100vw;
+  height: 110vh;
+}
+
+#loginTitle {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  color: var(--main-color-white);
+  font-weight: 900;
+  padding: 2rem 2rem;
+  margin: 2rem 1rem 1rem;
+}
+
+#loginTitle:hover {
+  cursor: pointer;
+}
+
+#loginMainBox {
+  width: 30rem;
+  height: 35rem;
+  border-radius: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 3rem 3rem 10rem; */
+  background-color: var(--main-color-white);
+  z-index: 10;
+}
+
+#loginMainBox h1 {
+  text-align: center;
+  color: var(--main-color-gray);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  line-height: 28px;
+  margin-top: 2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+#loginMainBox div {
+  margin: 1.75rem;
+  justify-content: center;
+}
+
+.loginBtnBox {
+  width: 60%;
+  height: 4rem;
+  display: flex;
+  background-color: var(--main-color-beige);
+  border-radius: 3rem;
+  align-items: center;
+  border: 1px solid var(--main-color-green);
+}
+
+.loginBtnBox:hover {
+  background-color: var(--main-color-light-green);
+  cursor: pointer;
+}
+
+#googleIcon {
+  background-image: url("https://ifh.cc/g/dDjw6q.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+#kakaoIcon {
+  background-image: url("https://ifh.cc/g/QeUpuL.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.loginLabel {
+  font-size: 1.125rem;
+  width: 7rem;
+}
+
+#noLoginLabel {
+  font-size: 1.125rem;
+}
+
+#loginDescription {
+  font-size: 0.9rem;
+}
+
+/* #loginPageContainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+} */
+
+.layer {
+  position: absolute;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.small {
+  width: 9rem;
+  height: 9rem;
+}
+.medium {
+  width: 10rem;
+  height: 10rem;
+}
+.large {
+  width: 12rem;
+  height: 12rem;
+}
+
+.full {
+  background-color: var(--main-color-pink);
+}
+
+.empty {
+  /* background-color: rgba(240, 248, 255, 0); */
+  background-color: var(--main-color-pink);
+  border: 2px solid var(--main-color-pink);
+}
+
+.layer.a {
+  top: 45%;
+  left: -5%;
+}
+.layer.b {
+  top: 70%;
+  left: -5%;
+}
+.layer.c {
+  top: 95%;
+  left: -5%;
+}
+.layer.d {
+  top: 57.5%;
+  left: 5%;
+}
+.layer.e {
+  top: 82.5%;
+  left: 5%;
+}
+.layer.f {
+  top: 70%;
+  left: 15%;
+}
+.layer.g {
+  top: 95%;
+  left: 15%;
+}
+.layer.h {
+  top: 57.5%;
+  left: 25%;
+}
+.layer.i {
+  top: 82.5%;
+  left: 25%;
+}
+.layer.j {
+  top: 70%;
+  left: 35%;
+}
+.layer.k {
+  top: 95%;
+  left: 35%;
+}
+.layer.l {
+  top: 57.5%;
+  left: 45%;
+}
+.layer.m {
+  top: 82.5%;
+  left: 45%;
+}
+.layer.n {
+  top: 70%;
+  left: 55%;
+}
+.layer.o {
+  top: 95%;
+  left: 55%;
+}
+.layer.p {
+  top: 57.5%;
+  left: 65%;
+}
+.layer.q {
+  top: 82.5%;
+  left: 65%;
+}
+.layer.r {
+  top: 70%;
+  left: 75%;
+}
+.layer.s {
+  top: 95%;
+  left: 75%;
+}
+.layer.t {
+  top: 57.5%;
+  left: 85%;
+}
+.layer.u {
+  top: 82.5%;
+  left: 85%;
+}
+.layer.v {
+  top: 45%;
+  left: 95%;
+}
+.layer.w {
+  top: 70%;
+  left: 95%;
+}
+.layer.x {
+  top: 95%;
+  left: 95%;
+}
+
+@media (max-width: 1300px) {
+  .small {
+    display: none;
+  }
+  .medium {
+    display: none;
+  }
+  .large {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  #loginMainBox {
+    width: 100%;
+  }
+
+  .loginBtnBox {
+    width: 95%;
+  }
+
+  #loginTitle {
+    font-size: 3rem;
+  }
+}

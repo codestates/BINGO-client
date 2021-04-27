@@ -1,0 +1,263 @@
+#listPageContainer {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 100px; /* footer height */
+}
+
+#listNavPart {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#listCoverPart {
+  background-size: cover;
+  background-image: url("https://i.postimg.cc/Nf5R3gnf/001-1.jpg");
+  background-position: center;
+  transition: all 2s;
+  /* color: #fefefe; */
+}
+
+#listTitle {
+  position: relative;
+  width: 1024px;
+  margin: 0 auto;
+  font-size: 4rem;
+  padding-left: 20px;
+  top: 30%;
+}
+
+#listSubTitle {
+  font-size: 1.5rem;
+  padding-left: 4px;
+  margin-top: 10px;
+}
+
+#listMainPart {
+  width: 1024px;
+  margin: 0 auto;
+  margin-top: -3rem;
+}
+
+#listMainTitle {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  font-size: 1.625rem;
+  font-weight: 600;
+  padding: 2rem 0;
+  width: 30%;
+  border-radius: 1.5rem;
+  color: var(--main-color-dark-blue);
+  background-color: var(--main-color-white);
+}
+
+#listSearchBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+#listSearchCategory {
+  display: flex;
+  padding: 1rem;
+  height: 8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listSearchTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--main-color-green);
+  width: 5.4rem;
+  height: 5.4rem;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: all 1.5s;
+}
+
+.listSearchTitle:hover {
+  background-color: var(--main-color-beige);
+}
+
+#listSearchTextBox {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  width: 85%;
+}
+
+#listSearchTextClose {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+  color: var(--main-color-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#listSearchText {
+  height: 3rem;
+  width: 100%;
+  border: none;
+  font-size: 1.25rem;
+  outline: none;
+}
+
+#listSearchTitleBox {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#listSearchTitlePart {
+  display: flex;
+  flex-direction: column;
+}
+
+#listSearchName {
+  text-align: center;
+  width: 100%;
+}
+
+#ListContentSearchResultContainer {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  min-height: 40rem;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+#ListContentSearchContentBox {
+  display: flex;
+  margin: 0.3rem;
+  border-radius: 4px;
+  padding: 0.4rem;
+}
+
+.listSearchDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+#listSearchImg {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 1024px) {
+  #listMainPart {
+    width: 90%;
+  }
+
+  #listCoverPart {
+    width: 100%;
+  }
+
+  #listMainTitle {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+  }
+
+  #listSearchCategory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 10rem;
+    padding: 1rem;
+  }
+
+  #listSearchTitleBox {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #listSearchTextClose {
+    position: relative;
+    margin: 0px;
+  }
+
+  #listSearchTextBox {
+    padding: 0.5rem;
+    height: 3rem;
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  #listSearchText {
+    height: 100%;
+    margin-left: auto;
+  }
+}
+@media (max-width: 768px) {
+  #listMainPart {
+    width: 90%;
+  }
+
+  #listSearchCategory {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: first baseline;
+    height: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #listMainTitle {
+    width: 80%;
+  }
+
+  #listCoverPart {
+    background-color: var(--main-color-white);
+  }
+
+  #listSearchTextClose {
+    position: relative;
+    margin: 0px;
+  }
+
+  #listSearchTextBox {
+    padding: 0.5rem;
+    height: 3rem;
+  }
+
+  #listSearchText {
+    height: 100%;
+    margin-left: 0.8rem;
+  }
+
+  #ListContentSearchContentBox {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  #listTitle {
+    font-size: 3rem;
+  }
+
+  #listSubTitle {
+    font-size: 1rem;
+  }
+}

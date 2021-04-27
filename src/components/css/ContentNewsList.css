@@ -1,0 +1,35 @@
+#contentNewsListBox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  justify-content: space-around;
+}
+
+#contentNewsListBox:hover {
+  cursor: pointer;
+}
+
+#contentNewsListContainer {
+  position: relative;
+  transition: top 0.2s;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  #contentNewsListBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #contentNewsListContainer {
+    margin-top: 9rem;
+  }
+}
+
+@media (max-width: 550px) {
+  #contentNewsListContainer {
+    margin-top: 15rem;
+  }
+}
