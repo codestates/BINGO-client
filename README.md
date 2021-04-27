@@ -86,7 +86,7 @@ BINGO에서 사회적 가치를 구입하고,
         <br>
       </td>
       <td>
-        <strong>🚩 Fullstack</strong>
+        <strong>🚩 Backend</strong>
       </td>
     </tr>
     <tr>
@@ -99,7 +99,7 @@ BINGO에서 사회적 가치를 구입하고,
         <br>
       </td>
       <td>
-        <strong>🏁 Fullstack</strong>
+        <strong>🏁 Backend</strong>
       </td>
     </tr>
     <tr>
